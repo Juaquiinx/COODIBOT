@@ -50,10 +50,10 @@ def chatear(mensaje: MensajeUsuario):
         vector_pregunta = respuesta_embedding.data[0].embedding
 
         # PASO B: Recuperación (Retrieval) en Pinecone
-        # Buscamos los 3 fragmentos más similares a la pregunta
+        # Aumentamos a 10 fragmentos para tener más contexto del Mineduc
         resultados_busqueda = indice.query(
             vector=vector_pregunta,
-            top_k=3,
+            top_k=10, 
             include_metadata=True
         )
 
@@ -64,7 +64,7 @@ def chatear(mensaje: MensajeUsuario):
             contexto_recuperado += match["metadata"]["texto"] + "\n\n"
 
         # PASO D: Generación (Generation) con OpenAI
-        # Aquí aplicamos tu regla de Microaprendizaje
+        # Aquí aplicamos tu regla de Microaprendizaje y la plantilla de salida
         prompt_sistema = f"""
         Eres COODIBOT, un asistente experto en robótica educativa.
         Tu objetivo es ayudar a docentes de educación básica.
@@ -73,7 +73,11 @@ def chatear(mensaje: MensajeUsuario):
         1. Responde SIEMPRE basándote ÚNICAMENTE en la información del contexto proporcionado.
         2. Si la respuesta no está en el contexto, di "No tengo información sobre eso en mis manuales".
         3. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje).
-        4. Si hay instrucciones técnicas, usa una lista de pasos cortos y verbos imperativos.
+        4. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
+           - Concepto Clave: (Definición breve en 1 o 2 oraciones)
+           - Pasos: (Instrucciones numeradas con verbos imperativos)
+           - OA Vinculado: (Menciona el código y descripción del OA si está en el contexto)
+           - Verificación: (Cómo el profesor puede comprobar que funcionó)
 
         CONTEXTO RECUPERADO DE LOS MANUALES:
         {contexto_recuperado}
