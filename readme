@@ -1,0 +1,86 @@
+COODIBOT - Backend API 🤖
+Este es el backend oficial del proyecto COODIBOT, un agente conversacional inteligente basado en una arquitectura Advanced RAG para dar soporte técnico y pedagógico en robótica educativa STEM.
+
+🛠️ Tecnologías Utilizadas
+Lenguaje: Python 3.x
+
+Framework Web: FastAPI (con Uvicorn)
+
+Inteligencia Artificial: OpenAI API (Modelo GPT-4o-mini, Embeddings text-embedding-3-small)
+
+Base de Datos Vectorial: Pinecone
+
+Entorno: python-dotenv para manejo seguro de variables de entorno
+
+⚙️ Configuración del Entorno de Trabajo (Para Visual Studio Code)
+Sigue estos pasos en orden para levantar el proyecto en tu máquina local sin errores.
+
+1. Clonar el repositorio
+Abre la terminal en VS Code y clona este repositorio en tu carpeta local:
+
+Bash
+git clone https://github.com/Juaquiinx/COODIBOT.git
+cd coodibot-backend
+(Nota: Cambia la URL por el enlace real del repositorio de GitHub).
+
+2. Crear y activar el Entorno Virtual (venv)
+Es estrictamente necesario usar un entorno virtual para no mezclar librerías. En la terminal de VS Code ejecuta:
+
+Para crear el entorno:
+
+Bash
+python -m venv venv
+Para activarlo (Windows):
+
+Bash
+.\venv\Scripts\activate
+💡 Ojo si usas Windows PowerShell: Si te sale un error rojo de permisos al activar el entorno, ejecuta primero este comando: Set-ExecutionPolicy Unrestricted -Scope Process y luego vuelve a intentar activarlo. Sabrás que funcionó cuando veas un (venv) verde al inicio de tu terminal.
+
+Para activarlo (Mac/Linux):
+
+Bash
+source venv/bin/activate
+3. Instalar las dependencias
+Con el entorno (venv) activado, instala todas las librerías necesarias ejecutando:
+
+Bash
+pip install fastapi uvicorn pydantic openai pinecone python-dotenv
+4. Configurar las Llaves de Seguridad (.env)
+NUNCA SUBAS TUS LLAVES A GITHUB. Debes crear un archivo local para que el código pueda conectarse a la nube.
+
+Crea un archivo llamado exactamente .env en la raíz de la carpeta coodibot-backend.
+
+Pega el siguiente contenido y reemplaza los valores con las llaves reales (pídeselas al administrador del proyecto):
+
+Fragmento de código
+OPENAI_API_KEY="sk-TU_LLAVE_DE_OPENAI"
+PINECONE_API_KEY="TU_LLAVE_DE_PINECONE"
+🚀 Ejecución del Proyecto
+1. Ingesta de Datos (Solo si el índice está vacío)
+Si es la primera vez que levantan Pinecone o necesitan actualizar los manuales, deben correr los scripts de configuración e ingesta (asegúrate de que el entorno virtual esté activo):
+
+Bash
+python setup_pinecone.py
+python ingesta.py
+2. Levantar el Servidor API
+Para encender el motor de FastAPI y que quede escuchando las peticiones de la página web, ejecuta:
+
+Bash
+uvicorn main:app --reload
+El parámetro --reload hará que el servidor se actualice automáticamente si modificamos el código fuente.
+
+🧪 Pruebas (Swagger UI)
+FastAPI genera una interfaz gráfica automática para probar nuestra API sin necesidad de conectar el Frontend todavía.
+
+Una vez que el servidor esté corriendo, abre tu navegador y entra a:
+http://127.0.0.1:8000/docs
+
+Expande la ruta POST /api/chat, haz clic en "Try it out".
+
+En el Request body, envía un JSON de prueba como este:
+
+JSON
+{
+  "pregunta": "¿Cómo conecto el sensor ultrasónico en 5° básico?"
+}
+Haz clic en Execute y revisa la respuesta estructurada con microaprendizaje que devuelve COODIBOT.
