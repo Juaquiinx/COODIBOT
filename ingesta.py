@@ -4,6 +4,7 @@ import PyPDF2
 from dotenv import load_dotenv
 from openai import OpenAI
 from pinecone import Pinecone
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # 1. Cargar las llaves ocultas
 load_dotenv()
@@ -13,27 +14,25 @@ PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 # 2. Inicializar los clientes
 cliente_openai = OpenAI(api_key=OPENAI_API_KEY)
 pc = Pinecone(api_key=PINECONE_API_KEY)
+
+# ¡OJO AQUÍ! Corregido al nombre de tu índice real en la nube
 indice = pc.Index("coodibot-memoria")
 
 # 3. Configuración de la carpeta de PDFs
 CARPETA_PDFS = "documentos_coodi"
 
-# MEJORA CLAVE: Función para dividir textos largos en chunks (pedazos) más pequeños con solapamiento.
-
-
-def dividir_texto(texto, max_caracteres=800, solapamiento=150):
-    fragmentos = []
-    inicio = 0
-    while inicio < len(texto):
-        fin = inicio + max_caracteres
-        fragmentos.append(texto[inicio:fin])
-        # El solapamiento evita cortar ideas por la mitad
-        inicio += (max_caracteres - solapamiento)
-    return fragmentos
+# MEJORA CLAVE: Reemplazamos la función manual por el separador semántico de LangChain
+separador_inteligente = RecursiveCharacterTextSplitter(
+    chunk_size=800,
+    chunk_overlap=150,
+    length_function=len,
+    # Prioriza cortar en párrafos y puntos seguidos
+    separators=["\n\n", "\n", ".", " ", ""]
+)
 
 
 def extraer_y_picar_pdfs(carpeta):
-    """Lee todos los PDFs y convierte cada página en un fragmento seguro y digerible"""
+    """Lee todos los PDFs y convierte cada página en un fragmento con sentido semántico"""
     fragmentos_totales = []
 
     for nombre_archivo in os.listdir(carpeta):
@@ -49,11 +48,14 @@ def extraer_y_picar_pdfs(carpeta):
                     texto_extraido = pagina.extract_text()
 
                     if texto_extraido and len(texto_extraido.strip()) > 50:
+                        # Limpiamos los saltos de línea raros del PDF
                         texto_limpio = texto_extraido.replace(
                             "\n", " ").strip()
+                        # Quitamos espacios dobles
+                        texto_limpio = " ".join(texto_limpio.split())
 
-                        # CHUNKING: Cortamos la página en pedazos manejables para la IA
-                        chunks = dividir_texto(texto_limpio)
+                        # CHUNKING INTELIGENTE: Corta manteniendo las ideas unidas
+                        chunks = separador_inteligente.split_text(texto_limpio)
 
                         for j, chunk in enumerate(chunks):
                             fragmentos_totales.append({
@@ -76,18 +78,12 @@ if not textos_para_procesar:
     print("¡No se encontraron PDFs válidos en 'documentos_coodi'!")
 else:
     print(
-        f"Se generaron {len(textos_para_procesar)} fragmentos de conocimiento. Vectorizando...")
-
-    # OPCIONAL PERO RECOMENDADO: Limpiar la base de datos antes de subir lo nuevo
-    # print("Limpiando vectores antiguos en Pinecone...")
-    # indice.delete(delete_all=True)
-    # time.sleep(3)
+        f"Se generaron {len(textos_para_procesar)} fragmentos con sentido. Vectorizando...")
 
     vectores_para_subir = []
 
     # 5. Convertir a Embeddings y empaquetar
     for i, item in enumerate(textos_para_procesar):
-        # Mostramos progreso cada 100 chunks para no llenar la terminal
         if i % 100 == 0 or i == len(textos_para_procesar) - 1:
             print(
                 f"Procesando fragmento {i+1} de {len(textos_para_procesar)}...")
@@ -104,8 +100,7 @@ else:
             "metadata": {"texto": item["texto"], **item["metadatos"]}
         })
 
-        # Tiempo prudente para no reventar la API de OpenAI
-        time.sleep(0.02)
+        time.sleep(0.02)  # Respetamos el límite de API de OpenAI
 
     # 6. Subir a Pinecone en lotes de 100
     print("Subiendo vectores a Pinecone...")
@@ -115,4 +110,4 @@ else:
         indice.upsert(vectors=lote)
         print(f"Lote {i} a {i+len(lote)} subido...")
 
-    print("¡Memoria inyectada con éxito! La Base Curricular ya está en la nube de Pinecone.")
+    print("¡Memoria inyectada con éxito! La Base Curricular está en la nube con un contexto perfecto.")
