@@ -1,86 +1,90 @@
-COODIBOT - Backend API 🤖
-Este es el backend oficial del proyecto COODIBOT, un agente conversacional inteligente basado en una arquitectura Advanced RAG para dar soporte técnico y pedagógico en robótica educativa STEM.
+# 🤖 COODIBOT - Backend API (Advanced RAG)
 
-🛠️ Tecnologías Utilizadas
-Lenguaje: Python 3.x
+Bienvenido al repositorio del backend de **COODIBOT**, un agente conversacional inteligente diseñado para asistir a docentes de educación básica en Chile. 
 
-Framework Web: FastAPI (con Uvicorn)
+Este sistema utiliza una arquitectura **RAG (Retrieval-Augmented Generation)** avanzada, combinando búsquedas semánticas en la nube (Pinecone) con el poder de los LLMs (OpenAI), e incluye memoria conversacional local mediante SQLite y soporte para transcripción de audio (Whisper).
 
-Inteligencia Artificial: OpenAI API (Modelo GPT-4o-mini, Embeddings text-embedding-3-small)
+---
 
-Base de Datos Vectorial: Pinecone
+## ⚙️ Requisitos Previos
 
-Entorno: python-dotenv para manejo seguro de variables de entorno
+Antes de comenzar, asegúrate de tener instalado en tu sistema:
+* **Python 3.8** o superior.
+* **Git** para clonar el repositorio.
 
-⚙️ Configuración del Entorno de Trabajo (Para Visual Studio Code)
-Sigue estos pasos en orden para levantar el proyecto en tu máquina local sin errores.
+---
 
-1. Clonar el repositorio
-Abre la terminal en VS Code y clona este repositorio en tu carpeta local:
+## 🚀 Guía de Instalación Rápida
 
-Bash
-git clone https://github.com/Juaquiinx/COODIBOT.git
-cd coodibot-backend
-(Nota: Cambia la URL por el enlace real del repositorio de GitHub).
+Sigue estos pasos en tu terminal para levantar el servidor en menos de 5 minutos:
 
-2. Crear y activar el Entorno Virtual (venv)
-Es estrictamente necesario usar un entorno virtual para no mezclar librerías. En la terminal de VS Code ejecuta:
+### 1. Clonar el repositorio
+Descarga el código fuente a tu equipo local:
+```bash
+git clone [https://github.com/Juaquiinx/COODIBOT.git](https://github.com/Juaquiinx/COODIBOT.git)
+cd COODIBOT
+```
 
-Para crear el entorno:
+### 2. Crear y activar un entorno virtual
+Es una buena práctica aislar las dependencias del proyecto.
+* **En Windows:**
+  ```bash
+  python -m venv venv
+  venv\Scripts\activate
+  ```
+* **En macOS/Linux:**
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
 
-Bash
-python -m venv venv
-Para activarlo (Windows):
+### 3. Instalar las dependencias
+Con el entorno virtual activado, instala las librerías necesarias para que el bot funcione:
+```bash
+pip install fastapi uvicorn openai pinecone-client python-dotenv python-multipart
+```
 
-Bash
-.\venv\Scripts\activate
-💡 Ojo si usas Windows PowerShell: Si te sale un error rojo de permisos al activar el entorno, ejecuta primero este comando: Set-ExecutionPolicy Unrestricted -Scope Process y luego vuelve a intentar activarlo. Sabrás que funcionó cuando veas un (venv) verde al inicio de tu terminal.
+### 4. Configurar las Variables de Entorno (¡Muy Importante!)
+Por razones de seguridad, las llaves de acceso a las inteligencias artificiales no se suben a GitHub. 
+1. Crea un archivo nuevo en la raíz del proyecto llamado exactamente **`.env`** (con el punto al principio).
+2. Abre el archivo y pega tus credenciales de OpenAI y Pinecone con el siguiente formato:
+   ```env
+   OPENAI_API_KEY=tu_llave_de_openai_aqui
+   PINECONE_API_KEY=tu_llave_de_pinecone_aqui
+   ```
+*(Nota: Pídele estas llaves al administrador del proyecto si no las tienes).*
 
-Para activarlo (Mac/Linux):
+---
 
-Bash
-source venv/bin/activate
-3. Instalar las dependencias
-Con el entorno (venv) activado, instala todas las librerías necesarias ejecutando:
+## 🏃‍♂️ Cómo ejecutar el servidor
 
-Bash
-pip install fastapi uvicorn pydantic openai pinecone python-dotenv
-4. Configurar las Llaves de Seguridad (.env)
-NUNCA SUBAS TUS LLAVES A GITHUB. Debes crear un archivo local para que el código pueda conectarse a la nube.
+Una vez instaladas las dependencias y configurado el archivo `.env`, levanta el servidor local ejecutando el siguiente comando:
 
-Crea un archivo llamado exactamente .env en la raíz de la carpeta coodibot-backend.
-
-Pega el siguiente contenido y reemplaza los valores con las llaves reales (pídeselas al administrador del proyecto):
-
-Fragmento de código
-OPENAI_API_KEY="sk-TU_LLAVE_DE_OPENAI"
-PINECONE_API_KEY="TU_LLAVE_DE_PINECONE"
-🚀 Ejecución del Proyecto
-1. Ingesta de Datos (Solo si el índice está vacío)
-Si es la primera vez que levantan Pinecone o necesitan actualizar los manuales, deben correr los scripts de configuración e ingesta (asegúrate de que el entorno virtual esté activo):
-
-Bash
-python setup_pinecone.py
-python ingesta.py
-2. Levantar el Servidor API
-Para encender el motor de FastAPI y que quede escuchando las peticiones de la página web, ejecuta:
-
-Bash
+```bash
 uvicorn main:app --reload
-El parámetro --reload hará que el servidor se actualice automáticamente si modificamos el código fuente.
+```
 
-🧪 Pruebas (Swagger UI)
-FastAPI genera una interfaz gráfica automática para probar nuestra API sin necesidad de conectar el Frontend todavía.
+Si todo está correcto, verás en la consola un mensaje indicando que la aplicación está corriendo (generalmente en `http://127.0.0.1:8000`).
 
-Una vez que el servidor esté corriendo, abre tu navegador y entra a:
-http://127.0.0.1:8000/docs
+---
 
-Expande la ruta POST /api/chat, haz clic en "Try it out".
+## 🧪 Cómo probar a COODIBOT
 
-En el Request body, envía un JSON de prueba como este:
+FastAPI genera automáticamente una interfaz visual para probar la API sin necesidad de programar un frontend. 
 
-JSON
-{
-  "pregunta": "¿Cómo conecto el sensor ultrasónico en 5° básico?"
-}
-Haz clic en Execute y revisa la respuesta estructurada con microaprendizaje que devuelve COODIBOT.
+1. Abre tu navegador web y entra a: **[http://localhost:8000/docs](http://localhost:8000/docs)**
+2. Verás la interfaz de Swagger UI con los diferentes "Endpoints" (Rutas) disponibles.
+3. Busca la ruta **`POST /api/chat`** y haz clic en ella.
+4. Haz clic en el botón **"Try it out"** (Probar).
+5. En el cuadro de texto (`Request body`), borra lo que haya y pega este JSON de prueba:
+   ```json
+   {
+     "pregunta": "Hola COODIBOT, ¿me podrías buscar los Objetivos de Aprendizaje de tecnología para 5to básico?",
+     "session_id": "sesion_amigo_test"
+   }
+   ```
+6. Haz clic en el botón azul **"Execute"**.
+7. ¡Desliza un poco hacia abajo y verás la respuesta de COODIBOT extraída directamente desde los manuales del Mineduc!
+
+> **💡 Nota sobre la Memoria y Base de Datos:**
+> No necesitas inicializar ni cargar bases de datos vectoriales. Los documentos curriculares ya están procesados de forma segura en la nube de Pinecone. Además, al hacer tu primera pregunta, el sistema creará automáticamente un archivo local llamado `memoria_coodibot.db` (SQLite) en tu carpeta para recordar el historial de tu conversación.
