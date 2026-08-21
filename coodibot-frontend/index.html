@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COODI - Servicios Educativos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">COODI</div>
+        <ul class="nav-links">
+            <li>Inicio</li>
+            <li>Educación</li>
+            <li>Servicios</li>
+            <li>Contacto</li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Servicios Educativos</h1>
+        <p>COODI y NeuroCOODI ofrecen soluciones innovadoras para la enseñanza, evaluación y desarrollo de competencias
+            STEM y cognitivas en contextos educativos diversos.</p>
+
+        <div class="grid-servicios">
+            <div class="card">
+                <h3>Talleres escolares con COODI</h3>
+                <p>Implementación de talleres presenciales o virtuales con enfoque en robótica...</p>
+            </div>
+            <div class="card">
+                <h3>Evaluación NeuroCOODI</h3>
+                <p>Aplicación de pruebas neuropsicológicas y monitoreo de funciones...</p>
+            </div>
+            <div class="card">
+                <h3>Capacitación docente</h3>
+                <p>Formación práctica para integrar la robótica educativa con programación...</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="coodibot-chat-window hidden" id="chatWindow">
+        <div class="chat-header">
+            <h4>COODIBOT Asistente</h4>
+            <button id="closeChatBtn">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                ¡Hola profesora o profesor! Soy COODIBOT. ¿En qué te puedo ayudar hoy con tus planificaciones STEM?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Escribe tu pregunta aquí...">
+            <button id="sendMessageBtn">Enviar</button>
+        </div>
+    </div>
+
+    <div class="coodibot-assistant" id="coodibotBtn">
+        <img src="https://via.placeholder.com/130x125.png?text=Robot+Icon" alt="COODIBOT" id="robotIcon">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
