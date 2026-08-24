@@ -27,12 +27,14 @@ def iniciar_base_datos():
     """Crea la base de datos SQLite y la tabla de historial si no existen"""
     conn = sqlite3.connect("memoria_coodibot.db")
     cursor = conn.cursor()
+    cursor.execute('DROP TABLE IF EXISTS historial_chat')
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS historial_chat (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             session_id TEXT,
             rol TEXT,
-            contenido TEXT
+            contenido TEXT,
+            calificacion INTEGER
         )
     ''')
     conn.commit()
@@ -40,13 +42,17 @@ def iniciar_base_datos():
 
 
 def guardar_mensaje(session_id: str, rol: str, contenido: str):
-    """Guarda un mensaje en la base de datos"""
+    """Guarda un mensaje en la base de datos y devuelve su ID"""
     conn = sqlite3.connect("memoria_coodibot.db")
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO historial_chat (session_id, rol, contenido) VALUES (?, ?, ?)",
+    # Insertamos el mensaje dejando la calificación en NULL por defecto
+    cursor.execute("INSERT INTO historial_chat (session_id, rol, contenido, calificacion) VALUES (?, ?, ?, NULL)",
                    (session_id, rol, contenido))
+    ultimo_id = cursor.lastrowid # Capturamos el número asignado
     conn.commit()
     conn.close()
+    
+    return ultimo_id # <--- ¡ESTA ES LA LÍNEA MÁGICA QUE FALTABA!
 
 
 def obtener_historial(session_id: str, limite: int = 4):
@@ -86,6 +92,9 @@ class MensajeUsuario(BaseModel):
     # Agregamos session_id por defecto para no romper tu frontend actual
     session_id: str = "sesion_docente_default"
 
+class EvaluacionRespuesta(BaseModel):
+    mensaje_id: int
+    calificacion: int
 
 @app.get("/")
 def leer_raiz():
@@ -173,8 +182,9 @@ def procesar_rag(pregunta_texto: str, session_id: str):
 
         if fragmentos_utilizados == 0:
             respuesta_sin_datos = "No tengo información sobre esto en mis manuales oficiales."
-            guardar_mensaje(session_id, "assistant", respuesta_sin_datos)
-            return respuesta_sin_datos
+            # MODIFICADO: Guardamos y capturamos el ID incluso si no hay datos
+            id_mensaje_vacio = guardar_mensaje(session_id, "assistant", respuesta_sin_datos)
+            return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio}
 
         # PASO 5: Generación con OpenAI (Microaprendizaje + Contexto Conversacional)
         prompt_sistema = f"""
@@ -211,10 +221,11 @@ def procesar_rag(pregunta_texto: str, session_id: str):
 
         respuesta_final = respuesta_llm.choices[0].message.content
 
-        # Guardamos la respuesta de COODIBOT en la memoria
-        guardar_mensaje(session_id, "assistant", respuesta_final)
+        # MODIFICADO: Guardamos la respuesta de COODIBOT capturando su ID
+        id_mensaje = guardar_mensaje(session_id, "assistant", respuesta_final)
 
-        return respuesta_final
+        # Retornamos el diccionario esperado por las rutas
+        return {"texto": respuesta_final, "mensaje_id": id_mensaje}
 
     except Exception as e:
         print(f"ERROR EN RAG: {str(e)}")
@@ -273,3 +284,19 @@ async def chatear_audio(file: UploadFile = File(...), session_id: str = Form("se
         if os.path.exists(temp_file_path):
             os.remove(temp_file_path)
         return {"error": f"Hubo un problema con el audio: {str(e)}"}
+
+@app.put("/api/chat/evaluar")
+def evaluar_respuesta(evaluacion: EvaluacionRespuesta):
+    print(f"\n[EVALUACIÓN] Recibiendo nota {evaluacion.calificacion} para el mensaje {evaluacion.mensaje_id}")
+    try:
+        conn = sqlite3.connect("memoria_coodibot.db")
+        cursor = conn.cursor()
+        cursor.execute("UPDATE historial_chat SET calificacion = ? WHERE id = ?", 
+                       (evaluacion.calificacion, evaluacion.mensaje_id))
+        conn.commit()
+        conn.close()
+        return {"estado": "éxito", "mensaje": "Evaluación guardada correctamente"}
+    except Exception as e:
+        return {"error": f"Hubo un problema al guardar la evaluación: {str(e)}"}
+
+
