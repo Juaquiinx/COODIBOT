@@ -1,7 +1,6 @@
 import os
-import shutil
 import sqlite3
-from fastapi import FastAPI, File, UploadFile, HTTPException, Form
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
@@ -52,7 +51,7 @@ def guardar_mensaje(session_id: str, rol: str, contenido: str):
     conn.commit()
     conn.close()
     
-    return ultimo_id # <--- ¡ESTA ES LA LÍNEA MÁGICA QUE FALTABA!
+    return ultimo_id 
 
 
 def obtener_historial(session_id: str, limite: int = 4):
@@ -245,45 +244,6 @@ def chatear_texto(mensaje: MensajeUsuario):
     except Exception as e:
         return {"error": f"Hubo un problema procesando la consulta: {str(e)}"}
 
-# =====================================================================
-# RUTA 2: ENTRADA POR AUDIO (WHISPER)
-# =====================================================================
-
-
-@app.post("/api/chat/audio")
-async def chatear_audio(file: UploadFile = File(...), session_id: str = Form("sesion_docente_default")):
-    print(f"\n[RUTA] Ingreso por AUDIO detectado. Archivo: {file.filename}")
-
-    temp_file_path = f"temp_{file.filename}"
-    with open(temp_file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-
-    try:
-        print("Enviando audio a Whisper de OpenAI...")
-        with open(temp_file_path, "rb") as audio_file:
-            transcripcion = cliente_openai.audio.transcriptions.create(
-                model="whisper-1",
-                file=audio_file,
-                language="es"
-            )
-
-        texto_del_profesor = transcripcion.text
-        print(f"Whisper escuchó: '{texto_del_profesor}'")
-
-        os.remove(temp_file_path)
-
-        # Pasamos el texto y el ID de sesión
-        respuesta_rag = procesar_rag(texto_del_profesor, session_id)
-
-        return {
-            "transcripcion": texto_del_profesor,
-            "respuesta": respuesta_rag
-        }
-
-    except Exception as e:
-        if os.path.exists(temp_file_path):
-            os.remove(temp_file_path)
-        return {"error": f"Hubo un problema con el audio: {str(e)}"}
 
 @app.put("/api/chat/evaluar")
 def evaluar_respuesta(evaluacion: EvaluacionRespuesta):
