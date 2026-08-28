@@ -1,0 +1,14 @@
+# Ignorar entornos virtuales y caché
+venv/
+__pycache__/
+
+# Ignorar variables de entorno 
+.env
+
+# Ignorar la base de datos local
+memoria_coodibot.db
+registro_ingesta.json
+
+# Ignorar archivos de Git
+.git/
+.gitignore
