@@ -47,11 +47,11 @@ def guardar_mensaje(session_id: str, rol: str, contenido: str):
     # Insertamos el mensaje dejando la calificación en NULL por defecto
     cursor.execute("INSERT INTO historial_chat (session_id, rol, contenido, calificacion) VALUES (?, ?, ?, NULL)",
                    (session_id, rol, contenido))
-    ultimo_id = cursor.lastrowid # Capturamos el número asignado
+    ultimo_id = cursor.lastrowid  # Capturamos el número asignado
     conn.commit()
     conn.close()
-    
-    return ultimo_id 
+
+    return ultimo_id
 
 
 def obtener_historial(session_id: str, limite: int = 4):
@@ -91,9 +91,11 @@ class MensajeUsuario(BaseModel):
     # Agregamos session_id por defecto para no romper tu frontend actual
     session_id: str = "sesion_docente_default"
 
+
 class EvaluacionRespuesta(BaseModel):
     mensaje_id: int
     calificacion: int
+
 
 @app.get("/")
 def leer_raiz():
@@ -182,7 +184,8 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         if fragmentos_utilizados == 0:
             respuesta_sin_datos = "No tengo información sobre esto en mis manuales oficiales."
             # MODIFICADO: Guardamos y capturamos el ID incluso si no hay datos
-            id_mensaje_vacio = guardar_mensaje(session_id, "assistant", respuesta_sin_datos)
+            id_mensaje_vacio = guardar_mensaje(
+                session_id, "assistant", respuesta_sin_datos)
             return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio}
 
         # PASO 5: Generación con OpenAI (Microaprendizaje + Contexto Conversacional)
@@ -196,7 +199,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         3. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
            - Concepto Clave: (Definición breve)
            - Pasos: (Instrucciones numeradas con verbos imperativos)
-           - OA Vinculado: (Código y descripción del OA)
+           - OA Vinculado: (Código y descripción del OA. El código debe llevar siempre el formato "OA X", ignorando números de página sueltos. Si el contexto no menciona un OA específico, escribe: "No aplica para esta consulta").
            - Verificación: (Cómo comprobar que funcionó)
 
         CONTEXTO RECUPERADO DE LOS MANUALES:
@@ -247,16 +250,15 @@ def chatear_texto(mensaje: MensajeUsuario):
 
 @app.put("/api/chat/evaluar")
 def evaluar_respuesta(evaluacion: EvaluacionRespuesta):
-    print(f"\n[EVALUACIÓN] Recibiendo nota {evaluacion.calificacion} para el mensaje {evaluacion.mensaje_id}")
+    print(
+        f"\n[EVALUACIÓN] Recibiendo nota {evaluacion.calificacion} para el mensaje {evaluacion.mensaje_id}")
     try:
         conn = sqlite3.connect("memoria_coodibot.db")
         cursor = conn.cursor()
-        cursor.execute("UPDATE historial_chat SET calificacion = ? WHERE id = ?", 
+        cursor.execute("UPDATE historial_chat SET calificacion = ? WHERE id = ?",
                        (evaluacion.calificacion, evaluacion.mensaje_id))
         conn.commit()
         conn.close()
         return {"estado": "éxito", "mensaje": "Evaluación guardada correctamente"}
     except Exception as e:
         return {"error": f"Hubo un problema al guardar la evaluación: {str(e)}"}
-
-
