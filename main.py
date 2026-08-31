@@ -50,8 +50,8 @@ def guardar_mensaje(session_id: str, rol: str, contenido: str):
     ultimo_id = cursor.lastrowid # Capturamos el número asignado
     conn.commit()
     conn.close()
-    
-    return ultimo_id 
+
+    return ultimo_id
 
 
 def obtener_historial(session_id: str, limite: int = 4):
@@ -129,7 +129,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         {historial_str}
         ---
         Pregunta actual del profesor: "{pregunta_texto}"
-        
+
         REGLAS:
         1. Si la pregunta actual hace referencia a algo del historial (ej: "explica el punto 2", "dame más detalles"), usa el historial para entender a qué se refiere y crea UNA SOLA frase de búsqueda completa.
         2. Ignora saludos, gracias, y ruido.
@@ -166,6 +166,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
 
         # PASO 4: Armar el Contexto Curricular
         contexto_recuperado = ""
+        contextos_lista = []  # NUEVO: lista de fragmentos individuales (para evaluación RAGAS)
         fragmentos_utilizados = 0
 
         for match in resultados_busqueda.matches:
@@ -175,6 +176,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
             # Umbral de similitud
             if score >= 0.20:
                 contexto_recuperado += texto + "\n\n---\n\n"
+                contextos_lista.append(texto)  # NUEVO
                 fragmentos_utilizados += 1
 
         print(f"Fragmentos que superaron el umbral: {fragmentos_utilizados}")
@@ -183,13 +185,14 @@ def procesar_rag(pregunta_texto: str, session_id: str):
             respuesta_sin_datos = "No tengo información sobre esto en mis manuales oficiales."
             # MODIFICADO: Guardamos y capturamos el ID incluso si no hay datos
             id_mensaje_vacio = guardar_mensaje(session_id, "assistant", respuesta_sin_datos)
-            return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio}
+            # NUEVO: incluimos "contextos" (vacío) para mantener la misma forma de respuesta siempre
+            return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio, "contextos": []}
 
         # PASO 5: Generación con OpenAI (Microaprendizaje + Contexto Conversacional)
         prompt_sistema = f"""
         Eres COODIBOT, un asistente experto en robótica educativa.
         Tu objetivo es ayudar a docentes de educación básica.
-        
+
         REGLAS ESTRICTAS:
         1. Responde SIEMPRE basándote ÚNICAMENTE en la información del contexto proporcionado.
         2. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje).
@@ -224,7 +227,8 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         id_mensaje = guardar_mensaje(session_id, "assistant", respuesta_final)
 
         # Retornamos el diccionario esperado por las rutas
-        return {"texto": respuesta_final, "mensaje_id": id_mensaje}
+        # NUEVO: agregamos "contextos" (lista de fragmentos usados), útil para depuración y para evaluación RAGAS
+        return {"texto": respuesta_final, "mensaje_id": id_mensaje, "contextos": contextos_lista}
 
     except Exception as e:
         print(f"ERROR EN RAG: {str(e)}")
@@ -251,12 +255,10 @@ def evaluar_respuesta(evaluacion: EvaluacionRespuesta):
     try:
         conn = sqlite3.connect("memoria_coodibot.db")
         cursor = conn.cursor()
-        cursor.execute("UPDATE historial_chat SET calificacion = ? WHERE id = ?", 
+        cursor.execute("UPDATE historial_chat SET calificacion = ? WHERE id = ?",
                        (evaluacion.calificacion, evaluacion.mensaje_id))
         conn.commit()
         conn.close()
         return {"estado": "éxito", "mensaje": "Evaluación guardada correctamente"}
     except Exception as e:
         return {"error": f"Hubo un problema al guardar la evaluación: {str(e)}"}
-
-
