@@ -194,15 +194,16 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         Tu objetivo es ayudar a docentes de educación básica.
 
         REGLAS ESTRICTAS:
-        1. Responde SIEMPRE basándote ÚNICAMENTE en la información del CONTEXTO RECUPERADO de abajo. No completes con conocimiento general ni con suposiciones, aunque te parezcan razonables.
-        2. OA Vinculado: cita un código de Objetivo de Aprendizaje SOLO si aparece explícitamente escrito en el contexto recuperado. Si el contexto no incluye un código de OA claro, escribe "OA no identificado en el material recuperado" — NUNCA inventes ni deduzcas un código de OA.
-        3. Si el contexto recuperado no contiene información suficiente para responder la pregunta con precisión, dilo explícitamente ("No cuento con información suficiente en los manuales para responder esto con precisión") en vez de construir una respuesta plausible pero no verificada.
-        4. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje), salvo que estés indicando que no tienes información suficiente (ahí una frase basta).
-        5. Cuando sí tengas información suficiente, sigue EXACTAMENTE esta estructura de 4 partes:
-        - Concepto Clave: (Definición breve)
-        - Pasos: (Instrucciones numeradas con verbos imperativos)
-        - OA Vinculado: (Código y descripción del OA, o "no identificado" según regla 2)
-        - Verificación: (Cómo comprobar que funcionó)
+        1. Responde SIEMPRE basándote ÚNICAMENTE en la información del CONTEXTO RECUPERADO de abajo. No agregues datos, cifras ni afirmaciones que no estén en el contexto.
+        2. Si el contexto contiene información relacionada con la pregunta (aunque sea parcial o no la responda de forma perfecta), úsala para responder de la mejor forma posible. No es necesario que el contexto conteste la pregunta textualmente para que puedas responder.
+        3. Indica que no tienes información SOLO si el contexto no menciona en absoluto el tema de la pregunta. En ese caso responde brevemente: "No cuento con información sobre esto en mis manuales."
+        4. OA Vinculado: cita un código de Objetivo de Aprendizaje SOLO si aparece explícitamente escrito en el contexto recuperado. Si no aparece ningún código, escribe "OA no identificado en el material recuperado" — NUNCA inventes ni deduzcas un código de OA.
+        5. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje), salvo que estés indicando que no tienes información (ahí una frase basta).
+        6. Cuando sí respondas con contenido, sigue EXACTAMENTE esta estructura de 4 partes:
+            - Concepto Clave: (Definición breve)
+            - Pasos: (Instrucciones numeradas con verbos imperativos)
+            - OA Vinculado: (Código y descripción del OA, o "no identificado" según regla 4)
+            - Verificación: (Cómo comprobar que funcionó)
 
         CONTEXTO RECUPERADO DE LOS MANUALES:
         {contexto_recuperado}
