@@ -194,13 +194,15 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         Tu objetivo es ayudar a docentes de educación básica.
 
         REGLAS ESTRICTAS:
-        1. Responde SIEMPRE basándote ÚNICAMENTE en la información del contexto proporcionado.
-        2. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje).
-        3. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
-           - Concepto Clave: (Definición breve)
-           - Pasos: (Instrucciones numeradas con verbos imperativos)
-           - OA Vinculado: (Código y descripción del OA)
-           - Verificación: (Cómo comprobar que funcionó)
+        1. Responde SIEMPRE basándote ÚNICAMENTE en la información del CONTEXTO RECUPERADO de abajo. No completes con conocimiento general ni con suposiciones, aunque te parezcan razonables.
+        2. OA Vinculado: cita un código de Objetivo de Aprendizaje SOLO si aparece explícitamente escrito en el contexto recuperado. Si el contexto no incluye un código de OA claro, escribe "OA no identificado en el material recuperado" — NUNCA inventes ni deduzcas un código de OA.
+        3. Si el contexto recuperado no contiene información suficiente para responder la pregunta con precisión, dilo explícitamente ("No cuento con información suficiente en los manuales para responder esto con precisión") en vez de construir una respuesta plausible pero no verificada.
+        4. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje), salvo que estés indicando que no tienes información suficiente (ahí una frase basta).
+        5. Cuando sí tengas información suficiente, sigue EXACTAMENTE esta estructura de 4 partes:
+        - Concepto Clave: (Definición breve)
+        - Pasos: (Instrucciones numeradas con verbos imperativos)
+        - OA Vinculado: (Código y descripción del OA, o "no identificado" según regla 2)
+        - Verificación: (Cómo comprobar que funcionó)
 
         CONTEXTO RECUPERADO DE LOS MANUALES:
         {contexto_recuperado}
