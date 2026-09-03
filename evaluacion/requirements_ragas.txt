@@ -1,0 +1,4 @@
+pandas
+ragas==0.4.3
+langchain-openai
+python-dotenv

@@ -1,5 +1,6 @@
 # Entornos virtuales y caché de Python
 venv/
+venv_ragas/
 __pycache__/
 
 # Variables de entorno y llaves secretas
