@@ -160,7 +160,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         # PASO 3: Recuperación en Pinecone
         resultados_busqueda = indice.query(
             vector=vector_pregunta,
-            top_k=20,
+            top_k=10,
             include_metadata=True
         )
 
