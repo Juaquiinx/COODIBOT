@@ -160,7 +160,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         # PASO 3: Recuperación en Pinecone
         resultados_busqueda = indice.query(
             vector=vector_pregunta,
-            top_k=10,
+            top_k=20,
             include_metadata=True
         )
 
@@ -196,8 +196,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         REGLAS ESTRICTAS:
         1. Responde SIEMPRE basándote ÚNICAMENTE en la información del CONTEXTO RECUPERADO de abajo. No agregues datos, cifras ni afirmaciones que no estén en el contexto.
         2. Si el contexto contiene información relacionada con la pregunta (aunque sea parcial o no la responda de forma perfecta), úsala para responder de la mejor forma posible. No es necesario que el contexto conteste la pregunta textualmente para que puedas responder.
-        3. Indica que no tienes información SOLO si el contexto no menciona en absoluto el tema de la pregunta. En ese caso responde brevemente: "No cuento con información sobre esto en mis manuales."
-        4. OA Vinculado: cita un código de Objetivo de Aprendizaje SOLO si aparece explícitamente escrito en el contexto recuperado. Si no aparece ningún código, escribe "OA no identificado en el material recuperado" — NUNCA inventes ni deduzcas un código de OA.
+        3. Indica que no tienes información SOLO si el contexto no menciona en absoluto el tema de la pregunta. Si el contexto menciona el tema pero señala que el componente o función está en estado "planificado" o "considerado" (es decir, no implementado todavía), responde explicando eso — no tener el componente implementado NO es lo mismo que no tener información sobre él.        4. OA Vinculado: cita un código de Objetivo de Aprendizaje SOLO si aparece explícitamente escrito en el contexto recuperado. Si no aparece ningún código, escribe "OA no identificado en el material recuperado" — NUNCA inventes ni deduzcas un código de OA.
         5. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje), salvo que estés indicando que no tienes información (ahí una frase basta).
         6. Cuando sí respondas con contenido, sigue EXACTAMENTE esta estructura de 4 partes:
             - Concepto Clave: (Definición breve)
