@@ -1,6 +1,7 @@
 import os
 import time
 import PyPDF2
+import pandas as pd
 from dotenv import load_dotenv
 from openai import OpenAI
 from pinecone import Pinecone
@@ -15,25 +16,32 @@ PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 cliente_openai = OpenAI(api_key=OPENAI_API_KEY)
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
-# ¡OJO AQUÍ! Corregido al nombre de tu índice real en la nube
+# Corregido al nombre de tu índice real en la nube
 indice = pc.Index("coodibot-memoria")
 
-# 3. Configuración de la carpeta de PDFs
+# 3. Configuración de carpetas y archivos
 CARPETA_PDFS = "documentos_coodi"
+RUTA_EXCEL_OA = "tabla4_OA_vinculados_COODI.xlsx"
 
-# MEJORA CLAVE: Reemplazamos la función manual por el separador semántico de LangChain
+# Separador semántico de LangChain
 separador_inteligente = RecursiveCharacterTextSplitter(
     chunk_size=800,
     chunk_overlap=150,
     length_function=len,
-    # Prioriza cortar en párrafos y puntos seguidos
     separators=["\n\n", "\n", ".", " ", ""]
 )
 
 
 def extraer_y_picar_pdfs(carpeta):
-    """Lee todos los PDFs y convierte cada página en un fragmento con sentido semántico"""
+    """Lee todos los PDFs, inyecta metadatos del Excel y convierte cada página en fragmentos"""
     fragmentos_totales = []
+
+    # Intentar cargar la Tabla 4 de OA
+    try:
+        df_oa = pd.read_excel(RUTA_EXCEL_OA)
+    except Exception as e:
+        print(f"Advertencia: No se pudo cargar {RUTA_EXCEL_OA}. Error: {e}")
+        df_oa = pd.DataFrame()
 
     for nombre_archivo in os.listdir(carpeta):
         if nombre_archivo.endswith(".pdf"):
@@ -43,29 +51,56 @@ def extraer_y_picar_pdfs(carpeta):
             with open(ruta_completa, "rb") as archivo_pdf:
                 lector = PyPDF2.PdfReader(archivo_pdf)
 
-                # Extraemos y limpiamos página por página
                 for i, pagina in enumerate(lector.pages):
                     texto_extraido = pagina.extract_text()
 
                     if texto_extraido and len(texto_extraido.strip()) > 50:
-                        # Limpiamos los saltos de línea raros del PDF
                         texto_limpio = texto_extraido.replace(
                             "\n", " ").strip()
-                        # Quitamos espacios dobles
                         texto_limpio = " ".join(texto_limpio.split())
 
-                        # CHUNKING INTELIGENTE: Corta manteniendo las ideas unidas
+                        # CHUNKING INTELIGENTE
                         chunks = separador_inteligente.split_text(texto_limpio)
 
                         for j, chunk in enumerate(chunks):
+                            # Estructura base de metadatos
+                            metadatos_chunk = {
+                                "fuente": nombre_archivo,
+                                "tipo_documento": "Documento Oficial Mineduc",
+                                "pagina": str(i+1),
+                                "curso": "No identificado",
+                                "asignatura": "No identificada",
+                                "codigo_oa": "OA no identificado"
+                            }
+
+                            # Lógica para inyectar el OA cruzando con los nombres EXACTOS de las columnas
+                            if not df_oa.empty:
+                                texto_lower = chunk.lower()
+                                for _, fila in df_oa.iterrows():
+                                    # Rescatar valores usando los encabezados de la Tabla 4
+                                    nivel_excel = str(
+                                        fila.get('Nivel', '')).lower()
+                                    desc_excel = str(
+                                        fila.get('Descripción del Objetivo de Aprendizaje (Mineduc)', '')).lower()
+
+                                    # Usamos los primeros 40 caracteres de la descripción para evitar fallos por espacios o saltos de línea
+                                    desc_corta = desc_excel[:40] if len(
+                                        desc_excel) > 40 else desc_excel
+
+                                    # Si detectamos el nivel o la descripción en el fragmento del PDF
+                                    if (nivel_excel and nivel_excel in texto_lower) or (desc_corta and desc_corta in texto_lower):
+                                        metadatos_chunk["curso"] = str(
+                                            fila.get('Nivel', ''))
+                                        metadatos_chunk["asignatura"] = str(
+                                            fila.get('Asignatura', ''))
+                                        metadatos_chunk["codigo_oa"] = str(
+                                            fila.get('Código Oficial', ''))
+                                        break
+
                             fragmentos_totales.append({
                                 "id": f"{nombre_archivo}-pag-{i+1}-chunk-{j+1}",
                                 "texto": chunk,
-                                "metadatos": {
-                                    "fuente": nombre_archivo,
-                                    "tipo_documento": "Documento Oficial Mineduc",
-                                    "pagina": str(i+1)
-                                }
+                                "metadatos": metadatos_chunk
                             })
     return fragmentos_totales
 
@@ -79,7 +114,6 @@ if not textos_para_procesar:
 else:
     print(
         f"Se generaron {len(textos_para_procesar)} fragmentos con sentido. Vectorizando...")
-
     vectores_para_subir = []
 
     # 5. Convertir a Embeddings y empaquetar
@@ -99,8 +133,7 @@ else:
             "values": vector,
             "metadata": {"texto": item["texto"], **item["metadatos"]}
         })
-
-        time.sleep(0.02)  # Respetamos el límite de API de OpenAI
+        time.sleep(0.02)
 
     # 6. Subir a Pinecone en lotes de 100
     print("Subiendo vectores a Pinecone...")

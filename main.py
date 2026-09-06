@@ -18,7 +18,7 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 indice = pc.Index("coodibot-memoria")
 
 # =====================================================================
-# NUEVO: INICIALIZACIÓN DE LA BASE DE DATOS LOCAL (MEMORIA)
+# INICIALIZACIÓN DE LA BASE DE DATOS LOCAL (MEMORIA)
 # =====================================================================
 
 
@@ -44,13 +44,11 @@ def guardar_mensaje(session_id: str, rol: str, contenido: str):
     """Guarda un mensaje en la base de datos y devuelve su ID"""
     conn = sqlite3.connect("memoria_coodibot.db")
     cursor = conn.cursor()
-    # Insertamos el mensaje dejando la calificación en NULL por defecto
     cursor.execute("INSERT INTO historial_chat (session_id, rol, contenido, calificacion) VALUES (?, ?, ?, NULL)",
                    (session_id, rol, contenido))
-    ultimo_id = cursor.lastrowid  # Capturamos el número asignado
+    ultimo_id = cursor.lastrowid
     conn.commit()
     conn.close()
-
     return ultimo_id
 
 
@@ -58,23 +56,19 @@ def obtener_historial(session_id: str, limite: int = 4):
     """Recupera los últimos mensajes de la conversación para dar contexto"""
     conn = sqlite3.connect("memoria_coodibot.db")
     cursor = conn.cursor()
-    # Traemos los últimos X mensajes ordenados por ID
     cursor.execute("SELECT rol, contenido FROM historial_chat WHERE session_id = ? ORDER BY id DESC LIMIT ?",
                    (session_id, limite))
     filas = cursor.fetchall()
     conn.close()
-    # Invertimos la lista para que el mensaje más antiguo de la muestra quede primero
     return [{"role": fila[0], "content": fila[1]} for fila in reversed(filas)]
 
 
-# Ejecutamos la inicialización al arrancar el servidor
 iniciar_base_datos()
 # =====================================================================
 
 # 3. Inicializar la API
 app = FastAPI(title="COODIBOT API")
 
-# Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -83,12 +77,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 4. Definir la estructura del mensaje de texto
-
 
 class MensajeUsuario(BaseModel):
     pregunta: str
-    # Agregamos session_id por defecto para no romper tu frontend actual
     session_id: str = "sesion_docente_default"
 
 
@@ -107,88 +98,111 @@ def leer_raiz():
 
 
 def procesar_rag(pregunta_texto: str, session_id: str):
-    """Esta función recibe texto, revisa el historial, reformula la consulta, busca en Pinecone y genera la respuesta"""
     print(
         f"\n[CEREBRO] Procesando consulta: '{pregunta_texto}' (Sesión: {session_id})")
 
     try:
-        # Recuperar el historial de chat de esta sesión
         historial_reciente = obtener_historial(session_id)
-
-        # Convertir historial a texto para que el LLM lo lea
         historial_str = ""
         for msg in historial_reciente:
             rol = "Profesor" if msg["role"] == "user" else "COODIBOT"
             historial_str += f"{rol}: {msg['content']}\n"
 
         # =====================================================================
-        # PASO 1 PRE-RETRIEVAL: Reformulación de Consulta "Context-Aware"
+        # PASO 1 PRE-RETRIEVAL: Multi-Query Routing (Advanced RAG)
         # =====================================================================
         prompt_limpieza = f"""
-        Actúa como un extractor de conceptos clave de búsqueda.
-        Aquí tienes el historial reciente de la conversación:
-        ---
+        Actúa como un enrutador de búsqueda semántica.
+        Historial reciente:
         {historial_str}
-        ---
-        Pregunta actual del profesor: "{pregunta_texto}"
+        Pregunta actual: "{pregunta_texto}"
         
-        REGLAS:
-        1. Si la pregunta actual hace referencia a algo del historial (ej: "explica el punto 2", "dame más detalles"), usa el historial para entender a qué se refiere y crea UNA SOLA frase de búsqueda completa.
-        2. Ignora saludos, gracias, y ruido.
-        3. Devuelve SOLO los conceptos técnicos, asignaturas y cursos. Sin comillas ni texto extra.
+        REGLA ESTRICTA: Separa la intención de búsqueda en DOS consultas divididas por un símbolo "|".
+        Consulta 1: Solo conceptos técnicos de hardware o programación.
+        Consulta 2: Solo nivel escolar y asignatura (pedagógico). Si no hay, escribe "General".
+        
+        Ejemplo de salida: sensor ultrasónico HC-SR04 | 5° básico tecnología
         """
 
         respuesta_limpieza = cliente_openai.chat.completions.create(
-            model="gpt-4o-mini",  # Modelo rápido y barato para lógica interna
+            model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt_limpieza}],
             temperature=0.0
         )
-        consulta_optimizada = respuesta_limpieza.choices[0].message.content.strip(
-        )
-        print(
-            f"[CEREBRO] Consulta optimizada para Pinecone: '{consulta_optimizada}'")
-        # =====================================================================
 
-        # Guardamos la pregunta del usuario en la base de datos (después de la limpieza, guardamos la original para ser fieles)
+        # Dividimos las consultas generadas por el LLM
+        consultas_raw = respuesta_limpieza.choices[0].message.content.strip().split(
+            "|")
+        consulta_tecnica = consultas_raw[0].strip()
+        consulta_curricular = consultas_raw[1].strip() if len(
+            consultas_raw) > 1 else "General"
+
+        print(f"[CEREBRO] Búsqueda Técnica: '{consulta_tecnica}'")
+        print(f"[CEREBRO] Búsqueda Curricular: '{consulta_curricular}'")
+
         guardar_mensaje(session_id, "user", pregunta_texto)
 
-        # PASO 2: Vectorizar la consulta OPTIMIZADA (No la original)
-        respuesta_embedding = cliente_openai.embeddings.create(
-            input=consulta_optimizada,
-            model="text-embedding-3-small"
-        )
-        vector_pregunta = respuesta_embedding.data[0].embedding
+        # =====================================================================
+        # PASO 2 y 3: Búsqueda Vectorial Paralela
+        # =====================================================================
+        resultados_totales = []
 
-        # PASO 3: Recuperación en Pinecone
-        resultados_busqueda = indice.query(
-            vector=vector_pregunta,
-            top_k=10,
-            include_metadata=True
-        )
+        # Búsqueda 1: Manuales Técnicos
+        if consulta_tecnica:
+            vec_tec = cliente_openai.embeddings.create(
+                input=consulta_tecnica, model="text-embedding-3-small").data[0].embedding
+            res_tec = indice.query(
+                vector=vec_tec, top_k=10, include_metadata=True)
+            resultados_totales.extend(res_tec.matches)
 
-        # PASO 4: Armar el Contexto Curricular
+        # Búsqueda 2: Bases Curriculares Mineduc
+        if consulta_curricular and consulta_curricular.lower() != "general":
+            vec_curr = cliente_openai.embeddings.create(
+                input=consulta_curricular, model="text-embedding-3-small").data[0].embedding
+            res_curr = indice.query(
+                vector=vec_curr, top_k=10, include_metadata=True)
+            resultados_totales.extend(res_curr.matches)
+
+        # =====================================================================
+        # PASO 4: Fusión de Contexto y Extracción de OA
+        # =====================================================================
         contexto_recuperado = ""
         fragmentos_utilizados = 0
+        oa_oficial_extraido = "OA no identificado"
 
-        for match in resultados_busqueda.matches:
+        # Ordenamos todos los resultados combinados por su score de similitud
+        resultados_totales = sorted(
+            resultados_totales, key=lambda x: x.score, reverse=True)
+
+        for match in resultados_totales:
             score = match.score
             texto = match.metadata.get("texto", "")
 
-            # Umbral de similitud
-            if score >= 0.20:
+            # EXTRACCIÓN DEL METADATO OA
+            codigo = match.metadata.get("codigo_oa", "OA no identificado")
+            if codigo != "OA no identificado" and oa_oficial_extraido == "OA no identificado":
+                asignatura = match.metadata.get("asignatura", "")
+                curso = match.metadata.get("curso", "")
+                oa_oficial_extraido = f"{codigo} - {asignatura} {curso}".strip(
+                    "- ")
+
+            # Umbral de similitud (puedes bajarlo a 0.15 si es necesario)
+            if score >= 0.15:
                 contexto_recuperado += texto + "\n\n---\n\n"
                 fragmentos_utilizados += 1
 
         print(f"Fragmentos que superaron el umbral: {fragmentos_utilizados}")
+        print(f"OA Recuperado de la base: {oa_oficial_extraido}")
 
         if fragmentos_utilizados == 0:
             respuesta_sin_datos = "No tengo información sobre esto en mis manuales oficiales."
-            # MODIFICADO: Guardamos y capturamos el ID incluso si no hay datos
             id_mensaje_vacio = guardar_mensaje(
                 session_id, "assistant", respuesta_sin_datos)
             return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio}
 
-        # PASO 5: Generación con OpenAI (Microaprendizaje + Contexto Conversacional)
+        # =====================================================================
+        # PASO 5: Generación Final
+        # =====================================================================
         prompt_sistema = f"""
         Eres COODIBOT, un asistente experto en robótica educativa.
         Tu objetivo es ayudar a docentes de educación básica.
@@ -199,20 +213,15 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         3. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
            - Concepto Clave: (Definición breve)
            - Pasos: (Instrucciones numeradas con verbos imperativos)
-           - OA Vinculado: (Código y descripción del OA. El código debe llevar siempre el formato "OA X", ignorando números de página sueltos. Si el contexto no menciona un OA específico, escribe: "No aplica para esta consulta").
+           - OA Vinculado: {oa_oficial_extraido}
            - Verificación: (Cómo comprobar que funcionó)
 
         CONTEXTO RECUPERADO DE LOS MANUALES:
         {contexto_recuperado}
         """
 
-        # Preparamos los mensajes para el LLM final, inyectando el historial para fluidez
         mensajes_finales = [{"role": "system", "content": prompt_sistema}]
-
-        # Le pasamos el historial previo para que tenga memoria de la conversación
         mensajes_finales.extend(historial_reciente)
-
-        # Finalmente, agregamos la pregunta actual
         mensajes_finales.append({"role": "user", "content": pregunta_texto})
 
         respuesta_llm = cliente_openai.chat.completions.create(
@@ -222,11 +231,8 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         )
 
         respuesta_final = respuesta_llm.choices[0].message.content
-
-        # MODIFICADO: Guardamos la respuesta de COODIBOT capturando su ID
         id_mensaje = guardar_mensaje(session_id, "assistant", respuesta_final)
 
-        # Retornamos el diccionario esperado por las rutas
         return {"texto": respuesta_final, "mensaje_id": id_mensaje}
 
     except Exception as e:
