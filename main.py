@@ -109,59 +109,33 @@ def procesar_rag(pregunta_texto: str, session_id: str):
             historial_str += f"{rol}: {msg['content']}\n"
 
         # =====================================================================
-        # PASO 1 PRE-RETRIEVAL: Multi-Query Routing (Advanced RAG)
+        # PASOS 1, 2 y 3: Búsqueda Vectorial con Filtros de Metadatos
         # =====================================================================
-        prompt_limpieza = f"""
-        Actúa como un enrutador de búsqueda semántica.
-        Historial reciente:
-        {historial_str}
-        Pregunta actual: "{pregunta_texto}"
-        
-        REGLA ESTRICTA: Separa la intención de búsqueda en DOS consultas divididas por un símbolo "|".
-        Consulta 1: Solo conceptos técnicos de hardware o programación.
-        Consulta 2: Solo nivel escolar y asignatura (pedagógico). Si no hay, escribe "General".
-        
-        Ejemplo de salida: sensor ultrasónico HC-SR04 | 5° básico tecnología
-        """
+        # 1. Convertimos la pregunta del profesor en un solo vector
+        vec_busqueda = cliente_openai.embeddings.create(
+            input=pregunta_texto,
+            model="text-embedding-3-small"
+        ).data[0].embedding
 
-        respuesta_limpieza = cliente_openai.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt_limpieza}],
-            temperature=0.0
-        )
-
-        # Dividimos las consultas generadas por el LLM
-        consultas_raw = respuesta_limpieza.choices[0].message.content.strip().split(
-            "|")
-        consulta_tecnica = consultas_raw[0].strip()
-        consulta_curricular = consultas_raw[1].strip() if len(
-            consultas_raw) > 1 else "General"
-
-        print(f"[CEREBRO] Búsqueda Técnica: '{consulta_tecnica}'")
-        print(f"[CEREBRO] Búsqueda Curricular: '{consulta_curricular}'")
-
-        guardar_mensaje(session_id, "user", pregunta_texto)
-
-        # =====================================================================
-        # PASO 2 y 3: Búsqueda Vectorial Paralela
-        # =====================================================================
         resultados_totales = []
 
-        # Búsqueda 1: Manuales Técnicos
-        if consulta_tecnica:
-            vec_tec = cliente_openai.embeddings.create(
-                input=consulta_tecnica, model="text-embedding-3-small").data[0].embedding
-            res_tec = indice.query(
-                vector=vec_tec, top_k=10, include_metadata=True)
-            resultados_totales.extend(res_tec.matches)
+        # 2. Búsqueda EXCLUSIVA en los manuales (Obligamos a traer los 7 mejores)
+        res_tec = indice.query(
+            vector=vec_busqueda,
+            top_k=7,
+            include_metadata=True,
+            filter={"category": "coodi_manual"}  # Filtro estricto al PDF
+        )
+        resultados_totales.extend(res_tec.matches)
 
-        # Búsqueda 2: Bases Curriculares Mineduc
-        if consulta_curricular and consulta_curricular.lower() != "general":
-            vec_curr = cliente_openai.embeddings.create(
-                input=consulta_curricular, model="text-embedding-3-small").data[0].embedding
-            res_curr = indice.query(
-                vector=vec_curr, top_k=10, include_metadata=True)
-            resultados_totales.extend(res_curr.matches)
+        # 3. Búsqueda EXCLUSIVA en el Excel de OAs (Obligamos a traer los 7 mejores)
+        res_curr = indice.query(
+            vector=vec_busqueda,
+            top_k=7,
+            include_metadata=True,
+            filter={"category": "coodi_curriculum"}  # Filtro estricto al Excel
+        )
+        resultados_totales.extend(res_curr.matches)
 
         # =====================================================================
         # PASO 4: Fusión de Contexto y Extracción de OA

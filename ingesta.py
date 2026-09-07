@@ -15,15 +15,12 @@ PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 # 2. Inicializar los clientes
 cliente_openai = OpenAI(api_key=OPENAI_API_KEY)
 pc = Pinecone(api_key=PINECONE_API_KEY)
-
-# Corregido al nombre de tu índice real en la nube
 indice = pc.Index("coodibot-memoria")
 
 # 3. Configuración de carpetas y archivos
 CARPETA_PDFS = "documentos_coodi"
 RUTA_EXCEL_OA = "tabla4_OA_vinculados_COODI.xlsx"
 
-# Separador semántico de LangChain
 separador_inteligente = RecursiveCharacterTextSplitter(
     chunk_size=800,
     chunk_overlap=150,
@@ -32,85 +29,77 @@ separador_inteligente = RecursiveCharacterTextSplitter(
 )
 
 
-def extraer_y_picar_pdfs(carpeta):
-    """Lee todos los PDFs, inyecta metadatos del Excel y convierte cada página en fragmentos"""
-    fragmentos_totales = []
-
-    # Intentar cargar la Tabla 4 de OA
-    try:
-        df_oa = pd.read_excel(RUTA_EXCEL_OA)
-    except Exception as e:
-        print(f"Advertencia: No se pudo cargar {RUTA_EXCEL_OA}. Error: {e}")
-        df_oa = pd.DataFrame()
+def procesar_pdfs_tecnicos(carpeta):
+    """Convierte los manuales PDF en fragmentos técnicos puros."""
+    fragmentos = []
+    if not os.path.exists(carpeta):
+        return fragmentos
 
     for nombre_archivo in os.listdir(carpeta):
         if nombre_archivo.endswith(".pdf"):
             ruta_completa = os.path.join(carpeta, nombre_archivo)
-            print(f"Leyendo documento: {nombre_archivo}...")
-
+            print(f"Leyendo documento técnico: {nombre_archivo}...")
             with open(ruta_completa, "rb") as archivo_pdf:
                 lector = PyPDF2.PdfReader(archivo_pdf)
-
                 for i, pagina in enumerate(lector.pages):
-                    texto_extraido = pagina.extract_text()
-
-                    if texto_extraido and len(texto_extraido.strip()) > 50:
-                        texto_limpio = texto_extraido.replace(
-                            "\n", " ").strip()
-                        texto_limpio = " ".join(texto_limpio.split())
-
-                        # CHUNKING INTELIGENTE
-                        chunks = separador_inteligente.split_text(texto_limpio)
-
-                        for j, chunk in enumerate(chunks):
-                            # Estructura base de metadatos
-                            metadatos_chunk = {
-                                "fuente": nombre_archivo,
-                                "tipo_documento": "Documento Oficial Mineduc",
-                                "pagina": str(i+1),
-                                "curso": "No identificado",
-                                "asignatura": "No identificada",
-                                "codigo_oa": "OA no identificado"
-                            }
-
-                            # Lógica para inyectar el OA cruzando con los nombres EXACTOS de las columnas
-                            if not df_oa.empty:
-                                texto_lower = chunk.lower()
-                                for _, fila in df_oa.iterrows():
-                                    # Rescatar valores usando los encabezados de la Tabla 4
-                                    nivel_excel = str(
-                                        fila.get('Nivel', '')).lower()
-                                    desc_excel = str(
-                                        fila.get('Descripción del Objetivo de Aprendizaje (Mineduc)', '')).lower()
-
-                                    # Usamos los primeros 40 caracteres de la descripción para evitar fallos por espacios o saltos de línea
-                                    desc_corta = desc_excel[:40] if len(
-                                        desc_excel) > 40 else desc_excel
-
-                                    # Si detectamos el nivel o la descripción en el fragmento del PDF
-                                    if (nivel_excel and nivel_excel in texto_lower) or (desc_corta and desc_corta in texto_lower):
-                                        metadatos_chunk["curso"] = str(
-                                            fila.get('Nivel', ''))
-                                        metadatos_chunk["asignatura"] = str(
-                                            fila.get('Asignatura', ''))
-                                        metadatos_chunk["codigo_oa"] = str(
-                                            fila.get('Código Oficial', ''))
-                                        break
-
-                            fragmentos_totales.append({
-                                "id": f"{nombre_archivo}-pag-{i+1}-chunk-{j+1}",
+                    texto = pagina.extract_text()
+                    if texto and len(texto.strip()) > 50:
+                        texto_limpio = " ".join(
+                            texto.replace("\n", " ").split())
+                        for j, chunk in enumerate(separador_inteligente.split_text(texto_limpio)):
+                            fragmentos.append({
+                                "id": f"pdf-{nombre_archivo}-pag-{i+1}-chunk-{j+1}",
                                 "texto": chunk,
-                                "metadatos": metadatos_chunk
+                                "metadatos": {
+                                    "fuente": nombre_archivo,
+                                    "tipo_documento": "Documento Oficial",
+                                    "pagina": str(i+1),
+                                    "category": "coodi_manual",
+                                    "codigo_oa": "OA no identificado"
+                                }
                             })
-    return fragmentos_totales
+    return fragmentos
 
 
-# 4. Ejecutar la extracción
-print("Buscando documentos en la carpeta local...")
-textos_para_procesar = extraer_y_picar_pdfs(CARPETA_PDFS)
+def procesar_excel_oas(ruta_excel):
+    """Transforma cada fila del Excel en un chunk independiente (El Cerebro Curricular)."""
+    fragmentos = []
+    try:
+        df_oa = pd.read_excel(ruta_excel)
+        for index, fila in df_oa.iterrows():
+            # Extraemos los datos usando los nombres exactos de tus columnas
+            curso = str(fila.get('Nivel', 'Sin nivel'))
+            asignatura = str(fila.get('Asignatura', 'Sin asignatura'))
+            codigo = str(fila.get('Código Oficial', 'OA general'))
+            descripcion = str(
+                fila.get('Descripción del Objetivo de Aprendizaje (Mineduc)', ''))
+
+            # Armamos un bloque de texto rico en contexto
+            texto_chunk = f"Objetivo de Aprendizaje ({codigo}) de {asignatura} para {curso}. Descripción: {descripcion}."
+
+            fragmentos.append({
+                "id": f"excel-oa-fila-{index+1}",
+                "texto": texto_chunk,
+                "metadatos": {
+                    "fuente": ruta_excel,
+                    "category": "coodi_curriculum",
+                    "curso": curso,
+                    "asignatura": asignatura,
+                    "codigo_oa": codigo
+                }
+            })
+    except Exception as e:
+        print(f"Advertencia: No se pudo cargar el Excel. Error: {e}")
+    return fragmentos
+
+
+# 4. Ejecutar la extracción unificada
+print("Buscando documentos y procesando currículum...")
+textos_para_procesar = procesar_pdfs_tecnicos(
+    CARPETA_PDFS) + procesar_excel_oas(RUTA_EXCEL_OA)
 
 if not textos_para_procesar:
-    print("¡No se encontraron PDFs válidos en 'documentos_coodi'!")
+    print("¡No se encontraron documentos válidos para inyectar!")
 else:
     print(
         f"Se generaron {len(textos_para_procesar)} fragmentos con sentido. Vectorizando...")
@@ -126,11 +115,10 @@ else:
             input=item["texto"],
             model="text-embedding-3-small"
         )
-        vector = respuesta.data[0].embedding
 
         vectores_para_subir.append({
             "id": item["id"],
-            "values": vector,
+            "values": respuesta.data[0].embedding,
             "metadata": {"texto": item["texto"], **item["metadatos"]}
         })
         time.sleep(0.02)
