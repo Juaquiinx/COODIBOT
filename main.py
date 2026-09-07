@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import json
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -18,6 +19,19 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 indice = pc.Index("coodibot-memoria")
 
 # =====================================================================
+# CARGAR EL DICCIONARIO DE OAs PARA TRADUCIR CÓDIGOS A TEXTO
+# =====================================================================
+diccionario_oas = {}
+try:
+    with open("catalogo_oas.json", "r", encoding="utf-8") as f:
+        catalogo = json.load(f)
+        for asignatura, lista_oas in catalogo.items():
+            for oa in lista_oas:
+                diccionario_oas[oa["id"]] = oa["descripcion"]
+except Exception as e:
+    print(f"Advertencia: No se pudo cargar el catálogo JSON: {e}")
+
+# =====================================================================
 # INICIALIZACIÓN DE LA BASE DE DATOS LOCAL (MEMORIA)
 # =====================================================================
 
@@ -26,7 +40,7 @@ def iniciar_base_datos():
     """Crea la base de datos SQLite y la tabla de historial si no existen"""
     conn = sqlite3.connect("memoria_coodibot.db")
     cursor = conn.cursor()
-    cursor.execute('DROP TABLE IF EXISTS historial_chat')
+    # cursor.execute('DROP TABLE IF EXISTS historial_chat') # Opcional: descomentar si quieres resetear la memoria local
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS historial_chat (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -64,9 +78,10 @@ def obtener_historial(session_id: str, limite: int = 4):
 
 
 iniciar_base_datos()
-# =====================================================================
 
+# =====================================================================
 # 3. Inicializar la API
+# =====================================================================
 app = FastAPI(title="COODIBOT API")
 
 app.add_middleware(
@@ -109,64 +124,62 @@ def procesar_rag(pregunta_texto: str, session_id: str):
             historial_str += f"{rol}: {msg['content']}\n"
 
         # =====================================================================
-        # PASOS 1, 2 y 3: Búsqueda Vectorial con Filtros de Metadatos
+        # PASOS 1 y 2: Búsqueda Vectorial Única
         # =====================================================================
-        # 1. Convertimos la pregunta del profesor en un solo vector
         vec_busqueda = cliente_openai.embeddings.create(
             input=pregunta_texto,
             model="text-embedding-3-small"
         ).data[0].embedding
 
-        resultados_totales = []
-
-        # 2. Búsqueda EXCLUSIVA en los manuales (Obligamos a traer los 7 mejores)
         res_tec = indice.query(
             vector=vec_busqueda,
             top_k=7,
             include_metadata=True,
             filter={"category": "coodi_manual"}  # Filtro estricto al PDF
         )
-        resultados_totales.extend(res_tec.matches)
-
-        # 3. Búsqueda EXCLUSIVA en el Excel de OAs (Obligamos a traer los 7 mejores)
-        res_curr = indice.query(
-            vector=vec_busqueda,
-            top_k=7,
-            include_metadata=True,
-            filter={"category": "coodi_curriculum"}  # Filtro estricto al Excel
-        )
-        resultados_totales.extend(res_curr.matches)
 
         # =====================================================================
-        # PASO 4: Fusión de Contexto y Extracción de OA
+        # PASO 3: Extracción de Contexto y Objetivos de Aprendizaje (OA)
         # =====================================================================
         contexto_recuperado = ""
         fragmentos_utilizados = 0
-        oa_oficial_extraido = "OA no identificado"
+        oa_oficial_extraido = ""
 
-        # Ordenamos todos los resultados combinados por su score de similitud
-        resultados_totales = sorted(
-            resultados_totales, key=lambda x: x.score, reverse=True)
-
-        for match in resultados_totales:
+        for match in res_tec.matches:
             score = match.score
-            texto = match.metadata.get("texto", "")
 
-            # EXTRACCIÓN DEL METADATO OA
-            codigo = match.metadata.get("codigo_oa", "OA no identificado")
-            if codigo != "OA no identificado" and oa_oficial_extraido == "OA no identificado":
-                asignatura = match.metadata.get("asignatura", "")
-                curso = match.metadata.get("curso", "")
-                oa_oficial_extraido = f"{codigo} - {asignatura} {curso}".strip(
-                    "- ")
-
-            # Umbral de similitud (puedes bajarlo a 0.15 si es necesario)
+            # Umbral de similitud (0.15)
             if score >= 0.15:
+                texto = match.metadata.get("texto", "")
                 contexto_recuperado += texto + "\n\n---\n\n"
                 fragmentos_utilizados += 1
 
+                # EXTRACCIÓN Y TRADUCCIÓN DEL OA
+                codigo = match.metadata.get("codigo_oa", "Ninguno")
+                if codigo != "Ninguno" and codigo != "OA no identificado" and oa_oficial_extraido == "":
+                    # Limpiamos y dividimos en caso de que vengan varios OAs separados por coma
+                    lista_codigos = [c.strip() for c in codigo.split(",")]
+                    descripciones_completas = []
+
+                    for c in lista_codigos:
+                        # Buscamos la descripción en nuestro diccionario cargado desde el JSON
+                        desc = diccionario_oas.get(c, "")
+                        if desc:
+                            descripciones_completas.append(f"{c}: {desc}")
+                        else:
+                            descripciones_completas.append(c)
+
+                    # Unimos todo con un salto de línea y tabulación para que quede estético
+                    oa_oficial_extraido = "\n           ".join(
+                        descripciones_completas)
+
         print(f"Fragmentos que superaron el umbral: {fragmentos_utilizados}")
-        print(f"OA Recuperado de la base: {oa_oficial_extraido}")
+
+        # Si no encontró ningún OA válido
+        if not oa_oficial_extraido:
+            oa_oficial_extraido = "Ninguno (Consulta puramente técnica)"
+
+        print(f"OA Recuperado de la base:\n{oa_oficial_extraido}")
 
         if fragmentos_utilizados == 0:
             respuesta_sin_datos = "No tengo información sobre esto en mis manuales oficiales."
@@ -175,7 +188,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
             return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio}
 
         # =====================================================================
-        # PASO 5: Generación Final
+        # PASO 4: Generación Final
         # =====================================================================
         prompt_sistema = f"""
         Eres COODIBOT, un asistente experto en robótica educativa.
@@ -214,7 +227,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         raise e
 
 # =====================================================================
-# RUTA 1: ENTRADA POR TEXTO TRADICIONAL
+# RUTAS DE LA API (No alterar para mantener compatibilidad Frontend)
 # =====================================================================
 
 
