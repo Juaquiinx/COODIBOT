@@ -141,7 +141,7 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         REGLAS ESTRICTAS:
         1. Responde SIEMPRE basándote ÚNICAMENTE en la información del contexto proporcionado.
         2. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje).
-        3. No respondas con objetivos de aprendizaje que no existan (fuera del rango de primero a sexto básico).
+        3. Si se te pregunta por algun curso fuera del rango de entre primero y sexto basico, puedes sugerir OAs de cursos mas bajos pero dejando en claro que no es el curso solicitado. No inventes OAs que no existan en el catálogo oficial.
         4. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
            - Concepto Clave: (Definición breve)
            - Pasos: (Instrucciones numeradas con verbos imperativos)
