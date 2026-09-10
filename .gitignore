@@ -1,6 +1,70 @@
-# Entornos virtuales y caché de Python
+#----------------------------------- BACKEND -----------------------------------
+# Seguridad
+.env
+
+
+# Backend (Python / FastAPI)
 venv/
 __pycache__/
+*.pyc
 
-# Variables de entorno y llaves secretas
-.env
+# Base de datos y caché local 
+backend/memoria_coodibot.db
+backend/documentos_procesados.txt
+
+# Frontend (Angular)
+frontend/node_modules/
+frontend/dist/
+frontend/out/
+frontend/.angular/
+
+# Editores de código y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+#----------------------------------- FRONTEND -----------------------------------
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+node_modules

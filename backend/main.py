@@ -1,3 +1,4 @@
+# Importar herramientas
 import os
 import sqlite3
 import json
@@ -8,19 +9,17 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from pinecone import Pinecone
 
-# 1. Cargar las llaves ocultas
+# Cargar las llaves ocultas
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 
-# 2. Inicializar los clientes (OpenAI y Pinecone)
+# Inicializar los clientes
 cliente_openai = OpenAI(api_key=OPENAI_API_KEY)
 pc = Pinecone(api_key=PINECONE_API_KEY)
 indice = pc.Index("coodibot-memoria")
 
-# =====================================================================
-# CARGAR EL DICCIONARIO DE OAs PARA TRADUCIR CÓDIGOS A TEXTO
-# =====================================================================
+# Cargar el diccionario de OAs para traducir códigos a texto
 diccionario_oas = {}
 try:
     with open("catalogo_oas.json", "r", encoding="utf-8") as f:
@@ -31,35 +30,33 @@ try:
 except Exception as e:
     print(f"Advertencia: No se pudo cargar el catálogo JSON: {e}")
 
-# =====================================================================
-# INICIALIZACIÓN DE LA BASE DE DATOS LOCAL (MEMORIA)
-# =====================================================================
+# Inicialización de la base de datos local
 
 
 def iniciar_base_datos():
     """Crea la base de datos SQLite y la tabla de historial si no existen"""
     conn = sqlite3.connect("memoria_coodibot.db")
     cursor = conn.cursor()
-    # cursor.execute('DROP TABLE IF EXISTS historial_chat') # Opcional: descomentar si quieres resetear la memoria local
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS historial_chat (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             session_id TEXT,
             rol TEXT,
             contenido TEXT,
-            calificacion INTEGER
+            calificacion INTEGER,
+            pinecone_ids TEXT 
         )
     ''')
     conn.commit()
     conn.close()
 
 
-def guardar_mensaje(session_id: str, rol: str, contenido: str):
-    """Guarda un mensaje en la base de datos y devuelve su ID"""
+def guardar_mensaje(session_id: str, rol: str, contenido: str, pinecone_ids: str = None):
+    """Guarda un mensaje en la base de datos, incluyendo los IDs de Pinecone si es el bot"""
     conn = sqlite3.connect("memoria_coodibot.db")
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO historial_chat (session_id, rol, contenido, calificacion) VALUES (?, ?, ?, NULL)",
-                   (session_id, rol, contenido))
+    cursor.execute("INSERT INTO historial_chat (session_id, rol, contenido, calificacion, pinecone_ids) VALUES (?, ?, ?, NULL, ?)",
+                   (session_id, rol, contenido, pinecone_ids))
     ultimo_id = cursor.lastrowid
     conn.commit()
     conn.close()
@@ -79,9 +76,7 @@ def obtener_historial(session_id: str, limite: int = 4):
 
 iniciar_base_datos()
 
-# =====================================================================
-# 3. Inicializar la API
-# =====================================================================
+# Inicializar la API
 app = FastAPI(title="COODIBOT API")
 
 app.add_middleware(
@@ -103,13 +98,17 @@ class EvaluacionRespuesta(BaseModel):
     calificacion: int
 
 
+class CorreccionOA(BaseModel):
+    mensaje_id: int
+    pinecone_ids: str
+    nuevo_oa: str
+
+
 @app.get("/")
 def leer_raiz():
     return {"mensaje": "¡El servidor de COODIBOT está en línea, escuchando y recordando!"}
 
-# =====================================================================
-# EL CEREBRO COMPARTIDO: Lógica Advanced RAG con Memoria
-# =====================================================================
+# Lógica Advanced RAG con Memoria
 
 
 def procesar_rag(pregunta_texto: str, session_id: str):
@@ -123,9 +122,6 @@ def procesar_rag(pregunta_texto: str, session_id: str):
             rol = "Profesor" if msg["role"] == "user" else "COODIBOT"
             historial_str += f"{rol}: {msg['content']}\n"
 
-        # =====================================================================
-        # PASOS 1 y 2: Búsqueda Vectorial Única
-        # =====================================================================
         vec_busqueda = cliente_openai.embeddings.create(
             input=pregunta_texto,
             model="text-embedding-3-small"
@@ -135,61 +131,57 @@ def procesar_rag(pregunta_texto: str, session_id: str):
             vector=vec_busqueda,
             top_k=7,
             include_metadata=True,
-            filter={"category": "coodi_manual"}  # Filtro estricto al PDF
+            filter={"category": "coodi_manual"}
         )
 
-        # =====================================================================
-        # PASO 3: Extracción de Contexto y Objetivos de Aprendizaje (OA)
-        # =====================================================================
         contexto_recuperado = ""
         fragmentos_utilizados = 0
         oa_oficial_extraido = ""
+        lista_codigos_guardados = []
+        ids_pinecone_utilizados = []
 
         for match in res_tec.matches:
             score = match.score
 
-            # Umbral de similitud (0.15)
             if score >= 0.15:
                 texto = match.metadata.get("texto", "")
                 contexto_recuperado += texto + "\n\n---\n\n"
                 fragmentos_utilizados += 1
 
-                # EXTRACCIÓN Y TRADUCCIÓN DEL OA
+                ids_pinecone_utilizados.append(match.id)
+
                 codigo = match.metadata.get("codigo_oa", "Ninguno")
                 if codigo != "Ninguno" and codigo != "OA no identificado" and oa_oficial_extraido == "":
-                    # Limpiamos y dividimos en caso de que vengan varios OAs separados por coma
                     lista_codigos = [c.strip() for c in codigo.split(",")]
-                    descripciones_completas = []
+                    lista_codigos_validos = [
+                        c for c in lista_codigos if c in diccionario_oas]
 
-                    for c in lista_codigos:
-                        # Buscamos la descripción en nuestro diccionario cargado desde el JSON
-                        desc = diccionario_oas.get(c, "")
-                        if desc:
-                            descripciones_completas.append(f"{c}: {desc}")
-                        else:
-                            descripciones_completas.append(c)
+                    if lista_codigos_validos:
+                        lista_codigos_guardados = lista_codigos_validos
+                        lista_vinetas = [
+                            f"- {c}" for c in lista_codigos_validos]
+                        oa_oficial_extraido = "\n           ".join(
+                            lista_vinetas)
 
-                    # Unimos todo con un salto de línea y tabulación para que quede estético
-                    oa_oficial_extraido = "\n           ".join(
-                        descripciones_completas)
+        for c in lista_codigos_guardados:
+            desc = diccionario_oas.get(c, "")
+            if desc:
+                contexto_recuperado += f"\n[INFO PEDAGÓGICA OCULTA] El objetivo {c} trata sobre: {desc}\n"
 
         print(f"Fragmentos que superaron el umbral: {fragmentos_utilizados}")
 
-        # Si no encontró ningún OA válido
         if not oa_oficial_extraido:
             oa_oficial_extraido = "Ninguno (Consulta puramente técnica)"
 
-        print(f"OA Recuperado de la base:\n{oa_oficial_extraido}")
+        ids_pinecone_str = ",".join(
+            ids_pinecone_utilizados) if ids_pinecone_utilizados else None
 
         if fragmentos_utilizados == 0:
             respuesta_sin_datos = "No tengo información sobre esto en mis manuales oficiales."
             id_mensaje_vacio = guardar_mensaje(
-                session_id, "assistant", respuesta_sin_datos)
+                session_id, "assistant", respuesta_sin_datos, ids_pinecone_str)
             return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio}
 
-        # =====================================================================
-        # PASO 4: Generación Final
-        # =====================================================================
         prompt_sistema = f"""
         Eres COODIBOT, un asistente experto en robótica educativa.
         Tu objetivo es ayudar a docentes de educación básica.
@@ -200,7 +192,8 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         3. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
            - Concepto Clave: (Definición breve)
            - Pasos: (Instrucciones numeradas con verbos imperativos)
-           - OA Vinculado: {oa_oficial_extraido}
+           - OA Vinculado: 
+           {oa_oficial_extraido}
            - Verificación: (Cómo comprobar que funcionó)
 
         CONTEXTO RECUPERADO DE LOS MANUALES:
@@ -218,7 +211,15 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         )
 
         respuesta_final = respuesta_llm.choices[0].message.content
-        id_mensaje = guardar_mensaje(session_id, "assistant", respuesta_final)
+
+        for c in lista_codigos_guardados:
+            desc = diccionario_oas.get(c, "")
+            if desc:
+                html_tooltip = f'<span class="coodi-tooltip">{c} 👁️<span class="coodi-tooltip-text"><b>{c}:</b> {desc}</span></span>'
+                respuesta_final = respuesta_final.replace(c, html_tooltip)
+
+        id_mensaje = guardar_mensaje(
+            session_id, "assistant", respuesta_final, ids_pinecone_str)
 
         return {"texto": respuesta_final, "mensaje_id": id_mensaje}
 
@@ -226,9 +227,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         print(f"ERROR EN RAG: {str(e)}")
         raise e
 
-# =====================================================================
-# RUTAS DE LA API (No alterar para mantener compatibilidad Frontend)
-# =====================================================================
+# Rutas de la api del chat
 
 
 @app.post("/api/chat")
@@ -255,3 +254,53 @@ def evaluar_respuesta(evaluacion: EvaluacionRespuesta):
         return {"estado": "éxito", "mensaje": "Evaluación guardada correctamente"}
     except Exception as e:
         return {"error": f"Hubo un problema al guardar la evaluación: {str(e)}"}
+
+# Rutas para el panel de administrador
+
+
+@app.get("/api/admin/malas")
+def obtener_respuestas_malas():
+    """Devuelve todas las respuestas calificadas con -1 por el usuario."""
+    print("\n[ADMIN] Solicitando lista de malas respuestas...")
+    try:
+        conn = sqlite3.connect("memoria_coodibot.db")
+        cursor = conn.cursor()
+        cursor.execute(
+            "SELECT id, contenido, pinecone_ids FROM historial_chat WHERE calificacion = -1")
+        filas = cursor.fetchall()
+        conn.close()
+
+        resultados = [{"mensaje_id": f[0], "contenido": f[1],
+                       "pinecone_ids": f[2]} for f in filas]
+        return {"estado": "éxito", "data": resultados}
+    except Exception as e:
+        return {"error": f"Error al obtener respuestas: {str(e)}"}
+
+
+@app.put("/api/admin/corregir-oa")
+def corregir_oa_en_pinecone(datos: CorreccionOA):
+    """Actualiza la metadata en Pinecone directamente y limpia el error en SQLite."""
+    print(
+        f"\n[ADMIN] Corrigiendo OA en Pinecone para el mensaje {datos.mensaje_id}...")
+    try:
+        if not datos.pinecone_ids:
+            return {"error": "No hay IDs de Pinecone asociados a esta respuesta."}
+
+        lista_ids = datos.pinecone_ids.split(",")
+
+        for pinecone_id in lista_ids:
+            indice.update(id=pinecone_id, set_metadata={
+                          "codigo_oa": datos.nuevo_oa})
+            print(
+                f"Vector {pinecone_id} actualizado en Pinecone a: {datos.nuevo_oa}")
+
+        conn = sqlite3.connect("memoria_coodibot.db")
+        cursor = conn.cursor()
+        cursor.execute("UPDATE historial_chat SET calificacion = 2 WHERE id = ?",
+                       (datos.mensaje_id,))  # 2 = Corregido
+        conn.commit()
+        conn.close()
+
+        return {"estado": "éxito", "mensaje": "Metadata en Pinecone actualizada correctamente. ¡El bot ha aprendido!"}
+    except Exception as e:
+        return {"error": f"Error al actualizar Pinecone: {str(e)}"}

@@ -1,3 +1,4 @@
+# Importar herramientas
 import os
 import time
 import json
@@ -7,22 +8,22 @@ from openai import OpenAI
 from pinecone import Pinecone
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-# 1. Cargar las llaves ocultas
+# Cargar las llaves ocultas
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 
-# 2. Inicializar los clientes
+# Inicializar los clientes
 cliente_openai = OpenAI(api_key=OPENAI_API_KEY)
 pc = Pinecone(api_key=PINECONE_API_KEY)
 indice = pc.Index("coodibot-memoria")
 
-# 3. Configuración de carpetas y archivos
+# Configuración de carpetas y archivos
 CARPETA_PDFS = "documentos_coodi"
 RUTA_CATALOGO = "catalogo_oas.json"
 ARCHIVO_REGISTRO = "documentos_procesados.txt"
 
-# Separador inteligente para los chunks
+# Separador inteligente (chunking)
 separador_inteligente = RecursiveCharacterTextSplitter(
     chunk_size=800,
     chunk_overlap=150,
@@ -30,7 +31,7 @@ separador_inteligente = RecursiveCharacterTextSplitter(
     separators=["\n\n", "\n", ".", " ", ""]
 )
 
-# 4. Funciones de Memoria (Para no gastar tokens repitiendo PDFs)
+# Funciones de Memoria
 
 
 def cargar_documentos_procesados():
@@ -46,7 +47,7 @@ def registrar_documento_procesado(nombre_archivo):
     with open(ARCHIVO_REGISTRO, "a", encoding="utf-8") as f:
         f.write(f"{nombre_archivo}\n")
 
-# 5. Cargar el Catálogo de OAs
+# Cargar el Catálogo en json de los OAs
 
 
 def cargar_catalogo():
@@ -61,10 +62,9 @@ def cargar_catalogo():
 
 CATALOGO_STR = cargar_catalogo()
 
-# 6. Función Etiquetadora con IA
+# Función etiquetadora con IA
 
 
-# 6. Función Etiquetadora con IA (Con manejo de Límites de Velocidad)
 def clasificar_con_llm(chunk_texto):
     """
     Usa el LLM para leer el fragmento de COODI y asignarle los mejores OAs.
@@ -87,7 +87,7 @@ def clasificar_con_llm(chunk_texto):
     """
 
     max_reintentos = 5
-    tiempo_espera = 5  # Segundos a esperar si nos bloquean
+    tiempo_espera = 5
 
     for intento in range(max_reintentos):
         try:
@@ -97,7 +97,6 @@ def clasificar_con_llm(chunk_texto):
                 temperature=0.0
             )
 
-            # Pausa preventiva de 1.5 segundos entre cada consulta exitosa para no saturar
             time.sleep(1.5)
 
             return respuesta.choices[0].message.content.strip()
@@ -107,14 +106,14 @@ def clasificar_con_llm(chunk_texto):
                 print(
                     f"      [!] Límite de tokens alcanzado de OpenAI. Pausando {tiempo_espera} segundos... (Intento {intento+1}/{max_reintentos})")
                 time.sleep(tiempo_espera)
-                tiempo_espera += 5  # Aumenta el tiempo de espera gradualmente si insiste el bloqueo
+                tiempo_espera += 5
             else:
                 print(f"Error desconocido en LLM al clasificar: {e}")
                 return "OA no identificado"
 
     return "OA no identificado (Límite excedido)"
 
-# 7. Procesamiento de PDFs
+# Procesamiento de PDFs
 
 
 def procesar_pdfs_tecnicos_y_etiquetar(carpeta):
@@ -147,8 +146,6 @@ def procesar_pdfs_tecnicos_y_etiquetar(carpeta):
                     texto_limpio = " ".join(texto.replace("\n", " ").split())
 
                     for j, chunk in enumerate(separador_inteligente.split_text(texto_limpio)):
-
-                        # ¡AQUÍ OCURRE LA MAGIA DEL ETIQUETADO AUTOMÁTICO!
                         print(
                             f"   -> Analizando con IA chunk {j+1} de la página {i+1}...")
                         oa_asignado = clasificar_con_llm(chunk)
@@ -161,7 +158,7 @@ def procesar_pdfs_tecnicos_y_etiquetar(carpeta):
                                 "tipo_documento": "Documento Oficial",
                                 "pagina": str(i+1),
                                 "category": "coodi_manual",
-                                "codigo_oa": oa_asignado  # El metadato ahora es dinámico e inteligente
+                                "codigo_oa": oa_asignado
                             }
                         })
 
@@ -172,7 +169,7 @@ def procesar_pdfs_tecnicos_y_etiquetar(carpeta):
     return fragmentos
 
 
-# 8. Ejecución Principal
+# Ejecución principal
 print("Iniciando Ingesta Inteligente de COODI...")
 textos_para_procesar = procesar_pdfs_tecnicos_y_etiquetar(CARPETA_PDFS)
 
@@ -199,7 +196,7 @@ else:
             "values": respuesta.data[0].embedding,
             "metadata": {"texto": item["texto"], **item["metadatos"]}
         })
-        time.sleep(0.02)  # Pequeña pausa para no saturar la API
+        time.sleep(0.02)
 
     # Subir a Pinecone en lotes de 100
     print("Subiendo vectores a Pinecone...")
