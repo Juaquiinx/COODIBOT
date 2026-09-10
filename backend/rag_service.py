@@ -79,22 +79,42 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
 
         candidatos_pinecone = []
 
-        for match in res_tec.matches:
-            score = match.score
+        # Filtrar por umbral de similitud
+        fragmentos_validos = [
+            match for match in res_tec.matches if match.score >= 0.15]
 
-            if score >= 0.15:
-                texto = match.metadata.get("texto", "")
-                contexto_recuperado += texto + "\n\n---\n\n"
-                fragmentos_utilizados += 1
+        # Reranking: Asignar mayor peso si el metadato coincide con el curso detectado
+        def calcular_peso_rerank(match):
+            peso = match.score
+            if curso_detectado:
+                # Buscamos si el curso (ej. "5B") está en el código OA o en un campo curso
+                codigo_oa = match.metadata.get("codigo_oa", "").upper()
+                curso_meta = match.metadata.get("curso", "").upper()
 
-                ids_pinecone_utilizados.append(match.id)
+                if curso_detectado in codigo_oa or curso_detectado in curso_meta:
+                    peso += 1.0  # Boost matemático: lo empuja al inicio de la lista
+            return peso
 
-                codigo = match.metadata.get("codigo_oa", "Ninguno")
-                if codigo not in ["Ninguno", "OA no identificado"]:
-                    lista_codigos = [c.strip() for c in codigo.split(",")]
-                    for c in lista_codigos:
-                        if c in diccionario_oas and c not in candidatos_pinecone:
-                            candidatos_pinecone.append(c)
+        # Ordenar la lista aplicando el peso de mayor a menor
+        fragmentos_rerankeados = sorted(
+            fragmentos_validos, key=calcular_peso_rerank, reverse=True)
+
+        # Top 5 definitivo (como indica la Figura 6 de tu informe)
+        fragmentos_rerankeados = fragmentos_rerankeados[:5]
+
+        # Construir el contexto y extraer OAs con la lista ya reordenada
+        for match in fragmentos_rerankeados:
+            texto = match.metadata.get("texto", "")
+            contexto_recuperado += texto + "\n\n---\n\n"
+            fragmentos_utilizados += 1
+            ids_pinecone_utilizados.append(match.id)
+
+            codigo = match.metadata.get("codigo_oa", "Ninguno")
+            if codigo not in ["Ninguno", "OA no identificado"]:
+                lista_codigos = [c.strip() for c in codigo.split(",")]
+                for c in lista_codigos:
+                    if c in diccionario_oas and c not in candidatos_pinecone:
+                        candidatos_pinecone.append(c)
 
         lista_codigos_guardados = []
 
