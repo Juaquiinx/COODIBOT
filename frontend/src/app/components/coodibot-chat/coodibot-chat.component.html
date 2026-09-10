@@ -1,0 +1,48 @@
+<button class="chat-fab" *ngIf="!isOpen" (click)="toggleChat()">
+  <img src="assets/images/coodiboticono.png" alt="Abrir Chat" />
+</button>
+
+<div class="chat-container" *ngIf="isOpen">
+
+  <div class="chat-header">
+    <img src="assets/images/coodiboticono.png" alt="Coodibot" class="chat-icon">
+    <h3>COODIBOT</h3>
+    <button class="close-btn" (click)="toggleChat()">✖</button>
+  </div>
+
+  <div class="chat-body" #chatBody>
+
+    <div *ngFor="let msg of chatHistory" [ngClass]="msg.role"
+      style="display: flex; flex-direction: column; width: 100%;">
+
+      <div class="burbuja" *ngIf="msg.role === 'user'">
+        {{ msg.content }}
+      </div>
+
+      <div class="burbuja-bot-container" *ngIf="msg.role === 'bot'">
+        <div class="burbuja" [innerHTML]="msg.content"></div>
+
+        <div class="feedback-buttons" *ngIf="msg.mensaje_id">
+          <button [class.active]="msg.calificacion === 1" (click)="calificarMensaje(msg, 1)" title="Buena respuesta">
+            👍
+          </button>
+          <button [class.active]="msg.calificacion === -1" (click)="calificarMensaje(msg, -1)" title="Mala respuesta">
+            👎
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="cargando" class="bot" style="display: flex; flex-direction: column; width: 100%;">
+      <div class="burbuja cargando">Procesando respuesta... 🤖</div>
+    </div>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" [(ngModel)]="userMessage" (keyup.enter)="sendMessage()"
+      placeholder="Pregunta sobre actividades o OAs...">
+    <button (click)="sendMessage()">Enviar</button>
+  </div>
+
+</div>

@@ -1,0 +1,1658 @@
+{
+    "Tecnologia": [
+        {
+            "id": "TEC-1B-OA1",
+            "nivel": "1º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Crear diseños de objetos tecnológicos, representando sus ideas a través de dibujos a mano alzada o modelos concretos, desde sus propias experiencias y tópicos de otras asignaturas, con orientación del profesor. "
+        },
+        {
+            "id": "TEC-1B-OA2",
+            "nivel": "1º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Distinguir las tareas para elaborar un objeto tecnológico, identificando los materiales y las herramientas necesarias en cada una de ellas para lograr el resultado deseado. "
+        },
+        {
+            "id": "TEC-1B-OA3",
+            "nivel": "1º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Elaborar un objeto tecnológico según las indicaciones del profesor, seleccionando y experimentando con: técnicas y herramientas para medir, cortar, plegar, unir, pegar, pintar, entre otras; materiales como papeles, fibras, plásticos, desechos, entre otros. "
+        },
+        {
+            "id": "TEC-1B-OA4",
+            "nivel": "1º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Probar y explicar los resultados de los trabajos propios y de otros, de forma individual o en equipos, dialogando sobre sus ideas e identificando lo que podría hacerse de otra manera. "
+        },
+        {
+            "id": "TEC-1B-OA5",
+            "nivel": "1º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar software de dibujo para crear y representar ideas por medio de imágenes, guiados por el docente. "
+        },
+        {
+            "id": "TEC-1B-OA6",
+            "nivel": "1º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Explorar y usar una variedad de software educativos (simuladores, libros digitales, interactivos y creativos, entre otros) para lograr aprendizajes significativos y una interacción apropiada con las TIC. "
+        },
+        {
+            "id": "TEC-2B-OA1",
+            "nivel": "2º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Crear diseños de objetos tecnológicos, representando sus ideas a través de dibujos a mano alzada o modelos concretos, desde ámbitos cercanos y tópicos de otras asignaturas, con orientación del profesor. "
+        },
+        {
+            "id": "TEC-2B-OA2",
+            "nivel": "2º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Organizar las tareas para elaborar un objeto tecnológico, distinguiendo las acciones, los materiales y las herramientas necesarias para lograr el resultado deseado. "
+        },
+        {
+            "id": "TEC-2B-OA3",
+            "nivel": "2º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Elaborar un objeto tecnológico según las indicaciones del profesor, seleccionando y experimentando con: técnicas y herramientas para medir, cortar, plegar, unir, pegar, pintar, entre otras; materiales como papeles, fibras, plásticos, desechos, entre otros. "
+        },
+        {
+            "id": "TEC-2B-OA4",
+            "nivel": "2º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Probar y explicar los resultados de los trabajos propios y de otros, de forma individual o en equipos, dialogando sobre sus ideas y señalando cómo podría mejorar el trabajo en el futuro. "
+        },
+        {
+            "id": "TEC-2B-OA5",
+            "nivel": "2º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar software de dibujo para crear y representar diferentes ideas por medio de imágenes. "
+        },
+        {
+            "id": "TEC-2B-OA6",
+            "nivel": "2º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar procesador de textos para crear, editar y guardar información. "
+        },
+        {
+            "id": "TEC-2B-OA7",
+            "nivel": "2º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar internet para acceder y extraer información siguiendo las indicaciones del profesor y considerando la seguridad de la fuente. "
+        },
+        {
+            "id": "TEC-3B-OA1",
+            "nivel": "3º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas: desde diversos ámbitos tecnológicos y tópicos de otras asignaturas; representando sus ideas a través de dibujos a mano alzada, modelos concretos o usando TIC; explorando y combinando productos existentes. "
+        },
+        {
+            "id": "TEC-3B-OA2",
+            "nivel": "3º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Planificar la elaboración de un objeto tecnológico, incorporando la secuencia de acciones, materiales, herramientas, técnicas y medidas de seguridad necesarias para lograr el resultado deseado. "
+        },
+        {
+            "id": "TEC-3B-OA3",
+            "nivel": "3º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Elaborar un objeto tecnológico para resolver problemas, seleccionando y demostrando dominio de: técnicas y herramientas para medir, marcar, cortar, plegar, unir, pegar, pintar, entre otras; materiales como papeles, cartones, fibras, plásticos, cerámicos, desechos, entre otros. "
+        },
+        {
+            "id": "TEC-3B-OA4",
+            "nivel": "3º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Probar y evaluar la calidad de los trabajos propios o de otros, de forma individual o en equipos, aplicando criterios técnicos, medioambientales y de seguridad y dialogando sobre sus resultados e ideas de mejoramiento. "
+        },
+        {
+            "id": "TEC-3B-OA5",
+            "nivel": "3º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar software de presentación para organizar y comunicar ideas con diferentes propósitos. "
+        },
+        {
+            "id": "TEC-3B-OA6",
+            "nivel": "3º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar procesador de textos para crear, editar, dar formato y guardar información. "
+        },
+        {
+            "id": "TEC-3B-OA7",
+            "nivel": "3º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar internet y buscadores para localizar, extraer y almacenar información, considerando la seguridad de la fuente. "
+        },
+        {
+            "id": "TEC-4B-OA1",
+            "nivel": "4º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas: desde diversos ámbitos tecnológicos y tópicos de otras asignaturas; representando sus ideas a través de dibujos a mano alzada, dibujo técnico o usando TIC; explorando y transformando productos existentes. "
+        },
+        {
+            "id": "TEC-4B-OA2",
+            "nivel": "4º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Planificar la elaboración de un objeto tecnológico, incorporando la secuencia de acciones, materiales, herramientas, técnicas y medidas de seguridad necesarias para lograr el resultado deseado, y discutiendo las implicancias ambientales de los recursos utilizados. "
+        },
+        {
+            "id": "TEC-4B-OA3",
+            "nivel": "4º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Elaborar un objeto tecnológico para resolver problemas, seleccionando y demostrando dominio de: técnicas y herramientas para medir, marcar, cortar, unir, pintar, perforar, serrar, plegar y pegar, entre otras; materiales como papeles, cartones, maderas, fibras, plásticos, cerámicos, desechos, entre otros. "
+        },
+        {
+            "id": "TEC-4B-OA4",
+            "nivel": "4º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Probar y evaluar la calidad de los trabajos propios o de otros, de forma individual o en equipos, aplicando criterios de funcionamiento, técnicos, medioambientales y de seguridad, y dialogando sobre sus resultados e ideas de mejoramiento. "
+        },
+        {
+            "id": "TEC-4B-OA5",
+            "nivel": "4º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar software para organizar y comunicar ideas e información con diferentes propósitos mediante: programas de presentación para mostrar imágenes, diagramas y textos, entre otros; hojas de cálculo para ordenar datos y elaborar gráficos simples. "
+        },
+        {
+            "id": "TEC-4B-OA6",
+            "nivel": "4º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar procesador de textos para crear, editar, dar formato, incorporar elementos de diseño y guardar un documento. "
+        },
+        {
+            "id": "TEC-4B-OA7",
+            "nivel": "4º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar internet y buscadores para localizar, extraer, evaluar y almacenar información, considerando la seguridad de la fuente. "
+        },
+        {
+            "id": "TEC-5B-OA1",
+            "nivel": "5º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Crear diseños de objetos o sistemas tecnológicos para resolver problemas o aprovechar oportunidades: desde diversos ámbitos tecnológicos y tópicos de otras asignaturas; representando sus ideas a través de dibujos a mano alzada, dibujo técnico o usando TIC; analizando y modificando productos. "
+        },
+        {
+            "id": "TEC-5B-OA2",
+            "nivel": "5º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Planificar la elaboración de objetos tecnológicos, incorporando la secuencia de acciones, materiales, herramientas, técnicas y medidas de seguridad necesarias o alternativas para lograr el resultado deseado, discutiendo las implicancias ambientales y sociales de los recursos utilizados. "
+        },
+        {
+            "id": "TEC-5B-OA3",
+            "nivel": "5º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Elaborar un producto tecnológico para resolver problemas y aprovechar oportunidades, seleccionando y demostrando dominio en el uso de: técnicas y herramientas para medir, marcar, cortar, unir, pegar, mezclar, lijar, serrar, perforar y pintar, entre otras; materiales como papeles, cartones, maderas, fibras, plásticos, cerámicos, metales, desechos, entre otros. "
+        },
+        {
+            "id": "TEC-5B-OA4",
+            "nivel": "5º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Probar y evaluar la calidad de los trabajos propios o de otros, de forma individual o en equipos, aplicando criterios de funcionamiento, técnicos, medioambientales, estéticos y de seguridad, y dialogando sobre sus resultados e ideas de mejoramiento. "
+        },
+        {
+            "id": "TEC-5B-OA5",
+            "nivel": "5º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar software para organizar y comunicar los resultados de investigaciones e intercambiar ideas con diferentes propósitos, mediante: programas de presentación para mostrar imágenes, diagramas y textos, entre otros; hojas de cálculo para elaborar tablas de doble entrada y elaborar gráficos de barra y línea, entre otros. "
+        },
+        {
+            "id": "TEC-5B-OA6",
+            "nivel": "5º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar procesador de textos para crear, editar, dar formato, incorporar elementos de diseño y guardar un documento. "
+        },
+        {
+            "id": "TEC-5B-OA7",
+            "nivel": "5º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar internet y comunicación en línea para compartir información de diferente carácter con otras personas, considerando la seguridad de la fuente y las normas de privacidad. "
+        },
+        {
+            "id": "TEC-6B-OA1",
+            "nivel": "6º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Crear diseños de objetos y sistemas tecnológicos para resolver problemas o aprovechar oportunidades: desde diversos ámbitos tecnológicos determinados y tópicos de otras asignaturas; representando sus ideas a través de dibujos a mano alzada, dibujo técnico o usando TIC; innovando con productos. "
+        },
+        {
+            "id": "TEC-6B-OA2",
+            "nivel": "6º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Planificar la elaboración de objetos o servicios tecnológicos, incorporando la secuencia de acciones, tiempos, costos y recursos necesarios o alternativos para lograr el resultado deseado, y discutiendo las implicancias ambientales y sociales de los elementos considerados. "
+        },
+        {
+            "id": "TEC-6B-OA3",
+            "nivel": "6º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Elaborar un producto tecnológico para resolver problemas y aprovechar oportunidades, seleccionando y demostrando dominio en el uso de: técnicas y herramientas para medir, marcar, cortar, unir, pegar, perforar, mezclar, lijar, serrar y pintar, entre otras; materiales como papeles, cartones, maderas, fibras, plásticos, cerámicos, metales, desechos, entre otros. "
+        },
+        {
+            "id": "TEC-6B-OA4",
+            "nivel": "6º básico",
+            "eje": "Diseñar, hacer y probar",
+            "descripcion": "Probar y evaluar la calidad de los trabajos propios o de otros, de forma individual o en equipos, aplicando criterios de funcionamiento, técnicos, medioambientales, estéticos y de seguridad, dialogando sobre sus resultados y aplicando correcciones según corresponda. "
+        },
+        {
+            "id": "TEC-6B-OA5",
+            "nivel": "6º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar software para organizar y comunicar los resultados de investigaciones e intercambiar ideas con diferentes propósitos, mediante: programas de presentación para mostrar imágenes, diagramas y textos, entre otros; hojas de cálculo para elaborar tablas de doble entrada y diseñar gráficos de barra simple y doble, circulares y de línea, entre otros. "
+        },
+        {
+            "id": "TEC-6B-OA6",
+            "nivel": "6º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar procesador de textos para crear, editar, dar formato, incorporar elementos de diseño, revisar y guardar un documento. "
+        },
+        {
+            "id": "TEC-6B-OA7",
+            "nivel": "6º básico",
+            "eje": "Tecnologías de la Información y la Comunicación",
+            "descripcion": "Usar internet y comunicación en línea para compartir y publicar información de diferente carácter con otras personas, considerando la seguridad de la fuente y las normas de privacidad y de uso. "
+        }
+    ],
+    "Ciencias_Naturales": [
+        {
+            "id": "CIE-1B-OA1",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Reconocer y observar, por medio de la exploración, que los seres vivos crecen, responden a estímulos del medio, se reproducen y necesitan agua, alimento y aire para vivir, comparándolos con las cosas no vivas. "
+        },
+        {
+            "id": "CIE-1B-OA2",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar y comparar animales de acuerdo a características como tamaño, cubierta corporal, estructuras de desplazamiento y hábitat, entre otras. "
+        },
+        {
+            "id": "CIE-1B-OA3",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar e identificar, por medio de la exploración, las estructuras principales de las plantas: hojas, flores, tallos y raíces. "
+        },
+        {
+            "id": "CIE-1B-OA4",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar y clasificar semillas, frutos, flores y tallos a partir de criterios como tamaño, forma, textura y color, entre otros. "
+        },
+        {
+            "id": "CIE-1B-OA5",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Reconocer y comparar diversas plantas y animales de nuestro país, considerando las características observables y proponiendo medidas para su cuidado. "
+        },
+        {
+            "id": "CIE-1B-OA6",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Identificar y describir la ubicación y la función de los sentidos, proponiendo medidas para protegerlos y para prevenir situaciones de riesgo. "
+        },
+        {
+            "id": "CIE-1B-OA7",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Describir, dar ejemplos y practicar hábitos de vida saludable para mantener el cuerpo sano y prevenir enfermedades (actividad física, aseo del cuerpo, lavado de alimentos y alimentación saludable, entre otros). "
+        },
+        {
+            "id": "CIE-1B-OA8",
+            "nivel": "1º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Explorar y describir los diferentes tipos de materiales en diversos objetos, clasificándolos según sus propiedades (goma-flexible, plástico-impermeable) e identificando su uso en la vida cotidiana. "
+        },
+        {
+            "id": "CIE-1B-OA9",
+            "nivel": "1º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Observar y describir los cambios que se producen en los materiales al aplicarles fuerza, luz, calor y agua. "
+        },
+        {
+            "id": "CIE-1B-OA10",
+            "nivel": "1º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Diseñar instrumentos tecnológicos simples, considerando diversos materiales y sus propiedades para resolver problemas cotidianos. "
+        },
+        {
+            "id": "CIE-1B-OA11",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Describir y registrar el ciclo diario y las diferencias entre el día y la noche, a partir de la observación del Sol, la Luna, las estrellas y la luminosidad del cielo, entre otras, y sus efectos en los seres vivos y el ambiente. "
+        },
+        {
+            "id": "CIE-1B-OA12",
+            "nivel": "1º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Describir y comunicar los cambios del ciclo de las estaciones y sus efectos en los seres vivos y el ambiente. "
+        },
+        {
+            "id": "CIE-2B-OA1",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar, describir y clasificar los vertebrados en mamíferos, aves, reptiles, anfibios y peces, a partir de características como cubierta corporal, presencia de mamas y estructuras para la respiración, entre otras. "
+        },
+        {
+            "id": "CIE-2B-OA2",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar, describir y clasificar, por medio de la exploración, las características de los animales sin columna vertebral, como insectos, arácnidos, crustáceos, entre otros, y compararlos con los vertebrados. "
+        },
+        {
+            "id": "CIE-2B-OA3",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar y comparar las características de las etapas del ciclo de vida de distintos animales (mamíferos, aves, insectos y anfibios), relacionándolas con su hábitat. "
+        },
+        {
+            "id": "CIE-2B-OA4",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar y comparar las características de distintos hábitat, identificando la luminosidad, la humedad y la temperatura necesarias para la supervivencia de los animales que habitan en él. "
+        },
+        {
+            "id": "CIE-2B-OA5",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar e identificar algunos animales nativos que se encuentran en peligro de extinción, así como el deterioro de su hábitat, proponiendo medidas para protegerlos. "
+        },
+        {
+            "id": "CIE-2B-OA6",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Identificar y comunicar los efectos de la actividad humana sobre los animales y su hábitat. "
+        },
+        {
+            "id": "CIE-2B-OA7",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Identificar la ubicación y explicar la función de algunas partes del cuerpo que son fundamentales para vivir: corazón, pulmones, estómago, esqueleto y músculos. "
+        },
+        {
+            "id": "CIE-2B-OA8",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Explicar la importancia de la actividad física para el desarrollo de los músculos y el fortalecimiento del corazón, proponiendo formas de ejercitarla e incorporarla en sus hábitos diarios. "
+        },
+        {
+            "id": "CIE-2B-OA9",
+            "nivel": "2º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Observar y describir, por medio de la investigación experimental, algunas características del agua, como: escurrir, adaptarse a la forma del recipiente, disolver algunos sólidos, como el azúcar y la sal, ser transparente e inodora, evaporarse y congelarse con los cambios de temperatura. "
+        },
+        {
+            "id": "CIE-2B-OA10",
+            "nivel": "2º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Identificar y comparar, por medio de la exploración, los estados sólido, líquido y gaseoso del agua. "
+        },
+        {
+            "id": "CIE-2B-OA11",
+            "nivel": "2º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Describir el ciclo del agua en la naturaleza, reconociendo que el agua es un recurso preciado y proponiendo acciones cotidianas para su cuidado. "
+        },
+        {
+            "id": "CIE-2B-OA12",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Reconocer y describir algunas características del tiempo atmosférico, como precipitaciones (lluvia, granizo, nieve), viento y temperatura ambiente, entre otras, y sus cambios a lo largo del año. "
+        },
+        {
+            "id": "CIE-2B-OA13",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Medir algunas características del tiempo atmosférico, construyendo y/o usando algunos instrumentos tecnológicos útiles para su localidad, como termómetro, pluviómetro o veleta. "
+        },
+        {
+            "id": "CIE-2B-OA14",
+            "nivel": "2º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Describir la relación de los cambios del tiempo atmosférico con las estaciones del año y sus efectos sobre los seres vivos y el ambiente. "
+        },
+        {
+            "id": "CIE-3B-OA1",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar y describir, por medio de la investigación experimental, las necesidades de las plantas y su relación con la raíz, el tallo y las hojas. "
+        },
+        {
+            "id": "CIE-3B-OA2",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar, registrar e identificar variadas plantas de nuestro país, incluyendo vegetales autóctonos y cultivos principales a nivel nacional y regional. "
+        },
+        {
+            "id": "CIE-3B-OA3",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar y describir algunos cambios de las plantas con flor durante su ciclo de vida (germinación, crecimiento, reproducción, formación de la flor y del fruto), reconociendo la importancia de la polinización y de la dispersión de la semilla. "
+        },
+        {
+            "id": "CIE-3B-OA4",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Describir la importancia de las plantas para los seres vivos, el ser humano y el medioambiente, proponiendo y comunicando medidas de cuidado. "
+        },
+        {
+            "id": "CIE-3B-OA5",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Explicar la importancia de usar adecuadamente los recursos, proponiendo acciones y construyendo instrumentos tecnológicos para reutilizarlos, reducirlos y reciclarlos en la casa y en la escuela. "
+        },
+        {
+            "id": "CIE-3B-OA6",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Clasificar los alimentos, distinguiendo sus efectos sobre la salud, y proponer hábitos alimenticios saludables. "
+        },
+        {
+            "id": "CIE-3B-OA7",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Proponer, comunicar y ejercitar buenas prácticas de higiene en la manipulación de alimentos para prevenir enfermedades. "
+        },
+        {
+            "id": "CIE-3B-OA8",
+            "nivel": "3º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Distinguir fuentes naturales y artificiales de luz, como el Sol, las ampolletas y el fuego, entre otras. "
+        },
+        {
+            "id": "CIE-3B-OA9",
+            "nivel": "3º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Investigar experimentalmente y explicar algunas características de la luz; por ejemplo: viaja en línea recta, se refleja, puede ser separada en colores. "
+        },
+        {
+            "id": "CIE-3B-OA10",
+            "nivel": "3º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Investigar experimentalmente y explicar las características del sonido; por ejemplo: viaja en todas las direcciones, se absorbe o se refleja, se transmite por medio de distintos materiales, tiene tono e intensidad. "
+        },
+        {
+            "id": "CIE-3B-OA11",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Describir las características de algunos de los componentes del Sistema Solar (Sol, planetas, lunas, cometas y asteroides) en relación con su tamaño, localización, apariencia y distancia relativa a la Tierra, entre otros. "
+        },
+        {
+            "id": "CIE-3B-OA12",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Explicar, por medio de modelos, los movimientos de rotación y traslación, considerando sus efectos en la Tierra. "
+        },
+        {
+            "id": "CIE-3B-OA13",
+            "nivel": "3º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Diseñar y construir modelos tecnológicos para explicar eventos del Sistema Solar, como la sucesión de las fases de la Luna y los eclipses de Luna y de Sol, entre otros. "
+        },
+        {
+            "id": "CIE-4B-OA1",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Reconocer, por medio de la exploración, que un ecosistema está compuesto por elementos vivos (animales, plantas, etc.) y no vivos (piedras, agua, tierra, etc.) que interactúan entre sí. "
+        },
+        {
+            "id": "CIE-4B-OA2",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Observar y comparar adaptaciones de plantas y animales para sobrevivir en los ecosistemas en relación con su estructura y conducta; por ejemplo: cubierta corporal, camuflaje, tipo de hojas, hibernación, entre otras. "
+        },
+        {
+            "id": "CIE-4B-OA3",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Dar ejemplos de cadenas alimentarias, identificando la función de los organismos productores, consumidores y descomponedores, en diferentes ecosistemas de Chile. "
+        },
+        {
+            "id": "CIE-4B-OA4",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Analizar los efectos de la actividad humana en ecosistemas de Chile, proponiendo medidas para protegerlos (parques nacionales y vedas, entre otras). "
+        },
+        {
+            "id": "CIE-4B-OA5",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Identificar y describir, usando modelos, estructuras del sistema esquelético y algunas de sus funciones, como protección (costillas y cráneo), soporte (vértebras y columna vertebral) y movimiento (pelvis y fémur). "
+        },
+        {
+            "id": "CIE-4B-OA6",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Explicar, con apoyo de modelos, el movimiento del cuerpo, considerando la acción coordinada de músculos, huesos, tendones y articulación, y describir los beneficios de la actividad física para el sistema músculo-esquelético. "
+        },
+        {
+            "id": "CIE-4B-OA7",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Identificar estructuras del sistema nervioso y describir algunas de sus funciones, como conducción de información (médula espinal y nervios) y elaboración y control (cerebro). "
+        },
+        {
+            "id": "CIE-4B-OA8",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Investigar en diversas fuentes y comunicar los efectos que produce el consumo excesivo de alcohol en la salud humana (como descoordinación, confusión y lentitud, entre otras). "
+        },
+        {
+            "id": "CIE-4B-OA9",
+            "nivel": "4º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Demostrar, por medio de la investigación experimental, que la materia tiene masa y ocupa espacio, usando materiales del entorno. "
+        },
+        {
+            "id": "CIE-4B-OA10",
+            "nivel": "4º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Comparar los tres estados de la materia (sólido, líquido y gaseoso) en relación con criterios como la capacidad de fluir y cambiar de forma y volumen, entre otros. "
+        },
+        {
+            "id": "CIE-4B-OA11",
+            "nivel": "4º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Medir la masa, el volumen y la temperatura de la materia (en estados sólido, líquido y gaseoso), utilizando instrumentos y unidades de medida apropiados. "
+        },
+        {
+            "id": "CIE-4B-OA12",
+            "nivel": "4º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Demostrar, por medio de la investigación experimental, los efectos de la aplicación de fuerzas sobre objetos, considerando cambios en la forma, la rapidez y la dirección del movimiento, entre otros. "
+        },
+        {
+            "id": "CIE-4B-OA13",
+            "nivel": "4º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Identificar, por medio de la investigación experimental, diferentes tipos de fuerzas y sus efectos en situaciones concretas: fuerza de roce (arrastrando objetos), peso (fuerza de gravedad), fuerza magnética (en imanes). "
+        },
+        {
+            "id": "CIE-4B-OA14",
+            "nivel": "4º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Diseñar y construir objetos tecnológicos que usen la fuerza, para resolver problemas cotidianos. "
+        },
+        {
+            "id": "CIE-4B-OA15",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Describir, por medio de modelos, que la Tierra tiene una estructura de capas (corteza, manto y núcleo) con características distintivas en cuanto a su composición, rigidez y temperatura. "
+        },
+        {
+            "id": "CIE-4B-OA16",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Explicar los cambios de la superficie de la Tierra a partir de la interacción de sus capas y los movimientos de las placas tectónicas (sismos, tsunamis y erupciones volcánicas). "
+        },
+        {
+            "id": "CIE-4B-OA17",
+            "nivel": "4º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Proponer medidas de prevención y seguridad ante riesgos naturales en la escuela, la calle y el hogar, para desarrollar una cultura preventiva. "
+        },
+        {
+            "id": "CIE-5B-OA1",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Reconocer y explicar que los seres vivos están formados por una o más células y que estas se organizan en tejidos, órganos y sistemas. "
+        },
+        {
+            "id": "CIE-5B-OA2",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Identificar y describir, por medio de modelos, las estructuras básicas del sistema digestivo (boca, esófago, estómago, hígado, intestino delgado, intestino grueso, recto y ano) y sus funciones en la digestión, la absorción de alimentos y la eliminación de desechos. "
+        },
+        {
+            "id": "CIE-5B-OA3",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Explicar, por medio de modelos, la respiración (inspiración-espiración-intercambio de oxígeno y dióxido de carbono), identificando las estructuras básicas del sistema respiratorio. "
+        },
+        {
+            "id": "CIE-5B-OA4",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Explicar la función de transporte del sistema circulatorio (sustancias alimenticias, oxígeno y dióxido de carbono), identificando sus estructuras básicas (corazón, vasos sanguíneos y sangre). "
+        },
+        {
+            "id": "CIE-5B-OA5",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Analizar el consumo de alimento diario (variedad, tamaño y frecuencia de porciones), reconociendo los alimentos para el crecimiento, la reparación, el desarrollo y el movimiento del cuerpo. "
+        },
+        {
+            "id": "CIE-5B-OA6",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Investigar en diversas fuentes y comunicar los efectos nocivos que produce el cigarrillo (humo del tabaco) en los sistemas respiratorio y circulatorio. "
+        },
+        {
+            "id": "CIE-5B-OA7",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Investigar e identificar algunos microorganismos beneficiosos y dañinos para la salud (bacterias, virus y hongos), y proponer medidas de cuidado e higiene del cuerpo. "
+        },
+        {
+            "id": "CIE-5B-OA8",
+            "nivel": "5º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Reconocer los cambios que experimenta la energía eléctrica al pasar de una forma a otra (eléctrica a calórica, sonora, lumínica, etc.) e investigar los principales aportes de científicos en su estudio a lo largo del tiempo. "
+        },
+        {
+            "id": "CIE-5B-OA9",
+            "nivel": "5º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Construir un circuito eléctrico simple (cable, ampolleta, interruptor y pila), usarlo para resolver problemas cotidianos y explicar su funcionamiento. "
+        },
+        {
+            "id": "CIE-5B-OA10",
+            "nivel": "5º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Observar y distinguir, por medio de la investigación experimental, los materiales conductores (cobre y aluminio) y aisladores (plásticos y goma) de electricidad, relacionándolos con la manipulación segura de artefactos tecnológicos y circuitos eléctricos domiciliarios. "
+        },
+        {
+            "id": "CIE-5B-OA11",
+            "nivel": "5º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Explicar la importancia de la energía eléctrica en la vida cotidiana y proponer medidas para promover su ahorro y su uso responsable. "
+        },
+        {
+            "id": "CIE-5B-OA12",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Describir la distribución del agua dulce y salada en la Tierra, considerando océanos, glaciares, ríos y lagos, aguas subterráneas, nubes, vapor de agua, etc., y comparar sus volúmenes, reconociendo la escasez relativa de agua dulce. "
+        },
+        {
+            "id": "CIE-5B-OA13",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Analizar y describir las características de los océanos y lagos: variación de temperatura, luminosidad y presión en relación con la profundidad; diversidad de flora y fauna; movimiento de las aguas, como olas, mareas, corrientes (El Niño y Humboldt). "
+        },
+        {
+            "id": "CIE-5B-OA14",
+            "nivel": "5º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Investigar y explicar efectos positivos y negativos de la actividad humana en océanos, lagos, ríos, glaciares, entre otros, proponiendo acciones de protección de las reservas hídricas en Chile y comunicando sus resultados. "
+        },
+        {
+            "id": "CIE-6B-OA1",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Explicar, a partir de una investigación experimental, los requerimientos de agua, dióxido de carbono y energía lumínica para la producción de azúcar y la liberación de oxígeno en la fotosíntesis, comunicando sus resultados y los aportes de científicos en este campo a lo largo del tiempo. "
+        },
+        {
+            "id": "CIE-6B-OA2",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Representar, por medio de modelos, la transferencia de energía y materia desde los organismos fotosintéticos a otros seres vivos por medio de cadenas y redes alimentarias en diferentes ecosistemas. "
+        },
+        {
+            "id": "CIE-6B-OA3",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Analizar los efectos de la actividad humana sobre las redes alimentarias. "
+        },
+        {
+            "id": "CIE-6B-OA4",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Identificar y describir las funciones de las principales estructuras del sistema reproductor humano femenino y masculino. "
+        },
+        {
+            "id": "CIE-6B-OA5",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Describir y comparar los cambios que se producen en la pubertad en mujeres y hombres, reconociéndola como una etapa del desarrollo humano. "
+        },
+        {
+            "id": "CIE-6B-OA6",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Reconocer los beneficios de realizar actividad física en forma regular y de cuidar la higiene corporal en el período de la pubertad. "
+        },
+        {
+            "id": "CIE-6B-OA7",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Vida",
+            "descripcion": "Investigar y comunicar los efectos nocivos de algunas drogas para la salud, proponiendo conductas de protección. "
+        },
+        {
+            "id": "CIE-6B-OA8",
+            "nivel": "6º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Explicar que la energía es necesaria para que los objetos cambien y los seres vivos realicen sus procesos vitales, y que la mayoría de los recursos energéticos proviene directa o indirectamente del Sol, dando ejemplos de ello. "
+        },
+        {
+            "id": "CIE-6B-OA9",
+            "nivel": "6º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Investigar en forma experimental la transformación de la energía de una forma a otra, dando ejemplos y comunicando sus conclusiones. "
+        },
+        {
+            "id": "CIE-6B-OA10",
+            "nivel": "6º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Demostrar, por medio de la investigación experimental, que el calor fluye de un objeto caliente a uno frío hasta que ambos alcanzan la misma temperatura. "
+        },
+        {
+            "id": "CIE-6B-OA11",
+            "nivel": "6º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Clasificar los recursos naturales energéticos en no renovables y renovables y proponer medidas para el uso responsable de la energía. "
+        },
+        {
+            "id": "CIE-6B-OA12",
+            "nivel": "6º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Explicar, a partir de modelos, que la materia está formada por partículas en movimiento en sus estados sólido, líquido y gaseoso. "
+        },
+        {
+            "id": "CIE-6B-OA13",
+            "nivel": "6º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Demostrar, mediante la investigación experimental, los cambios de estado de la materia, como fusión, evaporación, ebullición, condensación, solidificación y sublimación. "
+        },
+        {
+            "id": "CIE-6B-OA14",
+            "nivel": "6º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Diferenciar entre calor y temperatura, considerando que el calor es una forma de energía y la temperatura es la medida de lo caliente de un objeto. "
+        },
+        {
+            "id": "CIE-6B-OA15",
+            "nivel": "6º básico",
+            "eje": "Ciencias Físicas y Químicas",
+            "descripcion": "Medir e interpretar la información obtenida al calentar y enfriar el agua, considerando las transformaciones de un estado a otro. "
+        },
+        {
+            "id": "CIE-6B-OA16",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Describir las características de las capas de la Tierra (atmósfera, litósfera e hidrósfera) que posibilitan el desarrollo de la vida y proveen recursos para el ser humano, y proponer medidas de protección de dichas capas. "
+        },
+        {
+            "id": "CIE-6B-OA17",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Investigar experimentalmente la formación del suelo, sus propiedades (como color, textura y capacidad de retención de agua) y la importancia de protegerlo de la contaminación, comunicando sus resultados. "
+        },
+        {
+            "id": "CIE-6B-OA18",
+            "nivel": "6º básico",
+            "eje": "Ciencias de la Tierra y el Universo",
+            "descripcion": "Explicar las consecuencias de la erosión sobre la superficie de la Tierra, identificando los agentes que la provocan, como el viento, el agua y las actividades humanas. "
+        }
+    ],
+    "Matematica": [
+        {
+            "id": "MAT-1B-OA1",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Contar números del 0 al 100 de 1 en 1, de 2 en 2, de 5 en 5 y de 10 en 10, hacia adelante y hacia atrás, empezando por cualquier número menor que 100. "
+        },
+        {
+            "id": "MAT-1B-OA2",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Identificar el orden de los elementos de una serie, utilizando números ordinales del primero (1º) al décimo (10º). "
+        },
+        {
+            "id": "MAT-1B-OA3",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Leer números del 0 al 20 y representarlos en forma concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-1B-OA4",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Comparar y ordenar números del 0 al 20 de menor a mayor y/o viceversa, utilizando material concreto y/o usando software educativo. "
+        },
+        {
+            "id": "MAT-1B-OA5",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Estimar cantidades hasta 20 en situaciones concretas, usando un referente. "
+        },
+        {
+            "id": "MAT-1B-OA6",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Componer y descomponer números del 0 a 20 de manera aditiva, en forma concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-1B-OA7",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Describir y aplicar estrategias de cálculo mental para las adiciones y las sustracciones hasta 20: conteo hacia adelante y atrás, completar 10, dobles. "
+        },
+        {
+            "id": "MAT-1B-OA8",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Determinar las unidades y decenas en números del 0 al 20, agrupando de a 10, de manera concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-1B-OA9",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la adición y la sustracción de números del 0 al 20 progresivamente, de 0 a 5, de 6 a 10, de 11 a 20 con dos sumandos, usando un lenguaje cotidiano, material concreto, y resolviendo problemas en contextos familiares. "
+        },
+        {
+            "id": "MAT-1B-OA10",
+            "nivel": "1º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que la adición y la sustracción son operaciones inversas, de manera concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-1B-OA11",
+            "nivel": "1º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Reconocer, describir, crear y continuar patrones repetitivos (sonidos, figuras, ritmos...) y patrones numéricos hasta el 20, crecientes y decrecientes. "
+        },
+        {
+            "id": "MAT-1B-OA12",
+            "nivel": "1º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Describir y registrar la igualdad y la desigualdad como equilibrio y desequilibrio, usando una balanza en forma concreta, pictórica y simbólica del 0 al 20, usando el símbolo igual (=). "
+        },
+        {
+            "id": "MAT-1B-OA13",
+            "nivel": "1º básico",
+            "eje": "Geometría",
+            "descripcion": "Describir la posición de objetos y personas con relación a sí mismos y a otros objetos y personas, usando un lenguaje común (como derecha e izquierda). "
+        },
+        {
+            "id": "MAT-1B-OA14",
+            "nivel": "1º básico",
+            "eje": "Geometría",
+            "descripcion": "Identificar en el entorno figuras 3D y figuras 2D y relacionarlas, usando material concreto. "
+        },
+        {
+            "id": "MAT-1B-OA15",
+            "nivel": "1º básico",
+            "eje": "Geometría",
+            "descripcion": "Identificar y dibujar líneas rectas y curvas. "
+        },
+        {
+            "id": "MAT-1B-OA16",
+            "nivel": "1º básico",
+            "eje": "Medición",
+            "descripcion": "Usar unidades no estandarizadas de tiempo para comparar la duración de eventos cotidianos. "
+        },
+        {
+            "id": "MAT-1B-OA17",
+            "nivel": "1º básico",
+            "eje": "Medición",
+            "descripcion": "Usar un lenguaje cotidiano para secuenciar eventos en el tiempo: días de la semana, meses del año y algunas fechas significativas. "
+        },
+        {
+            "id": "MAT-1B-OA18",
+            "nivel": "1º básico",
+            "eje": "Medición",
+            "descripcion": "Identificar y comparar la longitud de objetos, usando palabras como largo y corto. "
+        },
+        {
+            "id": "MAT-1B-OA19",
+            "nivel": "1º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Recolectar y registrar datos para responder preguntas estadísticas sobre sí mismo y el entorno, usando bloques, tablas de conteo y pictogramas. "
+        },
+        {
+            "id": "MAT-1B-OA20",
+            "nivel": "1º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Construir, leer e interpretar pictogramas. "
+        },
+        {
+            "id": "MAT-2B-OA1",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Contar números del 0 al 1 000 de 2 en 2, de 5 en 5, de 10 en 10 y de 100 en 100, hacia adelante y hacia atrás, empezando por cualquier número menor que 1 000. "
+        },
+        {
+            "id": "MAT-2B-OA2",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Leer números del 0 al 100 y representarlos en forma concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-2B-OA3",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Comparar y ordenar números del 0 al 100 de menor a mayor y viceversa, usando material concreto y monedas nacionales. "
+        },
+        {
+            "id": "MAT-2B-OA4",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Estimar cantidades hasta 100 en situaciones concretas, usando un referente. "
+        },
+        {
+            "id": "MAT-2B-OA5",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Componer y descomponer números del 0 a 100 de manera aditiva, en forma concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-2B-OA6",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Describir y aplicar estrategias de cálculo mental para adiciones y sustracciones hasta 20: completar 10, usar dobles y mitades, uno más uno menos, dos más dos menos. "
+        },
+        {
+            "id": "MAT-2B-OA7",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Identificar las unidades y decenas en números del 0 al 100, representando las cantidades de acuerdo a su valor posicional. "
+        },
+        {
+            "id": "MAT-2B-OA8",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Demostrar y explicar de manera concreta, pictórica y simbólica el efecto de sumar y restar 0 a un número. "
+        },
+        {
+            "id": "MAT-2B-OA9",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Demostrar que comprende la adición y la sustracción en el ámbito del 0 al 100 aplicando los resultados de las adiciones y resolviendo problemas matemáticos. "
+        },
+        {
+            "id": "MAT-2B-OA10",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Demostrar que comprende la relación entre la adición y la sustracción al usar la “familia de operaciones” en cálculos aritméticos y la resolución de problemas. "
+        },
+        {
+            "id": "MAT-2B-OA11",
+            "nivel": "2º básico",
+            "eje": "Números y operaciones",
+            "descripcion": "Demostrar que comprende la multiplicación usando representaciones concretas y pictóricas, expresando una multiplicación como una adición de sumandos iguales y usando la distributividad para las tablas del 2, 5 y 10. "
+        },
+        {
+            "id": "MAT-2B-OA12",
+            "nivel": "2º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Crear, representar y continuar una variedad de patrones numéricos y completar los elementos faltantes. "
+        },
+        {
+            "id": "MAT-2B-OA13",
+            "nivel": "2º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Demostrar, explicar y registrar la igualdad y la desigualdad en forma concreta y pictórica del 0 al 20, usando el símbolo igual (=) y los símbolos no igual (>, <). "
+        },
+        {
+            "id": "MAT-2B-OA14",
+            "nivel": "2º básico",
+            "eje": "Geometría",
+            "descripcion": "Representar y describir la posición de objetos y personas con relación a sí mismos y a otros objetos y personas, incluyendo derecha e izquierda. "
+        },
+        {
+            "id": "MAT-2B-OA15",
+            "nivel": "2º básico",
+            "eje": "Geometría",
+            "descripcion": "Describir, comparar y construir figuras 2D (triángulos, cuadrados, rectángulos y círculos) con material concreto. "
+        },
+        {
+            "id": "MAT-2B-OA16",
+            "nivel": "2º básico",
+            "eje": "Geometría",
+            "descripcion": "Describir, comparar y construir figuras 3D (cubos, paralelepípedos, esferas y conos) con diversos materiales. "
+        },
+        {
+            "id": "MAT-2B-OA17",
+            "nivel": "2º básico",
+            "eje": "Medición",
+            "descripcion": "Identificar días, semanas, meses y fechas en el calendario. "
+        },
+        {
+            "id": "MAT-2B-OA18",
+            "nivel": "2º básico",
+            "eje": "Medición",
+            "descripcion": "Leer horas y medias horas en relojes digitales, en el contexto de la resolución de problemas. "
+        },
+        {
+            "id": "MAT-2B-OA19",
+            "nivel": "2º básico",
+            "eje": "Medición",
+            "descripcion": "Determinar la longitud de objetos, usando unidades de medidas no estandarizadas y unidades estandarizadas (cm y m). "
+        },
+        {
+            "id": "MAT-2B-OA20",
+            "nivel": "2º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Recolectar y registrar datos para responder preguntas estadísticas sobre juegos con monedas y dados, usando bloques y tablas de conteo y pictogramas. "
+        },
+        {
+            "id": "MAT-2B-OA21",
+            "nivel": "2º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Registrar en tablas y gráficos de barra simple, resultados de juegos aleatorios con dados y monedas. "
+        },
+        {
+            "id": "MAT-2B-OA22",
+            "nivel": "2º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Construir, leer e interpretar pictogramas con escala y gráficos de barra simple. "
+        },
+        {
+            "id": "MAT-3B-OA1",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Contar números del 0 al 1 000 de 5 en 5, de 10 en 10, de 100 en 100, empezando por cualquier número natural menor que 1.000. "
+        },
+        {
+            "id": "MAT-3B-OA2",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Leer números hasta 1.000 y representarlos en forma concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-3B-OA3",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Comparar y ordenar números naturales hasta 1.000, utilizando la recta numérica o la tabla posicional. "
+        },
+        {
+            "id": "MAT-3B-OA4",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Describir y aplicar estrategias de cálculo mental para las adiciones y las sustracciones hasta 100: por descomposición, completar hasta la decena, usar dobles, sumar en vez de restar. "
+        },
+        {
+            "id": "MAT-3B-OA5",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Identificar y describir las unidades, las decenas y las centenas en números del 0 al 1.000, representando las cantidades de acuerdo a su valor posicional. "
+        },
+        {
+            "id": "MAT-3B-OA6",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la adición y la sustracción de números del 0 al 1.000 usando estrategias personales y algoritmos con y sin reserva. "
+        },
+        {
+            "id": "MAT-3B-OA7",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la relación entre la adición y la sustracción, usando la “familia de operaciones” en cálculos aritméticos. "
+        },
+        {
+            "id": "MAT-3B-OA8",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden las tablas de multiplicar hasta el 10 de manera progresiva, usando la distributividad y resolviendo problemas. "
+        },
+        {
+            "id": "MAT-3B-OA9",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la división en el contexto de las tablas de hasta 10 · 10 representando la división como repartición y agrupación en partes iguales. "
+        },
+        {
+            "id": "MAT-3B-OA10",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver problemas rutinarios en contextos cotidianos, que incluyan dinero e involucren las cuatro operaciones (no combinadas). "
+        },
+        {
+            "id": "MAT-3B-OA11",
+            "nivel": "3º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden las fracciones de uso común explicando que una fracción representa la parte de un todo, describiendo situaciones y comparando fracciones. "
+        },
+        {
+            "id": "MAT-3B-OA12",
+            "nivel": "3º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Generar, describir y registrar patrones numéricos, usando una variedad de estrategias en tablas del 100. "
+        },
+        {
+            "id": "MAT-3B-OA13",
+            "nivel": "3º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Resolver ecuaciones de un paso que involucren adiciones y sustracciones y un símbolo geométrico que represente un número desconocido. "
+        },
+        {
+            "id": "MAT-3B-OA14",
+            "nivel": "3º básico",
+            "eje": "Geometría",
+            "descripcion": "Describir la localización de un objeto en un mapa simple o en una cuadrícula. "
+        },
+        {
+            "id": "MAT-3B-OA15",
+            "nivel": "3º básico",
+            "eje": "Geometría",
+            "descripcion": "Demostrar que comprenden la relación que existe entre figuras 3D y figuras 2D construyendo y desplegando figuras. "
+        },
+        {
+            "id": "MAT-3B-OA16",
+            "nivel": "3º básico",
+            "eje": "Geometría",
+            "descripcion": "Describir cubos, paralelepípedos, esferas, conos, cilindros y pirámides de acuerdo a la forma de sus caras y el número de aristas y vértices. "
+        },
+        {
+            "id": "MAT-3B-OA17",
+            "nivel": "3º básico",
+            "eje": "Geometría",
+            "descripcion": "Reconocer en el entorno figuras 2D que están trasladadas, reflejadas y rotadas. "
+        },
+        {
+            "id": "MAT-3B-OA18",
+            "nivel": "3º básico",
+            "eje": "Geometría",
+            "descripcion": "Demostrar que comprenden el concepto de ángulo identificando ejemplos y estimando medidas. "
+        },
+        {
+            "id": "MAT-3B-OA19",
+            "nivel": "3º básico",
+            "eje": "Medición",
+            "descripcion": "Leer e interpretar líneas de tiempo y calendarios. "
+        },
+        {
+            "id": "MAT-3B-OA20",
+            "nivel": "3º básico",
+            "eje": "Medición",
+            "descripcion": "Leer y registrar el tiempo en horas, medias horas, cuartos de hora y minutos en relojes análogos y digitales. "
+        },
+        {
+            "id": "MAT-3B-OA21",
+            "nivel": "3º básico",
+            "eje": "Medición",
+            "descripcion": "Demostrar que comprenden el perímetro de una figura regular e irregular determinándolo en cuadrados y rectángulos. "
+        },
+        {
+            "id": "MAT-3B-OA22",
+            "nivel": "3º básico",
+            "eje": "Medición",
+            "descripcion": "Demostrar que comprende la medición del peso (g y kg) estimando, midiendo y registrando pesos de objetos. "
+        },
+        {
+            "id": "MAT-3B-OA23",
+            "nivel": "3º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Realizar encuestas, clasificar y organizar los datos obtenidos en tablas y visualizarlos en gráficos de barra. "
+        },
+        {
+            "id": "MAT-3B-OA24",
+            "nivel": "3º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Registrar y ordenar datos obtenidos de juegos aleatorios con dados y monedas, encontrando el menor, el mayor y estimando el punto medio. "
+        },
+        {
+            "id": "MAT-3B-OA25",
+            "nivel": "3º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Construir, leer e interpretar pictogramas y gráficos de barra simple con escala, de acuerdo a información recolectada o dada. "
+        },
+        {
+            "id": "MAT-3B-OA26",
+            "nivel": "3º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Representar datos usando diagramas de puntos. "
+        },
+        {
+            "id": "MAT-4B-OA1",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Representar y describir números del 0 al 10 000: contándolos, leyéndolos, representándolos en forma concreta, pictórica y simbólica y comparándolos. "
+        },
+        {
+            "id": "MAT-4B-OA2",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Describir y aplicar estrategias de cálculo mental para determinar las multiplicaciones hasta 10 · 10 y sus divisiones correspondientes. "
+        },
+        {
+            "id": "MAT-4B-OA3",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la adición y la sustracción de números hasta 1 000, usando estrategias personales, descomponiendo y aplicando los algoritmos. "
+        },
+        {
+            "id": "MAT-4B-OA4",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Fundamentar y aplicar las propiedades del 0 y del 1 para la multiplicación y la propiedad del 1 para la división. "
+        },
+        {
+            "id": "MAT-4B-OA5",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la multiplicación de números de tres dígitos por números de un dígito utilizando tablas, aplicando el algoritmo y resolviendo problemas. "
+        },
+        {
+            "id": "MAT-4B-OA6",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la división con dividendos de dos dígitos y divisores de un dígito estimando el cociente y aplicando la estrategia por descomposición. "
+        },
+        {
+            "id": "MAT-4B-OA7",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver problemas rutinarios y no rutinarios en contextos cotidianos que incluyen dinero, seleccionando y utilizando la operación apropiada. "
+        },
+        {
+            "id": "MAT-4B-OA8",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprende las fracciones con denominadores 100, 12, 10, 8, 6, 5, 4, 3, 2, comparando, ordenando y mostrando que pueden tener representaciones diferentes. "
+        },
+        {
+            "id": "MAT-4B-OA9",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver adiciones y sustracciones de fracciones con igual denominador de manera concreta y pictórica en el contexto de la resolución de problemas. "
+        },
+        {
+            "id": "MAT-4B-OA10",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Identificar, escribir y representar fracciones propias y los números mixtos hasta el 5 de manera concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-4B-OA11",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Describir y representar decimales (décimos y centésimos) comparándolos y ordenándolos hasta la centésima. "
+        },
+        {
+            "id": "MAT-4B-OA12",
+            "nivel": "4º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver adiciones y sustracciones de decimales, empleando el valor posicional hasta la centésima en el contexto de la resolución de problemas. "
+        },
+        {
+            "id": "MAT-4B-OA13",
+            "nivel": "4º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Identificar y describir patrones numéricos en tablas que involucren una operación. "
+        },
+        {
+            "id": "MAT-4B-OA14",
+            "nivel": "4º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Resolver ecuaciones e inecuaciones de un paso que involucren adiciones y sustracciones, comprobando los resultados en forma pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-4B-OA15",
+            "nivel": "4º básico",
+            "eje": "Geometría",
+            "descripcion": "Describir la localización absoluta de un objeto en un mapa simple con coordenadas informales y la localización relativa con relación a otros objetos. "
+        },
+        {
+            "id": "MAT-4B-OA16",
+            "nivel": "4º básico",
+            "eje": "Geometría",
+            "descripcion": "Determinar las vistas de figuras 3D desde el frente, desde el lado y desde arriba. "
+        },
+        {
+            "id": "MAT-4B-OA17",
+            "nivel": "4º básico",
+            "eje": "Geometría",
+            "descripcion": "Demostrar que comprenden una línea de simetría identificando figuras simétricas 2D y dibujando una o más líneas de simetría. "
+        },
+        {
+            "id": "MAT-4B-OA18",
+            "nivel": "4º básico",
+            "eje": "Geometría",
+            "descripcion": "Trasladar, rotar y reflejar figuras 2D. "
+        },
+        {
+            "id": "MAT-4B-OA19",
+            "nivel": "4º básico",
+            "eje": "Geometría",
+            "descripcion": "Construir ángulos con el transportador y compararlos. "
+        },
+        {
+            "id": "MAT-4B-OA20",
+            "nivel": "4º básico",
+            "eje": "Medición",
+            "descripcion": "Leer y registrar diversas mediciones del tiempo en relojes análogos y digitales, usando los conceptos A.M., P.M. y 24 horas. "
+        },
+        {
+            "id": "MAT-4B-OA21",
+            "nivel": "4º básico",
+            "eje": "Medición",
+            "descripcion": "Realizar conversiones entre unidades de tiempo en el contexto de la resolución de problemas (segundos a minutos, minutos a horas, días a meses, etc.). "
+        },
+        {
+            "id": "MAT-4B-OA22",
+            "nivel": "4º básico",
+            "eje": "Medición",
+            "descripcion": "Medir longitudes con unidades estandarizadas (m, cm) y realizar transformaciones entre estas unidades (m a cm y viceversa). "
+        },
+        {
+            "id": "MAT-4B-OA23",
+            "nivel": "4º básico",
+            "eje": "Medición",
+            "descripcion": "Demostrar que comprenden el concepto de área de un rectángulo y de un cuadrado determinando y registrando el área en cm2 y m2 en contextos cercanos. "
+        },
+        {
+            "id": "MAT-4B-OA24",
+            "nivel": "4º básico",
+            "eje": "Medición",
+            "descripcion": "Demostrar que comprenden el concepto de volumen de un cuerpo seleccionando unidades no estandarizadas, midiendo y registrando en unidades de cubo. "
+        },
+        {
+            "id": "MAT-4B-OA25",
+            "nivel": "4º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Realizar encuestas, analizar los datos y comparar con los resultados de muestras aleatorias, usando tablas y gráficos. "
+        },
+        {
+            "id": "MAT-4B-OA26",
+            "nivel": "4º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Realizar experimentos aleatorios lúdicos y cotidianos, y tabular y representar mediante gráficos. "
+        },
+        {
+            "id": "MAT-4B-OA27",
+            "nivel": "4º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Leer e interpretar pictogramas y gráficos de barra simple con escala y comunicar sus conclusiones. "
+        },
+        {
+            "id": "MAT-5B-OA1",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Representar y describir números naturales de hasta más de 6 dígitos y menores que 1.000 millones, identificando valor posicional, componiendo y aproximando cantidades. "
+        },
+        {
+            "id": "MAT-5B-OA2",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Aplicar estrategias de cálculo mental para la multiplicación: anexar ceros, doblar y dividir por 2, usando propiedades conmutativa, asociativa y distributiva. "
+        },
+        {
+            "id": "MAT-5B-OA3",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la multiplicación de números naturales de dos dígitos por números naturales de dos dígitos, estimando y aplicando el algoritmo. "
+        },
+        {
+            "id": "MAT-5B-OA4",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la división con dividendos de tres dígitos y divisores de un dígito, interpretando el resto y resolviendo problemas. "
+        },
+        {
+            "id": "MAT-5B-OA5",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Realizar cálculos que involucren las cuatro operaciones, aplicando las reglas relativas a paréntesis y la prevalencia de la multiplicación y la división. "
+        },
+        {
+            "id": "MAT-5B-OA6",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver problemas rutinarios y no rutinarios que involucren las cuatro operaciones y combinaciones de ellas, incluyendo situaciones con dinero. "
+        },
+        {
+            "id": "MAT-5B-OA7",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden las fracciones propias creándolas, simplificando y amplificando, y comparando fracciones con igual y distinto denominador. "
+        },
+        {
+            "id": "MAT-5B-OA8",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden las fracciones impropias de uso común y los números mixtos asociados, identificando y determinando equivalencias. "
+        },
+        {
+            "id": "MAT-5B-OA9",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver adiciones y sustracciones con fracciones propias con denominadores menores o iguales a 12, de manera pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-5B-OA10",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Determinar el decimal que corresponde a fracciones con denominador 2, 4, 5 y 10. "
+        },
+        {
+            "id": "MAT-5B-OA11",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Comparar y ordenar decimales hasta la milésima. "
+        },
+        {
+            "id": "MAT-5B-OA12",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver adiciones y sustracciones de decimales, empleando el valor posicional hasta la milésima. "
+        },
+        {
+            "id": "MAT-5B-OA13",
+            "nivel": "5º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver problemas rutinarios y no rutinarios, aplicando adiciones y sustracciones de fracciones propias o decimales hasta la milésima. "
+        },
+        {
+            "id": "MAT-5B-OA14",
+            "nivel": "5º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Descubrir alguna regla que explique una sucesión dada y que permita hacer predicciones. "
+        },
+        {
+            "id": "MAT-5B-OA15",
+            "nivel": "5º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Resolver problemas, usando ecuaciones e inecuaciones de un paso, que involucren adiciones y sustracciones, en forma pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-5B-OA16",
+            "nivel": "5º básico",
+            "eje": "Geometría",
+            "descripcion": "Identificar y dibujar puntos en el primer cuadrante del plano cartesiano, dadas sus coordenadas en números naturales. "
+        },
+        {
+            "id": "MAT-5B-OA17",
+            "nivel": "5º básico",
+            "eje": "Geometría",
+            "descripcion": "Describir y dar ejemplos de aristas y caras de figuras 3D y lados de figuras 2D paralelos, perpendiculares o que se intersectan. "
+        },
+        {
+            "id": "MAT-5B-OA18",
+            "nivel": "5º básico",
+            "eje": "Geometría",
+            "descripcion": "Demostrar que comprenden el concepto de congruencia, usando la traslación, la reflexión y la rotación en cuadrículas y mediante software geométrico. "
+        },
+        {
+            "id": "MAT-5B-OA19",
+            "nivel": "5º básico",
+            "eje": "Medición",
+            "descripcion": "Medir longitudes con unidades estandarizadas (m, cm, mm) en el contexto de la resolución de problemas. "
+        },
+        {
+            "id": "MAT-5B-OA20",
+            "nivel": "5º básico",
+            "eje": "Medición",
+            "descripcion": "Realizar transformaciones entre unidades de medidas de longitud: km a m, m a cm, cm a mm y viceversa. "
+        },
+        {
+            "id": "MAT-5B-OA21",
+            "nivel": "5º básico",
+            "eje": "Medición",
+            "descripcion": "Diseñar y construir diferentes rectángulos, dados el perímetro, el área o ambos, y sacar conclusiones. "
+        },
+        {
+            "id": "MAT-5B-OA22",
+            "nivel": "5º básico",
+            "eje": "Medición",
+            "descripcion": "Calcular áreas de triángulos, de paralelogramos y de trapecios, y estimar áreas de figuras irregulares. "
+        },
+        {
+            "id": "MAT-5B-OA23",
+            "nivel": "5º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Calcular el promedio de datos e interpretarlo en su contexto. "
+        },
+        {
+            "id": "MAT-5B-OA24",
+            "nivel": "5º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Describir la posibilidad de ocurrencia de un evento por sobre la base de un experimento aleatorio, empleando los términos seguro, posible, poco posible, imposible. "
+        },
+        {
+            "id": "MAT-5B-OA25",
+            "nivel": "5º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Comparar probabilidades de distintos eventos sin calcularlas. "
+        },
+        {
+            "id": "MAT-5B-OA26",
+            "nivel": "5º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Leer, interpretar y completar tablas, gráficos de barra simple y gráficos de línea y comunicar sus conclusiones. "
+        },
+        {
+            "id": "MAT-5B-OA27",
+            "nivel": "5º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Utilizar diagramas de tallo y hojas para representar datos provenientes de muestras aleatorias. "
+        },
+        {
+            "id": "MAT-6B-OA1",
+            "nivel": "6º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden los factores y los múltiplos, determinándolos, identificando números primos y compuestos, y resolviendo problemas. "
+        },
+        {
+            "id": "MAT-6B-OA2",
+            "nivel": "6º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Realizar cálculos que involucren las cuatro operaciones en el contexto de la resolución de problemas, utilizando la calculadora en ámbitos superiores a 10 000. "
+        },
+        {
+            "id": "MAT-6B-OA3",
+            "nivel": "6º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden el concepto de razón de manera concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-6B-OA4",
+            "nivel": "6º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden el concepto de porcentaje de manera concreta, pictórica y simbólica. "
+        },
+        {
+            "id": "MAT-6B-OA5",
+            "nivel": "6º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden las fracciones y los números mixtos identificando y determinando equivalencias y representándolos en la recta numérica. "
+        },
+        {
+            "id": "MAT-6B-OA6",
+            "nivel": "6º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver adiciones y sustracciones de fracciones propias e impropias y números mixtos con numeradores y denominadores de hasta dos dígitos. "
+        },
+        {
+            "id": "MAT-6B-OA7",
+            "nivel": "6º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Demostrar que comprenden la multiplicación y la división de decimales por números naturales de un dígito, múltiplos de 10 y decimales hasta la milésima. "
+        },
+        {
+            "id": "MAT-6B-OA8",
+            "nivel": "6º básico",
+            "eje": "Números y Operaciones",
+            "descripcion": "Resolver problemas rutinarios y no rutinarios que involucren adiciones y sustracciones de fracciones propias, impropias, números mixtos o decimales hasta la milésima. "
+        },
+        {
+            "id": "MAT-6B-OA9",
+            "nivel": "6º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Demostrar que comprenden la relación entre los valores de una tabla y aplicarla en la resolución de problemas sencillos identificando patrones y formulando una regla. "
+        },
+        {
+            "id": "MAT-6B-OA10",
+            "nivel": "6º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Representar generalizaciones de relaciones entre números naturales, usando expresiones con letras y ecuaciones. "
+        },
+        {
+            "id": "MAT-6B-OA11",
+            "nivel": "6º básico",
+            "eje": "Patrones y Álgebra",
+            "descripcion": "Resolver ecuaciones de primer grado con una incógnita, utilizando estrategias como usar una balanza, usar descomposición y correspondencia, y aplicando procedimientos formales. "
+        },
+        {
+            "id": "MAT-6B-OA12",
+            "nivel": "6º básico",
+            "eje": "Geometría",
+            "descripcion": "Construir y comparar triángulos de acuerdo a la medida de sus lados y/o sus ángulos con instrumentos geométricos o software geométrico. "
+        },
+        {
+            "id": "MAT-6B-OA13",
+            "nivel": "6º básico",
+            "eje": "Geometría",
+            "descripcion": "Demostrar que comprenden el concepto de área de una superficie en cubos y paralelepípedos, calculando el área de sus redes (plantillas) asociadas. "
+        },
+        {
+            "id": "MAT-6B-OA14",
+            "nivel": "6º básico",
+            "eje": "Geometría",
+            "descripcion": "Realizar teselados de figuras 2D, usando traslaciones, reflexiones y rotaciones. "
+        },
+        {
+            "id": "MAT-6B-OA15",
+            "nivel": "6º básico",
+            "eje": "Geometría",
+            "descripcion": "Construir ángulos agudos, obtusos, rectos, extendidos y completos con instrumentos geométricos o software geométrico. "
+        },
+        {
+            "id": "MAT-6B-OA16",
+            "nivel": "6º básico",
+            "eje": "Geometría",
+            "descripcion": "Identificar los ángulos que se forman entre dos rectas que se cortan (pares de ángulos opuestos por el vértice y pares de ángulos complementarios). "
+        },
+        {
+            "id": "MAT-6B-OA17",
+            "nivel": "6º básico",
+            "eje": "Geometría",
+            "descripcion": "Demostrar de manera concreta, pictórica y simbólica que la suma de los ángulos interiores de un triángulo es 180º y de un cuadrilátero es 360o. "
+        },
+        {
+            "id": "MAT-6B-OA18",
+            "nivel": "6º básico",
+            "eje": "Medición",
+            "descripcion": "Calcular la superficie de cubos y paralelepípedos, expresando el resultado en cm2 y m2. "
+        },
+        {
+            "id": "MAT-6B-OA19",
+            "nivel": "6º básico",
+            "eje": "Medición",
+            "descripcion": "Calcular el volumen de cubos y paralelepípedos, expresando el resultado en cm3, m3 y mm3. "
+        },
+        {
+            "id": "MAT-6B-OA20",
+            "nivel": "6º básico",
+            "eje": "Medición",
+            "descripcion": "Estimar y medir ángulos, usando el transportador y expresando las mediciones en grados. "
+        },
+        {
+            "id": "MAT-6B-OA21",
+            "nivel": "6º básico",
+            "eje": "Medición",
+            "descripcion": "Calcular ángulos en rectas paralelas cortadas por una transversal y en triángulos. "
+        },
+        {
+            "id": "MAT-6B-OA22",
+            "nivel": "6º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Comparar distribuciones de dos grupos, provenientes de muestras aleatorias, usando diagramas de puntos y de tallo y hojas. "
+        },
+        {
+            "id": "MAT-6B-OA23",
+            "nivel": "6º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Conjeturar acerca de la tendencia de resultados obtenidos en repeticiones de un mismo experimento con dados, monedas u otros. "
+        },
+        {
+            "id": "MAT-6B-OA24",
+            "nivel": "6º básico",
+            "eje": "Datos y Probabilidades",
+            "descripcion": "Leer e interpretar gráficos de barra doble y circulares y comunicar sus conclusiones. "
+        }
+    ]
+}

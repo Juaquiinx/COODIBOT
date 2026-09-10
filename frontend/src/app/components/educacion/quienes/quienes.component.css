@@ -1,0 +1,165 @@
+.quien-es-coodi {
+  background-color: #f6f9fc;
+  padding: 4rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #003840;
+}
+
+.quien-es-coodi h2 {
+  font-size: 2.2rem;
+  color: #003840;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.quien-es-coodi .intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.quien-es-coodi .intro img {
+  max-width: 250px;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quien-es-coodi .bloques {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.quien-es-coodi .bloque {
+  background: #e3f2fd;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.quien-es-coodi h3 {
+  color: #0076b8;
+  margin-top: 2rem;
+}
+
+.quien-es-coodi ul {
+  padding-left: 1.2rem;
+  list-style: '🔹 ';
+  margin-bottom: 1.5rem;
+}
+
+.quien-es-coodi .cuadernillos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.quien-es-coodi .cuadernillo {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 1rem;
+  flex: 1 1 300px;
+  display: flex;
+  gap: 1rem;
+}
+.quien-es-coodi .cuadernillo img {
+  width: 120px;
+  border-radius: 0.5rem;
+}
+
+.quien-es-coodi .cuadernillo .texto h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0076b8;
+}
+
+
+.titulo-coodi {
+  font-size: 2.5rem;
+  color: #0a3d62;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.titulo-coodi::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #4dabf7;
+  margin: 0.5rem auto;
+  border-radius: 2px;
+}
+
+.intro-coodi {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #f3f9ff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.intro-coodi img {
+  width: 240px;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.intro-coodi p {
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.subtitulo-coodi {
+  font-size: 1.6rem;
+  color: #1976d2;
+  margin-top: 2rem;
+}
+
+.descripcion-coodi {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.subtitulo-seccion {
+  font-size: 1.6rem;
+  color: #1976d2;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.lista-coodi {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.lista-coodi li {
+  background: #f0f7ff;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  font-size: 1.05rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+

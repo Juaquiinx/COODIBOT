@@ -1,0 +1,35 @@
+<div class="admin-container">
+    <div class="admin-header">
+        <h2>🛠️ Panel de Administración COODI</h2>
+        <p>Corrección de Objetivos de Aprendizaje (RAG Feedback)</p>
+    </div>
+
+    <div *ngIf="respuestasMalas.length === 0" class="no-data">
+        <h3>¡Todo excelente! 🎉</h3>
+        <p>No hay respuestas reportadas como incorrectas por los usuarios.</p>
+    </div>
+
+    <div class="cards-grid">
+        <div class="card" *ngFor="let item of respuestasMalas">
+            <div class="card-header">
+                <span class="badge">Mensaje ID: {{item.mensaje_id}}</span>
+                <span class="badge pinecone" title="{{item.pinecone_ids}}">Vectores Identificados</span>
+            </div>
+
+            <div class="card-body">
+                <h4>Respuesta dada por el bot:</h4>
+                <div class="bot-response" [innerHTML]="item.contenido"></div>
+            </div>
+
+            <div class="card-footer">
+                <label>Asignar Nuevo OA Correcto:</label>
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="item.nuevo_oa" placeholder="Ej: TEC-3B-OA1, MAT-5B-OA14">
+                    <button (click)="guardarCorreccion(item)" [disabled]="cargando || !item.nuevo_oa">
+                        {{ cargando ? 'Actualizando...' : 'Actualizar Pinecone' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

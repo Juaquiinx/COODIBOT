@@ -1,0 +1,180 @@
+.educacion {
+  padding: 4rem 2rem;
+  background: #f7fdfc;
+
+  h2 {
+    text-align: center;
+    color: #005A87;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .metodologia,
+  .cuadernillos,
+  .competencias {
+    margin-bottom: 3rem;
+  }
+  .plataformas h3,
+  .metodologia h3,
+  .cuadernillos h3,
+  .competencias h3 {
+    color: #0076B8;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid #cce4e1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    text-align: center;
+
+    img {
+      width: 20%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      color: #005A87;
+      margin-bottom: 0.3rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.95rem;
+      li {
+        background: #e5f7f6;
+        margin-bottom: 0.3rem;
+        padding: 0.3rem;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+
+    span {
+      background: #d9eff1;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      color: #005A87;
+      font-weight: 500;
+    }
+  }
+}
+
+.importancia-fe {
+  background-color: #f0f8fb;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 16px;
+  border-left: 6px solid #0076b8;
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #333;
+
+    strong {
+      color: #005a87;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+
+    li {
+      background: #ffffff;
+      border: 1px solid #d8eef5;
+      border-left: 4px solid #00b0d6;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #333;
+
+      strong {
+        display: block;
+        font-weight: bold;
+        color: #0076b8;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}
+
+.importancia-fe {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+h2 {
+  font-size: 2rem;
+  color: #007c91;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.intro {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #003840;
+  background: #e0f7f9;
+  padding: 1rem 1.2rem;
+  border-left: 5px solid #00acc1;
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 6px rgba(0, 124, 145, 0.1);
+}
+
+.intro strong {
+  color: #007c91;
+  font-size: 1.25rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+

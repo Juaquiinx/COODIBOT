@@ -1,0 +1,66 @@
+.servicios {
+  background-color: #f7fdfc;
+  padding: 4rem 2rem;
+
+  h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #005A87;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #d3ecf2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease;
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: #0076B8;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .cta {
+    text-align: center;
+    margin-top: 3rem;
+
+    .btn-primary {
+      background: #005A87;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        background: #0076B8;
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+a {
+  color: #005A87;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+
+  &:hover {
+    color: #0076B8;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: #003D5C;
+  }
+
+  &:visited {
+    color: #004766;
+  }
+}
+
+
+.footer {
+  background-color: #003D5C;
+  color: white;
+  padding: 2rem;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .footer-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    .left, .right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .right a {
+      color: #E6F7FF;
+      text-decoration: none;
+    }
+  }
+
+  .footer-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    a {
+      background-color: #005A87;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+
+      &.btn-secondary {
+        background-color: #00B3A6;
+      }
+
+      &:hover {
+        background-color: #0076B8;
+        &.btn-secondary {
+          background-color: #009e92;
+        }
+      }
+    }
+  }
+}
+
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #E6F7FF, #ffffff);
+  .hero-content {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    .text {
+      flex: 1;
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #005A87;
+      }
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .btn {
+        background-color: #005A87;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        text-decoration: none;
+        border-radius: 8px;
+        margin-right: 1rem;
+      }
+      .btn-secondary {
+        background-color: #00B3A6;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+    }
+    .image {
+      flex: 1;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

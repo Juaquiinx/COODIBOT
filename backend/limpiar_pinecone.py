@@ -1,3 +1,4 @@
+# Script creado para limpiar Pinecone en caso de error
 import os
 import time
 from dotenv import load_dotenv
@@ -11,7 +12,7 @@ indice = pc.Index("coodibot-memoria")
 
 print("Eliminando todos los vectores antiguos de Pinecone...")
 
-# Borra todo el contenido del namespace por defecto
+# Borra todo el contenido
 indice.delete(delete_all=True)
 
 print("Esperando 3 segundos a que Pinecone confirme la limpieza...")
