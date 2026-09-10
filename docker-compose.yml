@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: coodibot_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PINECONE_API_KEY=${PINECONE_API_KEY}
+    volumes:
+      - ./backend/memoria_coodibot.db:/app/memoria_coodibot.db
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: coodibot_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always

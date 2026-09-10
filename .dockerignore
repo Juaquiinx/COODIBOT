@@ -1,0 +1,16 @@
+# Entornos y dependencias locales
+**/node_modules/
+**/venv/
+**/__pycache__/
+**/*.pyc
+
+# Archivos de configuración local y bases de datos transitorias
+.env
+backend/memoria_coodibot.db
+backend/documentos_procesados.txt
+
+# Control de versiones y sistema
+.git/
+.gitignore
+.DS_Store
+Thumbs.db
