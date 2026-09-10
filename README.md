@@ -3,7 +3,7 @@
 ### Asistente educativo basado en IA para la enseñanza de robótica educativa en Chile
 
 <p align="center">
-  <strong>Advanced RAG · FastAPI · Angular · Pinecone · OpenAI · SQLite</strong>
+  <strong>Advanced RAG · FastAPI · Angular · Pinecone · OpenAI · SQLite · Docker</strong>
 </p>
 
 <p align="center">
@@ -29,12 +29,13 @@ La arquitectura integra:
 * 🔍 **Divulgación progresiva** de información asociada a los Objetivos de Aprendizaje.
 * 👨‍💼 **Panel de administración** para la revisión y curación humana de respuestas.
 * 🔄 **Actualización de información en la base vectorial de Pinecone** desde el panel de administración.
+* 🐳 **Contenedorización y ejecución mediante Docker**.
 
 El sistema incorpora además un enfoque **Human-in-the-loop**, permitiendo que las respuestas evaluadas negativamente sean revisadas y que sus metadatos puedan ser modificados antes de actualizar la información almacenada en la base vectorial.
 
 ---
 
-## 🏗️ Arquitectura
+# 🏗️ Arquitectura
 
 COODIBOT está organizado como un **monorepo**, separando la aplicación en dos componentes principales:
 
@@ -172,16 +173,16 @@ Evaluación de la respuesta
    └── 👎 Negativa
           │
           ▼
-     Panel de Admin
+      Panel de Admin
           │
           ▼
-   Revisión humana
+      Revisión humana
           │
           ▼
-  Edición de metadatos
+     Edición de metadatos
           │
           ▼
- Actualización de Pinecone
+    Actualización de Pinecone
 ```
 
 Desde el panel administrativo es posible:
@@ -209,6 +210,7 @@ http://localhost:4200/admin
 | Base de datos local     | SQLite            |
 | Base vectorial          | Pinecone          |
 | Inteligencia Artificial | OpenAI            |
+| Contenedorización       | Docker            |
 | Control de versiones    | Git               |
 | Arquitectura            | Monorepo          |
 | Patrón de IA            | RAG               |
@@ -216,7 +218,73 @@ http://localhost:4200/admin
 
 ---
 
-# ⚙️ Requisitos previos
+# 🚀 Ejecución del proyecto
+
+COODIBOT dispone de **dos modalidades de ejecución**.
+
+Se recomienda utilizar la **Tipo A — Docker**, ya que simplifica la configuración del entorno y permite levantar los servicios del proyecto mediante contenedores.
+
+---
+
+# 🐳 Tipo A — Ejecución con Docker ⭐ RECOMENDADA
+
+Esta es la modalidad recomendada para ejecutar COODIBOT.
+
+## Requisitos previos
+
+Solo necesitas tener instalado:
+
+* **Git**
+* **Docker Desktop**
+
+No es necesario instalar manualmente Python, Node.js, npm ni las dependencias del proyecto para esta modalidad.
+
+---
+
+## 1. Clonar el repositorio
+
+Clona el repositorio y accede a la carpeta del proyecto:
+
+```bash
+git clone https://github.com/Juaquiinx/COODIBOT.git
+cd COODIBOT
+```
+
+---
+
+## 2. Ejecutar COODIBOT
+
+Asegúrate de tener **Docker Desktop abierto** y ejecuta:
+
+```bash
+docker compose up --build
+```
+
+Docker se encargará de construir las imágenes necesarias y levantar los servicios del proyecto.
+
+Una vez iniciados los contenedores, la aplicación estará disponible en:
+
+```text
+http://localhost
+```
+
+El backend estará disponible en:
+
+```text
+http://127.0.0.1:8000
+```
+
+> 💡 **Recomendación:** esta es la forma más sencilla de ejecutar COODIBOT, ya que evita tener que configurar manualmente los entornos de Python y Node.js.
+
+---
+
+# 🖥️ Tipo B — Ejecución manual / tradicional
+
+Esta modalidad corresponde a la forma de ejecución utilizada originalmente en el proyecto.
+
+Puede utilizarse cuando se desea trabajar directamente sobre los entornos de desarrollo de Python y Angular.
+
+## Requisitos previos
 
 Antes de comenzar, asegúrate de tener instalado:
 
@@ -235,8 +303,6 @@ git --version
 ```
 
 ---
-
-# 🚀 Instalación
 
 ## 1. Clonar el repositorio
 
@@ -306,6 +372,8 @@ PINECONE_API_KEY=tu_llave_de_pinecone_aqui
 
 # 🖥️ Configuración del Frontend
 
+Esta sección corresponde a la **ejecución Tipo B**.
+
 Abre una nueva terminal y accede a la carpeta del frontend:
 
 ```bash
@@ -320,9 +388,9 @@ npm install
 
 ---
 
-# ▶️ Ejecución del proyecto
+# ▶️ Ejecución Tipo B
 
-Para ejecutar COODIBOT en modo desarrollo es necesario mantener **dos terminales abiertas simultáneamente**.
+Para ejecutar COODIBOT mediante la modalidad tradicional es necesario mantener **dos terminales abiertas simultáneamente**.
 
 ## Terminal 1 — Backend
 
@@ -378,7 +446,7 @@ http://127.0.0.1:8000/openapi.json
 
 # 🧪 Pruebas funcionales
 
-Una vez que ambos servicios estén ejecutándose, puedes comprobar las principales funcionalidades desde la aplicación.
+Una vez que los servicios estén ejecutándose, puedes comprobar las principales funcionalidades desde la aplicación.
 
 ### 💬 Interfaz de Chat
 
@@ -462,6 +530,8 @@ COODIBOT/
 │   ├── package.json
 │   └── ...
 │
+├── docker-compose.yml
+│
 └── README.md
 ```
 
@@ -498,6 +568,10 @@ COODIBOT
 ├── ⚡ Backend
 │   └── FastAPI
 │       └── API REST
+│
+├── 🐳 Contenedores
+│   └── Docker
+│       └── Orquestación de servicios
 │
 ├── 🧠 Inteligencia Artificial
 │   └── OpenAI
@@ -537,9 +611,9 @@ Las funcionalidades principales contempladas en la implementación actual incluy
 * [x] Panel de administración
 * [x] Curación humana de respuestas
 * [x] Actualización de información en Pinecone
+* [x] Ejecución mediante Docker
 
 ---
-
 
 # 👨‍💻 COODIBOT
 
