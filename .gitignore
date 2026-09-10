@@ -2,6 +2,7 @@
 venv/
 venv_ragas/
 __pycache__/
+memoria_coodibot.db
 
 # Variables de entorno y llaves secretas
 .env

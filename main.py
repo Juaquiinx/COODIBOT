@@ -1,4 +1,5 @@
 import os
+import re
 import sqlite3
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -169,6 +170,7 @@ def procesar_rag(pregunta_texto: str, session_id: str):
         contextos_lista = []  # NUEVO: lista de fragmentos individuales (para evaluación RAGAS)
         fragmentos_utilizados = 0
 
+        oas_encontrados = []  # NUEVO: OA reales desde metadata
         for match in resultados_busqueda.matches:
             score = match.score
             texto = match.metadata.get("texto", "")
@@ -178,6 +180,9 @@ def procesar_rag(pregunta_texto: str, session_id: str):
                 contexto_recuperado += texto + "\n\n---\n\n"
                 contextos_lista.append(texto)  # NUEVO
                 fragmentos_utilizados += 1
+                oa_meta = match.metadata.get("OA")  # NUEVO
+                if oa_meta and oa_meta not in oas_encontrados:
+                    oas_encontrados.append(oa_meta)
 
         print(f"Fragmentos que superaron el umbral: {fragmentos_utilizados}")
 
@@ -223,7 +228,10 @@ def procesar_rag(pregunta_texto: str, session_id: str):
             temperature=0.1
         )
 
-        respuesta_final = respuesta_llm.choices[0].message.content
+         # NUEVO: si tenemos OA real desde metadata, reemplazamos lo que haya escrito el LLM
+        if oas_encontrados:
+            oa_real = ", ".join(oas_encontrados)
+            respuesta_final = re.sub(r"(OA Vinculado:).*", rf"\1 {oa_real}", respuesta_final, flags=re.IGNORECASE)
 
         # MODIFICADO: Guardamos la respuesta de COODIBOT capturando su ID
         id_mensaje = guardar_mensaje(session_id, "assistant", respuesta_final)

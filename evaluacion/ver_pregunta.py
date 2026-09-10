@@ -11,7 +11,7 @@ import csv
 CARPETA_ACTUAL = os.path.dirname(os.path.abspath(__file__))
 CSV_CRUDO = os.path.join(CARPETA_ACTUAL, "respuestas_coodibot_crudo.csv")
 
-IDS_A_REVISAR = ["C10", "C20", "C07", "C09", "C06"]  # cambia esta lista para revisar otras preguntas
+IDS_A_REVISAR = ["C04", "C07", "C14", "C20"]
 
 with open(CSV_CRUDO, newline="", encoding="utf-8-sig") as f:
     filas = {fila["id"]: fila for fila in csv.DictReader(f)}
