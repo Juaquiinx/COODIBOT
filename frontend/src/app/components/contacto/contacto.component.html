@@ -1,0 +1,26 @@
+<section class="contacto">
+  <div class="container">
+    <h2>Contáctanos</h2>
+
+    <form [formGroup]="contactForm" (ngSubmit)="enviarFormulario()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" type="text" required />
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo electrónico</label>
+        <input id="correo" formControlName="correo" type="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" formControlName="mensaje" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+    </form>
+
+    <p *ngIf="mensajeEnviado" class="confirmacion">✅ Tu mensaje ha sido enviado. ¡Gracias!</p>
+  </div>
+</section>

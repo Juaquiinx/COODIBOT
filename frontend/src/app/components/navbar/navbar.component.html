@@ -1,0 +1,17 @@
+<header class="main-header">
+  <div class="container">
+    <a routerLink="/"><img src="assets/images/logo.png" alt="Logo COODI" class="logo" /></a>
+    <h1 class="slogan">Conecta, Observa, Descompone, Innova</h1>
+    <nav [class.active]="menuAbierto" class="nav-links">
+      <a routerLink="/" (click)="cerrarMenu()">Inicio</a>
+      <a routerLink="/educacion" (click)="cerrarMenu()">Educación</a>
+      <a routerLink="/servicios" (click)="cerrarMenu()">Servicios</a>
+      <a routerLink="/contacto" (click)="cerrarMenu()">Contacto</a>
+    </nav>
+
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Menú">
+      <span [class.open]="menuAbierto">&#9776;</span>
+      <span [class.close]="menuAbierto">✖</span>
+    </button>
+  </div>
+</header>

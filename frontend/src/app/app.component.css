@@ -1,0 +1,96 @@
+.coodibot-assistant {
+
+  position: fixed;
+  bottom: 120px;
+  right: 100px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 16px 20px;
+  max-width: 300px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  z-index: 1001;
+  color: #333;
+  animation: slideUp 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 15px solid #ffffff;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+  }
+
+  button {
+    background-color: #007dc0;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 8px;
+    margin-top: 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #005f9e;
+  }
+
+  img {
+    width: 90px;
+    height: auto;
+  }
+}
+
+
+.coodibot-dialog {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 280px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-right: 10px;
+    background-color: #007dc0;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #005f9e;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

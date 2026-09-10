@@ -1,0 +1,152 @@
+.admin-container {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.admin-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #00bfa5;
+    padding-bottom: 10px;
+}
+
+.admin-header h2 {
+    color: #2c3e50;
+    margin: 0 0 5px 0;
+}
+
+.no-data {
+    text-align: center;
+    padding: 50px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #6c757d;
+}
+
+.cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.card-header {
+    background: #f1f5f9;
+    padding: 10px 15px;
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.badge {
+    background: #3b82f6;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.badge.pinecone {
+    background: #10b981;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body h4 {
+    margin-top: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.bot-response {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.card-footer {
+    padding: 15px;
+    background: #fafafa;
+    border-top: 1px solid #e0e0e0;
+}
+
+.card-footer label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.input-group button {
+    background: #00bfa5;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.input-group button:hover:not([disabled]) {
+    background: #009985;
+}
+
+.input-group button[disabled] {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+::ng-deep .coodi-badge {
+    display: inline-block;
+    font-weight: bold;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+::ng-deep .concepto {
+    background-color: #3b82f6;
+}
+
+::ng-deep .pasos {
+    background-color: #f59e0b;
+}
+
+::ng-deep .oa {
+    background-color: #10b981;
+}
+
+::ng-deep .verificacion {
+    background-color: #8b5cf6;
+}

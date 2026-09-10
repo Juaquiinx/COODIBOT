@@ -1,0 +1,247 @@
+/* Estructura general de ventana de chat flotante */
+.chat-container {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 380px;
+  height: 500px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+.chat-header {
+  background: #00bfa5;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.burbuja {
+  max-width: 85%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.user {
+  align-self: flex-end;
+}
+
+.user .burbuja {
+  background: #dcf8c6;
+  color: #333;
+  border-bottom-right-radius: 0;
+}
+
+.bot {
+  align-self: flex-start;
+}
+
+.bot .burbuja {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 0;
+}
+
+::ng-deep .coodi-badge {
+  display: block;
+  font-weight: bold;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+::ng-deep .concepto {
+  background-color: #3b82f6;
+}
+
+::ng-deep .pasos {
+  background-color: #f59e0b;
+}
+
+::ng-deep .oa {
+  background-color: #10b981;
+}
+
+::ng-deep .verificacion {
+  background-color: #8b5cf6;
+}
+
+
+.chat-footer {
+  display: flex;
+  padding: 10px;
+  background: white;
+  border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+.chat-footer button {
+  background: #00bfa5;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00bfa5;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.chat-fab img {
+  width: 35px;
+}
+
+.burbuja-bot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 85%;
+}
+
+
+.feedback-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.feedback-buttons button {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.feedback-buttons button:hover {
+  opacity: 1;
+  background: #f0f0f0;
+}
+
+.feedback-buttons button.active {
+  opacity: 1;
+  background: #00bfa5;
+  border-color: #00bfa5;
+  color: white;
+}
+
+
+
+::ng-deep .coodi-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  color: #10b981;
+  font-weight: bold;
+  border-bottom: 1px dashed #10b981;
+}
+
+::ng-deep .coodi-tooltip .coodi-tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #2c3e50;
+  color: #fff;
+  text-align: left;
+  border-radius: 8px;
+  padding: 12px;
+  position: absolute;
+  z-index: 9999;
+
+  bottom: 130%;
+  left: 0;
+  transform: translateX(-15%);
+
+  opacity: 0;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.4;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  white-space: normal;
+}
+
+::ng-deep .coodi-tooltip .coodi-tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 70%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #2c3e50 transparent transparent transparent;
+}
+
+::ng-deep .coodi-tooltip:hover .coodi-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  bottom: 150%;
+}
