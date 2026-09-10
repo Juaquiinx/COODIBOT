@@ -35,14 +35,25 @@ export class CoodibotChatComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
-  formatearRespuesta(texto: string): string {
-    if (!texto.includes('- Concepto Clave:')) return texto;
+  formatearRespuesta(texto: string, oas_vinculados?: any[]): string {
+    let textoFormateado = texto;
 
-    return texto
-      .replace(/- Concepto Clave:/g, '<span class="coodi-badge concepto">🧠 Concepto Clave</span>')
-      .replace(/- Pasos:/g, '<span class="coodi-badge pasos">⚙️ Pasos</span>')
-      .replace(/- OA Vinculado:/g, '<span class="coodi-badge oa">🎯 OA Vinculado</span>')
-      .replace(/- Verificación:/g, '<span class="coodi-badge verificacion">✅ Verificación</span>');
+    if (textoFormateado.includes('- Concepto Clave:')) {
+      textoFormateado = textoFormateado
+        .replace(/- Concepto Clave:/g, '<span class="coodi-badge concepto">🧠 Concepto Clave</span>')
+        .replace(/- Pasos:/g, '<span class="coodi-badge pasos">⚙️ Pasos</span>')
+        .replace(/- OA Vinculado:/g, '<span class="coodi-badge oa">🎯 OA Vinculado</span>')
+        .replace(/- Verificación:/g, '<span class="coodi-badge verificacion">✅ Verificación</span>');
+    }
+
+    if (oas_vinculados && oas_vinculados.length > 0) {
+      oas_vinculados.forEach(oa => {
+        const html_tooltip = `<span class="coodi-tooltip">${oa.codigo} 👁️<span class="coodi-tooltip-text"><b>${oa.codigo}:</b> ${oa.descripcion}</span></span>`;
+        textoFormateado = textoFormateado.replace(oa.codigo, html_tooltip);
+      });
+    }
+
+    return textoFormateado;
   }
 
   sendMessage() {
@@ -54,10 +65,9 @@ export class CoodibotChatComponent implements OnInit {
     this.userMessage = '';
     this.cargando = true;
 
-    // NUEVO: Le pasamos nuestro "sessionId" único al servicio
     this.chatService.enviarMensaje(pregunta, this.sessionId).subscribe({
       next: (res) => {
-        const textoConFormato = this.formatearRespuesta(res.respuesta.texto);
+        const textoConFormato = this.formatearRespuesta(res.respuesta.texto, res.respuesta.oas_vinculados);
 
         this.chatHistory.push({
           role: 'bot',
