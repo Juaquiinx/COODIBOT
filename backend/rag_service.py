@@ -31,6 +31,25 @@ try:
 except Exception as e:
     print(f"Advertencia: No se pudo cargar el catálogo JSON: {e}")
 
+# Reformula la pregunta del docente usando el historial, para que sea autónoma
+async def reformular_consulta(pregunta_texto: str, historial_str: str) -> str:
+    if not historial_str:
+        return pregunta_texto
+
+    prompt_reformulacion = f"""Dado el siguiente historial de conversación entre un profesor y COODIBOT, y la pregunta nueva del profesor, reescribe la pregunta para que sea autónoma y completa, incorporando el contexto necesario del historial (por ejemplo, si la pregunta usa "eso", "ese sensor", "y para el otro caso", reemplázalo por lo que corresponda según el historial). Si la pregunta ya es autónoma y no depende del historial, devuélvela exactamente igual. Responde ÚNICAMENTE con la pregunta reformulada, sin explicaciones ni comillas.
+
+HISTORIAL:
+{historial_str}
+PREGUNTA NUEVA: {pregunta_texto}
+
+PREGUNTA REFORMULADA:"""
+
+    respuesta = await cliente_openai.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "system", "content": prompt_reformulacion}],
+        temperature=0.0
+    )
+    return respuesta.choices[0].message.content.strip()
 
 # Función principal de procesamiento RAG
 async def procesar_rag(pregunta_texto: str, session_id: str):
@@ -44,8 +63,13 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
             rol = "Profesor" if msg["role"] == "user" else "COODIBOT"
             historial_str += f"{rol}: {msg['content']}\n"
 
+        await guardar_mensaje(session_id, "user", pregunta_texto)
+
+        pregunta_para_busqueda = await reformular_consulta(pregunta_texto, historial_str)
+        print(f"[CEREBRO] Consulta reformulada para búsqueda: '{pregunta_para_busqueda}'")
+
         vec_response = await cliente_openai.embeddings.create(
-            input=pregunta_texto,
+            input=pregunta_para_busqueda,
             model="text-embedding-3-small"
         )
         vec_busqueda = vec_response.data[0].embedding
@@ -61,9 +85,10 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         fragmentos_utilizados = 0
         oa_oficial_extraido = ""
         ids_pinecone_utilizados = []
+        contextos_lista = []
 
         curso_detectado = None
-        pregunta_lower = pregunta_texto.lower()
+        pregunta_lower = pregunta_para_busqueda.lower()
         if "6" in pregunta_lower or "sexto" in pregunta_lower:
             curso_detectado = "6B"
         elif "5" in pregunta_lower or "quinto" in pregunta_lower:
@@ -108,6 +133,7 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
             contexto_recuperado += texto + "\n\n---\n\n"
             fragmentos_utilizados += 1
             ids_pinecone_utilizados.append(match.id)
+            contextos_lista.append(texto)
 
             codigo = match.metadata.get("codigo_oa", "Ninguno")
             if codigo not in ["Ninguno", "OA no identificado"]:
@@ -125,9 +151,13 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
             if oas_del_curso:
                 lista_codigos_guardados = oas_del_curso
             else:
-                oas_catalogo = [c for c in diccionario_oas.keys(
-                ) if curso_detectado in c and c.startswith("TEC")]
-                lista_codigos_guardados = oas_catalogo[:2]
+                # No hay ningún OA del curso detectado entre los fragmentos
+                # realmente recuperados. En vez de rellenar con un OA
+                # genérico del catálogo (sin relación con el contexto),
+                # se muestran los OA que sí vinieron ligados a los
+                # fragmentos recuperados, aunque no coincidan con el
+                # curso detectado en la pregunta.
+                lista_codigos_guardados = candidatos_pinecone[:3]
         else:
             lista_codigos_guardados = candidatos_pinecone[:3]
 
@@ -152,7 +182,7 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
             respuesta_sin_datos = "No tengo información sobre esto en mis manuales oficiales."
             id_mensaje_vacio = await guardar_mensaje(
                 session_id, "assistant", respuesta_sin_datos, ids_pinecone_str)
-            return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio, "oas_vinculados": []}
+            return {"texto": respuesta_sin_datos, "mensaje_id": id_mensaje_vacio, "oas_vinculados": [], "contextos": []}
 
         prompt_sistema = f"""
         Eres COODIBOT, un asistente experto en robótica educativa.
@@ -164,7 +194,8 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         3. Las OAs solo existen para los cursos: primero, segundo, tercero, cuarto, quinto y sexto básico.
         4. Si se te pregunta por algun curso fuera del rango de entre primero y sexto basico, puedes sugerir OAs de cursos mas bajos pero dejando en claro que no es el curso solicitado. No inventes OAs que no existan en el catálogo oficial.
         5. Tus respuestas no deben asumir edad de los estudiantes. Solo enfocate en los cursos.
-        6. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
+        6. Antes de aplicar esta regla, revisa con cuidado si el CONTEXTO RECUPERADO ya incluye información específica sobre el componente, sensor o funcionalidad de la consulta. Si el contexto SÍ lo menciona, ignora esta regla y responde normalmente usando esa información (regla 1). Solo si, después de revisar todo el contexto, este NO contiene ninguna mención al componente consultado, distingue dos casos: (a) si el contexto sugiere que ese componente simplemente no es parte del ecosistema COODI, responde que no tienes información al respecto; (b) si es un componente plausible dentro de la línea de robótica educativa pero no aparece en ningún fragmento del contexto, indica explícitamente que podría tratarse de algo planificado pero no implementado aún, en vez de inventar una respuesta.
+        7. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
            - Concepto Clave: (Definición breve)
            - Pasos: (Instrucciones numeradas con verbos imperativos)
            - OA Vinculado:
@@ -198,7 +229,8 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         return {
             "texto": respuesta_final,
             "mensaje_id": id_mensaje,
-            "oas_vinculados": oas_estructurados
+            "oas_vinculados": oas_estructurados,
+            "contextos": contextos_lista
         }
 
     except Exception as e:
