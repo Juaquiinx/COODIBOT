@@ -24,7 +24,7 @@ if nombre_indice not in pc.list_indexes().names():
         f"Creando el índice '{nombre_indice}'... (Esto puede tardar unos segundos)")
     pc.create_index(
         name=nombre_indice,
-        dimension=1536,
+        dimension=1536,  # dimension del embedding de text-embedding-3-small
         metric="cosine",
         spec=ServerlessSpec(
             cloud="aws",
