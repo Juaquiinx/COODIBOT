@@ -31,7 +31,9 @@ try:
 except Exception as e:
     print(f"Advertencia: No se pudo cargar el catálogo JSON: {e}")
 
-# Reformula la pregunta del docente usando el historial, para que sea autónoma
+
+# Reescribe la pregunta usando el historial para que quede autónoma
+# (ej: "y como lo desconecto" -> "como desconecto el sensor ultrasonico")
 async def reformular_consulta(pregunta_texto: str, historial_str: str) -> str:
     if not historial_str:
         return pregunta_texto
@@ -51,6 +53,7 @@ PREGUNTA REFORMULADA:"""
     )
     return respuesta.choices[0].message.content.strip()
 
+
 # Función principal de procesamiento RAG
 async def procesar_rag(pregunta_texto: str, session_id: str):
     print(
@@ -68,6 +71,7 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         pregunta_para_busqueda = await reformular_consulta(pregunta_texto, historial_str)
         print(f"[CEREBRO] Consulta reformulada para búsqueda: '{pregunta_para_busqueda}'")
 
+        # Usamos la pregunta reformulada para buscar, no la original
         vec_response = await cliente_openai.embeddings.create(
             input=pregunta_para_busqueda,
             model="text-embedding-3-small"
@@ -85,8 +89,9 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         fragmentos_utilizados = 0
         oa_oficial_extraido = ""
         ids_pinecone_utilizados = []
-        contextos_lista = []
+        contextos_lista = []  # texto de cada fragmento usado, para RAGAS
 
+        # Detecta el curso mencionado en la pregunta (heurística simple)
         curso_detectado = None
         pregunta_lower = pregunta_para_busqueda.lower()
         if "6" in pregunta_lower or "sexto" in pregunta_lower:
@@ -117,14 +122,14 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
                 curso_meta = match.metadata.get("curso", "").upper()
 
                 if curso_detectado in codigo_oa or curso_detectado in curso_meta:
-                    peso += 0.05  # Pequeño boost: desempata entre fragmentos similares, sin anular la relevancia semántica
+                    peso += 0.05  # boost chico: desempata, no pisa el score semantico
             return peso
 
         # Ordenar la lista aplicando el peso de mayor a menor
         fragmentos_rerankeados = sorted(
             fragmentos_validos, key=calcular_peso_rerank, reverse=True)
 
-        # Top 5 definitivo (como indica la Figura 6 de tu informe)
+        # Top 5 definitivo (como indica la Figura 7 de tu informe)
         fragmentos_rerankeados = fragmentos_rerankeados[:5]
 
         # Construir el contexto y extraer OAs con la lista ya reordenada
@@ -187,7 +192,7 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         prompt_sistema = f"""
         Eres COODIBOT, un asistente experto en robótica educativa.
         Tu objetivo es ayudar a docentes de educación básica.
-        
+
         REGLAS ESTRICTAS:
         1. Responde SIEMPRE basándote ÚNICAMENTE en la información del contexto proporcionado.
         2. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje).
@@ -223,7 +228,7 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
             desc = diccionario_oas.get(c, "")
             if desc:
                 oas_estructurados.append({"codigo": c, "descripcion": desc})
-        
+
         print(f"[OA DEBUG] oas_estructurados: {oas_estructurados}")
 
         id_mensaje = await guardar_mensaje(session_id, "assistant", respuesta_final, ids_pinecone_str)
@@ -232,7 +237,7 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
             "texto": respuesta_final,
             "mensaje_id": id_mensaje,
             "oas_vinculados": oas_estructurados,
-            "contextos": contextos_lista
+            "contextos": contextos_lista  # fragmentos usados, para evaluar con RAGAS despues
         }
 
     except Exception as e:
