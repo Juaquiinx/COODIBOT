@@ -3,7 +3,7 @@
 ### Asistente educativo basado en IA para la enseñanza de robótica educativa en Chile
 
 <p align="center">
-  <strong>Advanced RAG · FastAPI · Angular · Pinecone · OpenAI · SQLite · Docker</strong>
+  <strong>Advanced RAG · FastAPI · Angular · Pinecone · OpenAI · Turso · Docker</strong>
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@ La arquitectura integra:
 
 * 🔎 **Búsqueda semántica vectorial** mediante Pinecone.
 * 🧠 **Modelos de lenguaje de OpenAI** para generación de respuestas.
-* 💾 **Memoria conversacional local** mediante SQLite.
+* 💾 **Memoria conversacional en la nube** mediante Turso, con reformulación de la consulta usando el historial de la sesión.
 * ⚡ **Backend REST** desarrollado con FastAPI.
 * 🖥️ **Frontend modular** desarrollado con Angular.
 * 📚 **Microaprendizaje** para entregar información de manera progresiva.
@@ -80,7 +80,7 @@ COODIBOT/
                   │                         │
                   ▼                         ▼
         ┌──────────────────┐      ┌──────────────────┐
-        │     Pinecone     │      │      SQLite      │
+        │     Pinecone     │      │       Turso      │
         │ Base vectorial   │      │ Memoria          │
         │                  │      │ conversacional   │
         └────────┬─────────┘      └──────────────────┘
@@ -129,9 +129,9 @@ El modelo recibe el contexto recuperado desde la base vectorial y utiliza dicha 
 
 ## 💾 Memoria conversacional
 
-El sistema incorpora **SQLite** para mantener memoria conversacional local.
+El sistema incorpora **Turso** (base de datos en la nube) para mantener el historial de la conversación de cada sesión.
 
-Esto permite conservar información relacionada con la interacción del usuario con el asistente.
+Esto permite conservar información relacionada con la interacción del usuario con el asistente, y además se usa para reformular preguntas de seguimiento (ej. "¿y cómo lo desconecto?") como consultas autónomas antes de buscar en Pinecone.
 
 ---
 
@@ -207,7 +207,7 @@ http://localhost:4200/admin
 | Frontend                | Angular           |
 | Backend                 | FastAPI           |
 | Lenguaje Backend        | Python            |
-| Base de datos local     | SQLite            |
+| Base de datos           | Turso (SQLite en la nube) |
 | Base vectorial          | Pinecone          |
 | Inteligencia Artificial | OpenAI            |
 | Contenedorización       | Docker            |
@@ -364,6 +364,8 @@ Utiliza como referencia el archivo `.env.example` y agrega tus credenciales:
 ```env
 OPENAI_API_KEY=tu_llave_de_openai_aqui
 PINECONE_API_KEY=tu_llave_de_pinecone_aqui
+TURSO_DATABASE_URL=url_de_tu_base_de_datos_turso
+TURSO_AUTH_TOKEN=token_de_autenticacion_de_turso
 ```
 
 > ⚠️ **Importante:** nunca subas tu archivo `.env` al repositorio ni expongas tus claves privadas.
@@ -481,8 +483,8 @@ De manera simplificada, el procesamiento de una consulta sigue el siguiente fluj
            │
            ▼
 ┌─────────────────────┐
-│ Procesamiento de la │
-│      consulta       │
+│ Reformulación con   │
+│ historial (Turso)   │
 └──────────┬──────────┘
            │
            ▼
@@ -493,14 +495,20 @@ De manera simplificada, el procesamiento de una consulta sigue el siguiente fluj
            │
            ▼
 ┌─────────────────────┐
+│ Reranking por       │
+│ metadatos (curso)   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
 │ Contexto relevante  │
 │     recuperado      │
 └──────────┬──────────┘
            │
            ▼
 ┌─────────────────────┐
-│ Modelo de lenguaje  │
-│       OpenAI        │
+│  gpt-4o-mini         │
+│      (OpenAI)        │
 └──────────┬──────────┘
            │
            ▼
@@ -581,8 +589,8 @@ COODIBOT
 │       └── Base vectorial
 │
 └── 💾 Memoria
-    └── SQLite
-        └── Memoria conversacional
+    └── Turso
+        └── Memoria conversacional (nube)
 ```
 
 ---
@@ -605,8 +613,8 @@ Las funcionalidades principales contempladas en la implementación actual incluy
 * [x] Frontend basado en Angular
 * [x] Integración con OpenAI
 * [x] Integración con Pinecone
-* [x] Memoria conversacional mediante SQLite
-* [x] Arquitectura RAG
+* [x] Memoria conversacional mediante Turso (con reformulación de consulta)
+* [x] Arquitectura RAG con reranking por metadatos curriculares
 * [x] Sistema de valoración de respuestas
 * [x] Panel de administración
 * [x] Curación humana de respuestas
