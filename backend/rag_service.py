@@ -117,7 +117,7 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
                 curso_meta = match.metadata.get("curso", "").upper()
 
                 if curso_detectado in codigo_oa or curso_detectado in curso_meta:
-                    peso += 1.0  # Boost matemático: lo empuja al inicio de la lista
+                    peso += 0.05  # Pequeño boost: desempata entre fragmentos similares, sin anular la relevancia semántica
             return peso
 
         # Ordenar la lista aplicando el peso de mayor a menor
@@ -223,6 +223,8 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
             desc = diccionario_oas.get(c, "")
             if desc:
                 oas_estructurados.append({"codigo": c, "descripcion": desc})
+        
+        print(f"[OA DEBUG] oas_estructurados: {oas_estructurados}")
 
         id_mensaje = await guardar_mensaje(session_id, "assistant", respuesta_final, ids_pinecone_str)
 
