@@ -34,6 +34,7 @@ def leer_raiz():
     return {"mensaje": "¡El servidor de COODIBOT está en línea, modularizado, asíncrono y seguro!"}
 
 
+# Recibe la pregunta del docente y devuelve la respuesta armada por el pipeline RAG
 @app.post("/api/chat")
 async def chatear_texto(mensaje: MensajeUsuario):
     print("\n[RUTA] Ingreso por TEXTO detectado")
@@ -44,6 +45,7 @@ async def chatear_texto(mensaje: MensajeUsuario):
         return {"error": f"Hubo un problema procesando la consulta: {str(e)}"}
 
 
+# El docente califica una respuesta (bien/mal) desde el chat
 @app.put("/api/chat/evaluar")
 async def evaluar_respuesta(evaluacion: EvaluacionRespuesta):
     print(
@@ -55,6 +57,7 @@ async def evaluar_respuesta(evaluacion: EvaluacionRespuesta):
         return {"error": f"Hubo un problema al guardar la evaluación: {str(e)}"}
 
 
+# Panel admin: trae las respuestas mal calificadas para revisar
 @app.get("/api/admin/malas")
 async def obtener_respuestas_malas_endpoint():
     print("\n[ADMIN] Solicitando lista de malas respuestas...")
@@ -65,6 +68,7 @@ async def obtener_respuestas_malas_endpoint():
         return {"error": f"Error al obtener respuestas: {str(e)}"}
 
 
+# Panel admin: el admin corrige el OA de una respuesta mala directo en Pinecone
 @app.put("/api/admin/corregir-oa")
 async def corregir_oa_en_pinecone_endpoint(datos: CorreccionOA):
     print(
@@ -74,7 +78,7 @@ async def corregir_oa_en_pinecone_endpoint(datos: CorreccionOA):
             return {"error": "No hay IDs de Pinecone asociados a esta respuesta."}
 
         actualizar_metadata_pinecone(datos.pinecone_ids, datos.nuevo_oa)
-        await actualizar_calificacion(datos.mensaje_id, 2)
+        await actualizar_calificacion(datos.mensaje_id, 2)  # marca la respuesta como corregida
 
         return {"estado": "éxito", "mensaje": "Metadata en Pinecone actualizada correctamente."}
     except Exception as e:

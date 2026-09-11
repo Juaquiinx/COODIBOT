@@ -35,6 +35,8 @@ export class CoodibotChatComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
+  // Le pone color a los títulos (Concepto Clave, Pasos, etc) y agrega el
+  // tooltip con el ícono del ojo sobre cada código de OA que aparezca en el texto
   formatearRespuesta(texto: string, oas_vinculados?: any[]): string {
     let textoFormateado = texto;
 
@@ -48,6 +50,7 @@ export class CoodibotChatComponent implements OnInit {
 
     if (oas_vinculados && oas_vinculados.length > 0) {
       oas_vinculados.forEach(oa => {
+        // Ojo: si el modelo no repite el codigo tal cual en el texto, no hay match y no sale el tooltip
         const html_tooltip = `<span class="coodi-tooltip">${oa.codigo} 👁️<span class="coodi-tooltip-text"><b>${oa.codigo}:</b> ${oa.descripcion}</span></span>`;
         textoFormateado = textoFormateado.replace(oa.codigo, html_tooltip);
       });
@@ -56,6 +59,7 @@ export class CoodibotChatComponent implements OnInit {
     return textoFormateado;
   }
 
+  // Manda la pregunta al backend y agrega la respuesta (ya formateada) al historial
   sendMessage() {
     if (!this.userMessage.trim()) return;
 
@@ -87,6 +91,7 @@ export class CoodibotChatComponent implements OnInit {
     });
   }
 
+  // Guarda el like/dislike del docente sobre una respuesta puntual
   calificarMensaje(msg: ChatMessage, valor: number) {
     if (!msg.mensaje_id) return;
 

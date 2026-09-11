@@ -17,6 +17,7 @@ export class AdminComponent implements OnInit {
     this.cargarMalas();
   }
 
+  // Trae del backend las respuestas que los docentes calificaron negativo
   cargarMalas() {
     this.chatService.obtenerRespuestasMalas().subscribe({
       next: (res) => {
@@ -29,6 +30,7 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  // Envia el OA corregido para actualizar el metadato del vector en Pinecone
   guardarCorreccion(item: any) {
     if (!item.nuevo_oa.trim()) {
       alert("Debes ingresar un código OA válido.");

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// Conecta el chat y el panel admin con los endpoints del backend (main.py)
 @Injectable({
   providedIn: 'root'
 })
