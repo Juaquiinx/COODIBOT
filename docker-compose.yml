@@ -9,8 +9,8 @@ services:
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PINECONE_API_KEY=${PINECONE_API_KEY}
-    volumes:
-      - ./backend/memoria_coodibot.db:/app/memoria_coodibot.db
+      - TURSO_DATABASE_URL=${TURSO_DATABASE_URL}
+      - TURSO_AUTH_TOKEN=${TURSO_AUTH_TOKEN}
     restart: always
 
   frontend:

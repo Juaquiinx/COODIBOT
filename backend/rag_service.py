@@ -79,22 +79,42 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
 
         candidatos_pinecone = []
 
-        for match in res_tec.matches:
-            score = match.score
+        # Filtrar por umbral de similitud
+        fragmentos_validos = [
+            match for match in res_tec.matches if match.score >= 0.15]
 
-            if score >= 0.15:
-                texto = match.metadata.get("texto", "")
-                contexto_recuperado += texto + "\n\n---\n\n"
-                fragmentos_utilizados += 1
+        # Reranking: Asignar mayor peso si el metadato coincide con el curso detectado
+        def calcular_peso_rerank(match):
+            peso = match.score
+            if curso_detectado:
+                # Buscamos si el curso (ej. "5B") está en el código OA o en un campo curso
+                codigo_oa = match.metadata.get("codigo_oa", "").upper()
+                curso_meta = match.metadata.get("curso", "").upper()
 
-                ids_pinecone_utilizados.append(match.id)
+                if curso_detectado in codigo_oa or curso_detectado in curso_meta:
+                    peso += 1.0  # Boost matemático: lo empuja al inicio de la lista
+            return peso
 
-                codigo = match.metadata.get("codigo_oa", "Ninguno")
-                if codigo not in ["Ninguno", "OA no identificado"]:
-                    lista_codigos = [c.strip() for c in codigo.split(",")]
-                    for c in lista_codigos:
-                        if c in diccionario_oas and c not in candidatos_pinecone:
-                            candidatos_pinecone.append(c)
+        # Ordenar la lista aplicando el peso de mayor a menor
+        fragmentos_rerankeados = sorted(
+            fragmentos_validos, key=calcular_peso_rerank, reverse=True)
+
+        # Top 5 definitivo (como indica la Figura 6 de tu informe)
+        fragmentos_rerankeados = fragmentos_rerankeados[:5]
+
+        # Construir el contexto y extraer OAs con la lista ya reordenada
+        for match in fragmentos_rerankeados:
+            texto = match.metadata.get("texto", "")
+            contexto_recuperado += texto + "\n\n---\n\n"
+            fragmentos_utilizados += 1
+            ids_pinecone_utilizados.append(match.id)
+
+            codigo = match.metadata.get("codigo_oa", "Ninguno")
+            if codigo not in ["Ninguno", "OA no identificado"]:
+                lista_codigos = [c.strip() for c in codigo.split(",")]
+                for c in lista_codigos:
+                    if c in diccionario_oas and c not in candidatos_pinecone:
+                        candidatos_pinecone.append(c)
 
         lista_codigos_guardados = []
 
@@ -141,11 +161,13 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         REGLAS ESTRICTAS:
         1. Responde SIEMPRE basándote ÚNICAMENTE en la información del contexto proporcionado.
         2. Mantén tu respuesta por debajo de las 100 palabras (Microaprendizaje).
-        3. Si se te pregunta por algun curso fuera del rango de entre primero y sexto basico, puedes sugerir OAs de cursos mas bajos pero dejando en claro que no es el curso solicitado. No inventes OAs que no existan en el catálogo oficial.
-        4. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
+        3. Las OAs solo existen para los cursos: primero, segundo, tercero, cuarto, quinto y sexto básico.
+        4. Si se te pregunta por algun curso fuera del rango de entre primero y sexto basico, puedes sugerir OAs de cursos mas bajos pero dejando en claro que no es el curso solicitado. No inventes OAs que no existan en el catálogo oficial.
+        5. Tus respuestas no deben asumir edad de los estudiantes. Solo enfocate en los cursos.
+        6. OBLIGATORIO: Tu respuesta debe seguir EXACTAMENTE esta estructura de 4 partes:
            - Concepto Clave: (Definición breve)
            - Pasos: (Instrucciones numeradas con verbos imperativos)
-           - OA Vinculado: 
+           - OA Vinculado:
            {oa_oficial_extraido}
            - Verificación: (Cómo comprobar que funcionó)
 

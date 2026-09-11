@@ -5,6 +5,7 @@
 
 # Backend (Python / FastAPI)
 venv/
+venv_ragas/
 __pycache__/
 *.pyc
 
