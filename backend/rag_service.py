@@ -69,7 +69,8 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         await guardar_mensaje(session_id, "user", pregunta_texto)
 
         pregunta_para_busqueda = await reformular_consulta(pregunta_texto, historial_str)
-        print(f"[CEREBRO] Consulta reformulada para búsqueda: '{pregunta_para_busqueda}'")
+        print(
+            f"[CEREBRO] Consulta reformulada para búsqueda: '{pregunta_para_busqueda}'")
 
         # Usamos la pregunta reformulada para buscar, no la original
         vec_response = await cliente_openai.embeddings.create(

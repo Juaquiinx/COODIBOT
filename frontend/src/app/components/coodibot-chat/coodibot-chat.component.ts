@@ -40,17 +40,20 @@ export class CoodibotChatComponent implements OnInit {
   formatearRespuesta(texto: string, oas_vinculados?: any[]): string {
     let textoFormateado = texto;
 
-    if (textoFormateado.includes('- Concepto Clave:')) {
-      textoFormateado = textoFormateado
-        .replace(/- Concepto Clave:/g, '<span class="coodi-badge concepto">🧠 Concepto Clave</span>')
-        .replace(/- Pasos:/g, '<span class="coodi-badge pasos">⚙️ Pasos</span>')
-        .replace(/- OA Vinculado:/g, '<span class="coodi-badge oa">🎯 OA Vinculado</span>')
-        .replace(/- Verificación:/g, '<span class="coodi-badge verificacion">✅ Verificación</span>');
-    }
+    // 1. Transformar los títulos en etiquetas de colores usando Regex flexible
+    // El modificador 'gim' permite buscar de forma global, ignorando mayúsculas/minúsculas y por líneas
+    textoFormateado = textoFormateado
+      .replace(/^[*\-\s]*Concepto Clave[:\s*]*/gim, '<span class="coodi-badge concepto">🧠 Concepto Clave</span>\n')
+      .replace(/^[*\-\s]*Pasos[:\s*]*/gim, '<span class="coodi-badge pasos">⚙️ Pasos</span>\n')
+      .replace(/^[*\-\s]*OA Vinculado[s]?[:\s*]*/gim, '<span class="coodi-badge oa">🎯 OA Vinculado</span>\n')
+      .replace(/^[*\-\s]*Verificaci[óo]n[:\s*]*/gim, '<span class="coodi-badge verificacion">✅ Verificación</span>\n');
 
+    // 2. Convertir negritas de Markdown a HTML nativo
+    textoFormateado = textoFormateado.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+    // 3. Procesar tooltips de OAs (Se mantiene tu lógica original)
     if (oas_vinculados && oas_vinculados.length > 0) {
       oas_vinculados.forEach(oa => {
-        // Ojo: si el modelo no repite el codigo tal cual en el texto, no hay match y no sale el tooltip
         const html_tooltip = `<span class="coodi-tooltip">${oa.codigo} 👁️<span class="coodi-tooltip-text"><b>${oa.codigo}:</b> ${oa.descripcion}</span></span>`;
         textoFormateado = textoFormateado.replace(oa.codigo, html_tooltip);
       });
