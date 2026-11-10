@@ -6,6 +6,7 @@ import json
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 from pinecone import Pinecone
+import time
 from database import obtener_historial, guardar_mensaje
 
 
@@ -255,3 +256,19 @@ def actualizar_metadata_pinecone(pinecone_ids: str, nuevo_oa: str):
             indice.update(id=pinecone_id, set_metadata={"codigo_oa": nuevo_oa})
             print(
                 f"Vector {pinecone_id} actualizado en Pinecone a: {nuevo_oa}")
+
+
+# Para comparar diferentes modelos de IA:
+# 1. Inicia el cronómetro justo antes de enviar el prompt al modelo
+tiempo_inicio = time.time()
+
+# 2. Aquí va tu código actual (ejemplo referencial)
+# llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.0)
+# respuesta = llm.invoke(pregunta_y_contexto)
+
+# 3. Detiene el cronómetro al recibir la respuesta completa
+tiempo_fin = time.time()
+latencia = tiempo_fin - tiempo_inicio
+
+# 4. Imprime el resultado en la terminal de Docker o consola
+print(f"Latencia del modelo: {latencia:.2f} segundos")
