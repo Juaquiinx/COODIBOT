@@ -1,0 +1,5 @@
+﻿Metrica,Zero_Shot_Promedio,Zero_Shot_DE,COODIBOT_RAG_Promedio,COODIBOT_RAG_DE,Diferencia_Absoluta,Mejora_Porcentual
+Faithfulness,0.008,0.0566,0.2765,0.2618,0.2685,+3356.0%
+Answer Relevancy,0.7411,0.2198,0.5125,0.239,-0.2285,-30.8%
+Context Precision,0.0,0.0,0.6283,0.3692,0.6283,+0.0%
+Context Recall,0.22,0.3933,0.6245,0.4546,0.4045,+183.9%
