@@ -3,10 +3,10 @@
 # Importar las herramientas
 import os
 import json
+import math
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 from pinecone import Pinecone
-import time
 from database import obtener_historial, guardar_mensaje
 
 
@@ -21,16 +21,160 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 indice = pc.Index("coodibot-memoria")
 
 
-# Carga de OAs
+# Carga de OAs y estructura para cálculo de similitud/ambigüedad
 diccionario_oas = {}
+catalogo_oas_lista = []
+cache_embeddings_oas = []
+RUTA_CACHE_OAS = "oas_embeddings_cache.json"
+
 try:
     with open("catalogo_oas.json", "r", encoding="utf-8") as f:
         catalogo = json.load(f)
         for asignatura, lista_oas in catalogo.items():
             for oa in lista_oas:
                 diccionario_oas[oa["id"]] = oa["descripcion"]
+                catalogo_oas_lista.append({
+                    "codigo": oa["id"],
+                    "asignatura": asignatura,
+                    "descripcion": oa["descripcion"],
+                    "texto_embedding": f"{oa['id']} | {asignatura} | {oa['descripcion']}"
+                })
 except Exception as e:
     print(f"Advertencia: No se pudo cargar el catálogo JSON: {e}")
+
+
+def _normalizar_vector(vec: list[float]) -> list[float]:
+    norma = math.sqrt(sum(x * x for x in vec))
+    if norma == 0:
+        return vec
+    return [x / norma for x in vec]
+
+
+async def _asegurar_embeddings_oas():
+    """Carga desde caché o genera en una sola llamada por lotes los embeddings unitarios de los 275 OA."""
+    global cache_embeddings_oas
+    if cache_embeddings_oas and len(cache_embeddings_oas) == len(catalogo_oas_lista):
+        return
+
+    if os.path.exists(RUTA_CACHE_OAS):
+        try:
+            with open(RUTA_CACHE_OAS, "r", encoding="utf-8") as f:
+                datos_cache = json.load(f)
+            if len(datos_cache) == len(catalogo_oas_lista):
+                cache_embeddings_oas = datos_cache
+                print(
+                    f"[OA EMBEDDINGS] Cargados {len(cache_embeddings_oas)} vectores OA desde caché local.")
+                return
+        except Exception as e:
+            print(f"[OA EMBEDDINGS] Caché inválida, regenerando: {e}")
+
+    if not catalogo_oas_lista:
+        return
+
+    print(
+        f"[OA EMBEDDINGS] Generando embeddings para {len(catalogo_oas_lista)} OAs con text-embedding-3-small...")
+    textos = [item["texto_embedding"] for item in catalogo_oas_lista]
+    respuesta_emb = await cliente_openai.embeddings.create(
+        input=textos,
+        model="text-embedding-3-small"
+    )
+
+    nuevos_registros = []
+    for item, emb_data in zip(catalogo_oas_lista, respuesta_emb.data):
+        nuevos_registros.append({
+            "codigo": item["codigo"],
+            "asignatura": item["asignatura"],
+            "descripcion": item["descripcion"],
+            "vector": _normalizar_vector(emb_data.embedding)
+        })
+
+    cache_embeddings_oas = nuevos_registros
+    try:
+        with open(RUTA_CACHE_OAS, "w", encoding="utf-8") as f:
+            json.dump(cache_embeddings_oas, f, ensure_ascii=False)
+        print(f"[OA EMBEDDINGS] Caché guardada en {RUTA_CACHE_OAS}.")
+    except Exception as e:
+        print(f"[OA EMBEDDINGS] No se pudo guardar caché en disco: {e}")
+
+
+async def sugerir_oas_con_confianza(texto_consulta: str, top_k: int = 3, tau: float = 0.05) -> dict:
+    """
+    Calcula el Top-K de OAs más cercanos semánticamente, su índice de confianza Softmax (C_i)
+    y el margen de ambigüedad curricular (Delta_1,2 = s_(1) - s_(2)).
+    """
+    if not texto_consulta or not texto_consulta.strip():
+        return {"sugerencias": [], "ambiguedad": None}
+
+    await _asegurar_embeddings_oas()
+    if not cache_embeddings_oas:
+        return {"sugerencias": [], "ambiguedad": None}
+
+    resp_q = await cliente_openai.embeddings.create(
+        input=texto_consulta.strip(),
+        model="text-embedding-3-small"
+    )
+    vec_q = _normalizar_vector(resp_q.data[0].embedding)
+
+    puntuados = []
+    for oa_item in cache_embeddings_oas:
+        vec_v = oa_item["vector"]
+        similitud = sum(q_val * v_val for q_val, v_val in zip(vec_q, vec_v))
+        puntuados.append({
+            "codigo": oa_item["codigo"],
+            "asignatura": oa_item["asignatura"],
+            "descripcion": oa_item["descripcion"],
+            "similitud": similitud
+        })
+
+    puntuados.sort(key=lambda x: x["similitud"], reverse=True)
+    top_candidatos = puntuados[:top_k]
+
+    s_max = top_candidatos[0]["similitud"]
+    exps = [math.exp((c["similitud"] - s_max) / tau) for c in top_candidatos]
+    suma_exps = sum(exps)
+
+    sugerencias = []
+    for cand, exp_val in zip(top_candidatos, exps):
+        confianza_pct = (exp_val / suma_exps) * 100.0 if suma_exps > 0 else 0.0
+        sugerencias.append({
+            "codigo": cand["codigo"],
+            "asignatura": cand["asignatura"],
+            "descripcion": cand["descripcion"],
+            "similitud": round(cand["similitud"], 4),
+            "confianza": round(confianza_pct, 1)
+        })
+
+    s_1 = top_candidatos[0]["similitud"]
+    s_2 = top_candidatos[1]["similitud"] if len(top_candidatos) > 1 else 0.0
+    delta_1_2 = round(s_1 - s_2, 4)
+
+    if delta_1_2 < 0.03:
+        nivel = "alta"
+        etiqueta = "Alta Ambigüedad Interdisciplinar"
+        es_alta = True
+    elif delta_1_2 < 0.06:
+        nivel = "moderada"
+        etiqueta = "Ambigüedad Moderada"
+        es_alta = False
+    else:
+        nivel = "baja"
+        etiqueta = "Candidato Dominante"
+        es_alta = False
+
+    print(
+        f"[OA SUGERENCIAS] Top-1: {sugerencias[0]['codigo']} ({sugerencias[0]['confianza']}%) | "
+        f"Delta_1,2: {delta_1_2} ({etiqueta})"
+    )
+
+    return {
+        "sugerencias": sugerencias,
+        "ambiguedad": {
+            "margen_delta": delta_1_2,
+            "nivel_ambiguedad": nivel,
+            "etiqueta": etiqueta,
+            "es_alta_ambiguedad": es_alta
+        }
+    }
 
 
 # Reescribe la pregunta usando el historial para que quede autónoma
@@ -246,9 +390,8 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
         print(f"ERROR EN RAG: {str(e)}")
         raise e
 
+
 # Gestión de metadata vectorial
-
-
 def actualizar_metadata_pinecone(pinecone_ids: str, nuevo_oa: str):
     if pinecone_ids:
         lista_ids = pinecone_ids.split(",")
@@ -256,19 +399,3 @@ def actualizar_metadata_pinecone(pinecone_ids: str, nuevo_oa: str):
             indice.update(id=pinecone_id, set_metadata={"codigo_oa": nuevo_oa})
             print(
                 f"Vector {pinecone_id} actualizado en Pinecone a: {nuevo_oa}")
-
-
-# Para comparar diferentes modelos de IA:
-# 1. Inicia el cronómetro justo antes de enviar el prompt al modelo
-tiempo_inicio = time.time()
-
-# 2. Aquí va tu código actual (ejemplo referencial)
-# llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.0)
-# respuesta = llm.invoke(pregunta_y_contexto)
-
-# 3. Detiene el cronómetro al recibir la respuesta completa
-tiempo_fin = time.time()
-latencia = tiempo_fin - tiempo_inicio
-
-# 4. Imprime el resultado en la terminal de Docker o consola
-print(f"Latencia del modelo: {latencia:.2f} segundos")

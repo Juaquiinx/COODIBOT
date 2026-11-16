@@ -17,17 +17,24 @@ export class AdminComponent implements OnInit {
     this.cargarMalas();
   }
 
-  // Trae del backend las respuestas que los docentes calificaron negativo
+  // Trae del backend las respuestas negativas junto al Top-3 de OA sugeridos y su ambigüedad
   cargarMalas() {
     this.chatService.obtenerRespuestasMalas().subscribe({
       next: (res) => {
         if (res.estado === 'éxito') {
-
-          this.respuestasMalas = res.data.map((item: any) => ({ ...item, nuevo_oa: '' }));
+          this.respuestasMalas = res.data.map((item: any) => ({
+            ...item,
+            nuevo_oa: ''
+          }));
         }
       },
       error: (err) => console.error('Error al cargar respuestas malas:', err)
     });
+  }
+
+  // Selecciona uno de los OA sugeridos por el modelo de similitud
+  seleccionarOASugerido(item: any, codigo: string) {
+    item.nuevo_oa = codigo;
   }
 
   // Envia el OA corregido para actualizar el metadato del vector en Pinecone

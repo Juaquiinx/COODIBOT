@@ -74,7 +74,8 @@ async def obtener_historial(session_id: str, limite: int = 4):
 
 def _actualizar_calificacion_sync(mensaje_id, calificacion):
     conn = _conectar()
-    conn.execute("UPDATE historial_chat SET calificacion = ? WHERE id = ?", (calificacion, mensaje_id))
+    conn.execute("UPDATE historial_chat SET calificacion = ? WHERE id = ?",
+                 (calificacion, mensaje_id))
     conn.commit()
 
 
@@ -86,11 +87,35 @@ async def actualizar_calificacion(mensaje_id: int, calificacion: int):
 def _obtener_respuestas_malas_sync():
     conn = _conectar()
     filas = conn.execute(
-        "SELECT id, contenido, pinecone_ids FROM historial_chat WHERE calificacion = -1"
+        "SELECT id, session_id, contenido, pinecone_ids FROM historial_chat WHERE calificacion = -1 ORDER BY id DESC"
     ).fetchall()
-    return [{"mensaje_id": f[0], "contenido": f[1], "pinecone_ids": f[2]} for f in filas]
+
+    resultados = []
+    for f in filas:
+        mensaje_id, session_id, contenido_bot, pinecone_ids = f[0], f[1], f[2], f[3]
+
+        if session_id:
+            fila_pregunta = conn.execute(
+                "SELECT contenido FROM historial_chat WHERE session_id = ? AND rol = 'user' AND id < ? ORDER BY id DESC LIMIT 1",
+                (session_id, mensaje_id)
+            ).fetchone()
+        else:
+            fila_pregunta = conn.execute(
+                "SELECT contenido FROM historial_chat WHERE rol = 'user' AND id < ? ORDER BY id DESC LIMIT 1",
+                (mensaje_id,)
+            ).fetchone()
+
+        pregunta_usuario = fila_pregunta[0] if fila_pregunta else ""
+        resultados.append({
+            "mensaje_id": mensaje_id,
+            "pregunta_usuario": pregunta_usuario,
+            "contenido": contenido_bot,
+            "pinecone_ids": pinecone_ids
+        })
+
+    return resultados
 
 
 async def obtener_respuestas_malas():
-    """Recupera las respuestas con calificacion negativa, para el panel admin."""
+    """Recupera las respuestas con calificacion negativa y su pregunta asociada, para el panel admin."""
     return await asyncio.to_thread(_obtener_respuestas_malas_sync)

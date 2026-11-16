@@ -14,15 +14,47 @@
             <div class="card-header">
                 <span class="badge">Mensaje ID: {{item.mensaje_id}}</span>
                 <span class="badge pinecone" title="{{item.pinecone_ids}}">Vectores Identificados</span>
+                <span *ngIf="item.ambiguedad"
+                      class="badge"
+                      [ngClass]="{
+                        'ambiguedad-alta': item.ambiguedad.nivel_ambiguedad === 'alta',
+                        'ambiguedad-moderada': item.ambiguedad.nivel_ambiguedad === 'moderada',
+                        'ambiguedad-baja': item.ambiguedad.nivel_ambiguedad === 'baja'
+                      }">
+                    {{ item.ambiguedad.es_alta_ambiguedad ? '⚠️' : '🎯' }}
+                    {{ item.ambiguedad.etiqueta }} (Δ = {{ item.ambiguedad.margen_delta }})
+                </span>
             </div>
 
             <div class="card-body">
+                <div *ngIf="item.pregunta_usuario" class="user-question-box">
+                    <h4>Pregunta original del docente:</h4>
+                    <p class="user-question">"{{ item.pregunta_usuario }}"</p>
+                </div>
+
                 <h4>Respuesta dada por el bot:</h4>
                 <div class="bot-response" [innerHTML]="item.contenido"></div>
+
+                <div *ngIf="item.sugerencias_oa && item.sugerencias_oa.length > 0" class="oa-suggestions">
+                    <h4>Sugerencias de OA (Top-3 por Similitud Semántica):</h4>
+                    <div class="suggestions-list">
+                        <div *ngFor="let sug of item.sugerencias_oa"
+                             class="suggestion-item"
+                             [class.selected]="item.nuevo_oa === sug.codigo"
+                             (click)="seleccionarOASugerido(item, sug.codigo)">
+                            <div class="suggestion-top">
+                                <span class="oa-code">{{ sug.codigo }}</span>
+                                <span class="oa-subject">{{ sug.asignatura }}</span>
+                                <span class="oa-confidence">Confianza: {{ sug.confianza }}% (cos = {{ sug.similitud }})</span>
+                            </div>
+                            <p class="oa-desc">{{ sug.descripcion }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="card-footer">
-                <label>Asignar Nuevo OA Correcto:</label>
+                <label>Asignar Nuevo OA Correcto (clic en sugerencia o ingreso manual):</label>
                 <div class="input-group">
                     <input type="text" [(ngModel)]="item.nuevo_oa" placeholder="Ej: TEC-3B-OA1, MAT-5B-OA14">
                     <button (click)="guardarCorreccion(item)" [disabled]="cargando || !item.nuevo_oa">

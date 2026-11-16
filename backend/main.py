@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from models import MensajeUsuario, EvaluacionRespuesta, CorreccionOA
 from database import iniciar_base_datos, actualizar_calificacion, obtener_respuestas_malas
-from rag_service import procesar_rag, actualizar_metadata_pinecone
+from rag_service import procesar_rag, actualizar_metadata_pinecone, sugerir_oas_con_confianza
 
 
 @asynccontextmanager
@@ -57,12 +57,19 @@ async def evaluar_respuesta(evaluacion: EvaluacionRespuesta):
         return {"error": f"Hubo un problema al guardar la evaluación: {str(e)}"}
 
 
-# Panel admin: trae las respuestas mal calificadas para revisar
+# Panel admin: trae las respuestas mal calificadas con Top-3 OAs sugeridos y métrica de ambigüedad
 @app.get("/api/admin/malas")
 async def obtener_respuestas_malas_endpoint():
-    print("\n[ADMIN] Solicitando lista de malas respuestas...")
+    print("\n[ADMIN] Solicitando lista de malas respuestas con análisis de confianza OA...")
     try:
         resultados = await obtener_respuestas_malas()
+        for item in resultados:
+            texto_analisis = item.get(
+                "pregunta_usuario") or item.get("contenido", "")
+            analisis_oa = await sugerir_oas_con_confianza(texto_analisis, top_k=3, tau=0.05)
+            item["sugerencias_oa"] = analisis_oa["sugerencias"]
+            item["ambiguedad"] = analisis_oa["ambiguedad"]
+
         return {"estado": "éxito", "data": resultados}
     except Exception as e:
         return {"error": f"Error al obtener respuestas: {str(e)}"}
@@ -78,7 +85,8 @@ async def corregir_oa_en_pinecone_endpoint(datos: CorreccionOA):
             return {"error": "No hay IDs de Pinecone asociados a esta respuesta."}
 
         actualizar_metadata_pinecone(datos.pinecone_ids, datos.nuevo_oa)
-        await actualizar_calificacion(datos.mensaje_id, 2)  # marca la respuesta como corregida
+        # marca la respuesta como corregida
+        await actualizar_calificacion(datos.mensaje_id, 2)
 
         return {"estado": "éxito", "mensaje": "Metadata en Pinecone actualizada correctamente."}
     except Exception as e:
