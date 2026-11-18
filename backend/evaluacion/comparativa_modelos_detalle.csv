@@ -1,0 +1,262 @@
+modelo,id,latencia_seg,tokens_in,tokens_out,palabras,cumple_formato,respuesta
+gpt-4o-mini,T01,2.77,1190,128,72,True,"- Concepto Clave: Sensor HC-SR04 mide distancia mediante ultrasonido.
+- Pasos: 
+  1. Conecta el sensor HC-SR04 al robot.
+  2. Programa el robot para que utilice el sensor en su configuración.
+  3. Establece condiciones para evadir obstáculos basadas en la distancia medida.
+- OA Vinculado:
+  - {'codigo': 'TEC-3B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas...'}
+- Verificación: Observa si el robot cambia de dirección al detectar un obstáculo."
+gpt-4o-mini,T09,1.813,1172,124,69,True,"Concepto Clave: Actuador que produce sonido.  
+Pasos:  
+1. Identifica el componente de salida.  
+2. Conecta el buzzer al sistema COODI.  
+3. Programa la secuencia para emitir sonido.  
+OA Vinculado:  
+- {'codigo': 'TEC-1B-OA2', 'descripcion': 'Distinguir las tareas para elaborar un objeto tecnológico, identificando los materiales y las herramientas necesarias en cada una de ellas para lograr el resultado deseado.'}  
+Verificación: Comprueba que el buzzer emite sonido al ejecutar el programa."
+gpt-4o-mini,T16,2.096,1011,152,96,True,"Concepto Clave: RFID es una tecnología de identificación por radiofrecuencia que permite reconocer tarjetas u objetos automáticamente.
+
+Pasos: 
+1. Implementa un sistema RFID en tu proyecto.
+2. Conecta el lector RFID al microcontrolador.
+3. Programa el microcontrolador para leer las tarjetas.
+4. Verifica la lectura de las tarjetas en el sistema.
+
+OA Vinculado:
+- {'codigo': 'TEC-3B-OA2', 'descripcion': 'Planificar la elaboración de un objeto tecnológico, incorporando la secuencia de acciones, materiales, herramientas, técnicas y medidas de seguridad necesarias para lograr el resultado deseado. '}
+
+Verificación: Comprueba que el sistema reconozca las tarjetas al acercarlas al lector RFID."
+gpt-4o-mini,T17,1.041,1193,33,25,False,No tengo información sobre el sensor que COODI utiliza para medir su orientación y movimiento con una IMU. Podría estar planificado pero no implementado aún.
+gpt-4o-mini,T20,2.019,1284,98,50,True,"- Concepto Clave: (Microcontrolador utilizado en COODI)
+- Pasos: (1. Identifica el microcontrolador inicial. 2. Verifica su implementación en el ecosistema COODI.)
+- OA Vinculado: {'codigo': 'TEC-4B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas.'}
+- Verificación: (Confirma que el microcontrolador Arduino UNO está en uso.)"
+gpt-4o-mini,C02,2.576,1220,168,105,True,"- Concepto Clave: Los patrones repetitivos son secuencias que se repiten en un orden específico, fundamentales para el pensamiento lógico.
+- Pasos:
+  1. Introduce el concepto de patrones usando objetos o dibujos.
+  2. Utiliza el entorno de programación visual de COODI para crear secuencias simples.
+  3. Pide a los estudiantes que identifiquen y reproduzcan patrones en el software.
+  4. Realiza actividades prácticas donde los estudiantes creen sus propios patrones.
+- OA Vinculado:
+  - {'codigo': 'TEC-1B-OA5', 'descripcion': 'Usar software de dibujo para crear y representar ideas por medio de imágenes, guiados por el docente.'}
+- Verificación: Observa si los estudiantes pueden identificar y crear patrones correctamente."
+gpt-4o-mini,C09,2.809,1205,189,112,True,"- Concepto Clave: Conectar el sensor ultrasónico HC-SR04 al robot COODI permite medir distancias mediante ultrasonido.
+- Pasos:
+  1. Identifica los pines del HC-SR04: VCC, Trig, Echo y GND.
+  2. Conecta el pin VCC a la fuente de alimentación del robot.
+  3. Conecta el pin GND a la tierra del robot.
+  4. Conecta el pin Trig a un pin digital del robot.
+  5. Conecta el pin Echo a otro pin digital del robot.
+- OA Vinculado:
+  - {'codigo': 'TEC-5B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas.'}
+- Verificación: Ejecuta un programa que lea la distancia y verifica que el robot responda correctamente a los cambios de distancia."
+gpt-4o-mini,C15,2.742,1223,187,94,True,"- Concepto Clave: (Diseñar y construir rectángulos dados el perímetro o área)
+- Pasos: 
+  1. Presenta el objetivo de aprendizaje. 
+  2. Explica el concepto de perímetro y área. 
+  3. Proporciona materiales para construir rectángulos. 
+  4. Asigna un perímetro o área a cada grupo. 
+  5. Permite que los grupos construyan y midan sus rectángulos. 
+  6. Comparte y discute los resultados.
+- OA Vinculado: 
+  - {'codigo': 'MAT-5B-OA21', 'descripcion': 'Diseñar y construir diferentes rectángulos, dados el perímetro, el área o ambos, y sacar conclusiones.'}
+- Verificación: (Compara las medidas de los rectángulos construidos con los valores asignados)."
+gpt-4o-mini,C18,2.331,1218,153,85,True,"Concepto Clave: COODI está diseñado principalmente para educación básica, específicamente entre primero y sexto básico.  
+Pasos:  
+1. Selecciona un OA de un curso de primero a sexto básico.  
+2. Adapta la actividad según el nivel de complejidad deseado.  
+3. Implementa la actividad con los estudiantes.  
+OA Vinculado:  
+- {'codigo': 'TEC-4B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas...'}  
+- {'codigo': 'TEC-4B-OA2', 'descripcion': 'Planificar la elaboración de un objeto tecnológico...'}  
+Verificación: Observa la participación y comprensión de los estudiantes durante la actividad."
+gpt-4o-mini,C20,0.986,1183,35,24,False,No tengo información sobre los documentos del Mineduc que respalden el uso de COODI en el aula. Podría estar planificado pero no implementado aún.
+gpt-4o,T01,1.548,1190,125,61,True,"- **Concepto Clave:** Sensor ultrasónico HC-SR04
+- **Pasos:**
+  1. Conecta el sensor HC-SR04 al robot.
+  2. Configura el algoritmo para medir la distancia.
+  3. Implementa condicionales para evadir obstáculos.
+- **OA Vinculado:** 
+  - {'codigo': 'CIE-4B-OA14', 'descripcion': 'Diseñar y construir objetos tecnológicos que usen la fuerza, para resolver problemas cotidianos. '}
+- **Verificación:** Observa si el robot detecta y evade obstáculos correctamente."
+gpt-4o,T09,1.509,1172,131,80,True,"Concepto Clave: Un actuador es un componente que produce una acción física o perceptible.
+
+Pasos:
+1. Identifica el actuador en la documentación de COODI.
+2. Verifica si el actuador está implementado o en prototipo.
+
+OA Vinculado:
+- {'codigo': 'TEC-1B-OA2', 'descripcion': 'Distinguir las tareas para elaborar un objeto tecnológico, identificando los materiales y las herramientas necesarias en cada una de ellas para lograr el resultado deseado. '}
+
+Verificación: Comprueba que el buzzer emite sonido al ser activado en el sistema COODI."
+gpt-4o,T16,1.5,1011,133,84,True,"Concepto Clave: RFID es una tecnología de identificación por radiofrecuencia.
+
+Pasos:
+1. Considera la integración de RFID para identificación automática.
+2. Verifica si está implementado o planificado en tu configuración.
+3. Consulta la documentación oficial para detalles específicos.
+
+OA Vinculado:
+- {'codigo': 'TEC-3B-OA2', 'descripcion': 'Planificar la elaboración de un objeto tecnológico, incorporando la secuencia de acciones, materiales, herramientas, técnicas y medidas de seguridad necesarias para lograr el resultado deseado. '}
+
+Verificación: Revisa la documentación de COODI para confirmar el estado de implementación de RFID."
+gpt-4o,T17,1.608,1193,185,115,True,"No tengo información sobre el uso de un sensor IMU para medir orientación y movimiento en COODI. Podría estar planificado pero no implementado aún.
+
+Concepto Clave: IMU (Unidad de Medición Inercial) mide orientación y movimiento.
+
+Pasos:
+1. Investiga sobre sensores IMU.
+2. Verifica si COODI tiene un módulo IMU.
+3. Consulta documentación actualizada de COODI.
+
+OA Vinculado:
+- {'codigo': 'TEC-3B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas: desde diversos ámbitos tecnológicos y tópicos de otras asignaturas; representando sus ideas a través de dibujos a mano alzada, modelos concretos o usando TIC; explorando y combinando productos existentes. '}
+
+Verificación: Confirma en la documentación de COODI si se menciona un sensor IMU."
+gpt-4o,T20,1.281,1284,119,71,True,"- Concepto Clave: Microcontrolador inicial de COODI.
+- Pasos: 
+  1. Identifica el microcontrolador en la documentación.
+  2. Verifica el estado de implementación.
+- OA Vinculado:
+  - {'codigo': 'TEC-1B-OA2', 'descripcion': 'Distinguir las tareas para elaborar un objeto tecnológico, identificando los materiales y las herramientas necesarias en cada una de ellas para lograr el resultado deseado. '}
+- Verificación: Consulta la documentación para confirmar el uso del Arduino UNO en la versión inicial."
+gpt-4o,C02,1.516,1220,166,93,True,"- **Concepto Clave:** Identificación de patrones repetitivos.
+- **Pasos:**
+  1. Introduce patrones usando material narrativo.
+  2. Utiliza sensores o datos de ejemplo para observar regularidades.
+  3. Discute cómo un algoritmo puede identificar estos patrones.
+  4. Realiza actividades prácticas con COODI para reforzar el concepto.
+- **OA Vinculado:** {'codigo': 'TEC-1B-OA6', 'descripcion': 'Explorar y usar una variedad de software educativos (simuladores, libros digitales, interactivos y creativos, entre otros) para lograr aprendizajes significativos y una interacción apropiada con las TIC. '}
+- **Verificación:** Observa si los estudiantes pueden identificar y crear patrones repetitivos de manera autónoma."
+gpt-4o,C09,1.788,1205,175,101,True,"- Concepto Clave: El sensor HC-SR04 mide distancias usando ultrasonido.
+- Pasos:
+  1. Conecta el pin VCC del HC-SR04 al pin de 5V del robot.
+  2. Conecta el pin GND al pin de tierra (GND).
+  3. Conecta el pin TRIG a un pin digital disponible.
+  4. Conecta el pin ECHO a otro pin digital.
+- OA Vinculado:
+  - {'codigo': 'TEC-3B-OA2', 'descripcion': 'Planificar la elaboración de un objeto tecnológico, incorporando la secuencia de acciones, materiales, herramientas, técnicas y medidas de seguridad necesarias para lograr el resultado deseado. '}
+- Verificación: Comprueba que el robot detecta obstáculos y ajusta su movimiento en consecuencia."
+gpt-4o,C15,1.564,1223,174,99,True,"Concepto Clave: Diseño y construcción de rectángulos.
+
+Pasos:
+1. Introduce el concepto de perímetro y área.
+2. Divide la clase en grupos pequeños.
+3. Proporciona materiales para construir rectángulos (papel cuadriculado, reglas).
+4. Asigna a cada grupo un perímetro o área específico.
+5. Pide a los grupos que diseñen y construyan diferentes rectángulos con las medidas dadas.
+6. Facilita una discusión sobre las conclusiones obtenidas.
+
+OA Vinculado:
+- {'codigo': 'MAT-5B-OA21', 'descripcion': 'Diseñar y construir diferentes rectángulos, dados el perímetro, el área o ambos, y sacar conclusiones. '}
+
+Verificación: Revisa los rectángulos construidos y las conclusiones discutidas por los grupos."
+gpt-4o,C18,1.67,1218,186,105,True,"Concepto Clave: COODI está diseñado principalmente para estudiantes de educación básica, de 7 a 12 años.
+
+Pasos:
+1. Revisa los OAs disponibles para cursos de primero a sexto básico.
+2. Selecciona un OA que se adapte a las necesidades de 7° básico.
+3. Adapta la actividad para aumentar su complejidad si es necesario.
+
+OA Vinculado:
+- {'codigo': 'TEC-4B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas...'}
+- {'codigo': 'TEC-4B-OA2', 'descripcion': 'Planificar la elaboración de un objeto tecnológico...'}
+- {'codigo': 'TEC-3B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples...'}
+
+Verificación: Observa si los estudiantes logran completar la actividad adaptada con éxito."
+gpt-4o,C20,1.861,1183,164,99,True,"No tengo información específica sobre documentos del Mineduc que respalden el uso de COODI en el aula. Podría estar planificado pero no implementado aún. Sin embargo, COODI es un ecosistema educativo que integra robótica, programación y contenidos STEM, lo cual podría alinearse con objetivos educativos generales.
+
+Concepto Clave: COODI es un ecosistema educativo integral.
+
+Pasos:
+1. Investiga documentos oficiales del Mineduc.
+2. Compara los objetivos de COODI con el currículo nacional.
+3. Consulta con autoridades educativas locales.
+
+OA Vinculado:
+- {'codigo': 'TEC-4B-OA2', 'descripcion': 'Planificar la elaboración de un objeto tecnológico...'}
+
+Verificación: Confirma con el Mineduc o instituciones educativas locales."
+gpt-4.1-mini,T01,1.82,1190,144,82,True,"- Concepto Clave: El sensor HC-SR04 mide distancia usando ultrasonido para detectar obstáculos.
+- Pasos:
+  1. Conecta el sensor HC-SR04 al robot COODI.
+  2. Programa el robot para emitir ultrasonidos y recibir ecos.
+  3. Calcula la distancia según el tiempo de retorno del ultrasonido.
+  4. Usa esta información para evitar obstáculos.
+- OA Vinculado:
+  {'codigo': 'TEC-3B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas...'}
+- Verificación: Observa que el robot detecta y evita obstáculos correctamente durante su desplazamiento."
+gpt-4.1-mini,T09,2.009,1172,136,80,True,"- Concepto Clave: Actuador que produce sonido en COODI.
+- Pasos:
+  1. Identifica el componente de salida sonora.
+  2. Conecta el buzzer al controlador (Arduino o ESP32).
+  3. Programa la señal para emitir sonidos o alertas.
+- OA Vinculado:
+  {'codigo': 'TEC-1B-OA2', 'descripcion': 'Distinguir las tareas para elaborar un objeto tecnológico, identificando los materiales y las herramientas necesarias en cada una de ellas para lograr el resultado deseado. '}
+- Verificación: Confirma que el buzzer emite sonidos al ejecutar el programa."
+gpt-4.1-mini,T16,2.506,1011,213,121,True,"- Concepto Clave: RFID es una tecnología para identificar objetos automáticamente mediante radiofrecuencia.
+- Pasos: 1) Considera integrar RFID para reconocimiento automático. 2) Usa tarjetas compatibles con RFID. 3) Configura el lector para detectar tarjetas. 4) Valida la lectura con el sistema.
+- OA Vinculado:
+  - {'codigo': 'TEC-3B-OA2', 'descripcion': 'Planificar la elaboración de un objeto tecnológico, incorporando la secuencia de acciones, materiales, herramientas, técnicas y medidas de seguridad necesarias para lograr el resultado deseado.'}
+  - {'codigo': 'TEC-3B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas...'}
+  - {'codigo': 'CIE-4B-OA14', 'descripcion': 'Diseñar y construir objetos tecnológicos que usen la fuerza, para resolver problemas cotidianos.'}
+- Verificación: Comprueba que el sistema detecta y reconoce automáticamente las tarjetas RFID al acercarlas."
+gpt-4.1-mini,T17,1.654,1193,101,66,True,"Concepto Clave: No hay información en el contexto sobre el uso de una IMU para medir orientación y movimiento en COODI.  
+Pasos:  
+1. Verifica los componentes electrónicos disponibles.  
+2. Consulta documentación oficial para sensores de orientación.  
+3. Considera que podría estar planificado pero no implementado aún.  
+OA Vinculado: No aplica por falta de información.  
+Verificación: Confirmar en futuras actualizaciones o manuales si se incorpora la IMU."
+gpt-4.1-mini,T20,1.451,1284,97,58,True,"- Concepto Clave: Microcontrolador es el chip que controla el funcionamiento del robot COODI.
+- Pasos: 
+  1. Identifica el microcontrolador en la versión inicial.
+  2. Verifica su compatibilidad con el ecosistema.
+- OA Vinculado: No aplica para esta consulta técnica.
+- Verificación: Confirmar que el robot COODI inicial funcione con Arduino UNO, el microcontrolador implementado según el contexto."
+gpt-4.1-mini,C02,2.371,1220,189,110,True,"- Concepto Clave: Identificar y crear patrones repetitivos para desarrollar pensamiento lógico y computacional.  
+- Pasos:  
+  1. Presenta una situación significativa con patrones visuales o sonoros.  
+  2. Usa tarjetas o bloques para que los estudiantes formen secuencias repetitivas.  
+  3. Programa patrones simples en el entorno visual de COODI.  
+  4. Reflexiona con los estudiantes sobre la repetición y variación en los patrones.  
+- OA Vinculado: {'codigo': 'TEC-1B-OA6', 'descripcion': 'Explorar y usar una variedad de software educativos (simuladores, libros digitales, interactivos y creativos, entre otros) para lograr aprendizajes significativos y una interacción apropiada con las TIC.'}  
+- Verificación: Observa si los estudiantes pueden crear y reconocer patrones repetitivos en actividades y programas."
+gpt-4.1-mini,C09,2.192,1205,200,112,True,"- Concepto Clave: El sensor ultrasónico HC-SR04 mide distancias usando ondas sonoras para detectar objetos cercanos.  
+- Pasos:  
+  1. Conecta el pin VCC del HC-SR04 al voltaje del robot (5V).  
+  2. Une el pin GND a tierra (GND) del robot.  
+  3. Conecta el pin Trigger a un pin digital para enviar pulsos.  
+  4. Conecta el pin Echo a otro pin digital para recibir la señal.  
+  5. Programa el robot para enviar y recibir señales, midiendo el tiempo y calculando distancia.  
+- OA Vinculado: {'codigo': 'TEC-5B-OA1', 'descripcion': 'No disponible en contexto; se sugiere revisar OAs de cursos inferiores.'}  
+- Verificación: Observa que el robot detecta obstáculos y responde deteniéndose o cambiando su recorrido."
+gpt-4.1-mini,C15,2.068,1223,156,91,True,"Concepto Clave: Diseñar y construir rectángulos dados perímetro o área para comprender sus propiedades.
+
+Pasos:
+1. Explica el concepto de perímetro y área.
+2. Propón un perímetro o área específico.
+3. Pide a los estudiantes que diseñen diferentes rectángulos con ese dato.
+4. Que comparen y discutan las formas y medidas.
+5. Reflexiona sobre conclusiones del desafío.
+
+OA Vinculado:
+- {'codigo': 'MAT-5B-OA21', 'descripcion': 'Diseñar y construir diferentes rectángulos, dados el perímetro, el área o ambos, y sacar conclusiones.'}
+
+Verificación: Los estudiantes presentan sus rectángulos y explican cómo varían perímetro y área."
+gpt-4.1-mini,C18,1.727,1218,139,77,True,"Concepto Clave: COODI está diseñado para educación básica, principalmente entre 1° y 6° básico.  
+Pasos:  
+1. Identifica OAs de cursos entre 1° y 6° básico.  
+2. Selecciona OAs adecuados al nivel de tus estudiantes.  
+3. Adapta actividades de cursos inferiores para 7° básico.  
+OA Vinculado: {'codigo': 'TEC-4B-OA1', 'descripcion': 'Crear diseños de objetos o sistemas tecnológicos simples para resolver problemas...'}  
+Verificación: Comprobar que las actividades se ajustan al nivel y objetivos de aprendizaje, aunque sean de cursos inferiores."
+gpt-4.1-mini,C20,1.645,1183,126,75,True,"Concepto Clave: Documentos oficiales que avalan la integración de COODI en educación básica.  
+Pasos:  
+1. Consulta documentos del Mineduc relacionados con educación básica y tecnología.  
+2. Revisa normativas sobre robótica educativa y programación.  
+3. Identifica referencias a ecosistemas educativos como COODI.  
+4. Verifica alineación con objetivos curriculares y sostenibilidad.  
+OA Vinculado: No hay OA específicos para esta consulta.  
+Verificación: Confirmar que los documentos consultados mencionan explícitamente o respaldan el uso de COODI en el aula."
