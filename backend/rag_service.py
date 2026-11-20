@@ -268,14 +268,14 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
                 curso_meta = match.metadata.get("curso", "").upper()
 
                 if curso_detectado in codigo_oa or curso_detectado in curso_meta:
-                    peso += 0.05  # boost chico: desempata, no pisa el score semantico
+                    peso += 0.05  # ajuste menor: desempata sin reemplazar el score semántico
             return peso
 
         # Ordenar la lista aplicando el peso de mayor a menor
         fragmentos_rerankeados = sorted(
             fragmentos_validos, key=calcular_peso_rerank, reverse=True)
 
-        # Top 5 definitivo (como indica la Figura 7 de tu informe)
+        # Top 5 final (Figura 7 del informe)
         fragmentos_rerankeados = fragmentos_rerankeados[:5]
 
         # Construir el contexto y extraer OAs con la lista ya reordenada
@@ -302,12 +302,8 @@ async def procesar_rag(pregunta_texto: str, session_id: str):
             if oas_del_curso:
                 lista_codigos_guardados = oas_del_curso
             else:
-                # No hay ningún OA del curso detectado entre los fragmentos
-                # realmente recuperados. En vez de rellenar con un OA
-                # genérico del catálogo (sin relación con el contexto),
-                # se muestran los OA que sí vinieron ligados a los
-                # fragmentos recuperados, aunque no coincidan con el
-                # curso detectado en la pregunta.
+                # Sin OA del curso detectado: se usan los OA asociados a los
+                # fragmentos recuperados, aunque correspondan a otro curso.
                 lista_codigos_guardados = candidatos_pinecone[:3]
         else:
             lista_codigos_guardados = candidatos_pinecone[:3]

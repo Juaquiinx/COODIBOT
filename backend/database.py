@@ -1,4 +1,4 @@
-# Encargada de administrar la base de datos (ahora en la nube, con Turso)
+# Acceso a la base de datos (Turso)
 
 import os
 import asyncio
@@ -17,10 +17,8 @@ def _conectar():
 
 
 # ---------------------------------------------------------------------------
-# Cada funcion publica es "async def" para no romper nada en main.py/rag_service.py
-# (que ya hacen "await guardar_mensaje(...)", etc). Por dentro, el trabajo real
-# lo hace una funcion sincrona que corre en un hilo aparte (asyncio.to_thread),
-# porque el paquete libsql de Turso todavia no tiene una version async nativa.
+# Funciones públicas async; la operación síncrona se ejecuta en un hilo aparte
+# (asyncio.to_thread), ya que el cliente libsql no ofrece interfaz async.
 # ---------------------------------------------------------------------------
 
 def _iniciar_base_datos_sync():

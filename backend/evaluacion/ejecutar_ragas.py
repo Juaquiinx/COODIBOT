@@ -76,12 +76,11 @@ def main():
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         print("Error: No se encontró OPENAI_API_KEY en backend/.env ni en la raíz .env.")
-        print("Ejecuta en PowerShell: $env:OPENAI_API_KEY='sk-tu-clave' y vuelve a correr el script.")
         return
 
     if not os.path.exists(ARCHIVO_ENTRADA_JSON):
         print(
-            f"Error: Primero ejecuta generar_dataset_evaluacion.py para crear {ARCHIVO_ENTRADA_JSON}")
+            f"Error: no se encontró {ARCHIVO_ENTRADA_JSON} (se genera con generar_dataset_evaluacion.py)")
         return
 
     with open(ARCHIVO_ENTRADA_JSON, "r", encoding="utf-8") as f:
@@ -90,7 +89,7 @@ def main():
     print(
         f"Cargadas {len(datos)} interacciones desde {ARCHIVO_ENTRADA_JSON}\n")
 
-    # Configurar LLM Juez y Embeddings económicos pasando api_key explícitamente
+    # LLM juez y modelo de embeddings
     llm_juez = ChatOpenAI(model="gpt-4o-mini",
                           temperature=0.0, api_key=api_key)
     embeddings_juez = OpenAIEmbeddings(

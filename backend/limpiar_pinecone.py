@@ -18,4 +18,4 @@ indice.delete(delete_all=True)
 print("Esperando 3 segundos a que Pinecone confirme la limpieza...")
 time.sleep(3)
 
-print("¡Listo! Tu índice 'coodibot-memoria' ha quedado 100% limpio.")
+print("Índice 'coodibot-memoria' vaciado.")

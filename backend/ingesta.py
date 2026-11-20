@@ -131,7 +131,7 @@ def procesar_pdfs_tecnicos_y_etiquetar(carpeta):
 
         if nombre_archivo in documentos_procesados:
             print(
-                f"Saltando '{nombre_archivo}': Ya fue procesado anteriormente (ahorro de tokens).")
+                f"Saltando '{nombre_archivo}': ya procesado anteriormente.")
             continue
 
         ruta_completa = os.path.join(carpeta, nombre_archivo)
@@ -170,11 +170,11 @@ def procesar_pdfs_tecnicos_y_etiquetar(carpeta):
 
 
 # Ejecución principal
-print("Iniciando Ingesta Inteligente de COODI...")
+print("Iniciando ingesta de documentos COODI...")
 textos_para_procesar = procesar_pdfs_tecnicos_y_etiquetar(CARPETA_PDFS)
 
 if not textos_para_procesar:
-    print("¡No hay documentos nuevos para vectorizar e inyectar!")
+    print("No hay documentos nuevos para procesar.")
 else:
     print(
         f"Se generaron y etiquetaron {len(textos_para_procesar)} fragmentos. Vectorizando...")
@@ -206,4 +206,4 @@ else:
         indice.upsert(vectors=lote)
         print(f"Lote {i} a {i+len(lote)} subido...")
 
-    print("¡Memoria inyectada con éxito! Cada bloque del manual ahora tiene sus OAs pre-vinculados.")
+    print("Ingesta completada: fragmentos cargados en Pinecone con sus OA asociados.")

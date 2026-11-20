@@ -10,7 +10,7 @@ COPY requirements.txt .
 # Instalar las dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar el resto del código de tu proyecto al contenedor (excepto lo del .dockerignore)
+# Copiar el resto del código del proyecto al contenedor (excepto lo del .dockerignore)
 COPY . .
 
 # Exponer el puerto por donde escuchará FastAPI

@@ -35,13 +35,12 @@ export class CoodibotChatComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
-  // Le pone color a los títulos (Concepto Clave, Pasos, etc) y agrega el
-  // tooltip con el ícono del ojo sobre cada código de OA que aparezca en el texto
+  // Da formato de etiqueta a los títulos de la respuesta y agrega
+  // tooltips a los códigos de OA
   formatearRespuesta(texto: string, oas_vinculados?: any[]): string {
     let textoFormateado = texto;
 
-    // 1. Transformar los títulos en etiquetas de colores usando Regex flexible
-    // El modificador 'gim' permite buscar de forma global, ignorando mayúsculas/minúsculas y por líneas
+    // 1. Títulos de sección como etiquetas (flags gim: global, sin distinguir mayúsculas, multilínea)
     textoFormateado = textoFormateado
       .replace(/^[*\-\s]*Concepto Clave[:\s*]*/gim, '<span class="coodi-badge concepto">🧠 Concepto Clave</span>\n')
       .replace(/^[*\-\s]*Pasos[:\s*]*/gim, '<span class="coodi-badge pasos">⚙️ Pasos</span>\n')
@@ -51,7 +50,7 @@ export class CoodibotChatComponent implements OnInit {
     // 2. Convertir negritas de Markdown a HTML nativo
     textoFormateado = textoFormateado.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-    // 3. Procesar tooltips de OAs (Se mantiene tu lógica original)
+    // 3. Tooltips de OA
     if (oas_vinculados && oas_vinculados.length > 0) {
       oas_vinculados.forEach(oa => {
         const html_tooltip = `<span class="coodi-tooltip">${oa.codigo} 👁️<span class="coodi-tooltip-text"><b>${oa.codigo}:</b> ${oa.descripcion}</span></span>`;

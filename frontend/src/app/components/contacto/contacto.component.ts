@@ -23,7 +23,7 @@ export class ContactoComponent {
     if (this.contactForm.valid) {
       const datos = this.contactForm.value;
       console.log('Mensaje enviado:', datos);
-      // Aquí puedes llamar a tu servicio de backend para enviar el mensaje
+      // Pendiente: envío del mensaje al backend
       this.mensajeEnviado = true;
       this.contactForm.reset();
     }

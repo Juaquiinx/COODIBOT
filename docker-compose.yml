@@ -7,7 +7,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      # estas variables se leen de un .env en la raiz del proyecto (no el de backend/)
+      # Variables tomadas del .env de la raíz del proyecto
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PINECONE_API_KEY=${PINECONE_API_KEY}
       - TURSO_DATABASE_URL=${TURSO_DATABASE_URL}

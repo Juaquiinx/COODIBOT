@@ -1,4 +1,4 @@
-# El cerebro activo de COODIBOT, hace las conexiones correspondientes
+# API principal de COODIBOT (FastAPI): chat, evaluación de respuestas y panel admin
 
 # Importar herramientas
 from fastapi import FastAPI
@@ -31,7 +31,7 @@ app.add_middleware(
 
 @app.get("/")
 def leer_raiz():
-    return {"mensaje": "¡El servidor de COODIBOT está en línea, modularizado, asíncrono y seguro!"}
+    return {"mensaje": "Servidor COODIBOT en línea"}
 
 
 # Recibe la pregunta del docente y devuelve la respuesta armada por el pipeline RAG

@@ -1,0 +1,2982 @@
+﻿modelo,proveedor,id_modelo,id,tipo,categoria,latencia_seg,tokens_in,tokens_out,tokens_razonamiento,costo_usd,parametros_quitados,error,respuesta,cumple_4_partes,se_abstiene,formato_valido,es_trampa,trampa_ok,palabras,supera_100_palabras
+gpt-4o-mini (actual),openai,gpt-4o-mini,T01,Soporte Tecnico,Sensores,3.545,1449,129,0,0.0002947,,,"- Concepto Clave: Sensor HC-SR04, utilizado para medir distancia mediante ultrasonido.
+- Pasos: 
+  1. Conecta el sensor HC-SR04 al robot.
+  2. Programa el robot para que lea la distancia medida.
+  3. Establece condiciones para evadir obstáculos según la distancia.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-3B-OA1
+  - CIE-4B-OA14
+- Verificación: Observa si el robot cambia de dirección al detectar un obstáculo a una distancia específica.",True,False,True,False,,65,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T02,Soporte Tecnico,Sensores,3.232,1506,145,0,0.0003129,,,"- Concepto Clave: El HC-SR04 es un sensor ultrasónico que mide distancias mediante ondas de ultrasonido.
+- Pasos: 
+  1. Emite un pulso ultrasónico.
+  2. Mide el tiempo que tarda en regresar el eco.
+  3. Calcula la distancia basándose en la velocidad del sonido.
+- OA Vinculado:
+  - CIE-4B-OA14
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - CIE-4B-OA9
+- Verificación: Comprobar que el robot detecta obstáculos y ajusta su trayectoria según la distancia medida.",True,False,True,False,,70,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T01,Soporte Tecnico,Sensores,3.244,1429,169,0,0.0006107,,,"- Concepto Clave: El sensor HC-SR04 es un dispositivo ultrasónico que mide distancias emitiendo ondas sonoras, permitiendo al robot detectar obstáculos y navegar.
+
+- Pasos:
+1. Conecta el sensor HC-SR04 al puerto correspondiente en la placa.
+2. Programa el bloque de lectura de distancia en la interfaz.
+3. Define un umbral de distancia para activar la evasión.
+4. Programa el giro de los motores para esquivar el objeto detectado.
+
+- OA Vinculado:
+- TEC-1B-OA2
+- TEC-3B-OA1
+- CIE-4B-OA14
+
+- Verificación: Observa si el robot se detiene o cambia su trayectoria al acercarse a un obstáculo físico.",True,False,True,False,,96,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T03,Soporte Tecnico,Sensores,2.747,1510,167,0,0.0003267,,,"- Concepto Clave: El sensor HC-SR04 mide la distancia mediante ultrasonido, permitiendo detectar objetos cercanos.
+- Pasos:
+  1. Conecta el sensor HC-SR04 al robot COODI.
+  2. Programa el algoritmo para que el sensor mida la distancia.
+  3. Establece un umbral de distancia (por ejemplo, 10 cm).
+  4. Si la distancia medida es menor que el umbral, programa a COODI para detenerse.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Observa si COODI se detiene al acercar un objeto dentro del umbral establecido.",True,False,True,False,,85,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T04,Soporte Tecnico,Sensores,3.43,2253,249,0,0.0004874,,,"- Concepto Clave: El sensor HC-SR04 mide la distancia a un objeto utilizando ultrasonido.
+- Pasos: 
+  1. Emitir un pulso ultrasónico.
+  2. Medir el tiempo que tarda en regresar el eco.
+  3. Calcular la distancia usando la velocidad del sonido.
+- OA Vinculado:
+  - CIE-4B-OA14
+  - CIE-4B-OA13
+  - CIE-4B-OA12
+  - CIE-4B-OA11
+  - CIE-4B-OA10
+  - CIE-4B-OA9
+  - CIE-4B-OA8
+  - CIE-4B-OA7
+  - CIE-4B-OA6
+  - CIE-4B-OA5
+  - CIE-4B-OA4
+  - CIE-4B-OA3
+  - CIE-4B-OA2
+  - CIE-4B-OA1
+- Verificación: Comprobar la distancia medida comparándola con un objeto a una distancia conocida.",True,False,True,False,,85,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T02,Soporte Tecnico,Sensores,5.61,1497,163,0,0.0006187,,,"- Concepto Clave: El HC-SR04 es un sensor ultrasónico implementado en COODI para medir distancias mediante la emisión y recepción de ondas de ultrasonido, permitiendo al robot detectar obstáculos y navegar.
+
+- Pasos:
+1. Conecta el sensor al puerto correspondiente.
+2. Programa el bloque de lectura de distancia en la interfaz.
+3. Define una condición lógica (ej. ""si distancia < 10 cm"").
+4. Ejecuta la acción de respuesta (ej. detenerse o girar).
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Observa si el robot se detiene o cambia su trayectoria al detectar un objeto frente a él.",True,False,True,False,,98,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T05,Soporte Tecnico,Casos de uso,2.424,1474,137,0,0.0003033,,,"- Concepto Clave: Detección de obstáculos permite que un robot evite colisiones utilizando información de distancia.
+- Pasos: 
+  1. Conecta el sensor HC-SR04 al robot.
+  2. Programa el robot para medir la distancia.
+  3. Establece una regla para detener o modificar el recorrido si un objeto está cerca.
+- OA Vinculado:
+  - TEC-4B-OA2
+  - CIE-4B-OA14
+  - MAT-3B-OA12
+- Verificación: Observa si el robot se detiene o cambia de dirección al acercarse a un obstáculo.",True,False,True,False,,74,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T01,Soporte Tecnico,Sensores,2.279,1449,160,0,0.0008356,,,"- Concepto Clave: El sensor HC-SR04 mide distancia usando ultrasonido para detectar obstáculos.  
+- Pasos:  
+  1. Conecta el sensor HC-SR04 al robot.  
+  2. Programa el robot para emitir pulsos ultrasónicos.  
+  3. Mide el tiempo que tarda el eco en regresar.  
+  4. Calcula la distancia según el tiempo medido.  
+  5. Usa esta información para evitar obstáculos.  
+- OA Vinculado:  
+  - TEC-1B-OA2  
+  - TEC-3B-OA1  
+  - CIE-4B-OA14  
+- Verificación: Observa que el robot detecta y evita objetos en su camino usando el sensor.",True,False,True,False,,80,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T02,Soporte Tecnico,Sensores,1.957,1506,156,0,0.000852,,,"- Concepto Clave: El sensor HC-SR04 mide distancia usando ultrasonido, enviando ondas y calculando el tiempo que tardan en reflejarse.
+
+- Pasos:
+  1. Emite un pulso ultrasónico.
+  2. Espera el eco reflejado por un objeto.
+  3. Calcula el tiempo entre emisión y recepción.
+  4. Convierte ese tiempo en distancia.
+
+- OA Vinculado:
+  - CIE-4B-OA14
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - CIE-4B-OA9
+
+- Verificación: Comprobar que el robot detecta obstáculos y responde según la distancia medida.",True,False,True,False,,74,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T03,Soporte Tecnico,Sensores,1.892,1510,157,0,0.0008552,,,"- Concepto Clave:  
+Usa el sensor ultrasónico HC-SR04 para medir distancia y un algoritmo que compare esa distancia con un umbral para detener el robot.
+
+- Pasos:  
+1. Conecta el sensor HC-SR04 al robot.  
+2. Programa la lectura de distancia del sensor.  
+3. Establece un umbral de distancia para considerar ""objeto cerca"".  
+4. Crea una condición que detenga los motores si la distancia es menor al umbral.  
+5. Ejecuta y prueba el programa.
+
+- OA Vinculado:  
+TEC-4B-OA1  
+TEC-4B-OA2
+
+- Verificación:  
+El robot debe detenerse automáticamente cuando un objeto se acerque al rango definido.",True,False,True,False,,93,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T03,Soporte Tecnico,Sensores,6.298,1490,171,0,0.000629,,,"- Concepto Clave: El sensor HC-SR04 mide distancias mediante ultrasonido. La lógica sigue la secuencia: variable física (distancia) → dato → regla (comparación con umbral) → acción (detener motores).
+
+- Pasos:
+1. Conecta el sensor HC-SR04 al robot.
+2. Programa la lectura del sensor para obtener el valor de distancia.
+3. Crea una condición: si la distancia es menor a un umbral definido, envía la orden de detener los motores.
+
+- OA Vinculado:
+- TEC-1B-OA2
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Acerca un objeto al sensor; el robot debe detenerse inmediatamente al cruzar el umbral programado.",True,False,True,False,,96,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T04,Soporte Tecnico,Sensores,4.643,2234,137,0,0.000764,,,"- Concepto Clave: El sensor HC-SR04 entrega datos de distancia mediante ultrasonido, permitiendo estimar qué tan lejos se encuentra un objeto.
+
+- Pasos:
+1. Conecta el sensor al puerto correspondiente en COODI.
+2. Programa el bloque de lectura de distancia en tu entorno de desarrollo.
+3. Define una condición lógica (ej. ""si distancia < 10 cm"") para activar una acción.
+
+- OA Vinculado:
+- CIE-4B-OA12
+
+- Verificación: Observa si el robot se detiene o cambia su trayectoria al detectar un obstáculo a la distancia programada.",True,False,True,False,,85,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T05,Soporte Tecnico,Casos de uso,1.882,1474,174,0,0.000868,,,"- Concepto Clave: La detección de obstáculos usa sensores para medir distancia y motores para controlar el movimiento del robot según esa información.  
+- Pasos:  
+  1. Conecta el sensor HC-SR04 al robot.  
+  2. Programa el robot para medir distancia con el HC-SR04.  
+  3. Usa condicionales para detener o cambiar la ruta si hay un obstáculo cercano.  
+  4. Controla los motores DC para mover o detener el robot.  
+- OA Vinculado:  
+  - TEC-4B-OA2  
+  - CIE-4B-OA14  
+  - MAT-3B-OA12  
+- Verificación: Comprueba que el robot se detenga o cambie de dirección al detectar un objeto cercano con el sensor HC-SR04.",True,False,True,False,,97,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T04,Soporte Tecnico,Sensores,2.924,2253,276,0,0.0013428,,,"- Concepto Clave: El sensor HC-SR04 entrega datos de distancia medida en unidades de longitud mediante ultrasonido.  
+- Pasos:  
+  1. Conecta el sensor HC-SR04 al robot.  
+  2. Envía un pulso ultrasónico.  
+  3. Mide el tiempo que tarda el eco en regresar.  
+  4. Calcula la distancia usando el tiempo medido.  
+- OA Vinculado:  
+  - CIE-4B-OA14  
+  - CIE-4B-OA13  
+  - CIE-4B-OA12  
+  - CIE-4B-OA11  
+  - CIE-4B-OA10  
+  - CIE-4B-OA9  
+  - CIE-4B-OA8  
+  - CIE-4B-OA7  
+  - CIE-4B-OA6  
+  - CIE-4B-OA5  
+  - CIE-4B-OA4  
+  - CIE-4B-OA3  
+  - CIE-4B-OA2  
+  - CIE-4B-OA1  
+- Verificación: Comprueba que el valor de distancia cambia al acercar o alejar un objeto frente al sensor.",True,False,True,False,,98,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T01,Soporte Tecnico,Sensores,1.638,1448,155,0,0.0017835,,,"- Concepto Clave: COODI utiliza el sensor HC-SR04 para medir distancia mediante ultrasonido; se usa en obstáculos, navegación y condicionales.
+- Pasos:
+  1. Identifica el HC-SR04 en el robot.
+  2. Mide la distancia con ultrasonido.
+  3. Usa esa información para detectar obstáculos.
+  4. Ajusta el movimiento del robot según la distancia.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-3B-OA1
+  - CIE-4B-OA14
+- Verificación: Comprueba que el robot detecte un obstáculo y cambie su trayectoria o se detenga.",True,False,True,False,,76,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T02,Soporte Tecnico,Sensores,1.395,1505,142,0,0.0017678,,,"- Concepto Clave: El HC-SR04 es un sensor ultrasónico que mide distancia en configuraciones del robot.
+- Pasos:
+  1. Instala el sensor en COODI.
+  2. Emite ultrasonido.
+  3. Detecta el eco reflejado.
+  4. Calcula la distancia al obstáculo.
+- OA Vinculado:
+  - CIE-4B-OA14
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - CIE-4B-OA9
+- Verificación: Comprueba que el robot detecte obstáculos y ajuste su navegación.",True,False,True,False,,61,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T04,Soporte Tecnico,Sensores,0.99,2252,94,0,0.002112,,,"- Concepto Clave: El HC-SR04 entrega una estimación de distancia mediante ultrasonido.
+- Pasos:
+  1. Conecta el sensor HC-SR04.
+  2. Emite ultrasonido.
+  3. Lee la distancia estimada.
+- OA Vinculado:
+  - CIE-4B-OA11
+- Verificación: Comprueba que el robot detecte obstáculos y mida distancia.",True,False,True,False,,43,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T03,Soporte Tecnico,Sensores,1.719,1509,157,0,0.0018383,,,"- Concepto Clave: Usa el sensor HC-SR04 para medir distancia por ultrasonido; luego compara ese dato con un umbral para decidir si COODI se detiene.
+- Pasos:
+  1. Mide la distancia con HC-SR04.
+  2. Lee el valor obtenido.
+  3. Compara el dato con un umbral.
+  4. Detén el robot si el objeto está cerca.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba que, al acercar un objeto, COODI se detenga o modifique su recorrido.",True,False,True,False,,78,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T05,Soporte Tecnico,Casos de uso,1.307,1473,147,0,0.0017663,,,"- Concepto Clave: En “Detección de obstáculos” se usa el HC-SR04 para medir distancia, junto con motores y condicionales para detener o modificar el recorrido.
+- Pasos:
+  1. Identifica el obstáculo con el HC-SR04.
+  2. Compara la distancia con un umbral.
+  3. Detén o cambia la ruta del robot.
+- OA Vinculado:
+  - TEC-4B-OA2
+  - CIE-4B-OA14
+  - MAT-3B-OA12
+- Verificación: Comprueba que el robot se detenga o modifique su recorrido al detectar un objeto cercano.",True,False,True,False,,75,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T05,Soporte Tecnico,Casos de uso,7.304,1471,155,0,0.0006003,,,"- Concepto Clave: La detección de obstáculos permite al robot medir distancias y reaccionar ante objetos mediante lógica condicional.
+
+- Pasos:
+1. Conecta el sensor HC-SR04 al robot.
+2. Programa una condición que compare la distancia medida con un umbral.
+3. Define la acción (detenerse o girar) si el objeto está cerca.
+4. Ejecuta el código y observa el comportamiento.
+
+- OA Vinculado:
+- TEC-4B-OA2
+- CIE-4B-OA14
+- MAT-3B-OA12
+
+- Verificación: El robot debe detenerse o modificar su trayectoria automáticamente al detectar un obstáculo en su camino.",True,False,True,False,,87,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T01,Soporte Tecnico,Sensores,27.866,1429,148,0,0.0034755,,,"**Concepto Clave:**
+El sensor HC-SR04 es un componente ultrasónico que mide distancias detectando obstáculos para la navegación y programación condicional del robot.
+
+**Pasos:**
+1. Conecta el sensor ultrasónico HC-SR04 a la estructura del robot COODI.
+2. Configura los bloques de programación para leer la distancia del sensor.
+3. Define un condicional que detenga o cambie el rumbo de los motores al detectar un objeto cercano.
+
+**OA Vinculado:**
+- TEC-3B-OA1
+
+**Verificación:**
+Comprueba que el robot detecte un objeto al acercarse y modifique su trayectoria correctamente sin colisionar.",True,False,True,False,,86,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T02,Soporte Tecnico,Sensores,114.32,1497,118,0,0.0033075,,,"**Concepto Clave:** Sensor ultrasónico que mide distancias emitiendo ondas de sonido para detectar obstáculos y apoyar la navegación del robot.
+
+**Pasos:** 
+1. Conecta el sensor HC-SR04 al robot. 
+2. Programa condicionales según la distancia medida. 
+3. Ejecuta el programa para iniciar la navegación.
+
+**OA Vinculado:** 
+TEC-4B-OA1
+
+**Verificación:** Coloca un objeto frente al robot y comprueba si detecta la distancia y ejecuta la acción programada.",True,False,True,False,,64,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T04,Soporte Tecnico,Sensores,9.161,2234,142,0,0.004629,,,"Concepto Clave: El sensor HC-SR04 entrega un valor numérico que representa la estimación de la distancia hacia un objeto, medida mediante ondas de ultrasonido.
+
+Pasos:
+1. Conecta el sensor HC-SR04 a la tarjeta del robot.
+2. Añade el bloque de lectura de ultrasonido en la interfaz de programación.
+3. Guarda la lectura de distancia en una variable numérica para usarla en tus condicionales.
+
+OA Vinculado:
+- CIE-4B-OA11
+
+Verificación: Revisa en la consola o pantalla que el valor numérico cambie al acercar o alejar un objeto del sensor.",True,False,True,False,,87,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T05,Soporte Tecnico,Casos de uso,14.871,1471,139,0,0.0034575,,,"**Concepto Clave:** 
+Configuración de control del robot mediante el sensor de distancia para evadir o detenerse ante objetos.
+
+**Pasos:**
+1. Conecta el sensor ultrasónico HC-SR04 y los motores al robot.
+2. Establece en el programa un condicional según la distancia medida.
+3. Executa la instrucción para detener o modificar el recorrido al detectar el obstáculo.
+
+**OA Vinculado:**
+- CIE-4B-OA14
+
+**Verificación:** 
+Comprueba que el robot detenga o altere su movimiento cuando se ubica un objeto frente al sensor HC-SR04.",True,False,True,False,,78,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T01,Soporte Tecnico,Sensores,2.497,1429,109,0,0.0007012,,,"- Concepto Clave: El sensor HC-SR04 mide distancia mediante ultrasonido para detectar obstáculos.
+- Pasos: 
+1. Conecta el sensor HC-SR04 al robot.
+2. Programa el bloque para leer la distancia ultrasónica.
+3. Configura una condición para evadir al detectar un obstáculo.
+- OA Vinculado:
+- TEC-3B-OA1
+- Verificación: Observa que el robot cambie su trayectoria al acercarse a un objeto.",True,False,True,False,,60,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T02,Soporte Tecnico,Sensores,1.047,1497,103,0,0.0007066,,,"- Concepto Clave: Sensor ultrasónico que mide distancia mediante ondas de sonido.
+- Pasos: 
+1. Conecta el sensor HC-SR04 al robot.
+2. Programa bloques para activar la lectura de ultrasonido.
+3. Configura una condición basada en la distancia obtenida.
+- OA Vinculado:
+  - TEC-4B-OA1
+- Verificación: Comprueba que el robot detecta obstáculos y cambia su comportamiento al acercarse.",True,False,True,False,,58,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T03,Soporte Tecnico,Sensores,0.935,1490,127,0,0.0007645,,,"- Concepto Clave: Sensor HC-SR04 para medir distancia mediante ultrasonido y activar una acción condicional.
+- Pasos: 
+1. Conecta el sensor HC-SR04 al robot.
+2. Programa la lectura de la variable física de distancia.
+3. Configura un algoritmo que compare la distancia con un umbral.
+4. Establece la acción de detener los motores si el objeto está cerca.
+- OA Vinculado:
+TEC-4B-OA1
+- Verificación: Acerca un objeto al sensor para comprobar que el robot se detiene correctamente.",True,False,True,False,,77,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T04,Soporte Tecnico,Sensores,3.769,2234,115,0,0.0009577,,,"- Concepto Clave: El sensor HC-SR04 entrega datos de estimación de distancia mediante ultrasonido.
+- Pasos:
+  1. Conecta el sensor HC-SR04 al sistema.
+  2. Configura la lectura de ultrasonido en la programación.
+  3. Ejecuta el código para recibir la medición.
+- OA Vinculado: CIE-4B-OA12
+- Verificación: Comprueba que el sistema muestre valores numéricos de distancia al acercar y alejar objetos del sensor.",True,False,True,False,,62,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T05,Soporte Tecnico,Casos de uso,1.184,1471,137,0,0.0007838,,,"- Concepto Clave: Sensor ultrasónico para medir distancia y evitar colisiones.
+- Pasos: 
+1. Conectar el sensor HC-SR04 y los motores al robot.
+2. Programar una condición para evaluar la distancia.
+3. Ejecutar el código para detener o desviar el trayecto.
+- OA Vinculado:
+- TEC-4B-OA2
+- CIE-4B-OA14
+- MAT-3B-OA12
+- Verificación: Comprobar que el robot se detiene o cambia de ruta al detectar un obstáculo frente al sensor HC-SR04.",True,False,True,False,,70,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T06,Soporte Tecnico,Actuadores/Motores,1.638,1526,35,0,0.0002499,,,No tengo información al respecto sobre la cantidad de motores que tiene COODI ni su funcionalidad específica. Podría tratarse de algo planificado pero no implementado aún.,False,True,True,False,,26,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T07,Soporte Tecnico,Actuadores/Motores,2.007,1494,139,0,0.0003075,,,"- Concepto Clave: El servomotor SG90 permite el movimiento angular controlado de partes específicas del robot COODI.
+- Pasos: 
+  1. Conecta el servomotor SG90 al robot COODI.
+  2. Programa el movimiento angular deseado utilizando el entorno de programación.
+  3. Ejecuta el programa para observar el movimiento.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-3B-OA1
+  - TEC-3B-OA2
+- Verificación: Comprueba que el servomotor se mueve a los ángulos programados al ejecutar el algoritmo.",True,False,True,False,,71,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T08,Soporte Tecnico,Actuadores/Motores,2.337,1578,149,0,0.0003261,,,"- Concepto Clave: Los motores DC son actuadores que permiten el desplazamiento continuo, mientras que el servomotor SG90 proporciona movimiento angular controlado en posiciones específicas.
+
+- Pasos:
+  1. Identifica el motor DC en tu robot.
+  2. Observa su capacidad de desplazamiento continuo.
+  3. Localiza el servomotor SG90.
+  4. Verifica su capacidad de moverse a ángulos específicos.
+
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-3B-OA2
+  - TEC-3B-OA3
+
+- Verificación: Comprueba el funcionamiento de ambos motores en diferentes configuraciones y tareas.",True,False,True,False,,78,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T09,Soporte Tecnico,Actuadores/Salida,2.177,1429,125,0,0.0002894,,,"Concepto Clave: El buzzer es el actuador utilizado en COODI para emitir sonido.
+
+Pasos:
+1. Conecta el buzzer al microcontrolador.
+2. Programa el microcontrolador para activar el buzzer.
+3. Define la frecuencia y duración del sonido deseado.
+4. Ejecuta el programa para escuchar el sonido emitido.
+
+OA Vinculado:
+- TEC-1B-OA2
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+Verificación: Comprueba que el buzzer emite el sonido programado al ejecutar el código.",True,False,True,False,,67,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T11,Soporte Tecnico,Actuadores/Salida,1.778,1476,126,0,0.000297,,,"Concepto Clave: LED RGB o matriz RGB, que permite emitir luz en diferentes colores y patrones.
+
+Pasos:
+1. Conecta el LED RGB o matriz RGB al robot COODI.
+2. Programa el algoritmo para que se active al completar la misión.
+3. Define los colores o patrones que indicarán el aviso.
+
+OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA2
+
+Verificación: Observa si el LED RGB o matriz RGB se enciende con el color o patrón programado al finalizar la misión.",True,False,True,False,,79,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T10,Soporte Tecnico,Actuadores/Salida,2.663,1542,165,0,0.0003303,,,"- Concepto Clave: COODI puede proporcionar retroalimentación visual a través de su entorno de programación visual basado en bloques, permitiendo a los estudiantes ver el resultado de sus acciones de manera inmediata.
+- Pasos: 
+  1. Diseña un programa en el entorno visual.
+  2. Ejecuta el programa en COODI.
+  3. Observa las respuestas visuales de COODI.
+  4. Ajusta el programa según la retroalimentación recibida.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Compara los resultados visuales de COODI con los objetivos del programa para asegurar que se cumplan.",True,False,True,False,,90,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T06,Soporte Tecnico,Actuadores/Motores,7.817,1516,113,0,0.0007373,,,"- Concepto Clave: Actuadores y componentes físicos del robot COODI.
+- Pasos: 
+1. Revisa la documentación del hardware de COODI.
+2. Identifica los actuadores disponibles en el ecosistema.
+- OA Vinculado:
+- TEC-3B-OA1
+- Verificación: Consulta si el componente está registrado en el manual de arquitectura física. (Nota: El contexto no especifica la cantidad exacta de motores, lo que podría tratarse de algo planificado pero no implementado aún).",True,True,True,False,,68,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T12,Soporte Tecnico,Sensores ambientales,2.121,1454,125,0,0.0002931,,,"- Concepto Clave: Sensor DHT22 mide temperatura y humedad ambiental.
+- Pasos:
+  1. Conecta el sensor DHT22 al sistema COODI.
+  2. Programa el robot para leer datos del sensor.
+  3. Ejecuta el programa y observa los valores de temperatura y humedad.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - CIE-4B-OA14
+  - TEC-1B-OA2
+- Verificación: Comprueba que los valores de temperatura y humedad se muestran correctamente en la interfaz del robot.",True,False,True,False,,68,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T13,Soporte Tecnico,Casos de uso,2.288,1486,146,0,0.0003105,,,"- Concepto Clave: La ""Misión ambiental"" utiliza sensores para medir condiciones ambientales y relacionar datos con una narrativa.
+- Pasos: 
+  1. Utiliza el sensor DHT22 para medir temperatura y humedad.
+  2. Conecta el sensor al robot.
+  3. Registra los datos obtenidos.
+  4. Relaciona los datos con la narrativa ambiental en el cuadernillo.
+- OA Vinculado:
+  - TEC-4B-OA2
+  - CIE-4B-OA14
+  - MAT-3B-OA12
+- Verificación: Compara los datos registrados con la narrativa para asegurar que se relacionen adecuadamente.",True,False,True,False,,76,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T15,Soporte Tecnico,Sensores,1.685,1526,123,0,0.0003027,,,"Concepto Clave: COODI no menciona específicamente un sistema de control remoto o validación de desafíos en el contexto proporcionado.
+
+Pasos: 
+1. Revisa los recursos educativos disponibles en COODI.
+2. Explora las funcionalidades de los componentes del ecosistema.
+3. Consulta la documentación oficial para más detalles.
+
+OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA2
+
+Verificación: Comprueba si los desafíos se completan correctamente y si los estudiantes pueden interactuar con los recursos educativos.",True,False,True,False,,71,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T14,Soporte Tecnico,Sensores,2.056,1482,142,0,0.0003075,,,"Concepto Clave: COODI puede recibir comandos a través de interacciones conversacionales, utilizando su componente COODIBOT.
+
+Pasos:
+1. Inicia una conversación con COODIBOT.
+2. Formula preguntas o comandos claros relacionados con la actividad.
+3. Escucha las respuestas o validaciones que proporciona COODIBOT.
+4. Ajusta tus acciones según la retroalimentación recibida.
+
+OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+Verificación: Comprueba que COODIBOT responde adecuadamente a tus comandos y proporciona la información necesaria para avanzar en la actividad.",True,False,True,False,,76,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T17,Soporte Tecnico,Componentes planificados,0.998,1452,33,0,0.0002376,,,No tengo información al respecto sobre un sensor de IMU en el ecosistema COODI. Podría tratarse de algo planificado pero no implementado aún.,False,True,True,True,True,23,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T16,Soporte Tecnico,Componentes planificados,2.085,1269,122,0,0.0002635,,,"Concepto Clave: RFID es una tecnología de identificación por radiofrecuencia que permite reconocer tarjetas u objetos automáticamente.
+
+Pasos:
+1. Integra el módulo RFID en tu proyecto.
+2. Conecta el lector RFID al sistema.
+3. Programa el robot para leer las tarjetas.
+4. Realiza pruebas con diferentes tarjetas.
+
+OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA1
+- CIE-4B-OA14
+
+Verificación: Comprueba que el robot reconozca y responda correctamente al acercar las tarjetas al lector RFID.",True,False,True,True,False,71,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T18,Soporte Tecnico,Componentes planificados,1.852,1277,120,0,0.0002635,,,"Concepto Clave: La tecnología RFID permite la identificación automática de tarjetas u objetos mediante radiofrecuencia.
+
+Pasos:
+1. Reúne las tarjetas y el lector RFID.
+2. Conecta el lector RFID al sistema COODI.
+3. Programa el robot para leer las tarjetas.
+4. Realiza pruebas de identificación.
+
+OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA1
+- CIE-4B-OA14
+
+Verificación: Comprueba que el robot reconozca correctamente las tarjetas al acercarlas al lector RFID.",True,False,True,True,False,67,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T19,Soporte Tecnico,Componentes planificados,1.21,1441,57,0,0.0002503,,,"No tengo información específica sobre componentes de COODI que estén en fase de planificación. Sin embargo, se menciona que ciertos elementos pueden estar en desarrollo y no deben presentarse como capacidades disponibles. Te recomiendo consultar la documentación oficial para obtener detalles actualizados sobre el estado de los componentes.",False,True,True,True,True,48,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T20,Soporte Tecnico,Arquitectura,1.513,1542,106,0,0.0002949,,,"- Concepto Clave: El microcontrolador es un dispositivo que controla las funciones del robot COODI.
+- Pasos: 
+  1. Identifica el microcontrolador en la documentación.
+  2. Verifica que sea un Arduino UNO.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba que el robot funcione correctamente con el Arduino UNO.",True,False,True,False,,52,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T21,Soporte Tecnico,Arquitectura,1.933,1481,148,0,0.0003109,,,"- Concepto Clave: Plataformas de procesamiento que mejoran la capacidad de COODI.
+- Pasos: 
+  1. Identificar la versión inicial de COODI que utiliza Arduino UNO.
+  2. Considerar la ampliación con ESP32-WROOM-32 para mayor conectividad.
+  3. Evaluar el uso de Raspberry Pi Zero 2W para funciones de mayor procesamiento.
+- OA Vinculado:
+  - TEC-5B-OA1
+  - TEC-5B-OA2
+  - TEC-5B-OA3
+- Verificación: Comprobar la funcionalidad de las plataformas en el ecosistema COODI mediante pruebas de conectividad y procesamiento.",True,False,True,False,,75,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T22,Soporte Tecnico,Arquitectura/Conectividad,2.313,1358,122,0,0.0002769,,,"- Concepto Clave: COODI puede funcionar sin conexión permanente a Internet para actividades fundamentales.
+- Pasos: 
+  1. Diseña actividades que no requieran Internet.
+  2. Asegúrate de tener todos los materiales necesarios.
+  3. Realiza las actividades en un entorno offline.
+- OA Vinculado:
+  - TEC-3B-OA2
+  - TEC-3B-OA4
+  - CIE-4B-OA14
+- Verificación: Comprueba que las actividades se desarrollan correctamente sin necesidad de conexión a Internet.",True,False,True,False,,63,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T23,Soporte Tecnico,Programación,1.767,1514,111,0,0.0002937,,,"- Concepto Clave: COODI ofrece un entorno de programación visual y textual.
+- Pasos: 
+  1. Utiliza programación visual basada en bloques para principiantes.
+  2. Avanza a programación textual para niveles más complejos.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba que los estudiantes puedan crear y ejecutar programas utilizando ambos tipos de programación en sus proyectos.",True,False,True,False,,60,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T07,Soporte Tecnico,Actuadores/Motores,10.957,1471,125,0,0.0007538,,,"- Concepto Clave: El Servomotor SG90 es el componente que permite realizar movimientos angulares controlados en el ecosistema COODI.
+- Pasos: 
+  1. Conecta el servomotor al puerto correspondiente del robot.
+  2. Configura el bloque de programación para definir el ángulo de giro.
+  3. Ejecuta el código para activar el movimiento.
+- OA Vinculado:
+- TEC-3B-OA1
+- Verificación: Observa que la pieza o mecanismo conectado al servomotor rote y se detenga exactamente en el ángulo programado.",True,False,True,False,,75,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T25,Soporte Tecnico,Programación,2.043,1495,160,0,0.0003203,,,"- Concepto Clave: Programación visual con bloques para controlar el robot COODI.
+- Pasos:
+  1. Accede al entorno de programación visual basado en bloques.
+  2. Selecciona el bloque ""Avanzar"" y ajusta los parámetros de duración y velocidad.
+  3. Añade un bloque ""Girar"" y define el ángulo de giro.
+  4. Conecta los bloques en la secuencia deseada.
+  5. Ejecuta el programa.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-3B-OA1
+- Verificación: Observa si COODI avanza y gira según lo programado.",True,False,True,False,,80,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T24,Soporte Tecnico,Programación,2.382,1478,165,0,0.0003207,,,"No tengo información al respecto sobre el tamaño del tablero de navegación de COODI. 
+
+- Concepto Clave: Tablero de actividades y navegación que permite la interacción con el robot COODI.
+- Pasos: 
+  1. Coloca el tablero en una superficie plana.
+  2. Asegúrate de que esté limpio y libre de obstrucciones.
+  3. Conecta el robot COODI al tablero.
+  4. Inicia la programación de actividades en el entorno visual.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-1B-OA2
+  - TEC-4B-OA1
+- Verificación: Observa si el robot se mueve correctamente sobre el tablero y responde a las instrucciones programadas.",True,True,True,False,,94,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T08,Soporte Tecnico,Actuadores/Motores,1.488,1569,131,0,0.0007982,,,"- Concepto Clave: Motores DC permiten desplazamiento continuo; el servomotor SG90 ofrece movimiento angular controlado.
+- Pasos: 
+1. Conecta los motores DC para trayectorias.
+2. Conecta el servomotor SG90 para orientación.
+3. Programa las acciones en la plataforma.
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-3B-OA2
+- TEC-3B-OA3
+- Verificación: Comprueba que el robot se desplace con los motores DC y mueva su mecanismo con el servomotor SG90.",True,False,True,False,,67,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T26,Soporte Tecnico,Programación,1.918,1424,130,0,0.0002916,,,"- Concepto Clave: Generador de código en programación visual que transforma bloques en código compatible.
+- Pasos: 
+  1. Selecciona bloques en la interfaz visual.
+  2. Configura parámetros según el comportamiento deseado.
+  3. Genera el código correspondiente.
+  4. Verifica la correspondencia entre bloque y comportamiento.
+- OA Vinculado:
+  - TEC-5B-OA1
+  - TEC-5B-OA2
+  - TEC-5B-OA3
+- Verificación: Comprueba que el código generado funcione como se esperaba al ejecutar el robot.",True,False,True,False,,68,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T27,Soporte Tecnico,Metodología pedagógica,2.066,1501,148,0,0.000314,,,"- Concepto Clave: NDCC es un modelo didáctico que organiza experiencias de aprendizaje en robótica educativa.
+- Pasos: 
+  1. Conectar una situación significativa.
+  2. Presentar un desafío concreto.
+  3. Realizar una construcción o manipulación.
+  4. Llevar a cabo programación colaborativa.
+  5. Probar el resultado.
+  6. Reflexionar sobre el proceso.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-3B-OA2
+- Verificación: Comprobar si los estudiantes pueden aplicar cada etapa en un proyecto de robótica.",True,False,True,False,,73,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T09,Soporte Tecnico,Actuadores/Salida,1.855,1427,126,0,0.0007431,,,"- Concepto Clave: Un actuador produce una acción física o perceptible, como un buzzer.
+- Pasos: 
+1. Conecta el buzzer al ecosistema COODI.
+2. Programa la instrucción de salida de sonido mediante bloques.
+3. Ejecuta el código para emitir la señal sonora.
+- OA Vinculado:
+   - TEC-1B-OA2
+   - TEC-4B-OA1
+   - TEC-4B-OA2
+- Verificación: Comprueba que el buzzer emita el sonido configurado al iniciar la ejecución del programa.",True,False,True,False,,67,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T28,Soporte Tecnico,Metodología pedagógica,2.029,1425,170,0,0.0003158,,,"- Concepto Clave: Habilidades de pensamiento computacional son procesos que permiten resolver problemas mediante la descomposición, reconocimiento de patrones, abstracción, algoritmos, evaluación y depuración.
+
+- Pasos:
+  1. Identifica un problema a resolver.
+  2. Descompón el problema en partes más pequeñas.
+  3. Busca patrones en los datos o comportamientos.
+  4. Crea un algoritmo para la solución.
+  5. Evalúa el resultado obtenido.
+  6. Realiza depuración si es necesario.
+
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-1B-OA5
+
+- Verificación: Compara el resultado final con el comportamiento esperado y ajusta según sea necesario.",True,False,True,False,,90,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T29,Soporte Tecnico,Metodología pedagógica,1.829,1387,144,0,0.0002944,,,"- Concepto Clave: El error se considera una oportunidad de depuración, permitiendo a los estudiantes identificar y corregir fallos en su programación.
+- Pasos: 
+  1. Ejecuta el programa y observa el resultado.
+  2. Identifica el error en la secuencia o condiciones.
+  3. Propón modificaciones para corregirlo.
+  4. Vuelve a probar el programa.
+- OA Vinculado:
+  - TEC-3B-OA2
+  - TEC-3B-OA4
+  - CIE-4B-OA14
+- Verificación: Compara el nuevo resultado con la planificación inicial y verifica si se logró el objetivo.",True,False,True,False,,78,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T10,Soporte Tecnico,Actuadores/Salida,1.297,1530,123,0,0.0007665,,,"- Concepto Clave: COODI es un ecosistema educativo que integra programación visual por bloques y componentes como NeuroCOODI y COODIBOT para apoyar la interacción y el aprendizaje.
+- Pasos: 
+1. Conecta el robot al entorno de programación visual.
+2. Diseña bloques de instrucción para el desafío.
+3. Ejecuta la programación en el robot.
+- OA Vinculado:
+- TEC-3B-OA1
+- Verificación: Comprueba que el comportamiento del robot en el tablero de actividades refleje correctamente las instrucciones visuales programadas.",True,False,True,False,,77,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T11,Soporte Tecnico,Actuadores/Salida,0.849,1451,118,0,0.0007303,,,"- Concepto Clave: LED RGB / matriz RGB es un actuador para salida visual mediante color o patrones.
+- Pasos: 
+1. Conecta el LED RGB al robot.
+2. Diseña la secuencia de programación.
+3. Ejecuta el programa al finalizar la misión.
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA2
+- Verificación: Observa si el LED RGB enciende el color programado al terminar la misión.",True,False,True,False,,65,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C01,Articulacion Curricular,1° Básico - Tecnología (TE01 OA01),1.674,1562,117,0,0.0003045,,,"- Concepto Clave: Crear diseños usando software de dibujo para representar ideas.
+- Pasos:
+  1. Presenta un tema o idea a los estudiantes.
+  2. Explica cómo usar el software de dibujo.
+  3. Pide a los estudiantes que creen un diseño relacionado con el tema.
+  4. Comparte y discute los diseños en grupo.
+- OA Vinculado:
+  - TEC-1B-OA5
+- Verificación: Observa si los estudiantes pueden usar el software y si sus diseños reflejan la idea presentada.",True,False,True,False,,75,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,T30,Soporte Tecnico,Seguridad/Operación,2.081,1422,156,0,0.0003069,,,"- Concepto Clave: Revisión de seguridad previa a actividades con COODI.
+- Pasos:
+  1. Comprobar el estado de carga de los dispositivos.
+  2. Verificar el funcionamiento de sensores y motores.
+  3. Asegurar la correcta comunicación entre componentes.
+  4. Revisar el tablero y materiales para evitar riesgos.
+  5. Explicar las reglas de seguridad a los estudiantes.
+- OA Vinculado:
+  - TEC-3B-OA2
+  - TEC-3B-OA4
+  - CIE-4B-OA14
+- Verificación: Observa que todos los dispositivos funcionen correctamente y que los estudiantes comprendan las reglas de seguridad antes de iniciar la actividad.",True,False,True,False,,87,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T12,Soporte Tecnico,Sensores ambientales,1.623,1452,131,0,0.0007631,,,"- Concepto Clave: El sensor DHT22 se utiliza en el ecosistema COODI para medir ambiente (temperatura y humedad).
+- Pasos: 
+1. Conecta el sensor DHT22 al puerto correspondiente de COODI.
+2. Programa la lectura de temperatura y humedad usando la interfaz visual.
+3. Ejecuta el código para registrar los datos ambientales.
+- OA Vinculado:
+- CIE-4B-OA14
+- Verificación: Comprueba que los valores de temperatura y humedad se muestren correctamente en la pantalla o consola al acercar una fuente de calor o humedad moderada.",True,False,True,False,,83,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C02,Articulacion Curricular,1° Básico - Matemática (MA01 OA11),2.147,1495,160,0,0.0003203,,,"- Concepto Clave: Los patrones repetitivos son secuencias que se repiten y ayudan a desarrollar habilidades de observación y lógica.
+- Pasos:
+  1. Presenta ejemplos de patrones en objetos o dibujos.
+  2. Utiliza bloques de programación para crear secuencias simples.
+  3. Pide a los estudiantes que identifiquen y continúen los patrones.
+  4. Realiza actividades prácticas con materiales manipulativos.
+- OA Vinculado:
+  - TEC-1B-OA5
+  - TEC-1B-OA6
+  - CIE-1B-OA10
+  - MAT-1B-OA19
+- Verificación: Observa si los estudiantes pueden identificar y crear sus propios patrones correctamente.",True,False,True,False,,83,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C03,Articulacion Curricular,2° Básico - Ciencias Naturales (CN02 OA09),2.278,1518,157,0,0.0003219,,,"- Concepto Clave: Cambios en los materiales por efecto de la luz se refiere a cómo la luz puede alterar las propiedades físicas de ciertos materiales.
+- Pasos:
+  1. Presenta el concepto de luz y materiales a los estudiantes.
+  2. Realiza una actividad de observación con diferentes materiales expuestos a la luz.
+  3. Registra los cambios observados en los materiales.
+  4. Reflexiona sobre los resultados en grupo.
+- OA Vinculado:
+  - TEC-2B-OA1
+  - TEC-2B-OA3
+  - CIE-2B-OA13
+- Verificación: Compara los registros de observación y discute si los cambios son consistentes entre los grupos.",True,False,True,False,,93,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T13,Soporte Tecnico,Casos de uso,2.177,1494,128,0,0.0007682,,,"- Concepto Clave: Misión ambiental para medir variables del entorno con sensores.
+- Pasos: 
+1. Preparar tablero y materiales.
+2. Conectar el sensor ambiental.
+3. Programar la lectura de datos.
+4. Relacionar con la narrativa ambiental.
+- OA Vinculado:
+  - TEC-4B-OA2
+  - CIE-4B-OA14
+  - MAT-3B-OA12
+- Verificación: Comprobar que el sensor DHT22 registre la temperatura y humedad correctamente vinculadas al cuadernillo.",True,False,True,False,,61,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C04,Articulacion Curricular,2° Básico - Tecnología (TE02 OA02),1.849,1472,134,0,0.0003012,,,"Concepto Clave: (Organizar tareas implica planificar y secuenciar acciones para crear un objeto tecnológico).
+
+Pasos:
+1. Definir el objeto tecnológico a elaborar.
+2. Listar los materiales necesarios.
+3. Asignar tareas a cada miembro del grupo.
+4. Establecer un cronograma de trabajo.
+5. Ejecutar la elaboración del objeto.
+
+OA Vinculado:
+- TEC-2B-OA5
+- TEC-2B-OA6
+- MAT-2B-OA20
+
+Verificación: (Comprobar que el objeto se elabore según lo planificado y que cada tarea se haya cumplido).",True,True,True,False,,72,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C05,Articulacion Curricular,3° Básico - Ciencias Naturales (CN03 OA12),2.194,1637,170,0,0.0003475,,,"- Concepto Clave: La rotación terrestre es el giro de la Tierra sobre su eje, mientras que la traslación es el movimiento de la Tierra alrededor del Sol.
+- Pasos:
+  1. Presenta un modelo del sistema solar con COODI.
+  2. Usa el robot para simular la rotación y traslación.
+  3. Explica cómo estos movimientos afectan el día y la noche.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-3B-OA2
+  - TEC-3B-OA3
+  - MAT-3B-OA12
+  - TEC-3B-OA4
+- Verificación: Observa si los estudiantes comprenden la diferencia entre rotación y traslación al explicar el fenómeno.",True,False,True,False,,90,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C06,Articulacion Curricular,3° Básico - Matemática (MA03 OA15),2.081,1497,177,0,0.0003307,,,"- Concepto Clave: Relacionar el hardware de COODI con figuras 2D y 3D permite explorar conceptos geométricos a través de la programación y el diseño.
+- Pasos:
+  1. Presenta el robot COODI y sus componentes.
+  2. Explica las figuras 2D y 3D utilizando el tablero de actividades.
+  3. Realiza actividades de programación para que COODI dibuje o represente estas figuras.
+  4. Fomenta la discusión sobre las propiedades de las figuras creadas.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-3B-OA3
+  - MAT-3B-OA12
+- Verificación: Observa si los estudiantes pueden identificar y describir las figuras generadas por COODI.",True,False,True,False,,95,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T14,Soporte Tecnico,Sensores,3.459,1460,108,0,0.000708,,,"- Concepto Clave: Uso de tarjetas de instrucciones físicas o programación textual como alternativa a los bloques.
+- Pasos:
+  1. Selecciona tarjetas de comandos o redacta código textual.
+  2. Organiza la secuencia en el tablero de actividades.
+  3. Ejecuta la instrucción en el entorno correspondiente.
+- OA Vinculado:
+  TEC-3B-OA1
+- Verificación: Observar que COODI complete la misión ejecutando fielmente la secuencia de tarjetas o texto.",True,False,True,False,,65,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C07,Articulacion Curricular,4° Básico - Tecnología (TE04 OA01),2.322,1582,168,0,0.0003381,,,"- Concepto Clave: Diseñar y construir objetos tecnológicos utilizando materiales reciclados para resolver problemas cotidianos.
+- Pasos:
+  1. Investiga sobre objetos tecnológicos que se pueden hacer con material reciclado.
+  2. Elige un problema cotidiano que quieras resolver.
+  3. Diseña tu objeto utilizando dibujos a mano alzada.
+  4. Reúne los materiales reciclados necesarios.
+  5. Construye tu objeto siguiendo tu diseño.
+  6. Presenta tu objeto y explica su funcionamiento.
+- OA Vinculado:
+  - CIE-4B-OA14
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Presenta el objeto y verifica que cumple con la función para resolver el problema planteado.",True,False,True,False,,93,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C08,Articulacion Curricular,4° Básico - Matemática (MA04 OA14),2.124,1383,145,0,0.0002945,,,"- Concepto Clave: Las ecuaciones de un paso son igualdades que se resuelven en una sola operación.
+- Pasos:
+  1. Presenta un problema que requiera una ecuación de un paso.
+  2. Utiliza COODI para representar el problema con movimientos o decisiones.
+  3. Diseña un algoritmo que refleje la solución de la ecuación.
+  4. Ejecuta el programa en COODI y observa el resultado.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Compara el resultado obtenido con la solución esperada de la ecuación.",True,False,True,False,,82,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C09,Articulacion Curricular,5° Básico - Caso ancla (CN05 OA10 / OA3 Tecnología),2.356,1463,169,0,0.0003209,,,"- Concepto Clave: El HC-SR04 es un sensor ultrasónico que mide distancias mediante ondas de sonido.
+- Pasos:
+  1. Conecta el pin VCC del HC-SR04 a la fuente de alimentación del robot.
+  2. Conecta el pin GND a la tierra del robot.
+  3. Conecta el pin TRIG a un pin digital del microcontrolador.
+  4. Conecta el pin ECHO a otro pin digital del microcontrolador.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-3B-OA1
+  - TEC-3B-OA2
+- Verificación: Ejecuta un programa que lea la distancia y verifica que el robot responda correctamente a los cambios de distancia detectados.",True,False,True,False,,95,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C10,Articulacion Curricular,5° Básico - Ciencias Naturales (CN05 OA10),1.926,1406,139,0,0.0002943,,,"Concepto Clave: Análisis de circuitos eléctricos simples mediante la identificación de componentes y su funcionamiento.
+
+Pasos:
+1. Reúne materiales: batería, cables, bombilla y interruptor.
+2. Conecta los componentes en un circuito básico.
+3. Observa el funcionamiento de la bombilla al cerrar el circuito.
+4. Registra tus observaciones sobre el circuito.
+5. Discute en grupo las conclusiones sobre el funcionamiento.
+
+OA Vinculado:
+- TEC-5B-OA5
+- MAT-5B-OA26
+
+Verificación: Comprueba que la bombilla encienda al cerrar el circuito y que tus observaciones reflejen el proceso.",True,False,True,False,,82,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C11,Articulacion Curricular,5° Básico - Matemática (MA05 OA17),2.12,1343,170,0,0.0003034,,,"- Concepto Clave: Las aristas y caras son elementos de las figuras geométricas, y el paralelismo/perpendicularidad se refiere a la relación entre líneas en el espacio.
+  
+- Pasos:
+  1. Introduce conceptos de aristas y caras usando bloques o figuras.
+  2. Realiza actividades de construcción con COODI para crear formas tridimensionales.
+  3. Programa COODI para que se mueva en trayectorias paralelas o perpendiculares.
+  4. Observa y discute los resultados con los estudiantes.
+
+- OA Vinculado:
+  - TEC-5B-OA5
+  - MAT-5B-OA26
+
+- Verificación: Compara las trayectorias de COODI con las expectativas de paralelismo y perpendicularidad.",True,False,True,False,,92,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C12,Articulacion Curricular,6° Básico - Ciencias Naturales (CN06 OA08),2.818,1465,132,0,0.0002989,,,"Concepto Clave: La transformación de energía se refiere al cambio de una forma de energía a otra, como de energía eléctrica a energía mecánica.
+
+Pasos:
+1. Selecciona un cuadernillo relacionado con energía.
+2. Realiza una actividad práctica con el robot COODI.
+3. Observa y registra cómo se transforma la energía durante la actividad.
+4. Reflexiona sobre los resultados y discútelos en grupo.
+
+OA Vinculado:
+- TEC-6B-OA5
+- MAT-6B-OA22
+
+Verificación: Compara los registros de energía antes y después de la actividad para identificar las transformaciones.",True,False,True,False,,84,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T15,Soporte Tecnico,Sensores,7.03,1507,129,0,0.0007746,,,"- Concepto Clave: COODIBOT es el componente conversacional del ecosistema COODI que apoya la interacción con recursos educativos y actividades.
+- Pasos: 
+  1. Identifica el desafío o la actividad a realizar.
+  2. Consulta a COODIBOT para recibir orientación o respuestas sobre las actividades.
+  3. Ejecuta la programación o solución colaborativa según las indicaciones.
+- OA Vinculado:
+  - TEC-4B-OA1
+- Verificación: Comprueba que COODIBOT responda correctamente a las consultas sobre las actividades educativas del ecosistema.",True,False,True,False,,74,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C13,Articulacion Curricular,6° Básico - Tecnología (TE06 OA03),2.31,3333,153,0,0.0005917,,,"- Concepto Clave: Modificar un producto tecnológico implica realizar ajustes o mejoras en su diseño o funcionalidad.
+- Pasos:
+  1. Identifica el producto tecnológico a modificar.
+  2. Analiza sus características y funcionalidades actuales.
+  3. Propón mejoras o cambios específicos.
+  4. Diseña un nuevo prototipo incorporando las modificaciones.
+  5. Prueba el nuevo diseño y evalúa su rendimiento.
+- OA Vinculado:
+  - TEC-6B-OA1
+  - TEC-6B-OA3
+  - TEC-6B-OA4
+- Verificación: Compara el rendimiento del producto modificado con el original y evalúa si se lograron las mejoras propuestas.",True,False,True,False,,84,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C14,Articulacion Curricular,Cruzada - Tecnología 5°,1.972,1489,147,0,0.0003115,,,"- Concepto Clave: El HC-SR04 mide distancia mediante ultrasonido, permitiendo la detección de obstáculos en robots.
+- Pasos: 
+  1. Conectar el HC-SR04 al robot.
+  2. Programar el robot para que use el sensor y detenga su movimiento al detectar un objeto cercano.
+  3. Probar el funcionamiento en un entorno controlado.
+- OA Vinculado:
+  - TEC-4B-OA2
+  - TEC-1B-OA2
+  - CIE-4B-OA14
+- Verificación: Observar si el robot se detiene al acercarse a un objeto dentro del rango de distancia del sensor.",True,False,True,False,,79,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C15,Articulacion Curricular,General - Planificación de clase,2.546,1466,155,0,0.0003129,,,"- Concepto Clave: Diseñar y construir rectángulos dados el perímetro o área.
+- Pasos: 
+  1. Presenta el objetivo de aprendizaje (MAT-5B-OA21).
+  2. Divide a los estudiantes en equipos.
+  3. Proporciona materiales (papel, regla, lápiz).
+  4. Asigna un perímetro o área a cada equipo.
+  5. Pide que diseñen y construyan rectángulos.
+  6. Comparte y discute las construcciones.
+- OA Vinculado:
+  - MAT-5B-OA21
+- Verificación: Compara los rectángulos construidos con los valores asignados y discute las conclusiones.",True,False,True,False,,75,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C16,Articulacion Curricular,General - Interdisciplinariedad,2.308,1607,175,0,0.000346,,,"Concepto Clave: La interdisciplinariedad en COODI permite integrar diversas asignaturas a través de proyectos y actividades.
+
+Pasos:
+1. Identifica un tema central que conecte varias asignaturas.
+2. Diseña actividades que incluyan elementos de ciencia, tecnología, ingeniería y matemáticas (STEM).
+3. Implementa el uso de herramientas de COODI para facilitar el aprendizaje.
+4. Reflexiona sobre los aprendizajes obtenidos en cada asignatura.
+
+OA Vinculado:
+- TEC-1B-OA5
+- TEC-1B-OA6
+- CIE-1B-OA10
+- MAT-1B-OA19
+- TEC-1B-OA1
+- TEC-1B-OA3
+
+Verificación: Observa la participación y comprensión de los estudiantes en las actividades interdisciplinarias.",True,False,True,False,,87,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T16,Soporte Tecnico,Componentes planificados,4.523,1267,130,0,0.0007051,,,"- Concepto Clave: RFID es una tecnología de identificación por radiofrecuencia utilizada para reconocer tarjetas u objetos.
+- Pasos: 
+1. Conecta el módulo RFID compatible al sistema COODI.
+2. Configura el lector para la identificación automática de tarjetas.
+3. Prueba pasando la tarjeta cerca del sensor.
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA1
+- CIE-4B-OA14
+- Verificación: Comprueba que el sistema registre y reconozca correctamente el código único de la tarjeta al acercarla.",True,False,True,True,False,73,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C17,Articulacion Curricular,General - Alcance curricular,2.069,1452,136,0,0.0002994,,,"Concepto Clave: COODI no tiene Objetivos de Aprendizaje (OAs) propios, pero se alinea con los OAs de los cursos de educación básica.
+
+Pasos:
+1. Revisa los OAs de primero a sexto básico.
+2. Identifica los OAs relacionados con tecnología y programación.
+3. Aplica las actividades de COODI en función de esos OAs.
+
+OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+Verificación: Comprueba que los estudiantes logren los aprendizajes esperados según los OAs seleccionados.",True,False,True,False,,73,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C18,Articulacion Curricular,Límite de alcance,1.555,1476,88,0,0.0002742,,,"No tengo información específica sobre OAs de 7° básico. Sin embargo, puedes considerar OAs de cursos más bajos, como:
+
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-3B-OA1
+
+Verifica si las actividades de estos OAs se adaptan a tus objetivos. 
+
+Verificación: Compara los resultados de los estudiantes con los objetivos de aprendizaje establecidos.",False,True,True,True,True,50,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C20,Articulacion Curricular,General - Fuentes,1.04,1441,48,0,0.000245,,,No tengo información al respecto sobre documentos del Mineduc que respalden el uso de COODI en el aula. Te sugiero consultar directamente con el Mineduc o revisar su sitio web para obtener información específica sobre este tema.,False,True,True,False,,37,False
+gpt-4o-mini (actual),openai,gpt-4o-mini,C19,Articulacion Curricular,Nivel político-estratégico,1.688,1359,132,0,0.000283,,,"- Concepto Clave: (Enfoque de género en robótica educativa)
+- Pasos: 
+  1. Diseñar actividades que favorezcan la participación equitativa.
+  2. Evitar asignar roles técnicos de manera estereotipada.
+  3. Considerar la accesibilidad en materiales impresos y digitales.
+- OA Vinculado:
+  - TEC-1B-OA4
+  - TEC-2B-OA4
+  - TEC-3B-OA4
+- Verificación: (Comprobar que todos los estudiantes participen activamente y que no haya roles fijos asignados).",True,False,True,False,,61,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T17,Soporte Tecnico,Componentes planificados,2.62,1432,97,0,0.0006721,,,"- Concepto Clave: Sensor IMU para medir orientación y movimiento. No aparece en el contexto, por lo que podría tratarse de algo planificado pero no implementado aún.
+- Pasos:
+1. Revisa los manuales vigentes del kit COODI.
+2. Consulta futuras actualizaciones de hardware.
+- OA Vinculado: TEC-3B-OA1
+- Verificación: Comprueba la compatibilidad física y de programación en el robot.",True,True,True,True,True,59,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T06,Soporte Tecnico,Actuadores/Motores,1.724,1526,144,0,0.0008408,,,"- Concepto Clave: COODI tiene motores que permiten el movimiento y la interacción física del robot con su entorno.
+
+- Pasos:
+  1. Identifica los motores instalados en el robot COODI.
+  2. Conecta los motores a la placa de control.
+  3. Programa los motores para realizar movimientos específicos.
+  4. Usa los motores para desplazar el robot o activar mecanismos.
+
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+
+- Verificación: Observa que el robot se mueve o realiza acciones físicas según el programa ejecutado.",True,False,True,False,,83,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T07,Soporte Tecnico,Actuadores/Motores,1.64,1494,145,0,0.0008296,,,"- Concepto Clave: El servomotor SG90 permite movimientos angulares controlados en partes específicas del robot COODI.  
+- Pasos:  
+  1. Conecta el servomotor SG90 al robot COODI.  
+  2. Programa el ángulo deseado usando bloques o código textual.  
+  3. Ejecuta el programa para mover la parte específica.  
+- OA Vinculado:  
+  - TEC-1B-OA2  
+  - TEC-3B-OA1  
+  - TEC-3B-OA2  
+- Verificación: Observa que la parte conectada al servomotor se mueve al ángulo programado con precisión.",True,False,True,False,,70,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T08,Soporte Tecnico,Actuadores/Motores,1.926,1578,175,0,0.0009112,,,"- Concepto Clave:  
+Motores DC generan movimiento continuo para desplazamiento; servomotor SG90 controla movimiento angular preciso para mecanismos o expresividad.
+
+- Pasos:  
+1. Identifica el motor DC para mover el robot en línea recta o curvas.  
+2. Usa el servomotor SG90 para girar partes específicas con ángulos controlados.  
+3. Programa el motor DC para secuencias de movimiento.  
+4. Programa el servomotor para movimientos angulares definidos.  
+
+- OA Vinculado:  
+- TEC-3B-OA1  
+- TEC-3B-OA2  
+- TEC-3B-OA3  
+
+- Verificación:  
+Observa que el robot se desplace con motores DC y que el servomotor realice giros angulares controlados en mecanismos o expresiones.",True,False,True,False,,97,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T09,Soporte Tecnico,Actuadores/Salida,1.585,1429,146,0,0.0008052,,,"- Concepto Clave: El actuador que emite sonido en COODI es el buzzer, un componente que produce señales acústicas perceptibles.  
+- Pasos:  
+  1. Conecta el buzzer al controlador (Arduino o ESP32).  
+  2. Programa la señal para activar el buzzer.  
+  3. Ejecuta el programa para emitir el sonido deseado.  
+- OA Vinculado:  
+  - TEC-1B-OA2  
+  - TEC-4B-OA1  
+  - TEC-4B-OA2  
+- Verificación: Escucha el sonido emitido por el buzzer al ejecutar el programa para confirmar que funciona correctamente.",True,False,True,False,,75,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T18,Soporte Tecnico,Componentes planificados,4.456,1275,111,0,0.00066,,,"- Concepto Clave: La integración RFID es una tecnología para identificación automática de tarjetas u objetos.
+- Pasos: 
+1. Revisa si cuentas con los elementos magnéticos o manipulativos.
+2. Conecta el módulo RFID según las especificaciones de ampliación.
+3. Configura el sistema para lectura de tarjetas.
+- OA Vinculado:
+- TEC-3B-OA2
+- Verificación: Comprueba que el sistema reconozca la tarjeta u objeto al pasarlo por el lector RFID.",True,False,True,True,False,68,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T11,Soporte Tecnico,Actuadores/Salida,1.908,1476,173,0,0.0008672,,,"- Concepto Clave: El LED RGB es un actuador que emite luz en diferentes colores para señalizar eventos o estados del robot.  
+- Pasos:  
+  1. Conecta el LED RGB al robot COODI.  
+  2. Programa que al completar la misión, el LED se encienda en un color específico.  
+  3. Usa bloques de programación para controlar el encendido y apagado del LED.  
+  4. Prueba el programa para verificar la señal luminosa al finalizar la misión.  
+- OA Vinculado:  
+  - TEC-4B-OA1  
+  - TEC-4B-OA2  
+  - TEC-1B-OA2  
+- Verificación: Observa que el LED RGB se encienda correctamente cuando COODI complete la misión.",True,False,True,False,,97,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T10,Soporte Tecnico,Actuadores/Salida,2.059,1542,174,0,0.0008952,,,"- Concepto Clave: COODI utiliza recursos visuales como programación basada en bloques y materiales manipulativos para ofrecer retroalimentación clara y comprensible a estudiantes.  
+- Pasos:  
+  1. Diseña actividades con bloques visuales para representar acciones.  
+  2. Usa cuadernillos narrativos con desafíos que incluyen pistas visuales.  
+  3. Implementa pruebas y registros visuales de resultados.  
+  4. Utiliza COODIBOT para complementar con respuestas visuales y textuales.  
+- OA Vinculado:  
+  - TEC-3B-OA1  
+  - TEC-4B-OA1  
+  - TEC-4B-OA2  
+- Verificación: Observa si los estudiantes comprenden y corrigen sus errores mediante las señales visuales y registros de la plataforma.",True,False,True,False,,91,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T19,Soporte Tecnico,Componentes planificados,1.568,1423,80,0,0.0006269,,,"- Concepto Clave: Elementos del ecosistema aún no integrados de forma estable.
+- Pasos: 
+1. Revise la documentación oficial.
+2. Identifique las extensiones con etiqueta de planificación.
+- OA Vinculado:
+- TEC-6B-OA1
+- Verificación: Comprobar que no se presenten como capacidades disponibles.",True,False,True,True,False,42,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T12,Soporte Tecnico,Sensores ambientales,2.029,1454,153,0,0.0008264,,,"- Concepto Clave: El sensor DHT22 mide temperatura y humedad ambiental con precisión en el ecosistema COODI.  
+- Pasos:  
+  1. Conecta el sensor DHT22 al controlador COODI.  
+  2. Programa la lectura de temperatura y humedad usando el entorno visual o textual.  
+  3. Ejecuta el programa y observa los valores en pantalla o en un display conectado.  
+- OA Vinculado:  
+  - TEC-3B-OA1  
+  - CIE-4B-OA14  
+  - TEC-1B-OA2  
+- Verificación: Comprueba que el programa muestre valores coherentes de temperatura y humedad que cambian al modificar el ambiente.",True,False,True,False,,84,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T13,Soporte Tecnico,Casos de uso,1.918,1486,152,0,0.0008376,,,"- Concepto Clave: El sensor DHT22 mide temperatura y humedad para actividades ambientales.  
+- Pasos:  
+  1. Conecta el sensor DHT22 al robot.  
+  2. Programa la lectura de temperatura y humedad.  
+  3. Relaciona los datos con la narrativa ambiental del cuadernillo.  
+  4. Analiza y discute los resultados con los estudiantes.  
+- OA Vinculado:  
+  - TEC-4B-OA2  
+  - CIE-4B-OA14  
+  - MAT-3B-OA12  
+- Verificación: Comprueba que el robot registre y muestre datos ambientales que se vinculen con la narrativa del cuadernillo.",True,False,True,False,,77,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T20,Soporte Tecnico,Arquitectura,1.521,1531,113,0,0.0007418,,,"- Concepto Clave: El microcontrolador es el cerebro físico que procesa las instrucciones en el robot.
+- Pasos: 
+1. Conecta la placa Arduino UNO al computador.
+2. Selecciona el puerto correspondiente en el software de programación.
+3. Carga el código inicial para verificar la comunicación.
+- OA Vinculado:
+- TEC-1B-OA2
+- Verificación: Comprueba que el LED de encendido de la placa se mantenga activo y responda al primer programa cargado.",True,False,True,False,,70,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T14,Soporte Tecnico,Sensores,2.071,1482,148,0,0.0008296,,,"- Concepto Clave: COODI puede recibir comandos y validar actividades mediante su componente conversacional COODIBOT, que permite interacción sin programación por bloques.
+
+- Pasos:
+1. Activa COODIBOT para interacción conversacional.
+2. Formula comandos o preguntas en lenguaje natural.
+3. COODIBOT interpreta y ejecuta acciones o valida respuestas.
+4. Observa la respuesta del robot o sistema para confirmar ejecución.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Confirmar que COODI responde correctamente a comandos hablados o escritos y que valida la actividad sin usar bloques.",True,False,True,False,,87,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T15,Soporte Tecnico,Sensores,2.592,1526,174,0,0.0008888,,,"- Concepto Clave: COODI utiliza sensores y componentes tecnológicos para interactuar y validar desafíos en sus actividades educativas.
+
+- Pasos:
+  1. Identifica el desafío o tarea a validar.
+  2. Usa sensores como el HC-SR04 para medir parámetros (ej. distancia).
+  3. Programa el robot para responder a condiciones específicas.
+  4. Ejecuta la prueba y observa las respuestas del robot.
+  5. Ajusta el programa según resultados para validar el control remoto o desafío.
+
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-1B-OA2
+
+- Verificación: Comprueba que el robot responde correctamente a comandos o condiciones del desafío, midiendo resultados con sensores y observando la ejecución programada.",True,False,True,False,,103,True
+gpt-4.1-mini,openai,gpt-4.1-mini,T16,Soporte Tecnico,Componentes planificados,1.963,1269,152,0,0.0007508,,,"- Concepto Clave: COODI considera la integración de RFID para la identificación automática de tarjetas, pero esta función está planificada como ampliación, no implementada aún.  
+- Pasos:  
+  1. Reconoce que RFID es tecnología para identificar objetos por radiofrecuencia.  
+  2. Entiende que COODI actualmente no tiene RFID implementado.  
+  3. Espera futuras actualizaciones para esta funcionalidad.  
+- OA Vinculado:  
+  - TEC-3B-OA2  
+  - TEC-3B-OA1  
+  - CIE-4B-OA14  
+- Verificación: Confirmar en la documentación oficial si la función RFID está activa o solo planificada.",True,True,True,True,True,79,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T21,Soporte Tecnico,Arquitectura,3.148,1478,126,0,0.0007584,,,"- Concepto Clave: Plataformas de hardware para ampliar la capacidad de procesamiento y conectividad del ecosistema COODI.
+- Pasos:
+  1. Evaluar el requerimiento técnico del proyecto.
+  2. Integrar la placa ESP32-WROOM-32 para mayor conectividad y capacidad.
+  3. Incorporar Raspberry Pi Zero 2W para funciones de mayor procesamiento o integración de periféricos.
+- OA Vinculado: TEC-5B-OA1
+- Verificación: Comprobar la correcta comunicación y ejecución de tareas con la nueva plataforma instalada.",True,False,True,False,,70,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T17,Soporte Tecnico,Componentes planificados,1.732,1452,143,0,0.0008096,,,"Concepto Clave: COODI no menciona el uso de una IMU para medir orientación y movimiento en su documentación.
+
+Pasos:
+1. Revisa los componentes listados en la documentación oficial.
+2. Identifica sensores implementados para movimiento y orientación.
+3. Confirma que solo se menciona HC-SR04 para distancia y motores para movimiento.
+4. No se reporta IMU en el ecosistema COODI.
+
+OA Vinculado:
+- TEC-3B-OA1
+- CIE-4B-OA14
+- TEC-1B-OA2
+
+Verificación: Confirmar en la documentación oficial que no aparece ninguna IMU ni sensor similar para orientación.",True,False,True,True,False,82,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T22,Soporte Tecnico,Arquitectura/Conectividad,1.422,1341,102,0,0.0006573,,,"- Concepto Clave: Funcionamiento local que permite operar sin dependencia permanente de internet.
+- Pasos: 
+1. Diseña las actividades fundamentales sin conexión.
+2. Utiliza los recursos locales del ecosistema COODI.
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA4
+- CIE-4B-OA14
+- Verificación: Comprueba que las actividades centrales se ejecutan correctamente sin red.",True,False,True,False,,51,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T18,Soporte Tecnico,Componentes planificados,1.988,1277,173,0,0.0007876,,,"- Concepto Clave: RFID es una tecnología para identificar tarjetas automáticamente mediante radiofrecuencia.  
+- Pasos:  
+  1. Verifica si tu kit COODI incluye RFID.  
+  2. Consulta si el módulo RFID está implementado o solo planificado.  
+  3. Si está planificado, espera futuras actualizaciones para usarlo.  
+  4. Si está implementado, sigue las instrucciones para integrar y programar el sensor.  
+- OA Vinculado:  
+  - TEC-3B-OA2  
+  - TEC-3B-OA1  
+  - CIE-4B-OA14  
+- Verificación: Comprueba que el sistema reconozca tarjetas automáticamente al acercarlas al lector RFID.  
+
+Según el contexto, RFID está considerado como ampliación, no implementado aún.",True,True,True,True,True,90,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T19,Soporte Tecnico,Componentes planificados,1.898,1441,172,0,0.0008516,,,"- Concepto Clave: Componentes en fase de planificación son aquellos previstos para desarrollo futuro, no integrados aún de forma estable ni disponibles para uso actual en COODI.
+
+- Pasos:
+  1. Identifica componentes marcados como ""Planificado"" en la documentación.
+  2. No los presentes como capacidades actuales.
+  3. Señala que son extensiones previstas o líneas de desarrollo en evaluación.
+  4. Usa solo componentes ""Implementados"" para actividades y respuestas.
+
+- OA Vinculado:
+  - TEC-6B-OA1
+  - TEC-6B-OA2
+  - TEC-6B-OA3
+
+- Verificación: Confirmar en la documentación oficial que el componente consultado aparece con etiqueta ""Planificado"" y no ""Implementado"" ni ""Prototipo"".",True,True,True,True,True,95,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T23,Soporte Tecnico,Programación,1.185,1502,110,0,0.0007256,,,"- Concepto Clave: Opciones de desarrollo de software para el robot en el ecosistema.
+- Pasos: 
+1. Selecciona el entorno de programación visual basado en bloques.
+2. Utiliza la programación textual para niveles de mayor complejidad.
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+- Verificación: Comprueba que el código se ejecute correctamente en el robot según el modo seleccionado.",True,False,True,False,,61,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T20,Soporte Tecnico,Arquitectura,1.929,1542,139,0,0.0008392,,,"- Concepto Clave: La versión inicial de COODI utiliza un microcontrolador para controlar sus funciones básicas.
+- Pasos:
+  1. Identifica el microcontrolador en la versión inicial.
+  2. Revisa la documentación técnica para confirmar su uso.
+  3. Utiliza este microcontrolador para programar y controlar el robot.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Confirma que el robot COODI responde a comandos programados mediante Arduino UNO, el microcontrolador inicial implementado.",True,False,True,False,,72,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T21,Soporte Tecnico,Arquitectura,2.487,1481,182,0,0.0008836,,,"- Concepto Clave: Plataformas de procesamiento son dispositivos que permiten controlar y ejecutar programas en COODI, ampliando su capacidad y conectividad.  
+- Pasos:  
+  1. Identifica la necesidad de mayor capacidad o conectividad.  
+  2. Selecciona ESP32-WROOM-32 para conectividad y capacidad intermedia.  
+  3. Elige Raspberry Pi Zero 2W para funciones de mayor procesamiento o integración con periféricos.  
+  4. Implementa la plataforma seleccionada en el sistema COODI.  
+- OA Vinculado:  
+  - TEC-5B-OA1  
+  - TEC-5B-OA2  
+  - TEC-5B-OA3  
+- Verificación: Confirma que la plataforma seleccionada funciona correctamente y mejora la capacidad de procesamiento y conectividad del sistema COODI.",True,False,True,False,,93,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T24,Soporte Tecnico,Programación,2.382,1459,114,0,0.0007227,,,"- Concepto Clave: Superficie física utilizada para la navegación y el desarrollo de actividades con el robot COODI.
+- Pasos: 
+1. Extiende el tablero de actividades sobre una superficie plana.
+2. Posiciona el robot COODI en el punto de inicio indicado.
+3. Programa la ruta utilizando bloques visuales o tarjetas.
+- OA Vinculado:
+- TEC-3B-OA1
+- Verificación: Comprueba que el robot COODI recorra la ruta exacta diseñada en el tablero sin desviarse.",True,False,True,False,,72,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T22,Soporte Tecnico,Arquitectura/Conectividad,1.626,1358,120,0,0.0007352,,,"- Concepto Clave: COODI puede funcionar sin conexión permanente a Internet.
+- Pasos:
+  1. Diseña actividades fundamentales que no requieran conexión.
+  2. Usa recursos y programación local para ejecutar proyectos.
+  3. Conecta a Internet solo para servicios complementarios si es necesario.
+- OA Vinculado:
+  - TEC-3B-OA2
+  - TEC-3B-OA4
+  - CIE-4B-OA14
+- Verificación: Comprueba que las actividades básicas se ejecutan correctamente sin acceso a Internet.",True,False,True,False,,64,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T23,Soporte Tecnico,Programación,2.054,1514,163,0,0.0008664,,,"- Concepto Clave: COODI ofrece programación visual basada en bloques y programación textual para niveles avanzados.
+
+- Pasos:
+  1. Abre el entorno de programación COODI.
+  2. Selecciona programación visual con bloques para iniciarte.
+  3. Avanza a programación textual para mayor complejidad.
+  4. Usa el tablero de actividades para navegar y practicar.
+  5. Integra programación colaborativa según el modelo NDCC.
+
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+
+- Verificación: Comprueba que el estudiante pueda crear programas simples con bloques y luego con texto, resolviendo desafíos del cuadernillo.",True,False,True,False,,88,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T25,Soporte Tecnico,Programación,2.337,1481,135,0,0.0007818,,,"- Concepto Clave: Entorno de programación visual basado en bloques (Angular y Blockly) para secuenciar movimientos en COODI.
+- Pasos: 
+1. Ingresa a la aplicación web de programación visual.
+2. Arrastra el bloque de movimiento para avanzar.
+3. Conecta el bloque de giro a continuación.
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-3B-OA1
+- Verificación: Ejecuta el programa en la interfaz y observa que COODI realice la secuencia exacta de avanzar y girar en el tablero.",True,False,True,False,,77,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T24,Soporte Tecnico,Programación,2.096,1478,173,0,0.000868,,,"- Concepto Clave: El tablero de navegación de COODI es una superficie física que permite la interacción tangible con el robot y las tarjetas para facilitar la programación y experimentación.  
+- Pasos:  
+  1. Coloca el tablero en una superficie estable.  
+  2. Usa las tarjetas o comandos físicos sobre el tablero para programar el robot.  
+  3. Observa cómo el robot responde a las instrucciones en el tablero.  
+- OA Vinculado:  
+  - TEC-3B-OA1  
+  - TEC-1B-OA2  
+  - TEC-4B-OA1  
+- Verificación: Comprueba que el robot se mueve o actúa según las tarjetas colocadas en el tablero, confirmando la interacción correcta.  
+
+Nota: El contexto no especifica el tamaño del tablero.",True,False,True,False,,105,True
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T26,Soporte Tecnico,Programación,1.081,1423,139,0,0.0007744,,,"- Concepto Clave: Herramienta basada en Blockly que transforma bloques gráficos en código o comandos compatibles con el robot.
+- Pasos: 
+1. Conecta los bloques visuales en la aplicación web.
+2. Ejecuta la generación de código para que traduzca las instrucciones.
+3. Verifica la correspondencia con el comportamiento del robot.
+- OA Vinculado:
+- TEC-5B-OA1
+- TEC-5B-OA2
+- TEC-5B-OA3
+- Verificación: Comprobar que el generador conserva una correspondencia explícita entre el bloque utilizado y el comportamiento físico del robot.",True,False,True,False,,79,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T25,Soporte Tecnico,Programación,1.933,1495,184,0,0.0008924,,,"- Concepto Clave: Programación visual con bloques permite crear secuencias de movimientos para COODI usando comandos gráficos.
+- Pasos:
+  1. Abre el entorno de programación visual basado en bloques.
+  2. Selecciona el bloque ""Avanzar"" y configúralo con duración y velocidad.
+  3. Añade el bloque ""Girar"" y define el ángulo o dirección.
+  4. Conecta los bloques en secuencia para que COODI avance y luego gire.
+  5. Ejecuta el programa para probar el comportamiento.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-3B-OA1
+- Verificación: Observa que COODI primero avance y luego realice el giro según la secuencia programada.",True,False,True,False,,97,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T26,Soporte Tecnico,Programación,2.282,1424,177,0,0.0008528,,,"- Concepto Clave: El generador de código transforma bloques visuales en instrucciones para el robot, manteniendo correspondencia explícita entre bloque y comportamiento.
+
+- Pasos:
+  1. Usa bloques visuales para crear el programa.
+  2. El generador convierte cada bloque en código o comando.
+  3. Asegura que cada bloque tenga un identificador único.
+  4. Conserva parámetros, código generado y versión de firmware compatible.
+  5. Documenta el catálogo de bloques y sus funciones.
+
+- OA Vinculado:
+  - TEC-5B-OA1
+  - TEC-5B-OA2
+  - TEC-5B-OA3
+
+- Verificación: Confirma que cada bloque en el entorno visual corresponde a una función o instrucción en el código generado, y que el firmware es compatible.",True,False,True,False,,105,True
+gpt-4.1-mini,openai,gpt-4.1-mini,T27,Soporte Tecnico,Metodología pedagógica,2.398,1501,181,0,0.00089,,,"- Concepto Clave: NDCC es un modelo didáctico que organiza experiencias de aprendizaje en robótica educativa mediante una secuencia estructurada.
+
+- Pasos:
+  1. Conecta: Relaciona con una situación significativa.
+  2. Desafío: Plantea un problema concreto.
+  3. Construcción: Realiza una manipulación o creación.
+  4. Programación colaborativa: Codifica en equipo.
+  5. Prueba: Experimenta y verifica el funcionamiento.
+  6. Reflexión: Analiza y evalúa la experiencia.
+
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-3B-OA2
+
+- Verificación: Confirmar que los estudiantes puedan describir y aplicar cada etapa en una actividad práctica de robótica.",True,False,True,False,,89,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T28,Soporte Tecnico,Metodología pedagógica,2.001,1425,168,0,0.0008388,,,"- Concepto Clave: Pensamiento computacional es un conjunto de habilidades para resolver problemas mediante descomposición, reconocimiento de patrones, abstracción, algoritmos, evaluación y depuración.
+
+- Pasos:
+1. Descompón la misión en movimientos o decisiones.
+2. Detecta patrones en datos o comportamientos.
+3. Identifica información relevante y descarta lo innecesario.
+4. Crea una secuencia ordenada de instrucciones.
+5. Compara resultados con lo esperado.
+6. Localiza y corrige errores.
+
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-1B-OA5
+
+- Verificación: Observa si el estudiante puede dividir problemas, crear algoritmos y corregir errores en sus programas.",True,False,True,False,,92,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T29,Soporte Tecnico,Metodología pedagógica,1.647,1387,140,0,0.0007788,,,"- Concepto Clave: El error en COODI es una oportunidad para depurar y mejorar el algoritmo o solución.
+
+- Pasos:
+  1. Identifica el resultado inesperado.
+  2. Analiza qué parte de la secuencia o condición causó el error.
+  3. Propón una modificación para corregirlo.
+  4. Prueba nuevamente y ajusta si es necesario.
+
+- OA Vinculado:
+  - TEC-3B-OA2
+  - TEC-3B-OA4
+  - CIE-4B-OA14
+
+- Verificación: Comprobar que el algoritmo corregido cumple la misión sin errores.",True,False,True,False,,72,False
+gpt-4.1-mini,openai,gpt-4.1-mini,T30,Soporte Tecnico,Seguridad/Operación,2.099,1422,188,0,0.0008696,,,"- Concepto Clave: Revisar que todos los componentes y materiales estén en condiciones seguras para evitar accidentes durante la actividad.  
+- Pasos:  
+  1. Comprueba que los sensores, motores y comunicación estén correctamente conectados.  
+  2. Verifica que no haya cables pelados o piezas sueltas.  
+  3. Asegura que el espacio de trabajo esté ordenado y libre de obstáculos.  
+  4. Explica las reglas de seguridad y uso a los estudiantes.  
+  5. Prepara materiales y herramientas con medidas de seguridad.  
+- OA Vinculado:  
+  - TEC-3B-OA2  
+  - TEC-3B-OA4  
+  - CIE-4B-OA14  
+- Verificación: Confirma que todos los dispositivos funcionen sin fallas y que los estudiantes comprendan las normas de seguridad antes de iniciar.",True,False,True,False,,107,True
+gpt-4.1-mini,openai,gpt-4.1-mini,C01,Articulacion Curricular,1° Básico - Tecnología (TE01 OA01),1.8,1562,152,0,0.000868,,,"- Concepto Clave: Crear dibujos digitales para representar ideas usando software guiado por el docente.  
+- Pasos:  
+  1. Presenta el objetivo TEC-1B-OA5 a los estudiantes.  
+  2. Introduce el software de dibujo en COODI.  
+  3. Propón una idea o tema para que los niños la representen con imágenes.  
+  4. Guía a los estudiantes en el uso de herramientas básicas del software.  
+  5. Permite que creen sus dibujos y compartan sus ideas.  
+- OA Vinculado: TEC-1B-OA5  
+- Verificación: Observar que los estudiantes hayan creado dibujos que reflejen claramente la idea propuesta.",True,False,True,False,,89,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C02,Articulacion Curricular,1° Básico - Matemática (MA01 OA11),1.824,1495,177,0,0.0008812,,,"- Concepto Clave: Identificar y crear patrones repetitivos usando programación visual y actividades lúdicas para desarrollar pensamiento computacional.
+
+- Pasos:  
+1. Introduce la idea de patrones con ejemplos cotidianos.  
+2. Usa el entorno de programación por bloques de COODI para crear secuencias repetitivas.  
+3. Propón desafíos donde los estudiantes deban completar o continuar patrones.  
+4. Utiliza narrativas y cuadernillos para contextualizar el aprendizaje.  
+5. Reflexiona con los estudiantes sobre cómo los patrones ayudan a resolver problemas.
+
+- OA Vinculado:  
+TEC-1B-OA5  
+TEC-1B-OA6  
+CIE-1B-OA10  
+MAT-1B-OA19
+
+- Verificación: Observa si los estudiantes pueden crear y reconocer patrones en sus programas y actividades.",True,False,True,False,,99,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C03,Articulacion Curricular,2° Básico - Ciencias Naturales (CN02 OA09),1.858,1518,160,0,0.0008632,,,"- Concepto Clave: Explorar cómo la luz puede provocar cambios en materiales, observando y midiendo efectos en el entorno.
+
+- Pasos:
+1. Introduce el concepto de luz y su influencia en materiales.
+2. Propón un desafío para observar cambios en objetos al exponerlos a la luz.
+3. Usa materiales variados para experimentar (papeles, plásticos).
+4. Registra observaciones y patrones.
+5. Reflexiona sobre los resultados y su relación con la luz.
+
+- OA Vinculado:
+- TEC-2B-OA1
+- TEC-2B-OA3
+- CIE-2B-OA13
+
+- Verificación: Comprobar que los estudiantes identifiquen y describan cambios visibles en materiales tras exposición a la luz.",True,False,True,False,,97,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C04,Articulacion Curricular,2° Básico - Tecnología (TE02 OA02),1.809,1472,148,0,0.0008256,,,"- Concepto Clave: Organizar tareas implica planificar y secuenciar pasos para crear un objeto tecnológico.
+- Pasos:
+  1. Define el objetivo del objeto tecnológico.
+  2. Lista los materiales y herramientas necesarias.
+  3. Divide el proceso en pasos claros y ordenados.
+  4. Asigna tiempos o responsables para cada tarea.
+  5. Ejecuta y ajusta según resultados.
+- OA Vinculado:
+  - TEC-2B-OA5
+  - TEC-2B-OA6
+  - MAT-2B-OA20
+- Verificación: Comprobar que el objeto tecnológico se construye siguiendo la secuencia planificada y cumple su función.",True,True,True,False,,80,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C05,Articulacion Curricular,3° Básico - Ciencias Naturales (CN03 OA12),2.379,1637,195,0,0.0009668,,,"- Concepto Clave: La rotación terrestre es el giro de la Tierra sobre su eje; la traslación es el movimiento de la Tierra alrededor del Sol.
+
+- Pasos:
+  1. Usa el robot COODI para simular movimientos circulares.
+  2. Representa la rotación con un giro del robot sobre sí mismo.
+  3. Representa la traslación con un recorrido circular alrededor de un punto fijo.
+  4. Relaciona estos movimientos con el día, la noche y las estaciones.
+
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-3B-OA2
+  - TEC-3B-OA3
+  - MAT-3B-OA12
+  - TEC-3B-OA4
+
+- Verificación: Observa que el robot complete giros y recorridos circulares que expliquen rotación y traslación correctamente.",True,False,True,False,,104,True
+gpt-4.1-mini,openai,gpt-4.1-mini,C06,Articulacion Curricular,3° Básico - Matemática (MA03 OA15),2.334,1497,197,0,0.000914,,,"- Concepto Clave: Usar el robot COODI y sus componentes físicos para explorar y representar figuras 2D y 3D, vinculando la percepción tangible con conceptos matemáticos de geometría.
+
+- Pasos:
+  1. Identifica formas geométricas usando el robot y materiales manipulativos.
+  2. Construye modelos físicos de figuras 2D y 3D con materiales accesibles.
+  3. Programa movimientos o acciones del robot para recorrer o señalar lados y vértices.
+  4. Registra patrones y características de las figuras en tablas o dibujos.
+
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-3B-OA3
+  - MAT-3B-OA12
+
+- Verificación: Observa que los estudiantes puedan construir, identificar y describir figuras 2D y 3D usando el robot y materiales, y registrar patrones numéricos relacionados.",True,False,True,False,,112,True
+gpt-4.1-mini,openai,gpt-4.1-mini,C07,Articulacion Curricular,4° Básico - Tecnología (TE04 OA01),2.444,1582,167,0,0.0009,,,"- Concepto Clave: Diseñar y construir objetos tecnológicos usando materiales reciclados para resolver problemas cotidianos.
+- Pasos:
+  1. Identifica un problema cotidiano que puedas solucionar.
+  2. Diseña un objeto tecnológico simple usando materiales reciclados.
+  3. Dibuja tu diseño a mano alzada o con TIC.
+  4. Planifica la construcción, considerando materiales, herramientas y seguridad.
+  5. Construye el objeto y pruébalo con COODI.
+- OA Vinculado:
+  - CIE-4B-OA14
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba que el objeto funcione para resolver el problema planteado y que se haya usado material reciclado.",True,False,True,False,,89,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T27,Soporte Tecnico,Metodología pedagógica,13.928,1494,146,0,0.0008132,,,"- Concepto Clave: El modelo NDCC organiza las experiencias de aprendizaje conectando una situación significativa con un desafío.
+- Pasos: 
+  1. Conecta con la narrativa.
+  2. Presenta el desafío.
+  3. Realiza la construcción o manipulación.
+  4. Ejecuta la programación colaborativa y prueba.
+  5. Reflexiona sobre lo aprendido.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-3B-OA2
+- Verificación: Comprobar que se completaron todas las etapas secuenciales desde la narrativa hasta la reflexión final.",True,False,True,False,,73,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C08,Articulacion Curricular,4° Básico - Matemática (MA04 OA14),3.309,1383,162,0,0.0008124,,,"- Concepto Clave: Integrar ecuaciones de un paso con COODI implica usar la programación y resolución de problemas para representar y solucionar ecuaciones simples mediante algoritmos.
+
+- Pasos:
+1. Define una ecuación de un paso (ejemplo: x + 3 = 7).
+2. Descompón el problema en pasos para encontrar x.
+3. Usa tarjetas o bloques para representar cada paso del algoritmo.
+4. Programa a COODI para que realice las operaciones necesarias.
+5. Prueba y depura el programa para verificar la solución.
+
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+
+- Verificación: COODI debe mostrar o indicar el valor correcto de x tras ejecutar el algoritmo.",True,False,True,False,,104,True
+gpt-4.1-mini,openai,gpt-4.1-mini,C09,Articulacion Curricular,5° Básico - Caso ancla (CN05 OA10 / OA3 Tecnología),2.475,1463,179,0,0.0008716,,,"- Concepto Clave: El sensor ultrasónico HC-SR04 mide distancia enviando y recibiendo ondas sonoras para detectar objetos.
+
+- Pasos:
+  1. Conecta el pin VCC del HC-SR04 al voltaje de 5V del robot.
+  2. Une el pin GND a tierra (GND) del robot.
+  3. Conecta el pin Trigger a un pin digital de salida en el controlador.
+  4. Conecta el pin Echo a un pin digital de entrada para recibir la señal.
+  5. Programa el robot para enviar pulsos y calcular distancia según el tiempo de respuesta.
+
+- OA Vinculado: TEC-3B-OA1, TEC-3B-OA2
+
+- Verificación: Comprueba que el robot detecta obstáculos y muestra o usa la distancia para modificar su movimiento.",True,False,True,False,,109,True
+gpt-4.1-mini,openai,gpt-4.1-mini,C10,Articulacion Curricular,5° Básico - Ciencias Naturales (CN05 OA10),1.939,1406,157,0,0.0008136,,,"- Concepto Clave: Analizar un circuito eléctrico simple implica comprender cómo se conectan y funcionan sus componentes básicos, como baterías, cables y focos.
+
+- Pasos:
+  1. Identifica los componentes del circuito.
+  2. Conecta los componentes siguiendo un esquema básico.
+  3. Observa el flujo de electricidad y el encendido del foco.
+  4. Usa el software COODI para registrar y comunicar resultados.
+  5. Reflexiona sobre el funcionamiento y posibles errores.
+
+- OA Vinculado:
+  - TEC-5B-OA5
+  - MAT-5B-OA26
+
+- Verificación: El foco se enciende correctamente y se pueden interpretar tablas o gráficos que muestran el comportamiento del circuito.",True,False,True,False,,95,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C12,Articulacion Curricular,6° Básico - Ciencias Naturales (CN06 OA08),1.364,1465,91,0,0.0007316,,,"No hay información específica en el contexto sobre una actividad de COODI para explicar transformación de energía en 6° básico. Sin embargo, puedes explorar actividades relacionadas con ciencias y tecnología que involucren sensores y actuadores para ilustrar cambios de energía, aunque no se menciona una actividad concreta. Si deseas, puedo ayudarte a buscar actividades de cursos más bajos relacionadas con energía, pero no serán específicas de 6° básico. ¿Quieres que lo haga?",False,False,False,False,,72,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C11,Articulacion Curricular,5° Básico - Matemática (MA05 OA17),3.069,1343,186,0,0.0008348,,,"- Concepto Clave: Explorar aristas y caras de figuras geométricas y reconocer paralelismo y perpendicularidad mediante actividades prácticas con COODI.  
+- Pasos:  
+  1. Identifica figuras geométricas en el entorno COODI.  
+  2. Cuenta y señala sus aristas y caras.  
+  3. Usa bloques o tarjetas para representar líneas paralelas y perpendiculares.  
+  4. Programa movimientos o condiciones que reflejen estas propiedades.  
+  5. Reflexiona sobre cómo se manifiestan en el robot y el entorno.  
+- OA Vinculado:  
+  - TEC-5B-OA5  
+  - MAT-5B-OA26  
+- Verificación: Observa si los estudiantes pueden identificar y representar correctamente aristas, caras, y relaciones de paralelismo y perpendicularidad en actividades y programas COODI.",True,False,True,False,,101,True
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T28,Soporte Tecnico,Metodología pedagógica,5.811,1404,151,0,0.0007987,,,"- Concepto Clave: Habilidades del pensamiento computacional como descomposición, reconocimiento de patrones, abstracción, algoritmos, evaluación y depuración aplicadas en robótica educativa.
+- Pasos: 
+1. Divide la misión en subproblemas (descomposición).
+2. Detecta regularidades en recorridos o datos.
+3. Crea una secuencia ordenada de instrucciones (algoritmos).
+4. Localiza y corrige errores (depuración).
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA5
+- Verificación: Compara el comportamiento obtenido del robot con el esperado tras ejecutar las instrucciones.",True,False,True,False,,75,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C14,Articulacion Curricular,Cruzada - Tecnología 5°,1.893,1489,113,0,0.0007764,,,"Concepto Clave: El sensor HC-SR04 mide distancia mediante ultrasonido para detectar obstáculos y controlar movimientos.
+
+Pasos:
+1. Identifica el uso del sensor para medir distancia.
+2. Programa condiciones basadas en la distancia detectada.
+3. Integra el sensor en un proyecto tecnológico para resolver un problema.
+4. Evalúa el funcionamiento y ajusta el programa según resultados.
+
+OA Vinculado:
+- TEC-4B-OA2
+
+Verificación: Comprueba que el robot detecta obstáculos y modifica su recorrido según la distancia medida.",True,False,True,False,,74,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C13,Articulacion Curricular,6° Básico - Tecnología (TE06 OA03),2.334,3333,182,0,0.0016244,,,"- Concepto Clave: Modificar un producto tecnológico implica ajustar o mejorar un diseño o prototipo para resolver problemas o aprovechar oportunidades, usando herramientas y técnicas adecuadas.
+
+- Pasos:
+  1. Identifica el producto tecnológico a modificar.
+  2. Analiza sus características y funcionamiento.
+  3. Planifica los cambios necesarios para mejorar o adaptar el producto.
+  4. Usa COODI para implementar las modificaciones con técnicas y herramientas.
+  5. Prueba el producto modificado y evalúa su desempeño.
+  6. Ajusta según resultados y retroalimentación.
+
+- OA Vinculado:
+  - TEC-6B-OA3
+  - TEC-6B-OA4
+
+- Verificación: Observar que el producto modificado funcione mejor o cumpla con nuevas funciones, y que se hayan aplicado técnicas correctas en COODI.",True,False,True,False,,108,True
+gpt-4.1-mini,openai,gpt-4.1-mini,C15,Articulacion Curricular,General - Planificación de clase,2.063,1466,145,0,0.0008184,,,"- Concepto Clave: Diseñar y construir rectángulos dados perímetro o área para comprender sus propiedades geométricas.  
+- Pasos:  
+  1. Explica el concepto de perímetro y área.  
+  2. Propón construir rectángulos con un perímetro o área dado usando papel cuadriculado o software.  
+  3. Pide que comparen dimensiones y saquen conclusiones sobre las formas posibles.  
+  4. Registra resultados y reflexiona sobre patrones.  
+- OA Vinculado: MAT-5B-OA21  
+- Verificación: Los estudiantes muestran rectángulos correctos y explican relaciones entre perímetro, área y dimensiones.",True,False,True,False,,79,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C16,Articulacion Curricular,General - Interdisciplinariedad,2.685,1607,219,0,0.0009932,,,"- Concepto Clave: Integración de asignaturas para potenciar aprendizajes mediante robótica educativa COODI.  
+- Pasos:  
+  1. Identifica objetivos de aprendizaje en Tecnología, Ciencia, Matemática y otras áreas.  
+  2. Selecciona actividades y desafíos COODI que involucren programación, diseño y experimentación.  
+  3. Diseña proyectos que conecten conceptos de distintas asignaturas (ej. medir, registrar datos, diseñar).  
+  4. Implementa actividades colaborativas y reflexivas con estudiantes.  
+  5. Evalúa aprendizajes desde múltiples perspectivas.  
+- OA Vinculado:  
+  - TEC-1B-OA5  
+  - TEC-1B-OA6  
+  - CIE-1B-OA10  
+  - MAT-1B-OA19  
+  - TEC-1B-OA1  
+  - TEC-1B-OA3  
+- Verificación: Observa si los estudiantes aplican conocimientos de varias asignaturas en proyectos COODI.",True,False,True,False,,96,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C17,Articulacion Curricular,General - Alcance curricular,2.27,1452,194,0,0.0008912,,,"- Concepto Clave: COODI integra Objetivos de Aprendizaje (OAs) propios alineados con las bases curriculares de educación básica para guiar el desarrollo de habilidades tecnológicas y de diseño.
+
+- Pasos:
+  1. Identifica el curso básico (1° a 6° básico).
+  2. Consulta los OAs específicos vinculados a COODI para ese curso.
+  3. Aplica las actividades y recursos de COODI que corresponden a esos OAs.
+  4. Evalúa el logro mediante las herramientas de NeuroCOODI y actividades prácticas.
+
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+
+- Verificación: Revisa que las actividades realizadas correspondan a los OAs indicados y que los estudiantes puedan diseñar y planificar objetos tecnológicos simples.",True,False,True,False,,107,True
+gpt-4.1-mini,openai,gpt-4.1-mini,C18,Articulacion Curricular,Límite de alcance,1.976,1476,174,0,0.0008688,,,"- Concepto Clave: COODI está diseñado principalmente para educación básica entre 1° y 6° básico.  
+- Pasos:  
+  1. Revisa los OAs oficiales para 1° a 6° básico.  
+  2. Selecciona OAs de cursos inferiores relacionados con tu objetivo.  
+  3. Adapta actividades y desafíos de COODI para el nivel requerido.  
+  4. Usa la progresión de programación para aumentar complejidad.  
+- OA Vinculado:  
+  - TEC-4B-OA1  
+  - TEC-4B-OA2  
+  - TEC-3B-OA1  
+- Verificación: Comprueba que las actividades seleccionadas y adaptadas cumplen con los objetivos de aprendizaje y son adecuadas para el nivel de tus estudiantes.",True,False,True,True,False,90,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C19,Articulacion Curricular,Nivel político-estratégico,2.008,1359,161,0,0.0008012,,,"- Concepto Clave: La robótica con enfoque de género busca favorecer la participación equitativa, evitando asignar roles técnicos según estereotipos.
+
+- Pasos:
+1. Diseña actividades que promuevan la inclusión y equidad.
+2. Asegura que los roles técnicos roten entre todos los estudiantes.
+3. Utiliza materiales y lenguaje inclusivo.
+4. Considera accesibilidad en materiales impresos y digitales.
+5. Fomenta un ambiente donde todas las voces sean valoradas.
+
+- OA Vinculado:
+- TEC-1B-OA4
+- TEC-2B-OA4
+- TEC-3B-OA4
+
+- Verificación: Observa que todos los estudiantes participen en roles técnicos y que el lenguaje y materiales sean inclusivos.",True,False,True,False,,94,False
+gpt-4.1-mini,openai,gpt-4.1-mini,C20,Articulacion Curricular,General - Fuentes,1.947,1441,171,0,0.00085,,,"Concepto Clave: COODI está respaldado por documentos oficiales que promueven metodologías activas y el uso de robótica educativa en el aula.
+
+Pasos:
+1. Consulta documentos del Mineduc que promueven metodologías activas y robótica educativa.
+2. Revisa normativas sobre integración de tecnología y STEM en educación básica.
+3. Utiliza materiales y narrativas de COODI alineados con estos documentos.
+4. Aplica el modelo pedagógico NDCC para organizar experiencias de aprendizaje.
+
+OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA1
+
+Verificación: Confirma que las actividades de COODI se ajustan a las metodologías y objetivos pedagógicos indicados en documentos oficiales del Mineduc.",True,False,True,False,,97,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T06,Soporte Tecnico,Actuadores/Motores,1.464,1525,133,0,0.0017422,,,"- Concepto Clave: No tengo en el contexto información específica sobre cuántos motores tiene COODI ni su función exacta.
+- Pasos:
+  1. Revisa la ficha técnica del robot COODI.
+  2. Identifica el número de actuadores o motores.
+  3. Verifica su uso en movimiento o mecanismos.
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+- Verificación: Confirma en el manual o en una demostración del robot qué motores posee y qué acción realiza.",True,False,True,False,,73,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T07,Soporte Tecnico,Actuadores/Motores,1.434,1493,126,0,0.0016868,,,"- Concepto Clave: El servomotor SG90 permite movimiento angular controlado de partes específicas.
+- Pasos:
+  1. Identifica el componente como servomotor.
+  2. Úsalo para mecanismos, orientación o expresividad.
+  3. Combínalo con programación para controlar su ángulo.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-3B-OA1
+  - TEC-3B-OA2
+- Verificación: Comprueba si la parte se mueve en un ángulo preciso y repetible.",True,False,True,False,,59,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T29,Soporte Tecnico,Metodología pedagógica,9.662,1362,133,0,0.0007411,,,"- Concepto Clave: Oportunidad de depuración donde un resultado inesperado permite identificar fallas y proponer modificaciones.
+- Pasos: 
+1. Analiza el error comparando el resultado con la planificación.
+2. Identifica la secuencia o condición que produjo la falla.
+3. Propón una modificación para depurar el algoritmo.
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA4
+- CIE-4B-OA14
+- Verificación: Ejecuta nuevamente el programa corregido para comprobar que COODI cumple con el objetivo planificado.",True,True,True,False,,71,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T08,Soporte Tecnico,Actuadores/Motores,1.567,1577,138,0,0.0018038,,,"- Concepto Clave: Los motores DC amarillos desplazan el robot; el servomotor SG90 realiza movimiento angular controlado para mecanismos, orientación o expresividad.
+- Pasos:
+  1. Identifica si necesitas desplazamiento.
+  2. Usa motores DC para mover el robot.
+  3. Usa SG90 para girar o ajustar una parte.
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-3B-OA2
+- TEC-3B-OA3
+- Verificación: Comprueba si el robot avanza con DC o si una pieza cambia de ángulo con el SG90.",True,False,True,False,,74,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T09,Soporte Tecnico,Actuadores/Salida,1.255,1428,124,0,0.001629,,,"- Concepto Clave: COODI usa un **buzzer** como actuador para emitir sonido.
+- Pasos:
+  1. Identifica el buzzer en la configuración del robot.
+  2. Conéctalo como salida sonora.
+  3. Programa su activación cuando necesites una señal audible.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba que el buzzer emita sonido al ejecutar el programa.",True,False,True,False,,58,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T10,Soporte Tecnico,Actuadores/Salida,1.497,1541,143,0,0.0017993,,,"- Concepto Clave: COODI puede dar retroalimentación visual mediante su tablero de actividades y navegación, y con pruebas de las experiencias para registrar resultados.
+- Pasos:
+  1. Diseña la actividad.
+  2. Programa la secuencia.
+  3. Ejecuta la prueba con COODI.
+  4. Registra el resultado en el tablero.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba si el estudiante ve el resultado, identifica aciertos/errores y ajusta su solución.",True,False,True,False,,71,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T11,Soporte Tecnico,Actuadores/Salida,1.687,1475,122,0,0.0016553,,,"- Concepto Clave: Usa un LED RGB o matriz RGB como salida visual para indicar que COODI completó la misión.
+- Pasos:
+  1. Define la misión.
+  2. Programa la condición de logro.
+  3. Activa la luz al finalizar.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-1B-OA2
+- Verificación: Comprueba que, al terminar la misión, se encienda un color o patrón de luz.",True,False,True,False,,63,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T12,Soporte Tecnico,Sensores ambientales,1.448,1453,144,0,0.0017378,,,"- Concepto Clave: Para medir temperatura y humedad con COODI, el contexto menciona el sensor DHT22 como parte del ambiente.
+- Pasos:
+  1. Identifica el módulo de ambiente.
+  2. Conecta el DHT22 al robot.
+  3. Programa la lectura de temperatura y humedad.
+  4. Verifica los valores en la interfaz o salida.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - CIE-4B-OA14
+  - TEC-1B-OA2
+- Verificación: Comprueba que el sistema muestre cambios de temperatura y humedad al variar el entorno.",True,False,True,False,,76,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T13,Soporte Tecnico,Casos de uso,1.291,1485,130,0,0.0016987,,,"- Concepto Clave: En “Misión ambiental” se usa el sensor DHT22 para medir temperatura y humedad.
+- Pasos:
+  1. Identifica el sensor DHT22.
+  2. Registra temperatura y humedad.
+  3. Relaciona los datos con una narrativa ambiental.
+- OA Vinculado:
+  - TEC-4B-OA2
+  - CIE-4B-OA14
+  - MAT-3B-OA12
+- Verificación: Comprueba que el robot mida temperatura/humedad y que los datos se integren al cuadernillo.",True,False,True,False,,61,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T14,Soporte Tecnico,Sensores,1.531,1481,143,0,0.0017542,,,"- Concepto Clave: COODI puede trabajar con programación textual y con actividades guiadas por tablero, además de usar COODIBOT como componente conversacional complementario.
+- Pasos: 1) Define la misión en el tablero. 2) Usa programación textual si la actividad requiere mayor complejidad. 3) Ejecuta la prueba. 4) Revisa errores y depura.
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+- Verificación: Comprueba si COODI completa el recorrido o la tarea y luego compara el resultado con la planificación.",True,False,True,False,,79,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T15,Soporte Tecnico,Sensores,1.36,1525,128,0,0.0017197,,,"- Concepto Clave: COODIBOT es el componente conversacional del ecosistema COODI; puede orientar, responder sobre actividades y apoyar la interacción con recursos educativos.
+- Pasos: 1) Consulta a COODIBOT. 2) Solicita orientación o validación del desafío. 3) Revisa la respuesta entregada.
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA2
+- Verificación: Comprueba que COODIBOT entregue apoyo en la interacción y respuestas sobre actividades.",True,False,True,False,,64,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,T30,Soporte Tecnico,Seguridad/Operación,6.049,1415,144,0,0.0007845,,,"- **Concepto Clave:** Preparación previa y verificación técnica para garantizar una experiencia segura y efectiva con el ecosistema COODI.
+- **Pasos:** 
+  1. Comprueba la carga, sensores, motores y comunicación del robot.
+  2. Selecciona el desafío y el nivel de programación.
+  3. Prepara el tablero, tarjetas y materiales necesarios.
+  4. Explica las reglas de seguridad y uso a los equipos.
+- **OA Vinculado:** 
+  - TEC-3B-OA2
+- **Verificación:** Comprobar que el hardware responda adecuadamente y que los estudiantes conozcan las normas antes de iniciar la actividad.",True,False,True,False,,84,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T16,Soporte Tecnico,Componentes planificados,1.521,1268,142,0,0.00159,,,"Concepto Clave: RFID se considera una ampliación para identificación automática de tarjetas en COODI, pero el contexto no confirma que esté implementado.
+
+Pasos:
+1. Revisa si tu actividad usa RFID como ampliación.
+2. Verifica si el módulo está documentado como implementado.
+3. Usa validación con control infrarrojo en experiencias ya implementadas.
+
+OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA1
+- CIE-4B-OA14
+
+Verificación: Comprueba si el sistema reconoce tarjetas automáticamente; si no, trata RFID como planificado o ampliado, no como función confirmada.",True,True,True,True,True,79,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T17,Soporte Tecnico,Componentes planificados,1.733,1451,150,0,0.0017633,,,"- Concepto Clave: En el contexto recuperado, COODI solo menciona el sensor HC-SR04 para distancia; no aparece ninguna IMU ni sensor de orientación/movimiento.
+- Pasos:
+  1. Revisa el manual disponible.
+  2. Identifica si se menciona una IMU.
+  3. Si no aparece, no asumas un sensor.
+- OA Vinculado:
+- TEC-3B-OA1
+- CIE-4B-OA14
+- TEC-1B-OA2
+- Verificación: Comprueba en el contexto si existe una referencia explícita a IMU; aquí no la hay, por lo que no puedo confirmarla.",True,False,True,True,False,77,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T18,Soporte Tecnico,Componentes planificados,1.512,1276,142,0,0.001596,,,"- Concepto Clave: RFID se considera una ampliación para identificación automática de tarjetas, pero el contexto no confirma que esté implementado.
+- Pasos:
+  1. Revisa si tu actividad usa RFID como ampliación.
+  2. Verifica en la documentación si el módulo está en estado implemented o planned.
+  3. Si no aparece implementado, úsalo solo como propuesta.
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA1
+- CIE-4B-OA14
+- Verificación: Comprueba si el sistema reconoce tarjetas automáticamente; si no, la función aún no está confirmada.",True,False,True,True,False,81,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T19,Soporte Tecnico,Componentes planificados,1.333,1440,144,0,0.001728,,,"- Concepto Clave: Los componentes en planificación son extensiones previstas o líneas de desarrollo aún no integradas de forma estable; no deben afirmarse como capacidades disponibles.
+- Pasos: 1) Revisa el estado del componente en la documentación. 2) Si aparece como “Planificado”, no lo presentes como implementado. 3) Indica que aún no está integrado de forma estable.
+- OA Vinculado:
+- TEC-6B-OA1
+- TEC-6B-OA2
+- TEC-6B-OA3
+- Verificación: Comprueba que la documentación lo marque como “Planificado” y que no se describa como funcionalidad actual.",True,True,True,True,True,84,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T20,Soporte Tecnico,Arquitectura,1.281,1541,117,0,0.0016823,,,"- Concepto Clave: La versión inicial de COODI usa Arduino UNO como control inicial.
+- Pasos:
+  1. Identifica la versión inicial del robot.
+  2. Reconoce el control inicial indicado en el manual.
+  3. Asocia esa versión con Arduino UNO.
+- OA Vinculado:
+  - TEC-1B-OA2
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba que el sistema mencione “Control inicial Arduino UNO”.",True,False,True,False,,59,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T21,Soporte Tecnico,Arquitectura,1.699,1480,153,0,0.0017985,,,"- Concepto Clave: Para ampliar la capacidad de procesamiento de COODI se consideran ESP32-WROOM-32 y Raspberry Pi Zero 2W; Arduino UNO es la versión inicial.
+- Pasos: 1) Usa Arduino UNO para control embebido. 2) Elige ESP32-WROOM-32 si necesitas más conectividad. 3) Elige Raspberry Pi Zero 2W si requieres mayor procesamiento o integración con periféricos.
+- OA Vinculado:
+- TEC-5B-OA1
+- TEC-5B-OA2
+- TEC-5B-OA3
+- Verificación: Comprueba que la plataforma seleccionada responda a la necesidad de conectividad o procesamiento indicada.",True,False,True,False,,80,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T22,Soporte Tecnico,Arquitectura/Conectividad,1.469,1357,127,0,0.0015892,,,"- Concepto Clave: COODI puede funcionar sin conexión permanente; Internet solo puede ser necesario en servicios complementarios.
+- Pasos:
+  1. Usa las actividades fundamentales sin Internet.
+  2. Conecta solo si ocuparás servicios complementarios.
+  3. Verifica la actividad en modo local antes de la clase.
+- OA Vinculado:
+  - TEC-3B-OA2
+  - TEC-3B-OA4
+  - CIE-4B-OA14
+- Verificación: Comprueba que la actividad principal se ejecuta correctamente sin conexión permanente.",True,False,True,False,,66,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T23,Soporte Tecnico,Programación,1.592,1513,130,0,0.0017197,,,"- Concepto Clave: COODI ofrece programación visual basada en bloques y programación textual para niveles de mayor complejidad.
+- Pasos:
+  1. Elige programación por bloques para iniciar.
+  2. Usa programación textual si necesitas más complejidad.
+  3. Ajusta la actividad al nivel del curso.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba que el estudiante pueda programar una actividad en bloques o en texto según el desafío.",True,False,True,False,,70,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T24,Soporte Tecnico,Programación,1.514,1477,138,0,0.0017288,,,"- Concepto Clave: El tablero de actividades y navegación es un componente físico del ecosistema COODI para interactuar, mover el robot y explorar actividades.
+- Pasos: 1) Ubica el tablero. 2) Usa tarjetas o comandos físicos. 3) Ejecuta la actividad. 4) Observa el recorrido del robot.
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-1B-OA2
+- TEC-4B-OA1
+- Verificación: Comprueba que el robot interactúa con el tablero y completa la navegación.
+
+No tengo información sobre su tamaño en el contexto proporcionado.",True,True,True,False,,79,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T25,Soporte Tecnico,Programación,1.28,1494,117,0,0.001647,,,"- Concepto Clave: Usa el entorno de programación visual basado en bloques.
+- Pasos:
+  1. Selecciona bloques de movimiento.
+  2. Ordena la secuencia: avanzar y luego girar.
+  3. Ejecuta la prueba en el tablero.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-3B-OA1
+- Verificación: Comprueba que COODI realice el recorrido en el orden programado.",True,False,True,False,,55,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C01,Articulacion Curricular,1° Básico - Tecnología (TE01 OA01),6.404,1549,110,0,0.0007397,,,"- Concepto Clave: Representación de ideas mediante diseño visual y narrativa STEM.
+- Pasos: 
+1. Contextualiza una misión para COODI usando los cuadernillos narrativos. 
+2. Dibuja en papel el recorrido o solución para el desafío. 
+3. Programa los bloques visuales según el diseño creado.
+- OA Vinculado: 
+TEC-1B-OA5
+- Verificación: Comprueba que el comportamiento de COODI coincida exactamente con el dibujo diseñado.",True,False,True,False,,62,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T26,Soporte Tecnico,Programación,1.263,1423,124,0,0.0016252,,,"- Concepto Clave: El generador de código transforma bloques visuales en código o comandos compatibles con el robot.
+- Pasos:
+  1. Identifica el bloque y su comportamiento.
+  2. Registra el nombre visible, parámetros y código generado.
+  3. Vincula la versión del firmware compatible.
+- OA Vinculado:
+- TEC-5B-OA1
+- TEC-5B-OA2
+- TEC-5B-OA3
+- Verificación: Comprueba que cada bloque mantenga correspondencia explícita entre bloque y comportamiento del robot.",True,False,True,False,,67,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T27,Soporte Tecnico,Metodología pedagógica,1.463,1500,150,0,0.0018,,,"- Concepto Clave: NDCC organiza la experiencia en una secuencia didáctica para conectar un desafío con la acción.
+- Pasos:
+  1. Presenta una Narrativa.
+  2. Plantea un Desafío.
+  3. Realiza una Construcción.
+  4. Promueve la Programación colaborativa.
+  5. Ejecuta la Prueba.
+  6. Cierra con Reflexión.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-3B-OA2
+- Verificación: Comprueba que la actividad avance en ese orden y termine con reflexión.",True,False,True,False,,68,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C02,Articulacion Curricular,1° Básico - Matemática (MA01 OA11),1.821,1489,139,0,0.0007942,,,"- Concepto Clave: Identificación de regularidades y secuencias lógicas mediante sensores y programación progresiva.
+- Pasos: 
+1. Presenta material narrativo y datos de ejemplo.
+2. Observa pistas con los estudiantes.
+3. Programa en bloques una secuencia repetitiva.
+4. Experimenta y ajusta la estrategia.
+- OA Vinculado:
+- TEC-1B-OA5
+- TEC-1B-OA6
+- CIE-1B-OA10
+- MAT-1B-OA19
+- Verificación: Comprueba que el robot ejecute correctamente la secuencia de patrones programada.",True,False,True,False,,67,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T28,Soporte Tecnico,Metodología pedagógica,1.465,1424,152,0,0.001752,,,"Concepto Clave: COODI trabaja pensamiento computacional mediante descomposición, reconocimiento de patrones, abstracción, algoritmos, evaluación y depuración.
+
+Pasos:
+1. Divide una misión en subproblemas.
+2. Detecta regularidades en recorridos o sensores.
+3. Selecciona solo la información relevante.
+4. Ordena instrucciones reproducibles.
+5. Compara el resultado con lo esperado.
+6. Corrige errores con rondas de prueba.
+
+OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA5
+
+Verificación: Comprueba si el comportamiento obtenido coincide con el esperado y ajusta la solución si aparecen errores.",True,False,True,False,,79,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T29,Soporte Tecnico,Metodología pedagógica,1.541,1386,146,0,0.0016965,,,"- Concepto Clave: El error es una oportunidad de depuración para identificar qué parte de la secuencia, condición, estimación o planificación produjo el resultado inesperado.
+- Pasos:
+  1. Observa el resultado.
+  2. Compara con la planificación.
+  3. Identifica el paso que falló.
+  4. Modifica el algoritmo.
+  5. Vuelve a probar.
+- OA Vinculado:
+  - TEC-3B-OA2
+  - TEC-3B-OA4
+  - CIE-4B-OA14
+- Verificación: Comprueba si el nuevo programa corrige el error y mejora el resultado.",True,False,True,False,,73,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C03,Articulacion Curricular,2° Básico - Ciencias Naturales (CN02 OA09),1.53,1498,138,0,0.0007944,,,"- Concepto Clave: Uso de sensores ambientales y materiales para observar cambios según las condiciones del entorno.
+- Pasos: 
+1. Presentar la narrativa sobre variables ambientales.
+2. Construir o preparar el montaje con COODI.
+3. Programar de forma colaborativa para registrar datos.
+4. Probar con COODI y reflexionar sobre los resultados.
+- OA Vinculado:
+- TEC-2B-OA1
+- TEC-2B-OA3
+- CIE-2B-OA13
+- Verificación: Comprobar que COODI registra y muestra correctamente los cambios detectados por los sensores ambientales.",True,False,True,False,,76,False
+gpt-5.4-mini,openai,gpt-5.4-mini,T30,Soporte Tecnico,Seguridad/Operación,1.678,1421,151,0,0.0017453,,,"- Concepto Clave: Antes de la actividad, verifica carga, sensores, motores y comunicación; además prepara tablero, tarjetas y materiales, y explica reglas de seguridad y uso.
+- Pasos: 1. Comprueba carga y funcionamiento. 2. Revisa sensores, motores y comunicación. 3. Prepara tablero, tarjetas y materiales. 4. Explica reglas de seguridad y uso. 5. Forma equipos y asigna roles rotativos.
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA4
+- CIE-4B-OA14
+- Verificación: La actividad inicia sin fallas técnicas y con normas de seguridad claras para el grupo.",True,False,True,False,,85,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C01,Articulacion Curricular,1° Básico - Tecnología (TE01 OA01),1.469,1561,120,0,0.0017108,,,"- Concepto Clave: COODI puede apoyar una actividad de dibujo digital para representar ideas con software, guiada por el docente.
+- Pasos:
+  1. Presenta una situación o idea simple.
+  2. Pide dibujarla con software.
+  3. Guía la creación paso a paso.
+  4. Comparte y comenta los dibujos.
+- OA Vinculado:
+  - TEC-1B-OA5
+- Verificación: Comprueba que cada estudiante represente su idea en un dibujo digital y explique qué quiso mostrar.",True,False,True,False,,70,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C02,Articulacion Curricular,1° Básico - Matemática (MA01 OA11),1.694,1494,155,0,0.001818,,,"- Concepto Clave: COODI permite explorar patrones repetitivos mediante programación progresiva, usando tarjetas, bloques y luego código, junto con materiales narrativos o sensores.
+- Pasos:
+  1. Presenta una misión simple con un patrón.
+  2. Pide identificar la regularidad.
+  3. Programa la secuencia con bloques.
+  4. Verifica el resultado y corrige.
+- OA Vinculado:
+  - TEC-1B-OA5
+  - TEC-1B-OA6
+  - CIE-1B-OA10
+  - MAT-1B-OA19
+- Verificación: Comprueba que el robot o la actividad repita la secuencia sin errores.",True,False,True,False,,75,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C03,Articulacion Curricular,2° Básico - Ciencias Naturales (CN02 OA09),1.818,1517,171,0,0.0019073,,,"- Concepto Clave: Explora cómo la luz puede producir cambios observables en materiales mediante una experiencia guiada con COODI.
+- Pasos:
+  1. Plantea una situación significativa sobre materiales y luz.
+  2. Propón un desafío con materiales cercanos.
+  3. Construye o prepara el montaje.
+  4. Programa colaborativamente una secuencia simple.
+  5. Prueba con COODI y registra resultados.
+  6. Reflexiona sobre lo observado.
+- OA Vinculado:
+- TEC-2B-OA1
+- TEC-2B-OA3
+- CIE-2B-OA13
+- Verificación: Comprueba si el material muestra cambios al exponerlo a la luz y si el grupo puede describir lo observado.",True,False,True,False,,91,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C04,Articulacion Curricular,2° Básico - Tecnología (TE02 OA02),3.602,1457,117,0,0.0007296,,,"- Concepto Clave: Etapa de Construcción y Desafío del modelo NDCC para organizar materiales y metas.
+- Pasos: 
+  1. Define la meta a alcanzar en el Desafío. 
+  2. Prepara los materiales y componentes requeridos en la Construcción. 
+  3. Ejecuta la prueba con COODI.
+- OA Vinculado:
+  - TEC-2B-OA5
+- Verificación: Comprobar que los materiales estén debidamente organizados y listos para la actividad.",True,False,True,False,,62,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C04,Articulacion Curricular,2° Básico - Tecnología (TE02 OA02),1.769,1471,148,0,0.0017692,,,"- Concepto Clave: La actividad más cercana es una secuencia con **desafío, construcción, programación colaborativa, prueba y reflexión**.
+- Pasos:
+  1. Define el desafío.
+  2. Prepara materiales y componentes.
+  3. Organiza la secuencia de acciones.
+  4. Prueba la solución con COODI.
+  5. Reflexiona y ajusta.
+- OA Vinculado:
+  - TEC-2B-OA5
+  - TEC-2B-OA6
+  - MAT-2B-OA20
+- Verificación: Comprueba si el equipo completa la misión y puede explicar qué hizo y qué mejoró.",True,False,True,False,,71,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C05,Articulacion Curricular,3° Básico - Ciencias Naturales (CN03 OA12),1.8,1636,172,0,0.002001,,,"- Concepto Clave: Sí. COODI puede servir como apoyo para 3° básico, porque integra ciencia, tecnología y matemática; además, permite trabajar observación de fenómenos y registro de datos.
+- Pasos: 1) Plantea la rotación y traslación como fenómenos observables. 2) Usa el robot, tablero o tarjetas para representar secuencias. 3) Registra lo observado en tablas o patrones.
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-3B-OA2
+- TEC-3B-OA3
+- MAT-3B-OA12
+- TEC-3B-OA4
+- Verificación: Comprueba que el curso describa el fenómeno y registre patrones o secuencias con apoyo del material.",True,False,True,False,,88,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C05,Articulacion Curricular,3° Básico - Ciencias Naturales (CN03 OA12),1.182,1620,140,0,0.000836,,,"- Concepto Clave: Movimientos de la Tierra (rotación y traslación) integrados mediante desafíos STEM y exploración espacial con el robot.
+- Pasos: 
+1. Utiliza el cuadernillo ""COODI viajando a Marte"" para contextualizar la aventura espacial.
+2. Programa los desplazamientos y giros del robot COODI sobre el tablero para simular trayectorias.
+3. Registra datos de distancia y orientación en equipo.
+- OA Vinculado:
+TEC-3B-OA1
+- Verificación: Comprueba que el robot ejecute correctamente la secuencia de giros y desplazamientos planificados en el tablero.",True,True,True,False,,81,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C06,Articulacion Curricular,3° Básico - Matemática (MA03 OA15),1.687,1496,149,0,0.0017925,,,"- Concepto Clave: El hardware de COODI permite explorar formas 2D y 3D mediante diseño, construcción e interacción tangible.
+- Pasos:
+  1. Identifica piezas, tablero y tarjetas.
+  2. Diseña una figura simple en papel o modelo concreto.
+  3. Construye y compara sus partes.
+  4. Usa el robot para representar recorridos o posiciones.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-3B-OA3
+  - MAT-3B-OA12
+- Verificación: Comprueba si el estudiante reconoce, describe y registra la figura y sus partes al manipular el hardware.",True,False,True,False,,80,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C07,Articulacion Curricular,4° Básico - Tecnología (TE04 OA01),1.501,1581,152,0,0.0018697,,,"- Concepto Clave: Diseñar un objeto tecnológico simple con material reciclado, usando COODI como apoyo para planificar, construir y probar.
+- Pasos: 1) Define un problema cotidiano. 2) Elige materiales reciclados. 3) Dibuja el diseño. 4) Construye el objeto. 5) Prueba con COODI y ajusta.
+- OA Vinculado:
+- CIE-4B-OA14
+- CIE-4B-OA16
+- TEC-4B-OA1
+- TEC-4B-OA2
+- Verificación: Comprueba si el objeto resuelve el problema y si puedes explicar sus materiales, pasos y mejoras.",True,False,True,False,,74,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C08,Articulacion Curricular,4° Básico - Matemática (MA04 OA14),1.625,1382,148,0,0.0017025,,,"- Concepto Clave: Integra ecuaciones de un paso como una misión de COODI: planificar, ejecutar, probar y corregir.
+- Pasos:
+  1. Define el desafío y la meta.
+  2. Divide la ecuación en una secuencia de acciones.
+  3. Programa con tarjetas, bloques o código.
+  4. Ejecuta y observa el resultado.
+  5. Corrige errores y repite la prueba.
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- Verificación: Comprueba si la solución obtenida coincide con el resultado esperado y ajusta el algoritmo si no funciona.",True,False,True,False,,82,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C09,Articulacion Curricular,5° Básico - Caso ancla (CN05 OA10 / OA3 Tecnología),1.655,1462,133,0,0.001695,,,"- Concepto Clave: El HC-SR04 es el sensor ultrasónico usado para medir distancia en COODI.
+- Pasos: 1) Conecta el HC-SR04 al robot. 2) Usa la lectura de distancia. 3) Compara el valor con un umbral. 4) Define una acción, como detenerse o cambiar el recorrido.
+- OA Vinculado:
+- TEC-1B-OA2
+- TEC-3B-OA1
+- TEC-3B-OA2
+- Verificación: Acerca un objeto al sensor y comprueba si el robot modifica su movimiento.",True,False,True,False,,70,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C10,Articulacion Curricular,5° Básico - Ciencias Naturales (CN05 OA10),1.323,1405,114,0,0.0015668,,,"- Concepto Clave: COODI permite analizar un circuito eléctrico simple mediante actividades de observación, prueba y depuración.
+- Pasos:
+  1. Identifica los componentes del circuito.
+  2. Observa si el circuito funciona.
+  3. Prueba cambios y corrige errores.
+- OA Vinculado:
+- TEC-5B-OA5
+- MAT-5B-OA26
+- Verificación: Comprueba si el circuito enciende y si puedes explicar qué cambió al corregirlo.",True,False,True,False,,59,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C11,Articulacion Curricular,5° Básico - Matemática (MA05 OA17),1.7,1342,148,0,0.0016725,,,"- Concepto Clave: COODI puede apoyar el trabajo de aristas, caras y relaciones de paralelismo/perpendicularidad mediante actividades de construcción, programación colaborativa y reflexión.
+- Pasos:
+  1. Construye un escenario o recorrido con tarjetas, obstáculos o elementos.
+  2. Programa en equipo una secuencia de movimientos.
+  3. Observa y compara el recorrido con lo planificado.
+  4. Corrige errores y vuelve a probar.
+- OA Vinculado:
+- TEC-5B-OA5
+- MAT-5B-OA26
+- Verificación: Comprueba si el resultado coincide con la planificación y si el equipo puede explicar sus conclusiones.",True,True,True,False,,85,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C12,Articulacion Curricular,6° Básico - Ciencias Naturales (CN06 OA08),1.653,1464,142,0,0.001737,,,"- Concepto Clave: COODI puede trabajarse con talleres y desafíos STEM, usando sensores, actuadores y programación para observar cambios y efectos.
+- Pasos:
+  1. Presenta una narrativa o situación de inicio.
+  2. Plantea un desafío sobre movimiento o acción.
+  3. Usa materiales manipulativos y programación colaborativa.
+  4. Prueba con COODI y registra resultados.
+- OA Vinculado:
+  - TEC-6B-OA5
+  - MAT-6B-OA22
+- Verificación: Comprueba si el robot ejecuta la acción esperada y si el grupo puede explicar el resultado observado.",True,False,True,False,,79,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C13,Articulacion Curricular,6° Básico - Tecnología (TE06 OA03),1.434,3332,119,0,0.0030345,,,"Concepto Clave: COODI permite trabajar la modificación y evaluación de un producto tecnológico mediante diseño, prueba y corrección.
+
+Pasos:
+1. Define el problema o mejora.
+2. Diseña la modificación con dibujos o TIC.
+3. Construye o ajusta el producto.
+4. Prueba su funcionamiento.
+5. Evalúa y corrige según resultados.
+
+OA Vinculado:
+- TEC-6B-OA1
+- TEC-6B-OA4
+
+Verificación: Comprueba si el producto mejora su funcionamiento, seguridad o calidad tras los cambios.",True,False,True,False,,69,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C06,Articulacion Curricular,3° Básico - Matemática (MA03 OA15),6.637,1472,119,0,0.0007391,,,"- Concepto Clave: El diseño físico de COODI prioriza estructuras reproducibles mediante impresión 3D y componentes accesibles.
+- Pasos: 
+1. Observa las piezas físicas del robot COODI.
+2. Identifica formas geométricas 2D y 3D en su estructura.
+3. Registra las características de los componentes.
+- OA Vinculado:
+- MAT-3B-OA12
+- Verificación: Comprueba que los estudiantes identifiquen y describan correctamente las formas geométricas presentes en el hardware del robot.",True,False,True,False,,68,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C14,Articulacion Curricular,Cruzada - Tecnología 5°,1.384,1488,109,0,0.0016065,,,"- Concepto Clave: El HC-SR04 mide distancia mediante ultrasonido y se usa en obstáculos, navegación y condicionales.
+- Pasos:
+  1. Identifica la distancia del objeto.
+  2. Compara el valor con un umbral.
+  3. Define una acción: detener o modificar el recorrido.
+- OA Vinculado:
+  - TEC-4B-OA2
+- Verificación: Comprueba que el robot cambie su recorrido cuando detecta un objeto cercano.",True,False,True,False,,60,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C15,Articulacion Curricular,General - Planificación de clase,1.422,1465,121,0,0.0016432,,,"Concepto Clave: Diseñar y construir rectángulos a partir del perímetro, el área o ambos, y sacar conclusiones.
+
+Pasos:
+1. Define el objetivo de aprendizaje.
+2. Presenta una narrativa o desafío breve.
+3. Entrega materiales y pide planificar en equipo.
+4. Construye y prueba una solución.
+5. Registra el resultado y reflexiona.
+
+OA Vinculado:
+- MAT-5B-OA21
+
+Verificación: Comprueba si el equipo construyó rectángulos distintos y explicó conclusiones sobre perímetro y área.",True,False,True,False,,70,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C07,Articulacion Curricular,4° Básico - Tecnología (TE04 OA01),1.238,1572,149,0,0.0008441,,,"- Concepto Clave: Uso de material reciclado y desafíos STEM vinculados a COODI mediante cuadernillos narrativos y diseño tecnológico.
+- Pasos: 
+  1. Presenta la narrativa del Cuadernillo 1 (""COODI viajando a Marte"") o Cuadernillo 3.
+  2. Plantea el desafío de diseño tecnológico con materiales reciclados.
+  3. Programa la solución usando bloques en COODI.
+  4. Prueba el resultado y reflexiona.
+- OA Vinculado:
+  - TEC-4B-OA1
+- Verificación: Comprobar que el objeto diseñado cumple con resolver el desafío planteado y funciona junto a COODI.",True,False,True,False,,82,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C16,Articulacion Curricular,General - Interdisciplinariedad,1.818,1606,190,0,0.0020595,,,"- Concepto Clave: COODI permite integrar Ciencia, Tecnología, Ingeniería y Matemática en experiencias de robótica educativa.
+- Pasos:
+  1. Vincula variables ambientales y sensores con Ciencia.
+  2. Usa programación, electrónica e interfaces con Tecnología.
+  3. Diseña, construye e itera soluciones con Ingeniería.
+  4. Trabaja distancia, orientación, secuencias y patrones con Matemática.
+- OA Vinculado:
+  - TEC-1B-OA5
+  - TEC-1B-OA6
+  - CIE-1B-OA10
+  - MAT-1B-OA19
+  - TEC-1B-OA1
+  - TEC-1B-OA3
+- Verificación: Comprueba que el estudiante relacione una actividad de COODI con al menos una de estas áreas y explique su aporte.",True,False,True,False,,88,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C17,Articulacion Curricular,General - Alcance curricular,1.534,1451,131,0,0.0016777,,,"- Concepto Clave: COODI no tiene OAs propios; se vincula a OAs de bases curriculares, especialmente de tecnología.
+- Pasos:
+  1. Identifica el curso.
+  2. Relaciona la actividad con un OA existente.
+  3. Usa recursos COODI para evidenciar el aprendizaje.
+- OA Vinculado:
+  - TEC-3B-OA1
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+- Verificación: Comprueba si el estudiante diseña, planifica y representa una solución tecnológica simple.",True,False,True,False,,63,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C18,Articulacion Curricular,Límite de alcance,1.723,1475,177,0,0.0019027,,,"- Concepto Clave: COODI está dirigido principalmente a educación básica y sus actividades se adaptan entre 3.º y 8.º básico, pero las OAs oficiales del catálogo aquí solo se listan para 1.º a 6.º básico.
+- Pasos:
+  1. Revisa si el OA de 7.º puede vincularse a una actividad de 6.º básico.
+  2. Ajusta la complejidad según el nivel de lectura y experiencia.
+  3. Usa programación progresiva: tarjetas, bloques y código.
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-3B-OA1
+- Verificación: Comprueba si el estudiante resuelve la misión, planifica acciones y corrige errores durante la depuración.",True,False,True,True,False,97,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C19,Articulacion Curricular,Nivel político-estratégico,1.532,1358,156,0,0.0017205,,,"- Concepto Clave: Favorecer participación equitativa y evitar que los roles técnicos queden asignados de forma estereotipada.
+- Pasos:
+  1. Rotar programación, construcción, registro, prueba y explicación.
+  2. Evitar que una sola persona controle siempre el robot o computador.
+  3. Usar lenguaje inclusivo y ejemplos diversos.
+  4. Asegurar accesibilidad en materiales e ինտերfaces.
+- OA Vinculado:
+- TEC-1B-OA4
+- TEC-2B-OA4
+- TEC-3B-OA4
+- Verificación: Comprueba que todos participen en distintos roles y que la actividad no reproduzca estereotipos.",True,False,True,False,,78,False
+gpt-5.4-mini,openai,gpt-5.4-mini,C20,Articulacion Curricular,General - Fuentes,1.533,1440,158,0,0.001791,,,"- Concepto Clave: COODI se respalda en documentos de robótica educativa, programación, pensamiento computacional, funciones ejecutivas y contenidos STEM, además de evaluación y sostenibilidad.
+- Pasos:
+  1. Revisa la documentación integral de COODI.
+  2. Vincula su uso con experiencias de aprendizaje, metodologías activas y modelo NDCC.
+  3. Considera instrumentos pre/post y registros de actividad.
+- OA Vinculado:
+  - TEC-4B-OA1
+  - TEC-4B-OA2
+  - TEC-1B-OA1
+- Verificación: Comprueba que la propuesta incluya robot, software, materiales didácticos, narrativas, desafíos y evaluación.",True,False,True,False,,78,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C08,Articulacion Curricular,4° Básico - Matemática (MA04 OA14),5.815,1355,123,0,0.000714,,,"- Concepto Clave: Algoritmo como secuencia ordenada de instrucciones para resolver un problema.
+- Pasos: 
+1. Descompón la misión en movimientos o subproblemas.
+2. Crea una secuencia ordenada de instrucciones con tarjetas o bloques.
+3. Ejecuta el programa para observar el comportamiento.
+4. Depura localizando y corrigiendo errores.
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- Verificación: Compara el comportamiento obtenido del robot con el comportamiento esperado en el tablero.",True,False,True,False,,70,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C09,Articulacion Curricular,5° Básico - Caso ancla (CN05 OA10 / OA3 Tecnología),6.527,1446,151,0,0.0008113,,,"- Concepto Clave: El sensor HC-SR04 mide distancias mediante ultrasonido para que el robot detecte obstáculos.
+- Pasos: 
+1. Conecta el sensor HC-SR04 al robot.
+2. Programa la lectura de la variable física de distancia.
+3. Configura una regla condicional para que el robot reaccione si hay un objeto cerca.
+- OA Vinculado:
+  - TEC-3B-OA2 (Sugerido para 5° básico, ya que no hay OAs oficiales para este curso en el catálogo).
+- Verificación: Comprueba que el robot modifique su recorrido o se detenga al detectar un obstáculo a cierta distancia.",True,False,True,False,,90,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C10,Articulacion Curricular,5° Básico - Ciencias Naturales (CN05 OA10),1.136,1392,130,0,0.0007426,,,"- Concepto Clave: Circuito eléctrico simple analizado mediante desafíos STEM del ecosistema COODI.
+- Pasos: 
+1. Revisa los cuadernillos narrativos y talleres del ecosistema COODI.
+2. Selecciona la misión o taller STEM que aborda circuitos eléctricos.
+3. Ejecuta la actividad de construcción y prueba con los estudiantes.
+- OA Vinculado:
+- TEC-5B-OA5
+- MAT-5B-OA26
+- Verificación: Comprueba que los estudiantes logren armar el circuito y registrar los datos obtenidos en una tabla o gráfico.",True,False,True,False,,74,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C11,Articulacion Curricular,5° Básico - Matemática (MA05 OA17),1.188,1327,126,0,0.0007131,,,"- Concepto Clave: Geometría tridimensional y relaciones espaciales mediante recorridos robóticos.
+- Pasos: 
+1. Diseña un tablero con formas geométricas tridimensionales.
+2. Programa a COODI usando bloques para recorrer aristas y vértices.
+3. Identifica líneas paralelas y perpendiculares en el trayecto.
+- OA Vinculado:
+- TEC-5B-OA5
+- MAT-5B-OA26
+- Verificación: Comprueba que COODI recorra correctamente las líneas paralelas y perpendiculares planificadas en el desafío.",True,True,True,False,,64,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C12,Articulacion Curricular,6° Básico - Ciencias Naturales (CN06 OA08),3.392,1451,122,0,0.0007403,,,"- Concepto Clave: Uso de sensores y actuadores de COODI para explorar componentes físicos y programación.
+- Pasos: 
+  1. Selecciona el Cuadernillo 3 sobre emociones y STEM.
+  2. Utiliza el robot COODI y tarjetas de desafíos.
+  3. Programa bloques para activar movimientos.
+- OA Vinculado:
+  - TEC-6B-OA5
+  - MAT-6B-OA22
+- Verificación: Comprueba que COODI ejecute el movimiento o respuesta programada según los bloques utilizados.",True,False,True,False,,64,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C13,Articulacion Curricular,6° Básico - Tecnología (TE06 OA03),2.771,3320,116,0,0.001286,,,"- Concepto Clave: Iteración y construcción para resolver problemas tecnológicos integrando COODI.
+- Pasos: 
+  1. Definir el desafío de modificación del producto.
+  2. Preparar los materiales y componentes requeridos.
+  3. Diseñar y programar en equipo la nueva secuencia.
+  4. Ejecutar pruebas y depurar el comportamiento.
+- OA Vinculado: TEC-6B-OA3
+- Verificación: Comprobar mediante pruebas que el resultado obtenido coincide con el comportamiento esperado tras las modificaciones.",True,False,True,False,,66,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C14,Articulacion Curricular,Cruzada - Tecnología 5°,4.468,1484,142,0,0.0008002,,,"- Concepto Clave: El sensor HC-SR04 mide distancia mediante ultrasonido para detectar obstáculos en el recorrido del robot.
+- Pasos: 
+  1. Conecta el sensor HC-SR04 al robot.
+  2. Programa la lectura de distancia.
+  3. Configura una condición para modificar el desplazamiento según el valor obtenido.
+- OA Vinculado: 
+  TEC-4B-OA2 (Sugerido, aclarando que no existen Objetivos de Aprendizaje específicos para quinto básico en el catálogo oficial).
+- Verificación: Comprueba que el robot modifique su trayectoria o se detenga al acercarse a un objeto.",True,False,True,False,,82,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C15,Articulacion Curricular,General - Planificación de clase,1.39,1478,130,0,0.0007684,,,"- Concepto Clave: Actividad rápida de programación y geometría utilizando el ecosistema COODI.
+- Pasos: 
+1. Define el objetivo y selecciona el desafío en el cuadernillo.
+2. Forma equipos y asigna roles rotativos.
+3. Utiliza las tarjetas de comandos para planificar la programación.
+4. Ejecuta la prueba con COODI y registra el resultado.
+- OA Vinculado:
+- MAT-5B-OA21
+- Verificación: Comprueba que el equipo logre construir y programar el desafío correctamente según los parámetros establecidos, registrando sus resultados.",True,False,True,False,,78,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C16,Articulacion Curricular,General - Interdisciplinariedad,1.035,1593,129,0,0.0008004,,,"- Concepto Clave: Integración curricular STEM mediante hardware, software y desafíos narrativos para conectar saberes.
+- Pasos: 
+1. Selecciona una temática del entorno.
+2. Integra ciencia, tecnología, ingeniería y matemática.
+3. Programa la solución con bloques.
+- OA Vinculado:
+- TEC-1B-OA1
+- TEC-1B-OA3
+- CIE-1B-OA10
+- MAT-1B-OA19
+- Verificación: Comprueba que los estudiantes resuelvan el desafío aplicando conceptos de al menos dos áreas distintas.",True,False,True,False,,64,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C17,Articulacion Curricular,General - Alcance curricular,7.308,1440,121,0,0.0007345,,,"- Concepto Clave: COODI utiliza OAs curriculares ministeriales integrados en sus desafíos STEM+IA.
+- Pasos: 
+1. Selecciona el cuadernillo narrativo.
+2. Identifica el desafío STEM.
+3. Vincula la actividad con el OA correspondiente.
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+- Verificación: Comprueba que la experiencia cumpla con el objetivo curricular seleccionado mediante la pauta de evaluación.",True,False,True,False,,59,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C18,Articulacion Curricular,Límite de alcance,3.525,1457,123,0,0.0007446,,,"- Concepto Clave: COODI permite adaptar experiencias a niveles superiores, aunque no existen OA oficiales para 7° básico.
+- Pasos: 
+1. Ajusta la complejidad del desafío utilizando programación progresiva. 
+2. Selecciona un objetivo disponible de cursos menores para respaldar curricularmente la actividad.
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-3B-OA1
+- Verificación: Comprueba que el algoritmo supere el nivel de dificultad adaptado mediante rondas de prueba.",True,False,True,True,False,67,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C19,Articulacion Curricular,Nivel político-estratégico,7.719,1357,131,0,0.0007346,,,"- Concepto Clave: Enfoque inclusivo para promover participación equitativa y evitar roles técnicos estereotipados.
+- Pasos: 
+1. Diseña actividades accesibles.
+2. Rota los roles de equipo (programación, construcción, registro, prueba y explicación).
+3. Fomenta la participación equitativa.
+- OA Vinculado:
+- TEC-1B-OA4
+- TEC-2B-OA4
+- TEC-3B-OA4
+- Verificación: Comprueba que todos los estudiantes participen rotando las tareas técnicas sin distinción de roles.",True,False,True,False,,62,False
+gemini-3.5-flash-lite,gemini,gemini-3.5-flash-lite,C20,Articulacion Curricular,General - Fuentes,1.939,1434,116,0,0.0007202,,,"- Concepto Clave: COODI es un ecosistema de robótica educativa que integra robot, programación y materiales para experiencias de aprendizaje STEM.
+- Pasos: 
+1. Revisa los Objetivos de Aprendizaje oficiales.
+2. Integra COODI en tus planificaciones.
+- OA Vinculado:
+   - TEC-4B-OA1
+   - TEC-4B-OA2
+   - TEC-1B-OA1
+- Verificación: Comprueba que las actividades respondan a los objetivos curriculares seleccionados.",True,False,True,False,,57,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T06,Soporte Tecnico,Actuadores/Motores,2.351,1516,151,0,0.0006055,,,"- Concepto Clave: El ecosistema COODI incluye componentes físicos como actuadores, pero el contexto proporcionado no especifica la cantidad ni el tipo de motores integrados en el robot.
+
+- Pasos:
+1. Inspecciona físicamente el robot COODI para identificar los actuadores instalados.
+2. Consulta el manual de hardware específico de tu unidad para verificar las especificaciones técnicas de los motores.
+3. Realiza una prueba de movimiento simple mediante el software de programación.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Observa si el robot ejecuta los movimientos programados correctamente.",True,False,True,False,,91,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T07,Soporte Tecnico,Actuadores/Motores,1.757,1471,145,0,0.0005853,,,"- Concepto Clave: El servomotor SG90 es el componente encargado de realizar movimientos angulares controlados en el robot, permitiendo mecanismos, orientación o expresividad.
+
+- Pasos:
+1. Conecta el servomotor SG90 a la placa de control del robot.
+2. Programa el ángulo deseado mediante el entorno de bloques.
+3. Ejecuta el código para verificar el movimiento.
+
+- OA Vinculado:
+- TEC-1B-OA2
+- TEC-3B-OA1
+- TEC-3B-OA2
+
+- Verificación: Observa si el componente realiza el giro preciso según los grados programados en tu secuencia de bloques.",True,False,True,False,,83,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T08,Soporte Tecnico,Actuadores/Motores,2.163,1569,165,0,0.0006398,,,"- Concepto Clave: Los motores DC permiten el desplazamiento del robot (locomoción), mientras que el servomotor SG90 se utiliza para movimientos angulares controlados, mecanismos o expresividad.
+
+- Pasos:
+1. Conecta los motores DC para el movimiento de las ruedas.
+2. Instala el servomotor SG90 para partes móviles o accesorios.
+3. Programa secuencias de desplazamiento con los motores DC.
+4. Programa ángulos específicos para el servomotor.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-3B-OA2
+- TEC-3B-OA3
+
+- Verificación: Observa si el robot se desplaza correctamente con los motores DC y si el servomotor realiza el movimiento angular preciso.",True,False,True,False,,96,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T09,Soporte Tecnico,Actuadores/Salida,2.075,1427,155,0,0.0005893,,,"- Concepto Clave: El buzzer es el actuador encargado de generar señales sonoras en el ecosistema COODI.
+
+- Pasos:
+1. Conecta el buzzer al pin digital correspondiente en la placa controladora.
+2. Abre el entorno de programación visual (Blockly).
+3. Arrastra el bloque de sonido o salida digital.
+4. Define la frecuencia o duración del tono deseado.
+5. Carga el código al robot.
+
+- OA Vinculado:
+- TEC-1B-OA2
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Ejecuta el programa y confirma que el buzzer emita el sonido programado al activarse.",True,False,True,False,,88,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T10,Soporte Tecnico,Actuadores/Salida,3.073,1530,156,0,0.0006165,,,"- Concepto Clave: El ecosistema COODI utiliza un entorno de programación visual basado en bloques y cuadernillos narrativos para guiar la interacción y retroalimentación.
+
+- Pasos:
+1. Diseña una secuencia lógica en el entorno de programación visual.
+2. Integra desafíos desde los cuadernillos narrativos.
+3. Ejecuta el programa en el robot.
+4. Observa la respuesta del robot ante los comandos programados.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Comprueba si el robot ejecuta las acciones programadas correctamente según la lógica visual establecida en el entorno de bloques.",True,False,True,False,,91,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T11,Soporte Tecnico,Actuadores/Salida,4.392,1451,161,0,0.0006042,,,"- Concepto Clave: El LED RGB o matriz RGB es el componente del ecosistema COODI diseñado para emitir señales visuales mediante colores o patrones.
+
+- Pasos:
+1. Conecta el LED RGB al puerto correspondiente en la placa.
+2. Programa en el entorno de bloques una condición que detecte el fin de la misión.
+3. Añade un bloque de salida para activar el color o patrón deseado al cumplirse la condición.
+4. Carga el programa en COODI.
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA2
+
+- Verificación: Ejecuta la misión y observa si COODI enciende la luz al finalizar.",True,False,True,False,,99,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T12,Soporte Tecnico,Sensores ambientales,2.958,1452,164,0,0.000609,,,"- Concepto Clave: El sensor DHT22 es el componente del ecosistema COODI diseñado para medir variables ambientales como temperatura y humedad.
+
+- Pasos:
+1. Conecta el sensor DHT22 a los pines correspondientes de la placa controladora.
+2. Carga la librería específica para DHT22 en tu entorno de programación.
+3. Programa la lectura de datos ambientales en el bloque de código.
+4. Ejecuta el programa para visualizar los valores obtenidos.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- CIE-4B-OA14
+- TEC-1B-OA2
+
+- Verificación: Observa en la consola o pantalla de programación que los valores de temperatura y humedad cambien al variar el ambiente.",True,False,True,False,,100,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T13,Soporte Tecnico,Casos de uso,2.582,1494,162,0,0.0006165,,,"- Concepto Clave: La ""Misión ambiental"" es un caso de uso que integra la medición de variables del entorno con narrativas sobre sostenibilidad y cambio climático.
+
+- Pasos:
+1. Conecta el sensor DHT22 al robot.
+2. Integra el cuadernillo de actividades para contextualizar la misión.
+3. Programa el robot para medir temperatura y humedad.
+4. Analiza los datos obtenidos dentro de la narrativa ambiental.
+
+- OA Vinculado:
+- TEC-4B-OA2
+- CIE-4B-OA14
+- MAT-3B-OA12
+
+- Verificación: Comprueba que el robot registre correctamente los valores de temperatura y humedad y que estos datos sean coherentes con la narrativa ambiental planteada.",True,False,True,False,,98,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T14,Soporte Tecnico,Sensores,3.285,1460,150,0,0.00059,,,"- Concepto Clave: Programación progresiva mediante el uso de tarjetas físicas o secuenciación manual antes de pasar a entornos digitales.
+
+- Pasos:
+1. Utiliza tarjetas físicas para diseñar la secuencia de acciones.
+2. Organiza el recorrido en el tablero de actividades.
+3. Ejecuta la secuencia manualmente o mediante el sistema de tarjetas.
+4. Observa el comportamiento del robot para validar el resultado.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Observar si COODI completa el recorrido o la misión planteada en el tablero según la secuencia física diseñada.",True,False,True,False,,91,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T15,Soporte Tecnico,Sensores,4.286,1507,168,0,0.0006287,,,"- Concepto Clave: El ecosistema COODI utiliza componentes como COODIBOT para la interacción conversacional y orientación en actividades, y NeuroCOODI para la evaluación cognitiva.
+
+- Pasos:
+1. Identifica el desafío en la plataforma.
+2. Utiliza COODIBOT para recibir orientación sobre la actividad.
+3. Aplica el modelo NDCC (Narrativa, Desafío, Construcción, Programación, Prueba, Reflexión).
+4. Ejecuta la prueba para validar el funcionamiento.
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA2
+
+- Verificación: Comprueba si el robot ejecuta la secuencia programada correctamente tras la interacción con el componente conversacional.",True,False,True,False,,88,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T16,Soporte Tecnico,Componentes planificados,3.425,1267,154,0,0.0005477,,,"- Concepto Clave: El RFID es una tecnología de identificación por radiofrecuencia que permite reconocer tarjetas u objetos de forma automática.
+
+- Pasos:
+1. Conecta el módulo RFID al puerto designado en el ecosistema COODI.
+2. Programa la lectura de la tarjeta mediante el software de control.
+3. Acerca la tarjeta al sensor para activar la respuesta programada.
+
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA1
+- CIE-4B-OA14
+
+- Verificación: Confirma que el sistema reconoce la tarjeta cuando el LED o la señal sonora se activan tras el acercamiento. Nota: Esta función está considerada como ampliación.",True,False,True,True,False,95,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T17,Soporte Tecnico,Componentes planificados,3.562,1432,165,0,0.0006055,,,"- Concepto Clave: El ecosistema COODI utiliza sensores específicos para interactuar con el entorno, pero no hay información sobre el uso de una IMU (Unidad de Medición Inercial) en el contexto proporcionado.
+
+- Pasos:
+1. Consulta el manual de componentes del robot.
+2. Verifica si el sensor IMU está listado en la arquitectura física actual.
+3. Si no aparece, considera que podría ser un componente planificado pero no implementado aún.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- CIE-4B-OA14
+- TEC-1B-OA2
+
+- Verificación: Revisa la lista de sensores implementados (como el HC-SR04) en la documentación técnica.",True,True,True,True,True,94,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T18,Soporte Tecnico,Componentes planificados,2.425,1275,159,0,0.0005573,,,"- Concepto Clave: RFID es una tecnología de identificación por radiofrecuencia que permite reconocer objetos o tarjetas automáticamente.
+
+- Pasos:
+1. Verifica la disponibilidad del módulo RFID en tu kit.
+2. Integra el lector RFID en la estructura del robot.
+3. Programa la lectura de tarjetas para activar acciones específicas.
+
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA1
+- CIE-4B-OA14
+
+- Verificación: Acerca una tarjeta al lector y observa si el robot ejecuta la acción programada (ej. movimiento o sonido).
+
+*Nota: La integración RFID está considerada como una ampliación, por lo que su disponibilidad depende de la implementación específica de tu kit.*",True,False,True,True,False,101,True
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T19,Soporte Tecnico,Componentes planificados,3.449,1423,146,0,0.0005747,,,"- Concepto Clave: Estado de desarrollo ""Planificado"". Se refiere a extensiones o líneas de desarrollo no integradas de forma estable en el ecosistema COODI.
+
+- Pasos:
+1. Identifica el componente en la documentación técnica.
+2. Verifica si está etiquetado como ""Planificado"".
+3. Informa que es una extensión prevista, no una capacidad disponible.
+
+- OA Vinculado:
+- TEC-6B-OA1
+- TEC-6B-OA2
+- TEC-6B-OA3
+
+- Verificación: Comprobar que la respuesta no afirme la disponibilidad del componente y remita a la documentación oficial de estados de desarrollo.",True,True,True,True,True,83,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T20,Soporte Tecnico,Arquitectura,4.118,1531,139,0,0.0005912,,,"- Concepto Clave: El microcontrolador es el ""cerebro"" que procesa las instrucciones y controla los componentes del robot.
+
+- Pasos:
+1. Identifica la placa Arduino UNO en tu kit COODI.
+2. Conecta los actuadores y sensores a los pines correspondientes.
+3. Carga el código desde tu entorno de programación.
+
+- OA Vinculado:
+- TEC-1B-OA2
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Observa si el robot ejecuta los movimientos o acciones programadas correctamente tras cargar el código en la placa Arduino UNO.",True,False,True,False,,80,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T21,Soporte Tecnico,Arquitectura,3.961,1478,156,0,0.0006035,,,"- Concepto Clave: Plataformas de procesamiento para ampliar las capacidades de control y cómputo del ecosistema COODI.
+
+- Pasos:
+1. Identificar la necesidad de mayor procesamiento o integración de periféricos.
+2. Seleccionar ESP32-WROOM-32 para mejorar conectividad y capacidad.
+3. Integrar Raspberry Pi Zero 2W cuando se requieran funciones avanzadas de procesamiento.
+
+- OA Vinculado:
+- TEC-5B-OA1
+- TEC-5B-OA2
+- TEC-5B-OA3
+
+- Verificación: Comprobar la ejecución exitosa de las tareas de procesamiento o la conectividad de los periféricos integrados según la plataforma seleccionada.",True,False,True,False,,82,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T22,Soporte Tecnico,Arquitectura/Conectividad,8.337,1341,143,0,0.0005497,,,"- Concepto Clave: COODI es un ecosistema diseñado para funcionar principalmente de forma local, sin dependencia permanente de Internet.
+
+- Pasos:
+1. Asegura que el robot y el dispositivo de programación estén en el mismo entorno físico.
+2. Ejecuta las actividades fundamentales utilizando el software instalado localmente.
+3. Conecta a Internet solo si requieres servicios complementarios específicos.
+
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA4
+- CIE-4B-OA14
+
+- Verificación: Confirma que el robot responde a las instrucciones programadas sin necesidad de una conexión activa a la red.",True,False,True,False,,86,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T23,Soporte Tecnico,Programación,4.279,1502,156,0,0.0006095,,,"- Concepto Clave: COODI ofrece un entorno de programación visual basado en bloques para niveles iniciales y programación textual para niveles de mayor complejidad.
+
+- Pasos:
+1. Selecciona el entorno de programación según la complejidad requerida.
+2. Utiliza bloques visuales para lógica básica o código textual para estructuras avanzadas.
+3. Integra la programación en el modelo NDCC (Narrativa, Desafío, Construcción, Programación, Prueba, Reflexión).
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Ejecuta el programa en el robot y observa si responde correctamente a las instrucciones enviadas.",True,False,True,False,,89,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T24,Soporte Tecnico,Programación,1.951,1459,170,0,0.0006198,,,"- Concepto Clave: El tablero de actividades y navegación es un componente físico del ecosistema COODI diseñado para facilitar la interacción tangible, el movimiento y la experimentación del robot.
+
+- Pasos:
+1. Despliega el tablero sobre una superficie plana.
+2. Ubica el robot COODI en el punto de inicio.
+3. Programa los comandos de movimiento mediante tarjetas o bloques.
+4. Ejecuta la secuencia para que el robot recorra el tablero.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-1B-OA2
+- TEC-4B-OA1
+
+- Verificación: El robot completa el recorrido programado sin salirse de los límites del tablero.
+
+*Nota: No dispongo de información sobre las dimensiones específicas del tablero.*",True,True,True,False,,105,True
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T25,Soporte Tecnico,Programación,4.699,1481,162,0,0.0006132,,,"- Concepto Clave: Entorno de programación visual basado en bloques (Angular y Blockly) que permite crear secuencias de movimiento para COODI.
+
+- Pasos:
+1. Accede a la aplicación web de programación visual.
+2. Selecciona el bloque de movimiento ""Avanzar"" y ajusta sus parámetros.
+3. Añade el bloque de giro correspondiente a continuación.
+4. Conecta los bloques para formar la secuencia lógica.
+5. Genera el código y envíalo al robot.
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-3B-OA1
+
+- Verificación: Ejecuta el programa y observa si COODI realiza el recorrido planificado correctamente.",True,True,True,False,,92,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T26,Soporte Tecnico,Programación,4.19,1423,149,0,0.0005793,,,"- Concepto Clave: El generador de código es el componente de la aplicación web (basada en Blockly) que transforma bloques visuales en instrucciones compatibles con el robot.
+
+- Pasos:
+1. Selecciona los bloques en la interfaz visual.
+2. Ejecuta la función de generación de código.
+3. Verifica que el código resultante mantenga correspondencia explícita con el comportamiento del robot.
+
+- OA Vinculado:
+- TEC-5B-OA1
+- TEC-5B-OA2
+- TEC-5B-OA3
+
+- Verificación: Comprueba que el comportamiento del robot al ejecutar el código generado coincida exactamente con la secuencia lógica definida por los bloques.",True,False,True,False,,91,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T27,Soporte Tecnico,Metodología pedagógica,5.661,1494,168,0,0.0006255,,,"- Concepto Clave: NDCC es el modelo didáctico de COODI que organiza las experiencias de aprendizaje mediante una secuencia estructurada.
+
+- Pasos:
+1. Presentar una Narrativa que contextualice el aprendizaje.
+2. Plantear un Desafío concreto.
+3. Realizar la Construcción o manipulación física.
+4. Ejecutar la Programación colaborativa.
+5. Realizar la Prueba (experimentación).
+6. Fomentar la Reflexión sobre lo aprendido.
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-3B-OA2
+
+- Verificación: Observar si los estudiantes logran completar el ciclo desde la narrativa inicial hasta la reflexión final sobre su creación.",True,False,True,False,,89,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T28,Soporte Tecnico,Metodología pedagógica,4.671,1404,187,0,0.0006315,,,"- Concepto Clave: El pensamiento computacional en COODI implica descomponer problemas, reconocer patrones, abstraer información, crear algoritmos, evaluar resultados y depurar errores.
+
+- Pasos:
+1. Divide la misión en subproblemas (descomposición).
+2. Identifica regularidades en recorridos o sensores (patrones).
+3. Selecciona información relevante (abstracción).
+4. Crea la secuencia de instrucciones (algoritmos).
+5. Compara el resultado con lo esperado (evaluación).
+6. Corrige errores detectados (depuración).
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA5
+
+- Verificación: Observa si el robot ejecuta la secuencia lógica esperada y si el estudiante logra corregir fallos en su código.",True,False,True,False,,94,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T29,Soporte Tecnico,Metodología pedagógica,4.61,1362,143,0,0.000555,,,"- Concepto Clave: El error es una oportunidad de depuración donde un resultado inesperado permite analizar la secuencia, condición o planificación para proponer mejoras.
+
+- Pasos:
+1. Identifica la parte de la secuencia que produjo el resultado inesperado.
+2. Analiza la estrategia utilizada frente al objetivo.
+3. Modifica el algoritmo o planificación.
+4. Ejecuta nuevamente para probar la mejora.
+
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA4
+- CIE-4B-OA14
+
+- Verificación: El estudiante explica qué falló y cómo su modificación corrige el comportamiento del robot.",True,False,True,False,,84,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,T30,Soporte Tecnico,Seguridad/Operación,4.05,1415,154,0,0.0005847,,,"- Concepto Clave: Preparación técnica y operativa previa a la ejecución de actividades con COODI para garantizar un entorno seguro y funcional.
+
+- Pasos:
+1. Comprobar carga de batería.
+2. Verificar funcionamiento de sensores y motores.
+3. Asegurar la correcta comunicación entre dispositivos.
+4. Preparar el tablero, tarjetas y materiales necesarios.
+5. Explicar claramente las reglas de seguridad y uso a los estudiantes.
+
+- OA Vinculado:
+- TEC-3B-OA2
+- TEC-3B-OA4
+- CIE-4B-OA14
+
+- Verificación: Confirmar que el robot responde a los comandos y que el espacio de trabajo está libre de riesgos.",True,False,True,False,,92,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C01,Articulacion Curricular,1° Básico - Tecnología (TE01 OA01),4.4,1549,142,0,0.0006002,,,"- Concepto Clave: Diseño de rutas y narrativas mediante representación gráfica para programar a COODI.
+
+- Pasos:
+1. Presenta una narrativa donde COODI debe cumplir una misión.
+2. Solicita a los estudiantes dibujar en papel el recorrido o ""mapa"" que COODI debe seguir.
+3. Utiliza las tarjetas de comandos para planificar la secuencia basada en el dibujo.
+4. Programa colaborativamente la ruta en el entorno visual.
+
+- OA Vinculado:
+- TEC-1B-OA5
+
+- Verificación: Comprueba que el recorrido físico de COODI en el tablero coincida con el diseño dibujado por los estudiantes.",True,False,True,False,,91,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C02,Articulacion Curricular,1° Básico - Matemática (MA01 OA11),4.097,1489,148,0,0.0005943,,,"- Concepto Clave: Los patrones son regularidades que COODI permite identificar mediante algoritmos, utilizando sensores, datos de ejemplo o materiales narrativos para observar secuencias.
+
+- Pasos:
+1. Presenta una secuencia narrativa del cuadernillo.
+2. Identifica la repetición con los estudiantes.
+3. Programa la secuencia en el entorno de bloques.
+4. Ejecuta el robot para validar la repetición.
+
+- OA Vinculado:
+- TEC-1B-OA6
+- MAT-1B-OA19
+
+- Verificación: Observa si el robot replica exactamente la secuencia programada y si los estudiantes identifican correctamente el elemento que se repite.",True,False,True,False,,86,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C03,Articulacion Curricular,2° Básico - Ciencias Naturales (CN02 OA09),4.52,1498,159,0,0.000613,,,"- Concepto Clave: Uso de sensores ambientales para observar cómo la luz afecta materiales y condiciones del entorno.
+
+- Pasos:
+1. Identifica materiales sensibles a la luz (ej. papel, plásticos).
+2. Coloca sensores ambientales COODI cerca de los materiales bajo distintas intensidades lumínicas.
+3. Registra los datos de luz y cambios observados en el entorno.
+4. Reflexiona sobre cómo la tecnología ayuda a medir estos fenómenos.
+
+- OA Vinculado:
+- TEC-2B-OA1
+- TEC-2B-OA3
+- CIE-2B-OA13
+
+- Verificación: Comprueba que los datos registrados por el sensor coincidan con los cambios físicos observados en los materiales.",True,False,True,False,,94,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C04,Articulacion Curricular,2° Básico - Tecnología (TE02 OA02),4.432,1457,156,0,0.0005983,,,"- Concepto Clave: La etapa de ""Construcción"" en el modelo NDCC implica preparar materiales y organizar el entorno para que COODI ejecute una misión, fomentando la planificación de tareas.
+
+- Pasos:
+1. Define el desafío (ej. llegar a una zona evitando obstáculos).
+2. Organiza los materiales y el tablero de actividades.
+3. Planifica la secuencia de movimientos necesaria.
+4. Ejecuta el programa y observa el resultado.
+
+- OA Vinculado:
+- TEC-2B-OA5
+- TEC-2B-OA6
+- MAT-2B-OA20
+
+- Verificación: Observa si COODI completa el recorrido planificado exitosamente tras la organización previa.",True,True,True,False,,89,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C05,Articulacion Curricular,3° Básico - Ciencias Naturales (CN03 OA12),4.669,1620,198,0,0.000702,,,"¡Claro! COODI es ideal para modelar movimientos astronómicos mediante programación y robótica.
+
+- **Concepto Clave:** Uso de secuencias de movimiento y giros del robot para representar la rotación (giro sobre su eje) y traslación (órbita) de la Tierra.
+
+- **Pasos:**
+1. Programa a COODI para girar sobre sí mismo (rotación).
+2. Diseña una trayectoria circular en el tablero para que el robot recorra (traslación).
+3. Ejecuta la secuencia y observa el desplazamiento.
+
+- **OA Vinculado:**
+- TEC-3B-OA1
+- TEC-3B-OA2
+- TEC-3B-OA3
+- MAT-3B-OA12
+- TEC-3B-OA4
+
+- **Verificación:** El robot completa el giro y el recorrido circular sin salirse de la trayectoria definida.",True,False,True,False,,102,True
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C06,Articulacion Curricular,3° Básico - Matemática (MA03 OA15),3.995,1472,158,0,0.000605,,,"- Concepto Clave: El hardware de COODI, mediante su estructura reproducible por impresión 3D, permite explorar formas geométricas tangibles y sus propiedades espaciales.
+
+- Pasos:
+1. Identifica las piezas impresas en 3D del robot COODI.
+2. Clasifica las piezas según sus caras, vértices y aristas (2D y 3D).
+3. Utiliza el tablero de navegación para medir distancias y ángulos de las figuras.
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-3B-OA3
+- MAT-3B-OA12
+
+- Verificación: El estudiante describe correctamente las características geométricas de los componentes físicos del robot al manipularlos.",True,False,True,False,,88,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C07,Articulacion Curricular,4° Básico - Tecnología (TE04 OA01),4.686,1572,166,0,0.000642,,,"- Concepto Clave: Diseño de soluciones tecnológicas sostenibles integrando robótica y materiales reciclados.
+
+- Pasos:
+1. Define un problema ambiental o de sostenibilidad.
+2. Planifica el diseño del objeto usando materiales reciclados.
+3. Integra a COODI como parte del sistema o solución.
+4. Construye el prototipo siguiendo la secuencia del modelo NDCC.
+5. Prueba el funcionamiento con COODI.
+
+- OA Vinculado:
+- CIE-4B-OA14
+- CIE-4B-OA16
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Observa si el objeto cumple su función técnica y si la interacción con COODI es coherente con el desafío planteado.",True,False,True,False,,91,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C08,Articulacion Curricular,4° Básico - Matemática (MA04 OA14),4.267,1355,153,0,0.0005682,,,"- Concepto Clave: Uso de algoritmos y descomposición para representar relaciones matemáticas mediante secuencias de movimiento o bloques.
+
+- Pasos:
+1. Define una misión donde COODI deba avanzar una distancia total (ej. 10 pasos) con una incógnita (ej. cuántos bloques de 2 pasos usar).
+2. Descompón el problema en una secuencia lógica.
+3. Programa la solución usando bloques o tarjetas.
+4. Ejecuta y depura si el robot no alcanza la meta.
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: COODI recorre la distancia exacta definida por la ecuación planteada.",True,False,True,False,,90,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C09,Articulacion Curricular,5° Básico - Caso ancla (CN05 OA10 / OA3 Tecnología),4.089,1446,165,0,0.000609,,,"- Concepto Clave: El HC-SR04 es un sensor ultrasónico que mide distancias mediante ondas sonoras, permitiendo al robot detectar obstáculos.
+
+- Pasos:
+1. Identifica los pines del sensor (VCC, Trig, Echo, GND).
+2. Conecta el sensor a la placa controladora del robot según el esquema de pines definido en el manual.
+3. Programa la lógica: variable física (distancia) → dato → regla (comparación con umbral) → acción (detenerse o girar).
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-3B-OA2
+
+- Verificación: Observa si el robot se detiene o cambia su trayectoria al detectar un objeto frente a él.",True,False,True,False,,96,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C10,Articulacion Curricular,5° Básico - Ciencias Naturales (CN05 OA10),3.081,1392,157,0,0.0005835,,,"- Concepto Clave: El ecosistema COODI utiliza el modelo NDCC (Narrativa, Desafío, Construcción, Programación, Prueba y Reflexión) para abordar conceptos STEM, incluyendo circuitos.
+
+- Pasos:
+1. Selecciona un cuadernillo narrativo con desafíos STEM.
+2. Construye el circuito utilizando los componentes de hardware COODI.
+3. Programa la lógica del circuito mediante bloques.
+4. Ejecuta la misión y observa el comportamiento.
+
+- OA Vinculado:
+- TEC-5B-OA5
+- MAT-5B-OA26
+
+- Verificación: Observa si el robot o circuito responde correctamente a la secuencia programada y si los datos obtenidos coinciden con lo esperado.",True,False,True,False,,89,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C11,Articulacion Curricular,5° Básico - Matemática (MA05 OA17),2.23,1327,151,0,0.0005583,,,"- Concepto Clave: Uso de la estructura física de COODI para identificar elementos geométricos y relaciones espaciales en sus componentes.
+
+- Pasos:
+1. Observa la arquitectura física de COODI.
+2. Identifica caras y aristas en el chasis.
+3. Programa desplazamientos rectos para demostrar paralelismo y giros de 90° para perpendicularidad.
+4. Registra los datos de los recorridos en tablas.
+
+- OA Vinculado:
+- TEC-5B-OA5
+- MAT-5B-OA26
+
+- Verificación: Comprueba si el estudiante logra describir las relaciones geométricas del robot y representar sus trayectorias en gráficos o tablas.",True,False,True,False,,87,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C12,Articulacion Curricular,6° Básico - Ciencias Naturales (CN06 OA08),3.558,1451,161,0,0.0006042,,,"Concepto Clave: La transformación de energía ocurre cuando el robot COODI convierte energía eléctrica (batería) en energía cinética (movimiento) o lumínica (sensores/luces).
+
+Pasos:
+1. Identifica los actuadores de COODI (motores o luces).
+2. Programa una secuencia de movimiento o encendido de luces.
+3. Ejecuta el código y observa la conversión de energía.
+4. Registra los datos de la actividad.
+
+OA Vinculado:
+- TEC-6B-OA5
+- MAT-6B-OA22
+
+Verificación: Observa si el robot se desplaza o ilumina al ejecutar el programa, confirmando la transformación de energía eléctrica en trabajo mecánico o lumínico.",True,False,True,False,,89,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C13,Articulacion Curricular,6° Básico - Tecnología (TE06 OA03),2.859,3320,160,0,0.00107,,,"- Concepto Clave: La modificación de productos tecnológicos en COODI implica iterar sobre el diseño y la funcionalidad para resolver problemas, aplicando el ciclo de construcción, prueba y reflexión.
+
+- Pasos:
+1. Define el desafío o problema a resolver.
+2. Construye o adapta el prototipo usando componentes del ecosistema.
+3. Programa la secuencia lógica (algoritmo) para la nueva funcionalidad.
+4. Ejecuta pruebas para evaluar el desempeño.
+5. Reflexiona sobre los resultados y depura el diseño.
+
+- OA Vinculado:
+- TEC-6B-OA3
+- TEC-6B-OA4
+
+- Verificación: Observa si el robot cumple la nueva función tras la modificación y si el algoritmo es eficiente.",True,False,True,False,,101,True
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C14,Articulacion Curricular,Cruzada - Tecnología 5°,3.153,1484,179,0,0.0006395,,,"- Concepto Clave: El HC-SR04 es un sensor que mide distancias mediante ultrasonido, permitiendo al robot detectar obstáculos y modificar su recorrido mediante algoritmos.
+
+- Pasos:
+1. Conecta el sensor HC-SR04 al robot.
+2. Programa una condición lógica donde, al detectar un objeto a cierta distancia, el robot se detenga o gire.
+3. Ejecuta el código y observa la reacción del robot.
+
+- OA Vinculado:
+No existen OAs específicos para 5° básico en el catálogo proporcionado. Puedes utilizar estos de otros niveles:
+- TEC-1B-OA2
+- TEC-4B-OA2
+- CIE-4B-OA14
+
+- Verificación: El robot debe detenerse o cambiar su trayectoria automáticamente al detectar un obstáculo frente a él.",True,False,True,False,,106,True
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C15,Articulacion Curricular,General - Planificación de clase,2.898,1478,156,0,0.0006035,,,"**Concepto Clave:** Programación de trayectorias para explorar conceptos geométricos (perímetro/área) mediante el movimiento del robot.
+
+**Pasos:**
+1. Define el desafío de construir un rectángulo con medidas específicas.
+2. Organiza equipos y asigna roles.
+3. Programa la secuencia de movimiento (distancia y giros) en el tablero.
+4. Ejecuta la prueba y mide el recorrido real.
+5. Reflexiona sobre la relación entre los comandos y la figura geométrica resultante.
+
+**OA Vinculado:**
+- MAT-5B-OA21
+
+**Verificación:** Comprueba si el robot recorre exactamente el perímetro diseñado y si la figura formada coincide con las dimensiones calculadas.",True,False,True,False,,91,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C16,Articulacion Curricular,General - Interdisciplinariedad,2.387,1593,181,0,0.0006697,,,"- Concepto Clave: Integración interdisciplinaria que conecta el modelo NDCC con áreas curriculares para potenciar el pensamiento computacional y la resolución de problemas.
+
+- Pasos:
+1. Identifica el desafío STEM+IA en los cuadernillos.
+2. Selecciona la asignatura (Ciencia, Tecnología, Ingeniería o Matemática).
+3. Aplica el modelo NDCC: situación, desafío, construcción, programación y reflexión.
+
+- OA Vinculado:
+- TEC-1B-OA5
+- TEC-1B-OA6
+- CIE-1B-OA10
+- MAT-1B-OA19
+- TEC-1B-OA1
+- TEC-1B-OA3
+
+- Verificación: Observa si el estudiante logra conectar la construcción física con la programación y la reflexión sobre el fenómeno estudiado.",True,False,True,False,,89,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C17,Articulacion Curricular,General - Alcance curricular,4.09,1440,156,0,0.000594,,,"- Concepto Clave: COODI no posee Objetivos de Aprendizaje (OA) propios en las bases curriculares, sino que se alinea con los objetivos ministeriales vigentes para educación básica, integrando robótica y pensamiento computacional.
+
+- Pasos:
+1. Identifica el desafío pedagógico.
+2. Selecciona el OA curricular pertinente.
+3. Aplica la metodología NDCC (desafío, construcción, programación, reflexión).
+
+- OA Vinculado:
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+- Verificación: Comprueba que la actividad diseñada cumpla con la descripción del OA seleccionado y fomente el pensamiento computacional.",True,False,True,False,,82,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C18,Articulacion Curricular,Límite de alcance,5.235,1457,173,0,0.0006237,,,"- Concepto Clave: COODI es un ecosistema educativo diseñado para educación básica. Aunque las actividades son adaptables, el catálogo oficial de OAs solo contempla hasta 6.º básico.
+
+- Pasos:
+1. Identifica el objetivo pedagógico de tu clase de 7.º básico.
+2. Selecciona una actividad de COODI que desafíe el pensamiento computacional (descomposición, algoritmos).
+3. Adapta la complejidad de la programación (tarjetas, bloques o código) según el nivel de tus estudiantes.
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-3B-OA1
+
+- Verificación: Observa si los estudiantes logran resolver la misión mediante la depuración y evaluación de su algoritmo.",True,False,True,True,False,97,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C19,Articulacion Curricular,Nivel político-estratégico,3.755,1357,159,0,0.0005777,,,"- Concepto Clave: Inclusión y equidad de género en robótica.
+- Pasos:
+1. Fomenta la participación equitativa en todas las tareas.
+2. Evita asignar roles técnicos basados en estereotipos de género.
+3. Asegura que la accesibilidad sea considerada en materiales e interfaces.
+4. Rota los roles de equipo (programación, construcción, registro, prueba y explicación) para garantizar igualdad de oportunidades.
+- OA Vinculado:
+- TEC-1B-OA4
+- TEC-2B-OA4
+- TEC-3B-OA4
+- Verificación: Observa que todos los estudiantes roten por los distintos roles y participen activamente en la construcción y programación del robot.",True,False,True,False,,90,False
+gemini-3.1-flash-lite,gemini,gemini-3.1-flash-lite,C20,Articulacion Curricular,General - Fuentes,3.318,1434,178,0,0.0006255,,,"- Concepto Clave: COODI es un ecosistema de robótica educativa diseñado para integrar programación, pensamiento computacional y contenidos STEM en el aula.
+
+- Pasos:
+1. Identifica el desafío pedagógico alineado a los objetivos de aprendizaje.
+2. Selecciona la narrativa o actividad del ecosistema COODI.
+3. Implementa la secuencia NDCC (Situación, Desafío, Construcción, Programación, Reflexión).
+
+- OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+- TEC-1B-OA1
+
+- Verificación: Observa la participación activa de los estudiantes en la resolución del desafío y la correcta ejecución de la programación colaborativa según el modelo NDCC.
+
+*Nota: El contexto proporcionado no menciona documentos específicos del Mineduc.*",True,False,True,False,,99,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T03,Soporte Tecnico,Sensores,39.536,1490,156,0,0.003639,,,"Concepto Clave: Detección de obstáculos mediante la secuencia variable física (distancia), dato, regla condicional y acción.
+
+Pasos:
+1. Conecta el sensor ultrasónico HC-SR04 para medir la distancia.
+2. Obtén el dato de distancia enviado por el sensor.
+3. Define una regla condicional que compare la distancia con un umbral.
+4. Detén los motores DC si el valor medido es menor al umbral.
+
+OA Vinculado:
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+Verificación: Coloca la mano frente al sensor HC-SR04 y comprueba si COODI detiene su movimiento al alcanzar la distancia límite.",True,False,True,False,,88,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T06,Soporte Tecnico,Actuadores/Motores,10.581,1516,128,0,0.003426,,,"**Concepto Clave:** Actuadores y motores (no se especifica la cantidad exacta en el contexto, por lo que podría tratarse de un componente planificado pero no implementado aún).
+
+**Pasos:**
+1. Revisa los actuadores y componentes físicos en el manual.
+2. Consulta la documentación técnica de hardware actualizada.
+
+**OA Vinculado:**
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+**Verificación:** Comprueba el listado oficial de actuadores del robot COODI para confirmar sus funciones.",True,True,True,False,,68,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T07,Soporte Tecnico,Actuadores/Motores,4.143,1471,144,0,0.0035025,,,"Concepto Clave: El **Servomotor SG90** es el actuador que permite realizar movimientos angulares controlados para operar mecanismos, orientación o expresividad.
+
+Pasos:
+1. Identifica el Servomotor SG90 en la estructura del robot.
+2. Conecta el servomotor a la placa de control.
+3. Programa los ángulos de movimiento deseados en la interfaz por bloques.
+
+OA Vinculado:
+- TEC-1B-OA2
+- TEC-3B-OA1
+- TEC-3B-OA2
+
+Verificación: Comprueba que el servomotor gire exactamente hasta la posición angular definida en el código para accionar el mecanismo.",True,False,True,False,,79,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T08,Soporte Tecnico,Actuadores/Motores,25.059,1569,156,0,0.0037575,,,"**Concepto Clave:** Los motores DC permiten el desplazamiento y locomoción continua del robot, mientras que el servomotor SG90 realiza movimientos angulares controlados para mecanismos o expresividad.
+
+**Pasos:**
+1. Identifica si la tarea requiere avance continuo o un ángulo específico.
+2. Conecta los motores DC para controlar el movimiento de trayectoria.
+3. Configura el servomotor SG90 para posicionar elementos en ángulos precisos.
+
+**OA Vinculado:**
+- TEC-3B-OA1
+- TEC-3B-OA2
+- TEC-3B-OA3
+
+**Verificación:** Observa que los motores DC desplacen el robot y que el servomotor gire según el ángulo programado.",True,False,True,False,,87,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T09,Soporte Tecnico,Actuadores/Salida,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,False,,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T10,Soporte Tecnico,Actuadores/Salida,60.822,1530,164,0,0.003771,,,"**Concepto Clave:** Interacción mediante el entorno de programación visual por bloques y materiales gráficos. Dispositivos físicos de retroalimentación visual específicos no se detallan en el contexto, por lo que podrían estar planificados pero no implementados aún.
+
+**Pasos:**
+1. Accede al entorno de programación visual basado en bloques.
+2. Selecciona y arrastra las tarjetas o bloques de comandos requeridos.
+3. Ejecuta la secuencia para observar la respuesta visual en el entorno gráfico.
+
+**OA Vinculado:**
+- TEC-3B-OA1
+- TEC-4B-OA1
+- TEC-4B-OA2
+
+**Verificación:** Comprueba que la secuencia programada se ejecute correctamente y responda dentro del entorno de programación visual.",True,True,True,False,,96,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T11,Soporte Tecnico,Actuadores/Salida,187.393,1451,130,0,0.0033465,,,"**Concepto Clave:** 
+El LED RGB (o matriz RGB) es un actuador de salida visual que emite señales de luz mediante colores o patrones.
+
+**Pasos:**
+1. Conecta el LED RGB al robot COODI.
+2. Agrega al algoritmo el bloque para encender el LED RGB al término del recorrido.
+3. Ejecuta la prueba para validar la instrucción.
+
+**OA Vinculado:**
+- TEC-1B-OA2
+
+**Verificación:** 
+Comprueba que el LED RGB se encienda con el color o patrón programado justo al finalizar la misión.",True,False,True,False,,78,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T12,Soporte Tecnico,Sensores ambientales,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,False,,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T13,Soporte Tecnico,Casos de uso,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,False,,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T14,Soporte Tecnico,Sensores,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,False,,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T15,Soporte Tecnico,Sensores,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,False,,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T16,Soporte Tecnico,Componentes planificados,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,True,False,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T17,Soporte Tecnico,Componentes planificados,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,True,False,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T18,Soporte Tecnico,Componentes planificados,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,True,False,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T19,Soporte Tecnico,Componentes planificados,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,True,False,0,False
+gemini-3.5-flash,gemini,gemini-3.5-flash,T20,Soporte Tecnico,Arquitectura,,0,0,0,0.0,,gemini-3.5-flash: se agotaron los reintentos,,False,False,False,False,,0,False

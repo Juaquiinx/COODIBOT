@@ -12,7 +12,7 @@ client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # Modelos de OpenAI a comparar
 MODELOS = ["gpt-4o-mini", "gpt-4o", "gpt-4.1-mini"]
 
-# Selección de 10 casos representativos de tu dataset (técnicos, curriculares y trampa)
+# Selección de 10 casos representativos del dataset (técnicos, curriculares y trampa)
 IDS_MUESTRA = ["T01", "T09", "T16", "T17",
                "T20", "C02", "C09", "C15", "C18", "C20"]
 

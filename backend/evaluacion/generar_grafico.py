@@ -45,4 +45,4 @@ for rect in rects2:
 
 plt.tight_layout()
 plt.savefig("grafico_comparativo_ragas.png", dpi=300)
-print("Listo: grafico_comparativo_ragas.png guardado en tu carpeta.")
+print("Gráfico guardado: grafico_comparativo_ragas.png")

@@ -9,7 +9,7 @@ PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 
 if not PINECONE_API_KEY:
     raise ValueError(
-        "¡Ojo! No se encontró la llave de Pinecone. Revisa tu archivo .env")
+        "Error: PINECONE_API_KEY no definida en el archivo .env")
 
 # Inicializar el cliente de Pinecone
 print("Conectando a Pinecone...")
@@ -31,6 +31,6 @@ if nombre_indice not in pc.list_indexes().names():
             region="us-east-1"
         )
     )
-    print("¡Índice creado con éxito en la nube!")
+    print(f"Índice '{nombre_indice}' creado.")
 else:
-    print(f"El índice '{nombre_indice}' ya existe. ¡Listo para usarse!")
+    print(f"El índice '{nombre_indice}' ya existe.")
